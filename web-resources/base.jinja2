@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+    <title>Hikka</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="icon" href="https://github.com/hikariatama/Hikka/raw/master/assets/hikka_pfp.png">
+    {% block head %}{% endblock %}
+  </head>
+  <body>
+    <div class="main_content">{% block content %}{% endblock %}</div>
+    {% block after %}{% endblock %}
+  </body>
+</html>
