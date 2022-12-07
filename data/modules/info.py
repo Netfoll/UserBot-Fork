@@ -178,12 +178,10 @@ class HikkaInfoMod(loader.Module):
                     (
                         utils.get_platform_emoji()
                         if self._client.hikka_me.premium and not inline
-                        else "🌘 Hikka WE",
-                        "<emoji document_id=5373141891321699086>😎</emoji>",
-                        "<emoji document_id=5469741319330996757>💫</emoji>",
-                        "<emoji document_id=5431449001532594346>⚡️</emoji>",
-                        "<emoji document_id=5472111548572900003>⌨️</emoji>",
-                        "<emoji document_id=5451646226975955576>⌛️</emoji>",
+                        else "👾 <b>Netfoll</b>",
+                        "<emoji document_id=5469791106591890404>🪄</emoji>",
+                        "<emoji document_id=5445284980978621387>🚀</emoji>",
+                        "<emoji document_id=5318933532825888187>⚙️</emoji>",
                     ),
                 )
             )

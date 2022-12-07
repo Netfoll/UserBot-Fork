@@ -852,9 +852,8 @@ def get_platform_emoji(client: typing.Optional[CustomTelegramClient] = None) -> 
     :return: Emoji entity in string
     """
     BASE = (
-        "<emoji document_id={}>🌖</emoji>",
-        "<emoji document_id=5208635435475020171>🌖</emoji>",
-        "<emoji document_id=5208438111792538714>🌖</emoji>",
+        "<emoji document_id=5224301818313450421>👾</emoji>",
+        "<b> Netfoll</b>",
     )
     BASE = "".join(BASE)
     
