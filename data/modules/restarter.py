@@ -72,30 +72,30 @@ class HikkaRestartMod(loader.Module):
             " прочитать</b> <a href='{}'>здесь</a>"
         ),
         "restarting_caption": (
-            "<emoji document_id=6318970114548958978>🕗</emoji> <b>Твоя {}"
+            "<b>{}"
             " перезагружается...</b>"
         ),
         "success": (
-            "<emoji document_id=6321050180095313397>⏱</emoji> <b>Перезагрузка"
-            " успешна! {}</b>\n<i>Но модули еще загружаются...</i>\n<i>Перезагрузка"
+            "<emoji document_id=5188391205909569136>✅</emoji> <b>Перезагрузка"
+            " успешна! {}</b>\n<i>Модули загружаются...</i>\n<i>Перезагрузка"
             " заняла {} сек</i>"
         ),
         "full_success": (
-            "<emoji document_id=6323332130579416910>👍</emoji> <b>Юзербот полностью"
+            "<emoji document_id=5370869711888194012>👾</emoji> <b>Юзербот полностью"
             " загружен! {}</b>\n<i>Полная перезагрузка заняла {} сек</i>"
         ),
         "secure_boot_complete": (
             "🔒 <b>Безопасная загрузка завершена! {}</b>\n<i>Перезагрузка заняла {}"
             " сек</i>"
         ),
-        "btn_restart": "🔄 Перезагрузиться",
-        "restart_confirm": "❓ <b>Ты уверен, что хочешь перезагрузиться?</b>",
+        "btn_restart": "🌀 Да",
+        "restart_confirm": "<emoji document_id=5224301818313450421>👾</emoji> <b>Перезагрузить Netfoll?</b>",
         "secure_boot_confirm": (
             "❓ <b>Ты уверен, что"
             " хочешь перезагрузиться в режиме безопасной загрузки?</b>"
         ),
-        "cancel": "🚫 Отмена",
-        "_cls_doc": "Перезапускает Hikka WE",
+        "cancel": "❌ Нет",
+        "_cls_doc": "Перезапускает Netfoll",
     }
 
     async def update_complete(self):
@@ -122,7 +122,7 @@ class HikkaRestartMod(loader.Module):
 
     @loader.owner
     @loader.command(
-        ru_doc="Перезагружает юзербот",
+        ru_doc="Перезагружает юзербота",
         de_doc="Startet den Userbot neu",
         tr_doc="Kullanıcı botunu yeniden başlatır",
         uz_doc="Foydalanuvchi botini qayta ishga tushiradi",
@@ -196,7 +196,7 @@ class HikkaRestartMod(loader.Module):
                 if self._client.hikka_me.premium
                 and CUSTOM_EMOJIS
                 and isinstance(msg_obj, Message)
-                else "Hikka"
+                else "👾 Netfoll"
             )
         )
 
@@ -261,7 +261,7 @@ class HikkaRestartMod(loader.Module):
     async def _add_folder(self):
         folders = await self._client(GetDialogFiltersRequest())
 
-        if any(getattr(folder, "title", None) == "hikka" for folder in folders):
+        if any(getattr(folder, "title", None) == "data" for folder in folders):
             return
 
         try:

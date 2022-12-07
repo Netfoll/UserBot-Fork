@@ -168,10 +168,10 @@ class HikkaInfoMod(loader.Module):
             )
             if self.config["custom_message"]
             else (
-                "<b>{}</b>\n\n"
+                "<b>{}<b> Netfoll</b></b>\n\n"
                 f"<b>{{}} {self.strings('prefix')}: </b>{prefix}\n"
-                f"<b>{{}} {self.strings('uptime')}: </b>{utils.formatted_uptime()}\n"
-                f"<b>netfoll userbot {_version}</b>\n"
+                f"<b>{{}} {self.strings('uptime')}: </b>{utils.formatted_uptime()}\n\n"
+                f"<b>{{}}  ver {_version}</b>\n"
             ).format(
                 *map(
                     lambda x: utils.remove_html(x) if inline else x,

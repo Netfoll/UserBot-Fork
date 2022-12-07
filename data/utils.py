@@ -746,13 +746,13 @@ async def asset_channel(
         await client(SetHistoryTTLRequest(peer=peer, period=ttl))
 
     if _folder:
-        if _folder != "hikka":
+        if _folder != "data":
             raise NotImplementedError
 
         folders = await client(GetDialogFiltersRequest())
 
         try:
-            folder = next(folder for folder in folders if folder.title == "hikka")
+            folder = next(folder for folder in folders if folder.title == "data")
         except Exception:
             folder = None
 
@@ -853,7 +853,6 @@ def get_platform_emoji(client: typing.Optional[CustomTelegramClient] = None) -> 
     """
     BASE = (
         "<emoji document_id=5224301818313450421>👾</emoji>",
-        "<b> Netfoll</b>",
     )
     BASE = "".join(BASE)
     
@@ -899,64 +898,14 @@ def ascii_face() -> str:
     return escape_html(
         random.choice(
             [
-                "ヽ(๑◠ܫ◠๑)ﾉ",
-                "(◕ᴥ◕ʋ)",
-                "ᕙ(`▽´)ᕗ",
-                "(✿◠‿◠)",
-                "(▰˘◡˘▰)",
-                "(˵ ͡° ͜ʖ ͡°˵)",
-                "ʕっ•ᴥ•ʔっ",
-                "( ͡° ᴥ ͡°)",
-                "(๑•́ ヮ •̀๑)",
-                "٩(^‿^)۶",
-                "(っˆڡˆς)",
-                "ψ(｀∇´)ψ",
-                "⊙ω⊙",
-                "٩(^ᴗ^)۶",
-                "(´・ω・)っ由",
-                "( ͡~ ͜ʖ ͡°)",
-                "✧♡(◕‿◕✿)",
-                "โ๏௰๏ใ ื",
-                "∩｡• ᵕ •｡∩ ♡",
-                "(♡´౪`♡)",
-                "(◍＞◡＜◍)⋈。✧♡",
-                "╰(✿´⌣`✿)╯♡",
-                "ʕ•ᴥ•ʔ",
-                "ᶘ ◕ᴥ◕ᶅ",
-                "▼・ᴥ・▼",
-                "ฅ^•ﻌ•^ฅ",
-                "(΄◞ิ౪◟ิ‵)",
-                "٩(^ᴗ^)۶",
-                "ᕴｰᴥｰᕵ",
-                "ʕ￫ᴥ￩ʔ",
-                "ʕᵕᴥᵕʔ",
-                "ʕᵒᴥᵒʔ",
-                "ᵔᴥᵔ",
-                "(✿╹◡╹)",
-                "(๑￫ܫ￩)",
-                "ʕ·ᴥ·　ʔ",
-                "(ﾉ≧ڡ≦)",
-                "(≖ᴗ≖✿)",
-                "（〜^∇^ )〜",
-                "( ﾉ･ｪ･ )ﾉ",
-                "~( ˘▾˘~)",
-                "(〜^∇^)〜",
-                "ヽ(^ᴗ^ヽ)",
-                "(´･ω･`)",
-                "₍ᐢ•ﻌ•ᐢ₎*･ﾟ｡",
-                "(。・・)_且",
-                "(=｀ω´=)",
-                "(*•‿•*)",
-                "(*ﾟ∀ﾟ*)",
-                "(☉⋆‿⋆☉)",
-                "ɷ◡ɷ",
-                "ʘ‿ʘ",
-                "(。-ω-)ﾉ",
-                "( ･ω･)ﾉ",
-                "(=ﾟωﾟ)ﾉ",
-                "(・ε・`*) …",
-                "ʕっ•ᴥ•ʔっ",
-                "(*˘︶˘*)",
+                "💫",
+                "✨",
+                "❄️",
+                "🌊",
+                "💥",
+                "🗿",
+                "🎆",
+                "⛓",
             ]
         )
     )
