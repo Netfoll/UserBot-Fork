@@ -35,7 +35,7 @@ logger = logging.getLogger(__name__)
 class HikkaHegaCode(loader.Module):
     """Runs Python code"""
     strings = {
-        "name": "HikkaHegaCode",
+        "name": "HHegaCode",
         "code": "Code",
         "result": "Result",
     }

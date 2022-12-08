@@ -29,7 +29,7 @@ class HikkaBackupMod(loader.Module):
     """Automatic database backup"""
 
     strings = {
-        "name": "HikkaBackup",
+        "name": "HBackUp",
         "period": (
             "⌚️ <b>Unit «ALPHA»</b> creates database backups periodically. You can"
             " change this behavior later.\n\nPlease, select the periodicity of"

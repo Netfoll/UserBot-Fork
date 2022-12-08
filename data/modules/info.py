@@ -21,7 +21,7 @@ class HikkaInfoMod(loader.Module):
     """Show userbot info"""
 
     strings = {
-        "name": "Net-Info",
+        "name": "NInfo",
         "owner": "Owner",
         "version": "Version",
         "build": "Build",

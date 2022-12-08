@@ -30,7 +30,7 @@ class HikkaConfigMod(loader.Module):
     """Interactive configurator for Hikka WE Userbot"""
 
     strings = {
-        "name": "HikkaConfig",
+        "name": "HConfig",
         "choose_core": "🎚 <b>Choose a category</b>",
         "configure": "🎚 <b>Choose a module to configure</b>",
         "configure_lib": "🪴 <b>Choose a library to configure</b>",

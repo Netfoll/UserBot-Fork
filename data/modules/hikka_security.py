@@ -211,7 +211,7 @@ class HikkaSecurityMod(loader.Module):
     }
 
     strings = {
-        "name": "HikkaSecurity",
+        "name": "HSecurity",
         "no_command": "🚫 <b>Command </b><code>{}</code><b> not found!</b>",
         "permissions": (
             "🔐 <b>Here you can configure permissions for </b><code>{}{}</code>"

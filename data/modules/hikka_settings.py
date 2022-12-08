@@ -55,7 +55,7 @@ class HikkaSettingsMod(loader.Module):
     """Advanced settings for Hikka Userbot"""
 
     strings = {
-        "name": "HikkaSettings",
+        "name": "HSettings",
         "watchers": (
             "<emoji document_id=5424885441100782420>👀</emoji>"
             " <b>Watchers:</b>\n\n<b>{}</b>"

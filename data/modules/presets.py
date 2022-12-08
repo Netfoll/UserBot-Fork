@@ -91,7 +91,7 @@ class Presets(loader.Module):
     """Suggests new Hikka users a packs of modules to load"""
 
     strings = {
-        "name": "Presets",
+        "name": "HPresets",
         "_fun_title": "🪩 Entertainment modules",
         "_fun_desc": "Fun modules — animations, spam, entertainment, etc.",
         "_chat_title": "👥 Group Administration Helpers",

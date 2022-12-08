@@ -17,7 +17,7 @@ class HikkaModulesMod(loader.Module):
     """List of all of the modules currently installed"""
 
     strings = {
-        "name": "Net-Modules",
+        "name": "NModules",
         "amount": "<emoji document_id=5210953824461662025>🎛</emoji> I have <b>{}</b> modules installed.\n",
         "modules": "<emoji document_id=5213347100498075719>💿</emoji> List:",
         "partial_load": (
@@ -27,7 +27,6 @@ class HikkaModulesMod(loader.Module):
     }
 
     strings_ru = {
-        "name": "Net-Модули",
         "amount": "<emoji document_id=5210953824461662025>🎛</emoji> У меня установлено <b>{}</b> модулей.\n",
         "modules": "<emoji document_id=5213347100498075719>💿</emoji> Список:\n",
         "partial_load": (

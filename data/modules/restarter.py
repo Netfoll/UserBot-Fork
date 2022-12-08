@@ -38,7 +38,7 @@ class HikkaRestartMod(loader.Module):
     """Restarts Hikka WE"""
 
     strings = {
-        "name": "HikkaRestart",
+        "name": "HRestart",
         "source": (
             "<emoji document_id=5456255401194429832>📖</emoji> <b>Read the source code"
             " from</b> <a href='{}'>here</a>"
