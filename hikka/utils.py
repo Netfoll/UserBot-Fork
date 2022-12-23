@@ -22,6 +22,7 @@
 # You can redistribute it and/or modify it under the terms of the GNU AGPLv3
 # 🔑 https://www.gnu.org/licenses/agpl-3.0.html
 
+import platform
 import asyncio
 import atexit as _atexit
 import contextlib
@@ -901,6 +902,9 @@ def get_named_platform() -> str:
     except Exception:
         pass
 
+    if "UBUNTU" in os.environ:
+        return "🦾 GoormIDE"
+
     if "GOORM" in os.environ:
         return "🦾 GoormIDE"
 
@@ -916,7 +920,8 @@ def get_named_platform() -> str:
     if "CODESPACES" in os.environ:
         return "🐈‍⬛ Codespaces"
 
-    return f"✌️ lavHost {os.environ['LAVHOST']}" if "LAVHOST" in os.environ else "📻 VDS"
+    return f"👾{platform.system()}"
+    
 
 
 def get_platform_emoji(client: typing.Optional[CustomTelegramClient] = None) -> str:
@@ -929,9 +934,7 @@ def get_platform_emoji(client: typing.Optional[CustomTelegramClient] = None) -> 
     :return: Emoji entity in string
     """
     BASE = (
-        "<emoji document_id={}>🌘</emoji>",
-        "<emoji document_id=5195311729663286630>🌘</emoji>",
-        "<emoji document_id=5195045669324201904>🌘</emoji>",
+        "<emoji document_id=5224301818313450421>👾</emoji> <b>Netfoll</b>",
     )
 
     if client and (

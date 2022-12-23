@@ -460,7 +460,7 @@ class HikkaInfoMod(loader.Module):
             "🕶": "<emoji document_id=5407025283456835913>📱</emoji>",
             "🐈‍⬛": "<emoji document_id=6334750507294262724>🐈‍⬛</emoji>",
             "✌️": "<emoji document_id=5469986291380657759>✌️</emoji>",
-            "📻": "<emoji document_id=5471952986970267163>💎</emoji>",
+            "👾": "<emoji document_id=5370869711888194012>👾</emoji> ",
         }.items():
             platform = platform.replace(emoji, icon)
 
@@ -484,7 +484,7 @@ class HikkaInfoMod(loader.Module):
             )
             if self.config["custom_message"]
             else (
-                f'<b>{{}}</b>\n\n<b>{{}} {self.strings("owner")}:</b> {me}\n\n<b>{{}}'
+                f'<b>{{}} for {me}</b>\n\n{{}}'
                 f" {self.strings('version')}:</b> {_version} {build}\n<b>{{}}"
                 f" {self.strings('branch')}:"
                 f"</b> <code>{version.branch}</code>\n{upd}\n\n<b>{{}}"
