@@ -83,12 +83,16 @@ class CoreMod(loader.Module):
             "<emoji document_id=5197474765387864959>👍</emoji> <b>Database cleared</b>"
         ),
         "hikka": (
-            "{} <b>{}.{}.{}</b> <i>{}</i>\n\n<b><emoji"
+            "{} <b>{}.{}.{}</b> <i>{}</i>\n\n<b><emoji"🌘
             " document_id=5377437404078546699>💜</emoji> <b>Hikka-TL:"
             "</b> <i>{}</i>\n{}"
+            " 🌘 Hikka: 1.6.0"
+            "</b> <i>{}</i>\n{}"
             " <b>Hikka-Pyro:</b> <i>{}</i>\n\n<emoji"
-            " document_id=5454182070156794055>⌨️</emoji> <b>Developer:"
-            " t.me/hikariatama</b>"
+            " document_id=5454182070156794055>⌨️</emoji> <b>Hikka Developer:"
+            " t.me/hikariatama</b>\n<emoji"
+            " document_id=5213459976533581054>💛</emoji> <b>Netfoll Developer:"
+            " t.me/morri_bio</b>"
         ),
         "confirm_cleardb": "⚠️ <b>Are you sure, that you want to clear database?</b>",
         "cleardb_confirm": "🗑 Clear database",
@@ -176,9 +180,12 @@ class CoreMod(loader.Module):
             "{} <b>{}.{}.{}</b> <i>{}</i>\n\n<b><emoji"
             " document_id=5377437404078546699>💜</emoji> <b>Hikka-TL:"
             "</b> <i>{}</i>\n{}"
+            " 🌘 Hikka: 1.6.0"
             " <b>Hikka-Pyro:</b> <i>{}</i>\n\n<emoji"
-            " document_id=5454182070156794055>⌨️</emoji> <b>Developer:"
-            " t.me/hikariatama</b>"
+            " document_id=5454182070156794055>⌨️</emoji> <b>Hikka Developer:"
+            " t.me/hikariatama</b>\n<emoji"
+            " document_id=5213459976533581054>💛</emoji> <b>Netfoll Developer:"
+            " t.me/morri_bio</b>"
         ),
         "_cls_doc": "Управление базовыми настройками юзербота",
         "confirm_cleardb": "⚠️ <b>Вы уверены, что хотите сбросить базу данных?</b>",
@@ -269,8 +276,10 @@ class CoreMod(loader.Module):
             " document_id=5377437404078546699>💜</emoji> <b>Hikka-TL:"
             "</b> <i>{}</i>\n{}"
             " <b>Hikka-Pyro:</b> <i>{}</i>\n\n<emoji"
-            " document_id=5454182070156794055>⌨️</emoji> <b>Developer:"
-            " t.me/hikariatama</b>"
+            " document_id=5454182070156794055>⌨️</emoji> <b>Hikka Developer:"
+            " t.me/hikariatama</b>\n<emoji"
+            " document_id=5213459976533581054>💛</emoji> <b>Netfoll Developer:"
+            " t.me/morri_bio</b>"
         ),
         "_cls_doc": "Gestisci le impostazioni base del bot utente",
         "confirm_cleardb": "⚠️ <b>Sei sicuro di voler cancellare il database?</b>",
@@ -360,8 +369,10 @@ class CoreMod(loader.Module):
             " document_id=5377437404078546699>💜</emoji> <b>Hikka-TL:"
             "</b> <i>{}</i>\n{}"
             " <b>Hikka-Pyro:"
-            "</b> <i>{}</i>\n\n<emoji document_id=5454182070156794055>⌨️</emoji>"
-            " <b>Entwickler: t.me/hikariatama</b>"
+            " document_id=5454182070156794055>⌨️</emoji> <b>Hikka Developer:"
+            " t.me/hikariatama</b>\n<emoji"
+            " document_id=5213459976533581054>💛</emoji> <b>Netfoll Developer:"
+            " t.me/morri_bio</b>"
         ),
         "_cls_doc": "Verwaltung der Grundeinstellungen des Userbots",
         "confirm_cleardb": (
@@ -454,8 +465,10 @@ class CoreMod(loader.Module):
             " document_id=5377437404078546699>💜</emoji> <b>Hikka-TL:"
             "</b> <i>{}</i>\n{}"
             " <b>Hikka-Pyro:"
-            "</b> <i>{}</i>\n\n<emoji document_id=5454182070156794055>⌨️</emoji>"
-            " <b>Geliştirici: t.me/hikariatama</b>"
+            " document_id=5454182070156794055>⌨️</emoji> <b>Hikka Developer:"
+            " t.me/hikariatama</b>\n<emoji"
+            " document_id=5213459976533581054>💛</emoji> <b>Netfoll Developer:"
+            " t.me/morri_bio</b>"
         ),
         "_cls_doc": "Userbot temel ayar yönetimi",
         "confirm_cleardb": (
@@ -546,8 +559,10 @@ class CoreMod(loader.Module):
             " document_id=5377437404078546699>💜</emoji> <b>Hikka-TL:"
             "</b> <i>{}</i>\n{}"
             " <b>Hikka-Pyro:</b> <i>{}</i>\n\n<emoji"
-            " document_id=5454182070156794055>⌨️</emoji> <b>Ishlab chiquvchi:"
-            " t.me/hikariatama</b>"
+            " document_id=5454182070156794055>⌨️</emoji> <b>Hikka Developer:"
+            " t.me/hikariatama</b>\n<emoji"
+            " document_id=5213459976533581054>💛</emoji> <b>Netfoll Developer:"
+            " t.me/morri_bio</b>"
         ),
         "_cls_doc": "Userbot asosiy sozlamalarini boshqarish",
         "confirm_cleardb": (
@@ -624,8 +639,10 @@ class CoreMod(loader.Module):
             " document_id=5377437404078546699>💜</emoji> <b>Hikka-TL:"
             "</b> <i>{}</i>\n{}"
             " <b>Hikka-Pyro:</b> <i>{}</i>\n\n<emoji"
-            " document_id=5454182070156794055>⌨️</emoji> <b>Desarrollador:"
-            " t.me/hikariatama</b>"
+            " document_id=5454182070156794055>⌨️</emoji> <b>Hikka Developer:"
+            " t.me/hikariatama</b>\n<emoji"
+            " document_id=5213459976533581054>💛</emoji> <b>Netfoll Developer:"
+            " t.me/morri_bio</b>"
         ),
         "_cls_doc": "Los ajustes básicos del usuario del bot",
         "confirm_cleardb": "⚠️ <b>¿Quieres borrar la base de datos?</b>",
@@ -716,8 +733,10 @@ class CoreMod(loader.Module):
             " document_id=5377437404078546699>💜</emoji> <b>Hikka-TL:"
             "</b> <i>{}</i>\n{}"
             " <b>Hikka-Pyro:</b> <i>{}</i>\n\n<emoji"
-            " document_id=5454182070156794055>⌨️</emoji> <b>Әзірлеуші:"
-            " t.me/hikariatama</b>"
+            " document_id=5454182070156794055>⌨️</emoji> <b>Hikka Developer:"
+            " t.me/hikariatama</b>\n<emoji"
+            " document_id=5213459976533581054>💛</emoji> <b>Netfoll Developer:"
+            " t.me/morri_bio</b>"
         ),
         "_cls_doc": "Жүйе бастапқы параметрлерін басқару",
         "confirm_cleardb": (

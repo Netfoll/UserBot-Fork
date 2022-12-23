@@ -502,12 +502,12 @@ class HikkaInfoMod(loader.Module):
                         utils.get_platform_emoji()
                         if self._client.hikka_me.premium and not inline
                         else "👾 Netfoll",
-                        "<emoji document_id=5469741319330996757>💫</emoji>",
-                        "<emoji document_id=5449918202718985124>🌳</emoji>",
-                        "<emoji document_id=5472111548572900003>⌨️</emoji>",
-                        "<emoji document_id=5451646226975955576>⌛️</emoji>",
-                        "<emoji document_id=5431449001532594346>⚡️</emoji>",
-                        "<emoji document_id=5359785904535774578>💼</emoji>",
+                        "<emoji document_id=5215327492738392838>🔩</emoji>",
+                        "<emoji document_id=5215392879320505675>🛠</emoji>",
+                        "<emoji document_id=5215263059639017128>👩‍💻</emoji>",
+                        "<emoji document_id=5215423854624645141>💫</emoji>",
+                        "<emoji document_id=5212928663309261889>⭐️</emoji>",
+                        "<emoji document_id=5212928663309261889>⭐️</emoji>",
                         platform,
                     ),
                 )
