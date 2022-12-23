@@ -484,7 +484,7 @@ class HikkaInfoMod(loader.Module):
             )
             if self.config["custom_message"]
             else (
-                f'<b>{{}} for {me}</b>\n\n{{}}'
+                f'<b>{{}} for <b>{me}</b></b>\n\n{{}}'
                 f" {self.strings('version')}:</b> {_version} {build}\n<b>{{}}"
                 f" {self.strings('branch')}:"
                 f"</b> <code>{version.branch}</code>\n{upd}\n\n<b>{{}}"
@@ -501,8 +501,7 @@ class HikkaInfoMod(loader.Module):
                     (
                         utils.get_platform_emoji()
                         if self._client.hikka_me.premium and not inline
-                        else "🌘 Hikka",
-                        "<emoji document_id=5373141891321699086>😎</emoji>",
+                        else "👾 Netfoll",
                         "<emoji document_id=5469741319330996757>💫</emoji>",
                         "<emoji document_id=5449918202718985124>🌳</emoji>",
                         "<emoji document_id=5472111548572900003>⌨️</emoji>",
