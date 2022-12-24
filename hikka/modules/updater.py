@@ -229,7 +229,7 @@ class UpdaterMod(loader.Module):
                 if self._client.hikka_me.premium
                 and CUSTOM_EMOJIS
                 and isinstance(msg_obj, Message)
-                else "Hikka"
+                else "Netfoll"
             )
             if "LAVHOST" not in os.environ
             else self.strings("lavhost_restart").format(
