@@ -32,90 +32,14 @@ class UpdateNotifierMod(loader.Module):
 
     strings_ru = {
         "update_required": (
-            "🌘 <b>Доступно обновление Hikka!</b>\n\nОпубликована новая версия Hikka.\n🔮"
-            " <b>Hikka <s>{}</s> -> {}</b>\n\n{}"
+            "👾 <b>Новая версия Netfoll!</b>\n\nВ GitHub вышла новая версия.\n💿"
+            " <b>Netfoll <s>{}</s> -> {}</b>\n\nChanges: 👇🏻\n\n{}"
         ),
         "more": "\n<i><b>🎥 И еще {}...</b></i>",
         "_cfg_doc_disable_notifications": "Отключить уведомления об обновлениях",
         "latest_disabled": "Уведомления о последнем обновлении были отключены",
         "update": "🔄 Обновить",
         "ignore": "🚫 Игнорировать",
-    }
-
-    strings_it = {
-        "update_required": (
-            "🌘 <b>Aggiornamento disponibile per Hikka!</b>\n\nÈ stato rilasciato un"
-            " nuovo aggiornamento per Hikka.\n🔮 <b>Hikka <s>{}</s> -> {}</b>\n\n{}"
-        ),
-        "more": "\n<i><b>🎥 E altri {}...</b></i>",
-        "_cfg_doc_disable_notifications": "Disabilita le notifiche di aggiornamento",
-        "latest_disabled": (
-            "Le notifiche sull'ultimo aggiornamento sono state disattivate"
-        ),
-        "update": "🔄 Aggiorna",
-        "ignore": "🚫 Ignora",
-    }
-
-    strings_de = {
-        "update_required": (
-            "🌘 <b>Hikka Update verfügbar!</b>\n\nNeue Hikka Version veröffentlicht.\n🔮"
-            " <b>Hikka <s>{}</s> -> {}</b>\n\n{}"
-        ),
-        "more": "\n<i><b>🎥 Und {} mehr...</b></i>",
-        "_cfg_doc_disable_notifications": "Deaktiviere Update Benachrichtigungen",
-        "latest_disabled": (
-            "Benachrichtigungen über das letzte Update wurden unterdrückt"
-        ),
-        "update": "🔄 Update",
-        "ignore": "🚫 Ignorieren",
-    }
-
-    strings_uz = {
-        "update_required": (
-            "🌘 <b>Hikka yangilash mavjud!</b>\n\nYangi Hikka versiyasi chiqdi.\n🔮"
-            " <b>Hikka <s>{}</s> -> {}</b>\n\n{}"
-        ),
-        "more": "\n<i><b>🎥 Va {} boshqa...</b></i>",
-        "_cfg_doc_disable_notifications": "Yangilash xabarlarini o'chirish",
-        "latest_disabled": "Yangi yangilash haqida xabarlar o'chirildi",
-        "update": "🔄 Yangilash",
-        "ignore": "🚫 E'tiborsiz qoldirish",
-    }
-
-    strings_tr = {
-        "update_required": (
-            "🌘 <b>Hikka güncellemesi mevcut!</b>\n\nYeni bir Hikka sürümü"
-            " yayınlandı.\n🔮 <b>Hikka <s>{}</s> -> {}</b>\n\n{}"
-        ),
-        "more": "\n<i><b>🎥 Ve {} daha fazlası...</b></i>",
-        "_cfg_doc_disable_notifications": "Güncelleme bildirimlerini devre dışı bırak",
-        "latest_disabled": "Son güncelleme hakkında bildirimler engellendi",
-        "update": "🔄 Güncelle",
-        "ignore": "🚫 Yoksay",
-    }
-
-    strings_es = {
-        "update_required": (
-            "🌘 <b>¡Actualización de Hikka disponible!</b>\n\nSe ha publicado una nueva"
-            " versión de Hikka.\n🔮 <b>Hikka <s>{}</s> -> {}</b>\n\n{}"
-        ),
-        "more": "\n<i><b>🎥 Y {} más...</b></i>",
-        "_cfg_doc_disable_notifications": "Desactivar notificaciones de actualización",
-        "latest_disabled": "Notificaciones de última actualización desactivadas",
-        "update": "🔄 Actualizar",
-        "ignore": "🚫 Ignorar",
-    }
-
-    strings_kk = {
-        "update_required": (
-            "🌘 <b>Hikka жаңартуға болады!</b>\n\nЖаңа Hikka нұсқасы жарияланды.\n🔮"
-            " <b>Hikka <s>{}</s> -> {}</b>\n\n{}"
-        ),
-        "more": "\n<i><b>🎥 Мынаның үшінше {}...</b></i>",
-        "_cfg_doc_disable_notifications": "Жаңарту хабарландыруларын өшіру",
-        "latest_disabled": "Соңғы жаңарту туралы хабарландырулар өшірілді",
-        "update": "🔄 Жаңарту",
-        "ignore": "🚫 Елемеу",
     }
 
     _notified = None

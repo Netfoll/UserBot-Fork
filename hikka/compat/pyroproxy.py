@@ -55,7 +55,7 @@ class PyroProxyClient(PyroClient):
                 "api_id": tl_client.api_id,
                 "api_hash": tl_client.api_hash,
                 "app_version": (
-                    f"Hikka v{__version__[0]}.{__version__[1]}.{__version__[2]}"
+                    f"Netfoll v{__version__[0]}.{__version__[1]}.{__version__[2]}"
                 ),
                 "lang_code": tl_client.loader.db.get(
                     translations.__name__, "lang", "en"

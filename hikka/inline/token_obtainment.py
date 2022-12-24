@@ -56,14 +56,14 @@ class TokenObtainment(InlineUnit):
                 else:
                     # Generate and set random username for bot
                     uid = utils.rand(6)
-                    username = f"@hikka_{uid}_bot"
+                    username = f"@netfoll_{uid}_bot"
             else:
                 # Generate and set random username for bot
                 uid = utils.rand(6)
-                username = f"@hikka_{uid}_bot"
+                username = f"@netfoll_{uid}_bot"
 
             for msg in [
-                f"🌘 Hikka Userbot of {self._name}"[:64],
+                f"👾 Netfoll Userbot of {self._name}"[:64],
                 username,
                 "/setuserpic",
                 username,
@@ -163,7 +163,7 @@ class TokenObtainment(InlineUnit):
                         "hikka.inline",
                         "custom_bot",
                         False,
-                    ) and not re.search(r"@hikka_[0-9a-zA-Z]{6}_bot", button.text):
+                    ) and not re.search(r"@netfoll_[0-9a-zA-Z]{6}_bot", button.text):
                         continue
 
                     m = await conv.send_message(button.text)

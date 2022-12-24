@@ -166,7 +166,7 @@ class HikkaInfoMod(loader.Module):
 
         return (
             (
-                "<b>👾 Netfoll</b>\n"
+                "<b>🌘 Hikka</b>\n"
                 if "hikka" not in self.config["custom_message"].lower()
                 else ""
             )

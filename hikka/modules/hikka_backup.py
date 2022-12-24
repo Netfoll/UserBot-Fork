@@ -26,7 +26,7 @@ class HikkaBackupMod(loader.Module):
     strings = {
         "name": "HikkaBackup",
         "period": (
-            "⌚️ <b>Unit «ALPHA»</b> creates database backups periodically. You can"
+            "⌚️ <b>Unit «Hikka-ALPHA»</b> creates database backups periodically. You can"
             " change this behavior later.\n\nPlease, select the periodicity of"
             " automatic database backups"
         ),
@@ -45,7 +45,7 @@ class HikkaBackupMod(loader.Module):
 
     strings_ru = {
         "period": (
-            "⌚️ <b>Юнит «ALPHA»</b> создает регулярные резервные копии. Эти настройки"
+            "⌚️ <b>Юнит «Hikka-ALPHA»</b> создает регулярные резервные копии. Эти настройки"
             " можно изменить позже.\n\nПожалуйста, выберите периодичность резервного"
             " копирования"
         ),
@@ -58,140 +58,6 @@ class HikkaBackupMod(loader.Module):
         ),
         "invalid_args": (
             "🚫 <b>Укажи правильную периодичность в часах, или `0` для отключения</b>"
-        ),
-    }
-
-    strings_it = {
-        "period": (
-            "⌚️ <b>Unità «ALPHA»</b> crea backup del database periodicamente. Puoi"
-            " modificare questo comportamento in seguito.\n\nPer favore, seleziona"
-            " la periodicità dei backup automatici"
-        ),
-        "saved": (
-            "✅ Periodo di backup salvato. Puoi modificarlo in seguito con"
-            " .set_backup_period"
-        ),
-        "never": (
-            "✅ Non farò backup automatici. Puoi modificarlo in seguito con"
-            " .set_backup_period"
-        ),
-        "invalid_args": (
-            "🚫 <b>Specifica il periodo di backup corretto in ore, o `0` per"
-            " disabilitarlo</b>"
-        ),
-    }
-
-    strings_de = {
-        "period": (
-            "⌚️ <b>Unit «ALPHA»</b> erstellt regelmäßige Backups. Diese Einstellungen"
-            " können später geändert werden.\n\nBitte wählen Sie die Periodizität"
-            " des Backups"
-        ),
-        "saved": (
-            "✅ Periodizität gespeichert! Sie können es mit .set_backup_period ändern"
-        ),
-        "never": (
-            "✅ Ich werde keine automatischen Backups erstellen. Sie können es mit"
-            " .set_backup_period ändern"
-        ),
-        "invalid_args": (
-            "🚫 <b>Geben Sie die korrekte Periodizität in Stunden an, oder `0` zum"
-            " Deaktivieren</b>"
-        ),
-    }
-
-    strings_tr = {
-        "period": (
-            "⌚️ <b>Unit «ALPHA»</b> otomatik olarak yedekler oluşturur. Ayarlarını"
-            " daha sonradan değiştirebilirsiniz.\n\nLütfen otomatik yedekleme"
-            " için periyot seçin"
-        ),
-        "saved": (
-            "✅ Yedekleme periyodu kaydedildi! .set_backup_period komutu ile"
-            " daha sonradan tekrar değiştirebilirsin"
-        ),
-        "never": (
-            "✅ Otomatik yedekleme yapmayacağım. .set_backup_period komutu ile"
-            " daha sonradan tekrar değiştirebilirsin"
-        ),
-        "invalid_args": (
-            "🚫 <b>Geçerli bir yedekleme periyodunu saat cinsinden belirtin, ya da `0`"
-            " ile devre dışı bırakın</b>"
-        ),
-    }
-
-    strings_uz = {
-        "period": (
-            "⌚️ <b>Unit «ALPHA»</b> avtomatik ravishda e'lon qiladi. Ushbu sozlamalarni"
-            " keyinroq o'zgartirishingiz mumkin.\n\nIltimos, avtomatik e'lon qilish"
-            " davom ettirish tartibini tanlang"
-        ),
-        "saved": (
-            "✅ E'lon davom ettirish tartibi saqlandi! Uni .set_backup_period orqali"
-            " o'zgartirishingiz mumkin"
-        ),
-        "hech qachon": (
-            "✅ Avtomatik zahira nusxasini yaratmayman. Uni .set_backup_period bilan"
-            " o'zgartirishingiz mumkin"
-        ),
-        "invalid_args": (
-            '🚫 <b>Yaroqli zaxira muddatini soat yoki "0" bilan belgilang o\'chirish</b>'
-        ),
-    }
-
-    strings_es = {
-        "period": (
-            "⌚️ <b>Unit «ALPHA»</b> crea automáticamente copias de seguridad. Puede"
-            " cambiar estos ajustes más tarde.\n\nPor favor, seleccione el período de"
-            " copia de seguridad"
-        ),
-        "saved": (
-            "✅ ¡Se ha guardado el período de copia de seguridad! Puede cambiarlo"
-            " con .set_backup_period más tarde"
-        ),
-        "never": (
-            "✅ No crear copias de seguridad automáticamente. Puede cambiarlo"
-            " con .set_backup_period más tarde"
-        ),
-        "invalid_args": (
-            "🚫 <b>Por favor, introduzca un período de copia de seguridad correcto en"
-            " horas, o `0` para desactivarlo</b>"
-        ),
-    }
-
-    strings_kk = {
-        "period": (
-            "⌚️ <b>Unit «ALPHA»</b> автоматты резервтік көшірмелер жасайды. Бұл"
-            " параметрлерді кейінірек өзгерте аласыз.\n\nӨтініш, резервтік көшірмелер"
-            " қайдағы кезеңдерде жасалады"
-        ),
-        "saved": (
-            "✅ Резервтік көшірмелер қайдағы кезеңдерде жасалады! Бұл параметрлерді"
-            " .set_backup_period командасымен кейінірек өзгерте аласыз"
-        ),
-        "never": (
-            "✅ Автоматты резервтік көшірмелер жасауға болмайды. Бұл параметрлерді"
-            " .set_backup_period командасымен кейінірек өзгерте аласыз"
-        ),
-        "invalid_args": (
-            "🚫 <b>Жарамды резервтік көшірмелер қайдағы кезеңдерде жасалады, немесе"
-            " өшіріледі</b>"
-        ),
-    }
-
-    strings_tt = {
-        "period": (
-            "⌚️ <b>«ALPHA» берәмлеге</b> регуляр резервлар тудыра."
-            " Бу көйләүләрне соңрак үзгәртергә мөмкин."
-            "\n\nЗинһар, резерв ешлыкны сайлагыз"
-        ),
-        "saved": "✅ Вакытлылык сакланган! Аны үзгәртеп була .set_backup_period",
-        "never": (
-            "✅ Мин автоматик резерв ясамыйм. Аны кулланып юкка"
-            " чыгарырга мөмкин .set_backup_period"
-        ),
-        "invalid_args": (
-            "🚫 <b>Сәгатьләрдә дөрес ешлыкны күрсәтегез, яки сүндерү өчен 0</b>"
         ),
     }
 

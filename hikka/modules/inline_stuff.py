@@ -185,7 +185,7 @@ class InlineStuffMod(loader.Module):
                 "/cancel",
                 "/setinline",
                 f"@{self.inline.bot_username}",
-                "user@hikka:~$",
+                "👾 Netfoll Inline",
             ]:
                 m = await conv.send_message(msg)
                 r = await conv.get_response()

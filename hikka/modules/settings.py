@@ -178,11 +178,12 @@ class CoreMod(loader.Module):
             "{} <b>{}.{}.{}</b> <i>{}</i>\n\n<b><emoji"
             " document_id=5377437404078546699>💜</emoji> <b>Hikka-TL:"
             "</b> <i>{}</i>\n{}"
-            " <b>Hikka-Pyro:</b> <i>{}</i>\n\n<emoji"
+            " <b>Hikka-Pyro:</b> <i>{}</i>\n"
+            "<emoji document_id=5456339269020819143>😺</emoji> <b>Hikka:</b> <i>V1.6.0</i>\n\n<emoji"
             " document_id=5454182070156794055>⌨️</emoji> <b>Hikka Developer:"
-            " t.me/hikariatama</b>\n<emoji"
+            " @hikariatama</b>\n<emoji"
             " document_id=5213459976533581054>💛</emoji> <b>Netfoll Developer:"
-            " t.me/morri_bio</b>"
+            " @morri_bio and @pengbio</b>"
         ),
         "_cls_doc": "Управление базовыми настройками юзербота",
         "confirm_cleardb": "⚠️ <b>Вы уверены, что хотите сбросить базу данных?</b>",
@@ -244,7 +245,7 @@ class CoreMod(loader.Module):
         """Get Hikka version"""
         await utils.answer_file(
             message,
-            "https://github.com/hikariatama/assets/raw/master/hikka_cat_banner.mp4",
+            "https://github.com/MXRRI/Netfoll/raw/Dev/assets/banner.png",
             self.strings("hikka").format(
                 (
                     (
@@ -259,7 +260,7 @@ class CoreMod(loader.Module):
                         )
                     )
                     if self._client.hikka_me.premium and CUSTOM_EMOJIS
-                    else "🌘 <b>Hikka userbot</b>"
+                    else "👾 <b>Netfoll userbot</b>"
                 ),
                 *version.__version__,
                 utils.get_commit_url(),

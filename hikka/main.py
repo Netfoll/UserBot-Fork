@@ -451,10 +451,10 @@ class Hikka:
                     proxy=self.proxy,
                     connection_retries=None,
                     device_model=(
-                        f"Hikka on {utils.get_named_platform().split(maxsplit=1)[1]}"
+                        f"Netfoll on {utils.get_named_platform().split(maxsplit=1)[1]}"
                     ),
                     app_version=(
-                        f"Hikka v{__version__[0]}.{__version__[1]}.{__version__[2]}"
+                        f"Netfoll v{__version__[0]}.{__version__[1]}.{__version__[2]}"
                     ),
                 )
 
@@ -495,7 +495,7 @@ class Hikka:
                     connection=self.conn,
                     proxy=self.proxy,
                     connection_retries=None,
-                    device_model="Hikka",
+                    device_model="Netfoll",
                 )
 
                 client.start(phone=raise_auth if self.web else lambda: input("Phone: "))
@@ -563,24 +563,26 @@ class Hikka:
 
             logo1 = f"""
 
-                        █ █ █ █▄▀ █▄▀ ▄▀█
-                        █▀█ █ █ █ █ █ █▀█
+                         _   _      _    __       _ _ 
+                        | \ | | ___| |_ / _| ___ | | |
+                        |  \| |/ _ \ __| |_ / _ \| | |
+                        | |\  |  __/ |_|  _| (_) | | |
+                        |_| \_|\___|\__|_|  \___/|_|_|  
 
-                     • Build: {build[:7]}
-                     • Version: {'.'.join(list(map(str, list(__version__))))}
-                     • {upd}
-                     • Platform: {_platform}
+                     ♦ Version: {'.'.join(list(map(str, list(__version__))))} #{build[:7]}
+                     ♦ {upd}
+                     ♦ Platform: {_platform}
                      """
 
             if not self.omit_log:
                 print(logo1)
                 web_url = (
-                    f"🌐 Web url: {self.web.url}\n"
+                    f"Web url: {self.web.url}\n"
                     if self.web and hasattr(self.web, "url")
                     else ""
                 )
                 logging.info(
-                    "🌘 Hikka %s started\n🔏 GitHub commit SHA: %s (%s)\n%s%s",
+                    "👾 Netfoll %s is working!\n🔏 GitHub commit SHA: %s (%s)\n%s%s",
                     ".".join(list(map(str, list(__version__)))),
                     build[:7],
                     upd,
