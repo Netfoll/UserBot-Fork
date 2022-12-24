@@ -151,6 +151,7 @@ config.ini
 config-*.json
 config.json
 *cache*.json
+*.png
 *.jpg
 *.jpeg
 *.webp
