@@ -55,7 +55,7 @@ class HikkaInfoMod(loader.Module):
             " galleries, forms, lists and animated emojis support. Userbot - software,"
             " running on your Telegram account. If you write a command to any chat, it"
             " will get executed right there. Check out live examples at <a"
-            ' href="https://github.com/hikariatama/Hikka">GitHub</a>'
+            ' href="https://github.com/MXRRI/Netfoll">GitHub</a>'
         ),
     }
 
@@ -72,10 +72,10 @@ class HikkaInfoMod(loader.Module):
         "description": "ℹ Это не раскроет никакой личной информации",
         "_ihandle_doc_info": "Отправить информацию о юзерботе",
         "up-to-date": (
-            "<emoji document_id=5370699111492229743>😌</emoji> <b>Актуальная версия</b>"
+            "<emoji document_id=5215191209131123104>💎</emoji> <b>Актуальная версия</b>"
         ),
         "update_required": (
-            "<emoji document_id=5424728541650494040>😕</emoji> <b>Требуется обновление"
+            "<emoji document_id=5213383002129702114>🔔</emoji> <b>Требуется обновление"
             "</b> <code>.update</code>"
         ),
         "_cfg_cst_msg": (
@@ -102,307 +102,7 @@ class HikkaInfoMod(loader.Module):
             " анимированных эмодзи. Юзербот - программа, которая запускается на"
             " твоем Telegram-аккаунте. Когда ты пишешь команду в любом чате, она"
             " сразу же выполняется. Обрати внимание на живые примеры на <a"
-            ' href="https://github.com/hikariatama/Hikka">GitHub</a>'
-        ),
-    }
-
-    strings_it = {
-        "owner": "Proprietario",
-        "version": "Versione",
-        "build": "Build",
-        "prefix": "Prefisso",
-        "uptime": "Uptime",
-        "branch": "Branch",
-        "cpu_usage": "Uso CPU",
-        "ram_usage": "Uso RAM",
-        "send_info": "Invia info del bot",
-        "description": "ℹ Questo non rivelera' alcuna informazione personale",
-        "_ihandle_doc_info": "Invia info del bot",
-        "up-to-date": (
-            "<emoji document_id=5370699111492229743>😌</emoji> <b>Versione"
-            " aggiornata</b>"
-        ),
-        "update_required": (
-            "<emoji document_id=5424728541650494040>😕</emoji> <b>Aggiornamento"
-            " richiesto</b> <code>.update</code>"
-        ),
-        "_cfg_cst_msg": (
-            "Messaggio personalizzato per info. Puo' contenere {me}, {version},"
-            " {build}, {prefix}, {platform}, {upd}, {uptime}, {cpu_usage}, {ram_usage},"
-            " {branch} keywords"
-        ),
-        "_cfg_cst_btn": "Bottone personalizzato per info. Lascia vuoto per rimuovere",
-        "_cfg_banner": "URL dell'immagine banner",
-        "desc": (
-            "<emoji document_id=6318565919471699564>🌌</emoji>"
-            " <b>Hikka</b>\n\nUserbot di Telegram con molte funzioni, come gallerie"
-            " inline, form, liste e supporto ad emoji animate. Userbot - software"
-            " che gira sul tuo account Telegram. Se scrivi un comando in qualsiasi"
-            " chat, viene eseguito lì. Controlla gli esempi in <a"
-            ' href="https://github.com/hikariatama/Hikka">GitHub</a>'
-        ),
-    }
-
-    strings_de = {
-        "owner": "Besitzer",
-        "version": "Version",
-        "build": "Build",
-        "prefix": "Prefix",
-        "uptime": "Uptime",
-        "branch": "Branch",
-        "cpu_usage": "CPU Nutzung",
-        "ram_usage": "RAM Nutzung",
-        "send_info": "Botinfo senden",
-        "description": "ℹ Dies enthüllt keine persönlichen Informationen",
-        "_ihandle_doc_info": "Sende Botinfo",
-        "up-to-date": "<emoji document_id=5370699111492229743>😌</emoji> <b>Aktuell</b>",
-        "update_required": (
-            "<emoji document_id=5424728541650494040>😕</emoji> <b>Update benötigt"
-            "</b> <code>.update</code>"
-        ),
-        "_cfg_cst_msg": (
-            "Custom message for info. May contain {me}, {version}, {build}, {prefix},"
-            " {platform}, {upd}, {uptime}, {cpu_usage}, {ram_usage}, {branch} keywords"
-        ),
-        "_cfg_cst_btn": "Custom button for info. Leave empty to remove button",
-        "_cfg_banner": "URL to image banner",
-        "setinfo_no_args": (
-            "<emoji document_id=5370881342659631698>😢</emoji> <b>Bitte gib einen"
-            " Text an, um die Info zu ändern</b>"
-        ),
-        "setinfo_success": (
-            "<emoji document_id=5436040291507247633>🎉</emoji> <b>Info geändert</b>"
-        ),
-        "desc": (
-            "<emoji document_id=6318565919471699564>🌌</emoji>"
-            " <b>Hikka</b>\n\nTelegram userbot mit vielen Funktionen, wie z.B. Inline"
-            " Galerien, Formulare, Listen und Unterstützung für animierte Emojis."
-            " Userbot - Software, die auf deinem Telegram-Account läuft. Wenn du"
-            " einen Befehl in irgendeinem Chat schreibst, wird er dort ausgeführt."
-            " Sieh dir Live-Beispiele auf <a"
-            ' href="https://github.com/hikariatama/Hikka">GitHub</a>'
-        ),
-    }
-
-    strings_uz = {
-        "owner": "Egasi",
-        "version": "Versiya",
-        "build": "Build",
-        "prefix": "Prefix",
-        "uptime": "Ishlash vaqti",
-        "branch": "Vetkasi",
-        "cpu_usage": "CPU foydalanish",
-        "ram_usage": "RAM foydalanish",
-        "send_info": "Bot haqida ma'lumot",
-        "description": "ℹ Bu shaxsiy ma'lumot emas",
-        "_ihandle_doc_info": "Bot haqida ma'lumot",
-        "up-to-date": (
-            "<emoji document_id=5370699111492229743>😌</emoji> <b>So'ngi versia</b>"
-        ),
-        "update_required": (
-            "<emoji document_id=5424728541650494040>😕</emoji> <b>Yangilash"
-            " kerak</b> <code>.update</code>"
-        ),
-        "_cfg_cst_msg": (
-            "Xabar uchun shaxsiy xabar. {me}, {version}, {build}, {prefix}, {platform},"
-            " {upd}, {uptime}, {cpu_usage}, {ram_usage}, {branch} kalit so'zlarni"
-            " ishlatishingiz mumkin"
-        ),
-        "_cfg_cst_btn": (
-            "Xabar uchun shaxsiy tugma. Tugmani o'chirish uchun bo'sh qoldiring"
-        ),
-        "_cfg_banner": "URL uchun rasmi",
-        "setinfo_no_args": (
-            "<emoji document_id=5370881342659631698>😢</emoji> <b>Ma'lumotni"
-            " o'zgartirish uchun matn kiriting</b>"
-        ),
-        "setinfo_success": (
-            "<emoji document_id=5436040291507247633>🎉</emoji> <b>Ma'lumotlar"
-            " o'zgartirildi</b>"
-        ),
-        "desc": (
-            "<emoji document_id=6318565919471699564>🌌</emoji> <b>Hikka</b>\n\nKo'p"
-            " funksiyali userbot, buning ichida: ichki-gallereya, formalar, ro'yhatlar,"
-            " hamda animatsiyalangan emojilar. Userbot - bu sening"
-            " telegram-akkauntingni ichida ishlaydigan ilova. Hohlagan chatga komanda"
-            " yozsangiz, tez orada bu komanda ishlaydi. <a"
-            ' href="https://github.com/hikariatama/Hikka">GitHub</a> da misollarni'
-            " ko'rishingiz mumkin"
-        ),
-    }
-
-    strings_tr = {
-        "owner": "Sahip",
-        "version": "Sürüm",
-        "build": "Derleme",
-        "prefix": "Önek",
-        "uptime": "Aktif Süre",
-        "branch": "Dal",
-        "cpu_usage": "CPU Kullanımı",
-        "ram_usage": "RAM Kullanımı",
-        "send_info": "Bot hakkında bilgi",
-        "description": "ℹ️ Kişisel bilgileri tehlikeye atmaz",
-        "_ihandle_doc_info": "Bot hakkında bilgi",
-        "up-to-date": "<emoji document_id=5370699111492229743>😌</emoji> <b>Güncel</b>",
-        "update_required": (
-            "<emoji document_id=5424728541650494040>😕</emoji> <b>Güncelleme"
-            " gerekli</b> <code>.update</code>"
-        ),
-        "_cfg_cst_msg": (
-            "Kişisel mesaj için bilgi. {me}, {version}, {build}, {prefix}, {platform},"
-            " {upd}, {uptime}, {cpu_usage}, {ram_usage}, {branch} anahtar kelimeleri"
-            " kullanılabilir"
-        ),
-        "_cfg_cst_btn": "Kişisel tuş için bilgi. Tuşu kaldırmak için boş bırakın",
-        "_cfg_banner": "Resim için URL",
-        "setinfo_no_args": (
-            "<emoji document_id=5370881342659631698>😢</emoji> <b>Bilgiyi değiştirmek"
-            " için herhangi bir metin girin</b>"
-        ),
-        "setinfo_success": (
-            "<emoji document_id=5436040291507247633>🎉</emoji> <b>Bilgiler"
-            " değiştirildi</b>"
-        ),
-        "desc": (
-            "<emoji document_id=6318565919471699564>🌌</emoji> <b>Hikka</b>\n\\Çok fazla"
-            " özellik barındıran Telegram kullanıcı botu, örneğin Çevrimiçi galeri,"
-            " formlar, listeler ve animasyonlu emoji desteği gibi. Kullanıcı botu -"
-            " Telegram hesabınızda çalışan bir yazılımdır. Bir sohbete bir komut"
-            " yazarsanız, hemen orada çalışacaktır. Örnekleri görmek için <a"
-            ' href="https://github.com/hikariatama/Hikka">GitHub\'ı ziyaret'
-            " edebilirsin</a>"
-        ),
-    }
-
-    strings_es = {
-        "owner": "Propietario",
-        "version": "Versión",
-        "build": "Construir",
-        "prefix": "Prefijo",
-        "uptime": "Tiempo de actividad",
-        "branch": "Rama",
-        "cpu_usage": "Uso de CPU",
-        "ram_usage": "Uso de RAM",
-        "send_info": "Enviar información del bot",
-        "description": "ℹ️ No exponga su información personal",
-        "_ihandle_doc_info": "Información del bot",
-        "up-to-date": (
-            "<emoji document_id=5370699111492229743>😌</emoji> <b>Actualizado</b>"
-        ),
-        "update_required": (
-            "<emoji document_id=5424728541650494040>😕</emoji> <b>Actualización"
-            " necesaria</b> <code>.update</code>"
-        ),
-        "_cfg_cst_msg": (
-            "Información del mensaje personalizado. Puede usar las palabras clave {me},"
-            " {version}, {build}, {prefix}, {platform}, {upd}, {uptime}, {cpu_usage},"
-            " {ram_usage}, {branch}"
-        ),
-        "_cfg_cst_btn": (
-            "Información del botón personalizado. Eliminar el botón deje en blanco"
-        ),
-        "_cfg_banner": "URL de la imagen",
-        "setinfo_no_args": (
-            "<emoji document_id=5370881342659631698>😢</emoji> <b>Para cambiar la"
-            " información, ingrese algún texto</b>"
-        ),
-        "setinfo_success": (
-            "<emoji document_id=5436040291507247633>🎉</emoji> <b>Información cambiada"
-            " con éxito</b>"
-        ),
-        "desc": (
-            "<emoji document_id=6318565919471699564>🌌</emoji> <b>Hikka</b>\n\nEl bot de"
-            " usuario proporciona varias funciones. Por ejemplo: Galería en línea,"
-            " formulario, lista, Emoji animado y más. El bot de usuario es una"
-            " aplicación que funciona dentro de una cuenta de Telegram. Las órdenes de"
-            " chat se ejecutan de inmediato. Para obtener más información, consulte <a"
-            ' href="https://github.com/hikariatama/Hikka">GitHub</a>'
-        ),
-    }
-
-    strings_kk = {
-        "owner": "Әкімші",
-        "version": "Нұсқасы",
-        "build": "Құрылған",
-        "prefix": "Бастауыш",
-        "uptime": "Қосылған кезең",
-        "branch": "Бөлімі",
-        "cpu_usage": "CPU қолданымы",
-        "ram_usage": "RAM қолданымы",
-        "send_info": "Бот туралы ақпарат",
-        "description": "ℹ️ Жеке мәліметтеріңізді қорғау",
-        "_ihandle_doc_info": "Бот туралы ақпарат",
-        "up-to-date": (
-            "<emoji document_id=5370699111492229743>😌</emoji> <b>Жаңартылған</b>"
-        ),
-        "update_required": (
-            "<emoji document_id=5424728541650494040>😕</emoji> <b>Жаңарту"
-            " талап етіледі</b> <code>.update</code>"
-        ),
-        "_cfg_cst_msg": (
-            "Жеке хабарлама үшін ақпарат. {me}, {version}, {build}, {prefix},"
-            " {platform}, {upd}, {uptime}, {cpu_usage}, {ram_usage}, {branch} кілт"
-            " сөздерді қолдана аласыз"
-        ),
-        "_cfg_cst_btn": "Жеке түйме үшін ақпарат. Түймесін жою үшін бос қалдырыңыз",
-        "_cfg_banner": "Сурет үшін URL",
-        "setinfo_no_args": (
-            "<emoji document_id=5370881342659631698>😢</emoji> <b>Ақпаратты өзгерту үшін"
-            " ештеңе енгізбеңіз</b>"
-        ),
-        "setinfo_success": (
-            "<emoji document_id=5436040291507247633>🎉</emoji> <b>Ақпарат сәтті"
-            " өзгертілді</b>"
-        ),
-        "desc": (
-            "<emoji document_id=6318565919471699564>🌌</emoji> <b>Hikka</b>\n\nПайдалы"
-            " бот қосымшалары бар. Мысалы: Онлайн галерея, форма, тізім, анимациялы"
-            " emoji және басқалар. Пайдалы бот - телеграм аккаунтында іске қосылған"
-            " бағдарлама. Сөйлесу бойынша әрекетті қылуға болады. Қосымша ақпарат үшін"
-            ' <a href="https://github.com/hikariatama/Hikka">GitHub</a>'
-        ),
-    }
-
-    strings_tt = {
-        "owner": "Идарәче",
-        "version": "Версия",
-        "build": "Билд",
-        "prefix": "Префикс",
-        "uptime": "Тәртиби вакыты",
-        "branch": "Кишелек",
-        "cpu_usage": "CPU җыелмасы",
-        "ram_usage": "RAM җыелмасы",
-        "send_info": "Бот турында мәгълүматны җибәрү",
-        "description": "ℹ️ Шәхси мәгълүматыңызны тыяу",
-        "_ihandle_doc_info": "Бот турында мәгълүмат",
-        "up-to-date": (
-            "<emoji document_id=5370699111492229743>😌</emoji> <b>Яңартылган</b>"
-        ),
-        "update_required": (
-            "<emoji document_id=5424728541650494040>😕</emoji> <b>Яңартылу"
-            " таләп ителә</b><code>.update</code>"
-        ),
-        "_cfg_cst_msg": (
-            "Шәхси хәбәр мәгълүматы. {me}, {version}, {build}, {prefix}, {platform},"
-            " {upd}, {uptime}, {cpu_usage}, {ram_usage}, {branch} күчермәләрен җибәрү"
-            " мөмкин"
-        ),
-        "_cfg_cst_btn": "Шәхси төймә мәгълүматы. Төймәне юймагыч, буш җибәрү",
-        "_cfg_banner": "Сүрәт URL-ы",
-        "setinfo_no_args": (
-            "<emoji document_id=5370881342659631698>😢</emoji> <b>Мәгълүматны"
-            " үзгәртү өчен, мәгълүматны кертегез</b>"
-        ),
-        "setinfo_success": (
-            "<emoji document_id=5436040291507247633>🎉</emoji> <b>Мәгълүмат"
-            " мөмкин булды</b>"
-        ),
-        "desc": (
-            "<emoji document_id=6318565919471699564>🌌</emoji> <b>Hikka</b>\n\nКулланучы"
-            " боты монда бер көйләүләрне күрсәтә: онлайн галерея, форма, рәвештә,"
-            " эмоджи һәм башкалары. Кулланучы боты Telegram аккаунтында исәпләнә. Чат"
-            " өчен күрсәтмәләр асабынча исәпләнә. Башка мәгълүмат өчен <a href="
-            '"https://github.com/hikariatama/Hikka">GitHub</a>'
+            ' href="https://github.com/MXRRI/Netfoll">GitHub</a>'
         ),
     }
 
@@ -414,7 +114,7 @@ class HikkaInfoMod(loader.Module):
             ),
             loader.ConfigValue(
                 "custom_button",
-                ["🌘 Support chat", "https://t.me/hikka_talks"],
+                ["", ""],
                 lambda: self.strings("_cfg_cst_btn"),
                 validator=loader.validators.Union(
                     loader.validators.Series(fixed_len=2),
@@ -466,7 +166,7 @@ class HikkaInfoMod(loader.Module):
 
         return (
             (
-                "<b>🌘 Hikka</b>\n"
+                "<b>👾 Netfoll</b>\n"
                 if "hikka" not in self.config["custom_message"].lower()
                 else ""
             )
@@ -491,10 +191,8 @@ class HikkaInfoMod(loader.Module):
                 f" {self.strings('prefix')}:</b> {prefix}\n<b>{{}}"
                 f" {self.strings('uptime')}:"
                 f"</b> {utils.formatted_uptime()}\n\n<b>{{}}"
-                f" {self.strings('cpu_usage')}:"
-                f"</b> <i>~{utils.get_cpu_usage()} %</i>\n<b>{{}}"
-                f" {self.strings('ram_usage')}:"
-                f"</b> <i>~{utils.get_ram_usage()} MB</i>\n<b>{{}}</b>"
+                f" CPU and RAM usage: {utils.get_cpu_usage()}% | {utils.get_ram_usage()} MB\n"
+                f"{platform}"
             ).format(
                 *map(
                     lambda x: utils.remove_html(x) if inline else x,
@@ -505,10 +203,8 @@ class HikkaInfoMod(loader.Module):
                         "<emoji document_id=5215327492738392838>🔩</emoji>",
                         "<emoji document_id=5215392879320505675>🛠</emoji>",
                         "<emoji document_id=5215263059639017128>👩‍💻</emoji>",
-                        "<emoji document_id=5215423854624645141>💫</emoji>",
+                        "<emoji document_id=5456222428730498101>😲</emoji>",
                         "<emoji document_id=5212928663309261889>⭐️</emoji>",
-                        "<emoji document_id=5212928663309261889>⭐️</emoji>",
-                        platform,
                     ),
                 )
             )
