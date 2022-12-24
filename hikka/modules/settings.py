@@ -181,9 +181,9 @@ class CoreMod(loader.Module):
             " <b>Hikka-Pyro:</b> <i>{}</i>\n"
             "<emoji document_id=5456339269020819143>😺</emoji> <b>Hikka:</b> <i>V1.6.0</i>\n\n<emoji"
             " document_id=5454182070156794055>⌨️</emoji> <b>Hikka Developer:"
-            " @hikariatama</b>\n<emoji"
+            " hikariatama.t.me</b>\n<emoji"
             " document_id=5213459976533581054>💛</emoji> <b>Netfoll Developer:"
-            " @morri_bio and @pengbio</b>"
+            " morri_bio.t.me and penggrin.t.me</b>"
         ),
         "_cls_doc": "Управление базовыми настройками юзербота",
         "confirm_cleardb": "⚠️ <b>Вы уверены, что хотите сбросить базу данных?</b>",
@@ -241,7 +241,7 @@ class CoreMod(loader.Module):
         es_doc="Mostrar la versión de Hikka",
         kk_doc="Hikka нұсқасын көрсету",
     )
-    async def hikkacmd(self, message: Message):
+    async def netfollcmd(self, message: Message):
         """Get Hikka version"""
         await utils.answer_file(
             message,
@@ -262,7 +262,7 @@ class CoreMod(loader.Module):
                     if self._client.hikka_me.premium and CUSTOM_EMOJIS
                     else "👾 <b>Netfoll userbot</b>"
                 ),
-                *version.__version__,
+                *version.netver,
                 utils.get_commit_url(),
                 f"{telethon.__version__} #{telethon.tl.alltlobjects.LAYER}",
                 (

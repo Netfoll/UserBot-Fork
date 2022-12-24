@@ -6,7 +6,7 @@
 # 🔑 https://www.gnu.org/licenses/agpl-3.0.html
 
 __version__ = (1, 6, 0)
-
+netver = (0, 1, 1)
 import os
 
 import git

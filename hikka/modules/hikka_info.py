@@ -144,7 +144,7 @@ class HikkaInfoMod(loader.Module):
             utils.escape_html(get_display_name(self._client.hikka_me)),
         )
         build = utils.get_commit_url()
-        _version = f'<i>{".".join(list(map(str, list(version.__version__))))}</i>'
+        _version = f'<i>{".".join(list(map(str, list(version.netver))))}</i>'
         prefix = f"«<code>{utils.escape_html(self.get_prefix())}</code>»"
 
         platform = utils.get_named_platform()
