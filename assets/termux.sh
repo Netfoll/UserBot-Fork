@@ -21,9 +21,9 @@ cd Netfoll &&
 pip install -U pip &&
 pip install -r requirements.txt &&
 echo '' > ~/../usr/etc/motd &&
-echo 'clear && . <(wget -qO- https://github.com/MXRRI/Netfoll/raw/Dev/assets/banner.sh) && cd ~/Hikka && python3 -m hikka --port 1242' > ~/.bash_profile"
+echo 'clear && . <(wget -qO- https://github.com/MXRRI/Netfoll/raw/Dev/assets/banner.sh) && cd ~/Netfoll && python3 -m hikka --port 1242' > ~/.bash_profile"
 
-echo -e "\033[0;96mStarting Hikka...\033[0m"
+echo -e "\033[0;96mStarting Netfoll...\033[0m"
 
 run_in_bg "python3 -m hikka --port 1242"
 sleep 10
