@@ -3,6 +3,8 @@
 # 🌐 https://github.com/hikariatama/Hikka
 # You can redistribute it and/or modify it under the terms of the GNU AGPLv3
 # 🔑 https://www.gnu.org/licenses/agpl-3.0.html
+# Morri and Penggrin modifided Hikka files for Netfoll
+# 🌐 https://github.com/MXRRI/Netfoll
 
 import git
 from telethon.tl.types import Message
@@ -123,7 +125,7 @@ class HikkaInfoMod(loader.Module):
             ),
             loader.ConfigValue(
                 "banner_url",
-                "https://github.com/hikariatama/assets/raw/master/hikka_banner.mp4",
+                "https://github.com/MXRRI/Netfoll/raw/Dev/assets/banner.png,
                 lambda: self.strings("_cfg_banner"),
                 validator=loader.validators.Link(),
             ),
@@ -236,7 +238,7 @@ class HikkaInfoMod(loader.Module):
                 else {"message": self._render_info(True)}
             ),
             "thumb": (
-                "https://github.com/hikariatama/Hikka/raw/master/assets/hikka_pfp.png"
+                "https://github.com/MXRRI/Netfoll/raw/Dev/assets/bot_pfp.png"
             ),
             "reply_markup": self._get_mark(),
         }
