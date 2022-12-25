@@ -16,12 +16,12 @@ echo -e "\033[0;96mInstalling Netfoll... Just a Moment...\033[0m"
 
 eval "cd ~/ &&
 rm -rf Netfoll &&
-git clone --branch Termux https://github.com/MXRRI/Netfoll &&
+git clone --branch Dev https://github.com/MXRRI/Netfoll &&
 cd Netfoll &&
 pip install -U pip &&
 pip install -r requirements.txt &&
 echo '' > ~/../usr/etc/motd &&
-echo 'clear && . <(wget -qO- https://static.hikari.gay/banner.sh) && cd ~/Hikka && python3 -m hikka --port 1242' > ~/.bash_profile"
+echo 'clear && . <(wget -qO- https://github.com/MXRRI/Netfoll/raw/Dev/assets/banner.sh) && cd ~/Hikka && python3 -m hikka --port 1242' > ~/.bash_profile"
 
 echo -e "\033[0;96mStarting Hikka...\033[0m"
 
