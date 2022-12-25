@@ -3,6 +3,8 @@
 # 🌐 https://github.com/hikariatama/Hikka
 # You can redistribute it and/or modify it under the terms of the GNU AGPLv3
 # 🔑 https://www.gnu.org/licenses/agpl-3.0.html
+# Morri and Penggrin modifided Hikka files for Netfoll
+# 🌐 https://github.com/MXRRI/Netfoll
 
 import contextlib
 import itertools
@@ -54,112 +56,7 @@ class PythonMod(loader.Module):
         ),
         "_cls_doc": "Выполняет Python код",
     }
-
-    strings_it = {
-        "eval": (
-            "<emoji document_id=4985626654563894116>💻</emoji><b>"
-            " Codice:</b>\n<code>{}</code>\n\n<emoji"
-            " document_id=5197688912457245639>✅</emoji><b>"
-            " Risultato:</b>\n<code>{}</code>"
-        ),
-        "err": (
-            "<emoji document_id=4985626654563894116>💻</emoji><b>"
-            " Codice:</b>\n<code>{}</code>\n\n<emoji"
-            " document_id=5312526098750252863>🚫</emoji> <b>Errore:</b>\n{}"
-        ),
-        "_cls_doc": "Esegue codice Python",
-    }
-
-    strings_de = {
-        "eval": (
-            "<emoji document_id=4985626654563894116>💻</emoji><b>"
-            " Code:</b>\n<code>{}</code>\n\n<emoji"
-            " document_id=5197688912457245639>✅</emoji><b>"
-            " Resultat:</b>\n<code>{}</code>"
-        ),
-        "err": (
-            "<emoji document_id=4985626654563894116>💻</emoji><b>"
-            " Code:</b>\n<code>{}</code>\n\n<emoji"
-            " document_id=5312526098750252863>🚫</emoji> <b>Fehler:</b>\n{}"
-        ),
-        "_cls_doc": "Führt Python Code aus",
-    }
-
-    strings_tr = {
-        "eval": (
-            "<emoji document_id=4985626654563894116>💻</emoji><b>"
-            " Kod:</b>\n<code>{}</code>\n\n<emoji"
-            " document_id=5197688912457245639>✅</emoji><b>"
-            " Sonuç:</b>\n<code>{}</code>"
-        ),
-        "err": (
-            "<emoji document_id=4985626654563894116>💻</emoji><b>"
-            " Kod:</b>\n<code>{}</code>\n\n<emoji"
-            " document_id=5312526098750252863>🚫</emoji> <b>Hata:</b>\n{}"
-        ),
-        "_cls_doc": "Python kodunu çalıştırır",
-    }
-
-    strings_uz = {
-        "eval": (
-            "<emoji document_id=4985626654563894116>💻</emoji><b>"
-            " Kod:</b>\n<code>{}</code>\n\n<emoji"
-            " document_id=5197688912457245639>✅</emoji><b>"
-            " Natija:</b>\n<code>{}</code>"
-        ),
-        "err": (
-            "<emoji document_id=4985626654563894116>💻</emoji><b>"
-            " Kod:</b>\n<code>{}</code>\n\n<emoji"
-            " document_id=5312526098750252863>🚫</emoji> <b>Xato:</b>\n{}"
-        ),
-        "_cls_doc": "Python kodini ishga tushiradi",
-    }
-
-    strings_es = {
-        "eval": (
-            "<emoji document_id=4985626654563894116>💻</emoji><b>"
-            " Código:</b>\n<code>{}</code>\n\n<emoji"
-            " document_id=5197688912457245639>✅</emoji><b>"
-            " Resultado:</b>\n<code>{}</code>"
-        ),
-        "err": (
-            "<emoji document_id=4985626654563894116>💻</emoji><b>"
-            " Código:</b>\n<code>{}</code>\n\n<emoji"
-            " document_id=5312526098750252863>🚫</emoji> <b>Error:</b>\n{}"
-        ),
-        "_cls_doc": "Ejecuta código Python",
-    }
-
-    strings_kk = {
-        "eval": (
-            "<emoji document_id=4985626654563894116>💻</emoji><b>"
-            " Код:</b>\n<code>{}</code>\n\n<emoji"
-            " document_id=5197688912457245639>✅</emoji><b>"
-            " Нәтиже:</b>\n<code>{}</code>"
-        ),
-        "err": (
-            "<emoji document_id=4985626654563894116>💻</emoji><b>"
-            " Код:</b>\n<code>{}</code>\n\n<emoji"
-            " document_id=5312526098750252863>🚫</emoji> <b>Қате:</b>\n{}"
-        ),
-        "_cls_doc": "Python кодын орындау",
-    }
-
-    strings_tt = {
-        "eval": (
-            "<emoji document_id=4985626654563894116>💻</emoji><b>"
-            " Код:</b>\n<code>{}</code>\n<emoji"
-            " document_id=5197688912457245639>✅</emoji><b>"
-            " Нәтиҗә:</b>\n<code>{}</code>"
-        ),
-        "err": (
-            "<emoji document_id=4985626654563894116>💻</emoji><b>"
-            " Код:</b>\n<code>{}</code>\n\n<emoji"
-            " document_id=5312526098750252863>🚫</emoji> <b>Хата:</b>\n{}"
-        ),
-        "_cls_doc": "Башкара Python коды",
-    }
-
+    
     @loader.owner
     @loader.command(
         ru_doc="Выполняет Python код",
