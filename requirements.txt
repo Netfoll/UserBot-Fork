@@ -3,7 +3,7 @@ hikka-pyro==2.0.61
 tgcrypto==1.2.5
 aiofile==3.8.1
 pythondialog==3.5.3
-gitpython==3.1.27
+gitpython==3.1.30
 meval==2.5
 aiohttp_jinja2==1.5
 aiohttp==3.8.3
