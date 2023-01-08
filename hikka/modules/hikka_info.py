@@ -125,7 +125,7 @@ class HikkaInfoMod(loader.Module):
             ),
             loader.ConfigValue(
                 "banner_url",
-                "https://github.com/MXRRI/Netfoll/raw/Dev/assets/banner.png,
+                "https://github.com/MXRRI/Netfoll/raw/Dev/assets/banner.png",
                 lambda: self.strings("_cfg_banner"),
                 validator=loader.validators.Link(),
             ),
@@ -251,6 +251,7 @@ class HikkaInfoMod(loader.Module):
         uz_doc="Bot haqida ma'lumot yuboradi",
         es_doc="Envía información sobre el bot",
         kk_doc="Бот туралы ақпарат жібереді",
+        alias="инфо",
     )
     @loader.unrestricted
     async def infocmd(self, message: Message):
