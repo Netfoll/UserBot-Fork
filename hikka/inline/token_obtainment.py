@@ -16,6 +16,7 @@ from telethon.errors.rpcerrorlist import YouBlockedUserError
 from telethon.tl.functions.contacts import UnblockRequest
 
 from .. import utils
+from .._internal import fw_protect
 from .types import InlineUnit
 
 logger = logging.getLogger(__name__)
@@ -36,6 +37,7 @@ class TokenObtainment(InlineUnit):
         # We create new bot
         logger.info("User doesn't have bot, attempting creating new one")
         async with self._client.conversation("@BotFather", exclusive=False) as conv:
+            await fw_protect()
             m = await conv.send_message("/newbot")
             r = await conv.get_response()
 
@@ -44,7 +46,8 @@ class TokenObtainment(InlineUnit):
 
             if "20" in r.raw_text:
                 return False
-
+                
+            await fw_protect()
             await m.delete()
             await r.delete()
 
@@ -70,16 +73,19 @@ class TokenObtainment(InlineUnit):
                 "/setuserpic",
                 username,
             ]:
+                await fw_protect()
                 m = await conv.send_message(msg)
                 r = await conv.get_response()
 
                 logger.debug(">> %s", m.raw_text)
                 logger.debug("<< %s", r.raw_text)
 
+                await fw_protect()
                 await m.delete()
                 await r.delete()
 
             try:
+                await fw_protect()
                 m = await conv.send_file(photo)
                 r = await conv.get_response()
 
@@ -89,11 +95,14 @@ class TokenObtainment(InlineUnit):
                 # In case user was not able to send photo to
                 # BotFather, it is not a critical issue, so
                 # just ignore it
+                await fw_protect()
                 m = await conv.send_message("/cancel")
                 r = await conv.get_response()
 
                 logger.debug(">> %s", m.raw_text)
                 logger.debug("<< %s", r.raw_text)
+
+            await fw_protect()
 
             await m.delete()
             await r.delete()
@@ -127,17 +136,21 @@ class TokenObtainment(InlineUnit):
             # Wrap it in try-except in case user banned BotFather
             try:
                 # Try sending command
+                await fw_protect()
                 m = await conv.send_message("/token")
             except YouBlockedUserError:
                 # If user banned BotFather, unban him
                 await self._client(UnblockRequest(id="@BotFather"))
                 # And resend message
+                await fw_protect()
                 m = await conv.send_message("/token")
 
             r = await conv.get_response()
 
             logger.debug(">> %s", m.raw_text)
             logger.debug("<< %s", r.raw_text)
+
+            await fw_protect()
 
             await m.delete()
             await r.delete()
@@ -167,6 +180,8 @@ class TokenObtainment(InlineUnit):
                         False,
                     ) and not re.search(r"@netfoll_[0-9a-zA-Z]{6}_bot", button.text):
                         continue
+                        
+                        await fw_protect()
 
                     m = await conv.send_message(button.text)
                     r = await conv.get_response()
@@ -175,8 +190,11 @@ class TokenObtainment(InlineUnit):
                     logger.debug("<< %s", r.raw_text)
 
                     if revoke_token:
+                        await fw_protect()
                         await m.delete()
                         await r.delete()
+
+                        await fw_protect()
 
                         m = await conv.send_message("/revoke")
                         r = await conv.get_response()
@@ -184,8 +202,12 @@ class TokenObtainment(InlineUnit):
                         logger.debug(">> %s", m.raw_text)
                         logger.debug("<< %s", r.raw_text)
 
+                        await fw_protect()
+                        
                         await m.delete()
                         await r.delete()
+
+                        await fw_protect()
 
                         m = await conv.send_message(button.text)
                         r = await conv.get_response()
@@ -198,6 +220,8 @@ class TokenObtainment(InlineUnit):
                     # Save token to database, now this bot is ready-to-use
                     self._db.set("hikka.inline", "bot_token", token)
                     self._token = token
+                    
+                    await fw_protect()
 
                     await m.delete()
                     await r.delete()
@@ -215,8 +239,11 @@ class TokenObtainment(InlineUnit):
                         "/setuserpic",
                         button.text,
                     ]:
+                        await fw_protect()
                         m = await conv.send_message(msg)
                         r = await conv.get_response()
+                        
+                        await fw_protect()
 
                         logger.debug(">> %s", m.raw_text)
                         logger.debug("<< %s", r.raw_text)
@@ -225,6 +252,7 @@ class TokenObtainment(InlineUnit):
                         await r.delete()
 
                     try:
+                        await fw_protect()
                         m = await conv.send_file(photo)
                         r = await conv.get_response()
 
@@ -234,12 +262,15 @@ class TokenObtainment(InlineUnit):
                         # In case user was not able to send photo to
                         # BotFather, it is not a critical issue, so
                         # just ignore it
+                        await fw_protect()
                         m = await conv.send_message("/cancel")
                         r = await conv.get_response()
 
                         logger.debug(">> %s", m.raw_text)
                         logger.debug("<< %s", r.raw_text)
 
+
+                    await fw_protect()
                     await m.delete()
                     await r.delete()
 

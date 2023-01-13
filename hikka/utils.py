@@ -99,6 +99,7 @@ from telethon.tl.types import (
 from .inline.types import InlineCall, InlineMessage
 from .tl_cache import CustomTelegramClient
 from .types import HikkaReplyMarkup, ListLike, Module
+from ._internal import fw_protect
 
 FormattingEntity = typing.Union[
     MessageEntityUnknown,
@@ -665,12 +666,15 @@ async def set_avatar(
     else:
         return False
 
+    await fw_protect()
     res = await client(
         EditPhotoRequest(
             channel=peer,
             photo=await client.upload_file(f, file_name="photo.png"),
         )
     )
+
+    await fw_protect()
 
     try:
         await client.delete_messages(
@@ -764,9 +768,12 @@ async def asset_channel(
                         await client.get_participants(d.entity, limit=100)
                     )
                 ):
+                    await fw_protect()
                     await invite_inline_bot(client, d.entity)
 
             return d.entity, False
+
+    await fw_protect()
 
     peer = (
         await client(
@@ -779,20 +786,26 @@ async def asset_channel(
     ).chats[0]
 
     if invite_bot:
+        await fw_protect()
         await invite_inline_bot(client, peer)
 
     if silent:
+        await fw_protect()
         await dnd(client, peer, archive)
     elif archive:
+        await fw_protect()
         await client.edit_folder(peer, 1)
 
     if avatar:
+        await fw_protect()
         await set_avatar(client, peer, avatar)
 
     if ttl:
+        await fw_protect()
         await client(SetHistoryTTLRequest(peer=peer, period=ttl))
 
     if _folder:
+        await fw_protect()
         if _folder != "hikka":
             raise NotImplementedError
 
@@ -844,6 +857,7 @@ async def dnd(
         )
 
         if archive:
+            await fw_protect()
             await client.edit_folder(peer, 1)
     except Exception:
         logger.exception("utils.dnd error")

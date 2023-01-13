@@ -210,9 +210,9 @@ class DragonScripts:
                 hint_text = f"\n\n<b>Hint: {hint}</b>"
             else:
                 hint_text = ""
-            return (
-                f"<b>Error!</b>\n<code>{e.__class__.__name__}: {e}</code>" + hint_text
-            )
+                
+            return f"<b>Error!</b>\n<code>{e.__class__.__name__}: {e}</code>" + hint_text
+
 
     @staticmethod
     def with_reply(func):
