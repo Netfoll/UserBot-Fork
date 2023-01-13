@@ -31,10 +31,10 @@ class HikkaInfoMod(loader.Module):
         "send_info": "Send userbot info",
         "description": "ℹ This will not compromise any sensitive info",
         "up-to-date": (
-            "<emoji document_id=5370699111492229743>😌</emoji> <b>Up-to-date</b>"
+            "<emoji document_id=5215191209131123104>💎</emoji> <b>Up-to-date</b>"
         ),
         "update_required": (
-            "<emoji document_id=5424728541650494040>😕</emoji> <b>Update required"
+            "<emoji document_id=6334760737906362392>⚡</emoji> <b>Update required"
             "</b> <code>.update</code>"
         ),
         "setinfo_no_args": (
@@ -77,7 +77,7 @@ class HikkaInfoMod(loader.Module):
             "<emoji document_id=5215191209131123104>💎</emoji> <b>Актуальная версия</b>"
         ),
         "update_required": (
-            "<emoji document_id=5213383002129702114>🔔</emoji> <b>Требуется обновление"
+            "<emoji document_id=6334760737906362392>⚡</emoji> <b>Требуется обновление"
             "</b> <code>.update</code>"
         ),
         "_cfg_cst_msg": (
@@ -146,7 +146,7 @@ class HikkaInfoMod(loader.Module):
             utils.escape_html(get_display_name(self._client.hikka_me)),
         )
         build = utils.get_commit_url()
-        _version = f'<i>{".".join(list(map(str, list(version.netver))))}</i>'
+        _version = f'<i>{version.branch} {".".join(list(map(str, list(version.netver))))}</i>'
         prefix = f"«<code>{utils.escape_html(self.get_prefix())}</code>»"
 
         platform = utils.get_named_platform()
@@ -155,7 +155,7 @@ class HikkaInfoMod(loader.Module):
             "🍊": "<emoji document_id=5449599833973203438>🧡</emoji>",
             "🍇": "<emoji document_id=5449468596952507859>💜</emoji>",
             "❓": "<emoji document_id=5407025283456835913>📱</emoji>",
-            "🍁": "<emoji document_id=6332120630099445554>🍁</emoji>",
+            "🍁": "<emoji document_id=5866334008123591985>💻</emoji>",
             "🦾": "<emoji document_id=5386766919154016047>🦾</emoji>",
             "🚂": "<emoji document_id=5359595190807962128>🚂</emoji>",
             "🐳": "<emoji document_id=5431815452437257407>🐳</emoji>",
@@ -168,7 +168,7 @@ class HikkaInfoMod(loader.Module):
 
         return (
             (
-                "<b>🌘 Hikka</b>\n"
+                "/n"
                 if "hikka" not in self.config["custom_message"].lower()
                 else ""
             )
@@ -187,9 +187,8 @@ class HikkaInfoMod(loader.Module):
             if self.config["custom_message"]
             else (
                 f'<b>{{}} for <b>{me}</b></b>\n\n{{}}'
-                f" {self.strings('version')}:</b> {_version} {build}\n<b>{{}}"
-                f" {self.strings('branch')}:"
-                f"</b> <code>{version.branch}</code>\n{upd}\n\n<b>{{}}"
+                f" {self.strings('version')}:</b> {_version} {build}<b>"
+                f"</b>\n{upd}\n\n<b>{{}}"
                 f" {self.strings('prefix')}:</b> {prefix}\n<b>{{}}"
                 f" {self.strings('uptime')}:"
                 f"</b> {utils.formatted_uptime()}\n\n<b>{{}}"
@@ -202,11 +201,10 @@ class HikkaInfoMod(loader.Module):
                         utils.get_platform_emoji()
                         if self._client.hikka_me.premium and not inline
                         else "👾 Netfoll",
-                        "<emoji document_id=5215327492738392838>🔩</emoji>",
-                        "<emoji document_id=5215392879320505675>🛠</emoji>",
-                        "<emoji document_id=5215263059639017128>👩‍💻</emoji>",
-                        "<emoji document_id=5456222428730498101>😲</emoji>",
-                        "<emoji document_id=5212928663309261889>⭐️</emoji>",
+                        "<emoji document_id=6334456392228800167>🪢</emoji>",
+                        "<emoji document_id=6334701737940616970>💫</emoji>",
+                        "<emoji document_id=6334620339720423126>🕛</emoji>",
+                        "<emoji document_id=6334685601748486176>🎨</emoji>",
                     ),
                 )
             )
@@ -245,13 +243,7 @@ class HikkaInfoMod(loader.Module):
 
     @loader.command(
         ru_doc="Отправляет информацию о боте",
-        it_doc="Invia informazioni sul bot",
-        de_doc="Sendet Informationen über den Bot",
-        tr_doc="Bot hakkında bilgi gönderir",
-        uz_doc="Bot haqida ma'lumot yuboradi",
-        es_doc="Envía información sobre el bot",
-        kk_doc="Бот туралы ақпарат жібереді",
-        alias="инфо",
+        aliases=["инфо", "штащ", "byaj"],
     )
     @loader.unrestricted
     async def infocmd(self, message: Message):
