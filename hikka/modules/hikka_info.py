@@ -168,7 +168,7 @@ class HikkaInfoMod(loader.Module):
 
         return (
             (
-                "/n"
+                "\n"
                 if "hikka" not in self.config["custom_message"].lower()
                 else ""
             )
