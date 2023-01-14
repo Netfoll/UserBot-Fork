@@ -88,11 +88,12 @@ class CoreMod(loader.Module):
             "{} <b>{}.{}.{}</b> <i>{}</i>\n\n<b><emoji"
             " document_id=5377437404078546699>💜</emoji> <b>Hikka-TL:"
             "</b> <i>{}</i>\n{}"
-            " <b>Hikka-Pyro:</b> <i>{}</i>\n\n<emoji"
+            " <b>Hikka-Pyro:</b> <i>{}</i>\n"
+            " <emoji document_id=5188666899860298925>🌒</emoji> <b>Hikka:</b> <i>V1.6.0</i>\n\n<emoji"
             " document_id=5454182070156794055>⌨️</emoji> <b>Hikka Developer:"
             " t.me/hikariatama</b>\n<emoji"
             " document_id=5213459976533581054>💛</emoji> <b>Netfoll Developer:"
-            " t.me/morri_bio</b>"
+            " morri_bio.t.me, penggrin.t.me and kolibracorp.t.me</b>"
         ),
         "confirm_cleardb": "⚠️ <b>Are you sure, that you want to clear database?</b>",
         "cleardb_confirm": "🗑 Clear database",
@@ -181,11 +182,11 @@ class CoreMod(loader.Module):
             " document_id=5377437404078546699>💜</emoji> <b>Hikka-TL:"
             "</b> <i>{}</i>\n{}"
             " <b>Hikka-Pyro:</b> <i>{}</i>\n"
-            "<emoji document_id=5456339269020819143>😺</emoji> <b>Hikka:</b> <i>V1.6.0</i>\n\n<emoji"
+            "<emoji document_id=5188666899860298925>🌒</emoji> <b>Hikka:</b> <i>V1.6.0</i>\n\n<emoji"
             " document_id=5454182070156794055>⌨️</emoji> <b>Hikka Developer:"
             " hikariatama.t.me</b>\n<emoji"
             " document_id=5213459976533581054>💛</emoji> <b>Netfoll Developer:"
-            " morri_bio.t.me and penggrin.t.me</b>"
+            " morri_bio.t.me, penggrin.t.me and kolibracorp.t.me</b>"
         ),
         "_cls_doc": "Управление базовыми настройками юзербота",
         "confirm_cleardb": "⚠️ <b>Вы уверены, что хотите сбросить базу данных?</b>",
