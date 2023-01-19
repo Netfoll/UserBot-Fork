@@ -42,7 +42,7 @@ class UpdaterMod(loader.Module):
             " from</b> <a href='{}'>here</a>"
         ),
         "restarting_caption": (
-            "<emoji document_id=5328274090262275771>🕗</emoji> <b>Your {} is"
+            "<emoji document_id=5325792861885570739>🕗</emoji> <b>Your {} is"
             " restarting...</b>"
         ),
         "downloading": (
@@ -54,8 +54,8 @@ class UpdaterMod(loader.Module):
             " updates...</b>"
         ),
         "success": (
-            "<emoji document_id=5326015457155620929>⏱</emoji> <b>Restart successful!"
-            " {}</b>\n<i>But still loading modules...</i>\n<i>Restart took {}s</i>"
+            "<emoji document_id=5305683825005700455>🕗</emoji> <b>Restart successful!"
+            " {}</b>\n<i>Loading modules...</i>\n<i>Restart took {}s</i>"
         ),
         "origin_cfg_doc": "Git origin URL, for where to update from",
         "btn_restart": "🔄 Restart",
@@ -81,8 +81,8 @@ class UpdaterMod(loader.Module):
             " updating...</b>"
         ),
         "full_success": (
-            "<emoji document_id=5301096082674032190>👍</emoji> <b>Userbot is fully"
-            " loaded! {}</b>\n<i>Full restart took {}s</i>"
+            "<emoji document_id=5348526883992510786>💜</emoji> <b>Userbot ready"
+            " to use! {}</b>\n<i>Full restart took {}s</i>"
         ),
         "secure_boot_complete": (
             "<emoji document_id=5472308992514464048>🔐</emoji> <b>Secure boot completed!"
@@ -96,7 +96,7 @@ class UpdaterMod(loader.Module):
             " прочитать</b> <a href='{}'>здесь</a>"
         ),
         "restarting_caption": (
-            "<emoji document_id=5328274090262275771>🕗</emoji> <b>Твой {}"
+            "<emoji document_id=5325792861885570739>🕗</emoji> <b>Твой {}"
             " перезагружается...</b>"
         ),
         "downloading": (
@@ -108,13 +108,13 @@ class UpdaterMod(loader.Module):
             " обновлений...</b>"
         ),
         "success": (
-            "<emoji document_id=5326015457155620929>⏱</emoji> <b>Перезагрузка"
-            " успешна! {}</b>\n<i>Но модули еще загружаются...</i>\n<i>Перезагрузка"
-            " заняла {} сек</i>"
+            "<emoji document_id=5305683825005700455>🕗</emoji> <b>Перезагрузка"
+            " успешна! {}</b>\n<i>Идет процесс загрузки модулей...</i>\n<i>Перезагрузка"
+            " длилась {} сек</i>"
         ),
         "full_success": (
-            "<emoji document_id=5301096082674032190>👍</emoji> <b>Юзербот полностью"
-            " загружен! {}</b>\n<i>Полная перезагрузка заняла {} сек</i>"
+            "<emoji document_id=5348526883992510786>💜</emoji> <b>Юзербот готов к"
+            " работе! {}</b>\n<i>Полная перезагрузка заняла {} сек</i>"
         ),
         "secure_boot_complete": (
             "<emoji document_id=5472308992514464048>🔐</emoji> <b>Безопасная загрузка"
@@ -160,12 +160,6 @@ class UpdaterMod(loader.Module):
     @loader.owner
     @loader.command(
         ru_doc="Перезагружает юзербот",
-        it_doc="Riavvia il bot",
-        de_doc="Startet den Userbot neu",
-        tr_doc="Kullanıcı botunu yeniden başlatır",
-        uz_doc="Foydalanuvchi botini qayta ishga tushiradi",
-        es_doc="Reinicia el bot",
-        kk_doc="Жүктеген ботты қайта жүктейді",
     )
     async def restart(self, message: Message):
         """Restarts the userbot"""

@@ -183,8 +183,8 @@ class CoreMod(loader.Module):
             "<emoji document_id=5188666899860298925>🌒</emoji> <b>Hikka:</b> <i>V1.6.0</i>\n\n<emoji"
             " document_id=5454182070156794055>⌨️</emoji> <b>Hikka Developer:"
             " hikariatama.t.me</b>\n<emoji"
-            " document_id=5213459976533581054>💛</emoji> <b>Netfoll Developer:"
-            " morri_bio.t.me, penggrin.t.me and kolibracorp.t.me</b>"
+            " document_id=5213459976533581054>💛</emoji>"
+            " <b>Developers: netfoll.t.me/3</b>"
         ),
         "_cls_doc": "Управление базовыми настройками юзербота",
         "confirm_cleardb": "⚠️ <b>Вы уверены, что хотите сбросить базу данных?</b>",
@@ -234,13 +234,7 @@ class CoreMod(loader.Module):
         return f"{str(chatid)}.{module}" if module else chatid
 
     @loader.command(
-        ru_doc="Показать версию Hikka",
-        it_doc="Mostra la versione di Hikka",
-        de_doc="Zeige die Hikka-Version an",
-        tr_doc="Hikka sürümünü gösterir",
-        uz_doc="Hikka versiyasini ko'rsatish",
-        es_doc="Mostrar la versión de Hikka",
-        kk_doc="Hikka нұсқасын көрсету",
+        ru_doc="Показать версию Netfoll",
     )
     async def netfollcmd(self, message: Message):
         """Get Hikka version"""
@@ -282,12 +276,6 @@ class CoreMod(loader.Module):
 
     @loader.command(
         ru_doc="[чат] [модуль] - Отключить бота где-либо",
-        it_doc="[chat] [module] - Disattiva il bot ovunque",
-        de_doc="[chat] [Modul] - Deaktiviere den Bot irgendwo",
-        tr_doc="[sohbet] [modül] - Botu herhangi bir yerde devre dışı bırakın",
-        uz_doc="[chat] [modul] - Botni hozircha o'chirish",
-        es_doc="[chat] [módulo] - Desactivar el bot en cualquier lugar",
-        kk_doc="[сөйлесу] [модуль] - Ботты қайда болса болсын өшіру",
     )
     async def blacklist(self, message: Message):
         """[chat_id] [module] - Blacklist the bot from operating somewhere"""
@@ -303,12 +291,6 @@ class CoreMod(loader.Module):
 
     @loader.command(
         ru_doc="[чат] - Включить бота где-либо",
-        it_doc="[chat] - Attiva il bot ovunque",
-        de_doc="[chat] - Aktiviere den Bot irgendwo",
-        tr_doc="[sohbet] - Botu herhangi bir yerde etkinleştirin",
-        uz_doc="[chat] - Botni hozircha yoqish",
-        es_doc="[chat] - Activar el bot en cualquier lugar",
-        kk_doc="[сөйлесу] - Ботты қайда болса болсын қосу",
     )
     async def unblacklist(self, message: Message):
         """<chat_id> - Unblacklist the bot from operating somewhere"""
@@ -335,12 +317,6 @@ class CoreMod(loader.Module):
 
     @loader.command(
         ru_doc="[пользователь] - Запретить пользователю выполнять команды",
-        it_doc="[utente] - Impedisci all'utente di eseguire comandi",
-        de_doc="[Benutzer] - Verbiete dem Benutzer, Befehle auszuführen",
-        tr_doc="[kullanıcı] - Kullanıcıya komutları yürütmeyi yasakla",
-        uz_doc="[foydalanuvchi] - Foydalanuvchiga buyruqlarni bajarishni taqiqlash",
-        es_doc="[usuario] - Prohibir al usuario ejecutar comandos",
-        kk_doc="[пайдаланушы] - Пайдаланушыға командаларды орындауға рұқсат бермеу",
     )
     async def blacklistuser(self, message: Message):
         """[user_id] - Prevent this user from running any commands"""
@@ -360,12 +336,6 @@ class CoreMod(loader.Module):
 
     @loader.command(
         ru_doc="[пользователь] - Разрешить пользователю выполнять команды",
-        it_doc="[utente] - Consenti all'utente di eseguire comandi",
-        de_doc="[Benutzer] - Erlaube dem Benutzer, Befehle auszuführen",
-        tr_doc="[kullanıcı] - Kullanıcıya komutları yürütmeyi yasakla",
-        uz_doc="[foydalanuvchi] - Foydalanuvchiga buyruqlarni bajarishni taqiqlash",
-        es_doc="[usuario] - Prohibir al usuario ejecutar comandos",
-        kk_doc="[пайдаланушы] - Пайдаланушыға командаларды орындауға рұқсат бермеу",
     )
     async def unblacklistuser(self, message: Message):
         """[user_id] - Allow this user to run permitted commands"""
@@ -389,12 +359,6 @@ class CoreMod(loader.Module):
     @loader.owner
     @loader.command(
         ru_doc="[dragon] <префикс> - Установить префикс команд",
-        it_doc="[dragon] <prefisso> - Imposta il prefisso dei comandi",
-        de_doc="[dragon] <Präfix> - Setze das Befehlspräfix",
-        tr_doc="[dragon] <önek> - Komut öneki ayarla",
-        uz_doc="[dragon] <avvalgi> - Buyruqlar uchun avvalgi belgilash",
-        es_doc="[dragon] <prefijo> - Establecer el prefijo de comandos",
-        kk_doc="[dragon] <бастауыш> - Командалардың бастауышын орнату",
     )
     async def setprefix(self, message: Message):
         """[dragon] <prefix> - Sets command prefix"""
@@ -449,12 +413,6 @@ class CoreMod(loader.Module):
     @loader.owner
     @loader.command(
         ru_doc="Показать список алиасов",
-        it_doc="Mostra la lista degli alias",
-        de_doc="Zeige Aliase",
-        tr_doc="Takma adları göster",
-        uz_doc="Aliaslarni ko'rsatish",
-        es_doc="Mostrar lista de alias",
-        kk_doc="Айланыстарды көрсету",
     )
     async def aliases(self, message: Message):
         """Print all your aliases"""
@@ -470,12 +428,6 @@ class CoreMod(loader.Module):
     @loader.owner
     @loader.command(
         ru_doc="Установить алиас для команды",
-        it_doc="Imposta un alias per il comando",
-        de_doc="Setze einen Alias für einen Befehl",
-        tr_doc="Bir komut için takma ad ayarla",
-        uz_doc="Buyrug' uchun alias belgilash",
-        es_doc="Establecer alias para el comando",
-        kk_doc="Команда үшін айланыс орнату",
     )
     async def addalias(self, message: Message):
         """Set an alias for a command"""
@@ -507,12 +459,6 @@ class CoreMod(loader.Module):
     @loader.owner
     @loader.command(
         ru_doc="Удалить алиас для команды",
-        it_doc="Rimuovi un alias per il comando",
-        de_doc="Entferne einen Alias für einen Befehl",
-        tr_doc="Bir komut için takma ad kaldır",
-        uz_doc="Buyrug' uchun aliasni o'chirish",
-        es_doc="Eliminar alias para el comando",
-        kk_doc="Команда үшін айланысты жою",
     )
     async def delalias(self, message: Message):
         """Remove an alias for a command"""
@@ -543,12 +489,6 @@ class CoreMod(loader.Module):
     @loader.owner
     @loader.command(
         ru_doc="Очистить базу данных",
-        it_doc="Cancella il database",
-        de_doc="Datenbank leeren",
-        tr_doc="Veritabanını temizle",
-        uz_doc="Ma'lumotlar bazasini tozalash",
-        es_doc="Limpiar la base de datos",
-        kk_doc="Деректер базасын тазалау",
     )
     async def cleardb(self, message: Message):
         """Clear the entire database, effectively performing a factory reset"""

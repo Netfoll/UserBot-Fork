@@ -19,7 +19,7 @@ class HikkaInfoMod(loader.Module):
     """Show userbot info"""
 
     strings = {
-        "name": "HikkaInfo",
+        "name": "Info",
         "owner": "Owner",
         "version": "Version",
         "build": "Build",
@@ -52,9 +52,9 @@ class HikkaInfoMod(loader.Module):
         "_cfg_cst_btn": "Custom button for info. Leave empty to remove button",
         "_cfg_banner": "URL to image banner",
         "desc": (
-            "<emoji document_id=6318565919471699564>🌌</emoji>"
-            " <b>Hikka</b>\n\nTelegram userbot with a lot of features, like inline"
-            " galleries, forms, lists and animated emojis support. Userbot - software,"
+            "<emoji document_id=4929415445443773080>🚀</emoji>"
+            " <b>Netfoll</b>\n\nTelegram userbot with a lot of features, like inline"
+            " galleries, forms, lists lists based on Hikka. Userbot - software,"
             " running on your Telegram account. If you write a command to any chat, it"
             " will get executed right there. Check out live examples at <a"
             ' href="https://github.com/MXRRI/Netfoll">GitHub</a>'
@@ -98,10 +98,9 @@ class HikkaInfoMod(loader.Module):
             " изменен</b>"
         ),
         "desc": (
-            "<emoji document_id=6318565919471699564>🌌</emoji>"
-            " <b>Hikka</b>\n\nTelegram юзербот с огромным количеством функций, из"
-            " которых: инлайн галереи, формы, списки, а также поддержка"
-            " анимированных эмодзи. Юзербот - программа, которая запускается на"
+            "<emoji document_id=4929415445443773080>🚀</emoji>"
+            " <b>Netfoll</b>\n\nTelegram юзербот с огромным количеством функций, из"
+            " которых: инлайн галереи, формы, списки основанных на Hikka. Юзербот - программа, которая запускается на"
             " твоем Telegram-аккаунте. Когда ты пишешь команду в любом чате, она"
             " сразу же выполняется. Обрати внимание на живые примеры на <a"
             ' href="https://github.com/MXRRI/Netfoll">GitHub</a>'
@@ -269,26 +268,14 @@ class HikkaInfoMod(loader.Module):
 
     @loader.unrestricted
     @loader.command(
-        ru_doc="Отправить информацию по типу 'Что такое Хикка?'",
-        it_doc="Invia informazioni del tipo 'Cosa è Hikka?'",
-        de_doc="Sende Informationen über den Bot",
-        tr_doc="Bot hakkında bilgi gönderir",
-        uz_doc="Bot haqida ma'lumot yuborish",
-        es_doc="Enviar información sobre el bot",
-        kk_doc="Бот туралы ақпарат жіберу",
+        ru_doc="Отправить информацию по типу 'Что такое Netfoll?'",
     )
-    async def hikkainfo(self, message: Message):
+    async def whonetfoll(self, message: Message):
         """Send info aka 'What is Hikka?'"""
         await utils.answer(message, self.strings("desc"))
 
     @loader.command(
         ru_doc="<текст> - Изменить текст в .info",
-        it_doc="<testo> - Cambia il testo in .info",
-        de_doc="<text> - Ändere den Text in .info",
-        tr_doc="<metin> - .info'da metni değiştir",
-        uz_doc="<matn> - .info'dagi matnni o'zgartirish",
-        es_doc="<texto> - Cambiar el texto en .info",
-        kk_doc="<мәтін> - .info мәтінін өзгерту",
     )
     async def setinfo(self, message: Message):
         """<text> - Change text in .info"""
