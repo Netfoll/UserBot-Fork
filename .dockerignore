@@ -142,6 +142,7 @@ database-*.json
 .tox
 .idea/
 venv/
+data/
 api_token.txt
 .coverage
 .vscode/
@@ -163,13 +164,3 @@ config.json
 *.m4a
 *.mp3
 *.avi
-
-# Heroku-specific rules
-.heroku/
-.apt/
-.profile.d/
-vendor/
-Pipfile.lock
-
-hikka.log.*
-unknown_errors.txt
