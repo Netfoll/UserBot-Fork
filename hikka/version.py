@@ -8,7 +8,7 @@
 # 🌐 https://github.com/MXRRI/Netfoll
 
 __version__ = (1, 6, 0)
-netver = (0, 1, 4)
+netver = (0, 1, 5)
 import os
 
 import git
@@ -18,4 +18,4 @@ try:
         path=os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
     ).active_branch.name
 except Exception:
-    branch = "master"
+    branch = "stable"

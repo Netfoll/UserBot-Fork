@@ -936,6 +936,9 @@ def get_named_platform() -> str:
     if "CODESPACES" in os.environ:
         return "🐈‍⬛ Codespaces"
 
+    if "LUMIHOST" in os.environ:
+        return "❄️ LumiHost"
+
     return f"👾{platform.system()}"
     
 

@@ -35,23 +35,21 @@ class SysInfoMod(loader.Module):
 
     strings = {
         "name": "SysInfo",
-        "names": "<emoji document_id=5172854840321114816>🔌</emoji> Info of System",
-        "cpu": "<emoji document_id=5172869086727635492>💎</emoji> CPU",
+        "names": "<emoji document_id=5357506110125254467>💎</emoji> Info of System",
+        "cpu": "<emoji document_id=5357123346934802012>🚀</emoji> CPU",
         "core": "Cores",
-        "ram": "<emoji document_id=5174693704799093859>📼</emoji> RAM",
-        "use": "<emoji document_id=5174963725098025560>🧬</emoji> UserBot Usage",
-        "pyver": "<emoji document_id=5172623642231571081>🪄</emoji> Python",
-        "release": "<emoji document_id=5172814652312126185>💽</emoji> Release OS",
-        "system": "<emoji document_id=5172622400986022463>💿</emoji> OS",
-        "ver": "<emoji document_id=5174800460506202880>🎞</emoji> Kernel",
+        "ram": "<emoji document_id=5357488530824112765>⚙️</emoji> RAM",
+        "use": "<emoji document_id=5357312566013993869>📼</emoji> UserBot Usage",
+        "pyver": "<emoji document_id=5357560458641416842>🤖</emoji> Python",
+        "release": "<emoji document_id=5357204066550162638>🎛</emoji> Release OS",
+        "system": "<emoji document_id=5357312566013993869>📼</emoji> OS",
     }
 
     strings_ru = {
-        "names": "<emoji document_id=5172854840321114816>🔌</emoji> Информация о системе",
+        "names": "<emoji document_id=5357506110125254467>💎</emoji> Информация о системе",
         "core": "Ядер",
-        "use": "<emoji document_id=5174963725098025560>🧬</emoji> ЮБ Использует",
-        "release": "<emoji document_id=5172814652312126185>💽</emoji> Релиз ОС",
-        "ver": "<emoji document_id=5174800460506202880>🎞</emoji> Ядро",
+        "use": "<emoji document_id=5357312566013993869>📼</emoji> ЮБ Использует",
+        "release": "<emoji document_id=5357204066550162638>🎛</emoji> Релиз ОС",
     }
 
     def info(self, message):
@@ -76,8 +74,7 @@ class SysInfoMod(loader.Module):
                 f'<b>{self.strings("use")}: RAM {ram_use}MB / CPU{cpu_use}%</b>\n\n'
                 f'<b>{self.strings("pyver")}: {pyver}</b>\n'
                 f'<b>{self.strings("release")}: {release}</b>\n'
-                f'<b>{self.strings("system")}: {system}</b>\n'
-                f'<b>{self.strings("ver")}: {ver}</b>\n\n'
+                f'<b>{self.strings("system")}: {system} ({ver})</b>\n\n'
             )
     @loader.command(
     ru_doc="Показать информацию о системе"

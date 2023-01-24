@@ -72,12 +72,12 @@ class UpdaterMod(loader.Module):
         ),
         "no_update": "🚸 <b>You are on the latest version, pull updates anyway?</b>",
         "cancel": "🚫 Cancel",
-        "lavhost_restart": (
-            "<emoji document_id=5469986291380657759>✌️</emoji> <b>Your {} is"
+        "lumiahost_restart": (
+            "<emoji document_id=6334395558312020287>❄️</emoji> <b>Your {} is"
             " restarting...</b>"
         ),
-        "lavhost_update": (
-            "<emoji document_id=5469986291380657759>✌️</emoji> <b>Your {} is"
+        "lumiahost_update": (
+            "<emoji document_id=6334395558312020287>❄️</emoji> <b>Your {} is"
             " updating...</b>"
         ),
         "full_success": (
@@ -137,12 +137,12 @@ class UpdaterMod(loader.Module):
         "no_update": "🚸 <b>У тебя последняя версия. Обновиться принудительно?</b>",
         "cancel": "🚫 Отмена",
         "_cls_doc": "Обновляет юзербот",
-        "lavhost_restart": (
-            "<emoji document_id=5469986291380657759>✌️</emoji> <b>Твой {}"
+        "lumiahost_restart": (
+            "<emoji document_id=6334395558312020287>❄️</emoji> <b>Твой {}"
             " перезагружается...</b>"
         ),
-        "lavhost_update": (
-            "<emoji document_id=5469986291380657759>✌️</emoji> <b>Твой {}"
+        "lumiahost_update": (
+            "<emoji document_id=6334395558312020287>❄️</emoji> <b>Твой {}"
             " обновляется...</b>"
         ),
     }
@@ -227,16 +227,13 @@ class UpdaterMod(loader.Module):
                 and isinstance(msg_obj, Message)
                 else "Netfoll"
             )
-            if "LAVHOST" not in os.environ
-            else self.strings("lavhost_restart").format(
-                '</b><emoji document_id="5192756799647785066">✌️</emoji><emoji'
-                ' document_id="5193117564015747203">✌️</emoji><emoji'
-                ' document_id="5195050806105087456">✌️</emoji><emoji'
-                ' document_id="5195457642587233944">✌️</emoji><b>'
+            if "LUMIAHOST" not in os.environ
+            else self.strings("lumiahost_restart").format(
+                '</b><emoji document_id=6334395558312020287>❄️</emoji> LumiaHost<b>'
                 if self._client.hikka_me.premium
                 and CUSTOM_EMOJIS
                 and isinstance(msg_obj, Message)
-                else "lavHost"
+                else "LumiaHost"
             ),
         )
 
@@ -360,22 +357,19 @@ class UpdaterMod(loader.Module):
             os.system(f"cd {utils.get_base_dir()} && cd .. && git reset --hard HEAD")
 
         try:
-            if "LAVHOST" in os.environ:
+            if "LUMIAHOST" in os.environ:
                 msg_obj = await utils.answer(
                     msg_obj,
-                    self.strings("lavhost_update").format(
-                        "</b><emoji document_id=5192756799647785066>✌️</emoji><emoji"
-                        " document_id=5193117564015747203>✌️</emoji><emoji"
-                        " document_id=5195050806105087456>✌️</emoji><emoji"
-                        " document_id=5195457642587233944>✌️</emoji><b>"
+                    self.strings("lumiahost_update").format(
+                        "</b><emoji document_id=6334395558312020287>❄️</emoji> LumiaHost<b>"
                         if self._client.hikka_me.premium
                         and CUSTOM_EMOJIS
                         and isinstance(msg_obj, Message)
-                        else "lavHost"
+                        else "LumiaHost"
                     ),
                 )
                 await self.process_restart_message(msg_obj)
-                os.system("lavhost update")
+                os.system("lumiahost update")
                 return
 
             with contextlib.suppress(Exception):
