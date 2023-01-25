@@ -71,7 +71,7 @@ class HikkaBackupMod(loader.Module):
         if not self.get("period"):
             await self.inline.bot.send_photo(
                 self.tg_id,
-                photo="https://github.com/hikariatama/assets/raw/master/unit_alpha.png",
+                photo="https://github.com/MXRRI/Netfoll/raw/stable/assets/BackUp.png",
                 caption=self.strings("period"),
                 reply_markup=self.inline.generate_markup(
                     utils.chunks(
@@ -81,7 +81,7 @@ class HikkaBackupMod(loader.Module):
                                 "callback": self._set_backup_period,
                                 "args": (i,),
                             }
-                            for i in [1, 2, 4, 6, 8, 12, 24, 48, 168]
+                            for i in [2, 12, 24]
                         ],
                         3,
                     )
