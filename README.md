@@ -1,2 +1,2 @@
-Coming Soon?? Install in LumiaHost (UserBot in alpha-test)
+Coming Soon?? Install in LumiHost (UserBot in alpha-test)
 Based on Hikka
