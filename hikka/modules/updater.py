@@ -72,11 +72,11 @@ class UpdaterMod(loader.Module):
         ),
         "no_update": "🚸 <b>You are on the latest version, pull updates anyway?</b>",
         "cancel": "🚫 Cancel",
-        "lumiahost_restart": (
+        "lumihost_restart": (
             "<emoji document_id=6334395558312020287>❄️</emoji> <b>Your {} is"
             " restarting...</b>"
         ),
-        "lumiahost_update": (
+        "lumihost_update": (
             "<emoji document_id=6334395558312020287>❄️</emoji> <b>Your {} is"
             " updating...</b>"
         ),
@@ -137,11 +137,11 @@ class UpdaterMod(loader.Module):
         "no_update": "🚸 <b>У тебя последняя версия. Обновиться принудительно?</b>",
         "cancel": "🚫 Отмена",
         "_cls_doc": "Обновляет юзербот",
-        "lumiahost_restart": (
+        "lumihost_restart": (
             "<emoji document_id=6334395558312020287>❄️</emoji> <b>Твой {}"
             " перезагружается...</b>"
         ),
-        "lumiahost_update": (
+        "lumihost_update": (
             "<emoji document_id=6334395558312020287>❄️</emoji> <b>Твой {}"
             " обновляется...</b>"
         ),
@@ -227,13 +227,13 @@ class UpdaterMod(loader.Module):
                 and isinstance(msg_obj, Message)
                 else "Netfoll"
             )
-            if "LUMIAHOST" not in os.environ
-            else self.strings("lumiahost_restart").format(
-                '</b><emoji document_id=6334395558312020287>❄️</emoji> LumiaHost<b>'
+            if "LUMIHOST" not in os.environ
+            else self.strings("lumihost_restart").format(
+                '</b><emoji document_id=6334395558312020287>❄️</emoji> LumiHost<b>'
                 if self._client.hikka_me.premium
                 and CUSTOM_EMOJIS
                 and isinstance(msg_obj, Message)
-                else "LumiaHost"
+                else "LumiHost"
             ),
         )
 
@@ -357,19 +357,19 @@ class UpdaterMod(loader.Module):
             os.system(f"cd {utils.get_base_dir()} && cd .. && git reset --hard HEAD")
 
         try:
-            if "LUMIAHOST" in os.environ:
+            if "LUMIHOST" in os.environ:
                 msg_obj = await utils.answer(
                     msg_obj,
-                    self.strings("lumiahost_update").format(
-                        "</b><emoji document_id=6334395558312020287>❄️</emoji> LumiaHost<b>"
+                    self.strings("lumihost_update").format(
+                        "</b><emoji document_id=6334395558312020287>❄️</emoji> LumiHost<b>"
                         if self._client.hikka_me.premium
                         and CUSTOM_EMOJIS
                         and isinstance(msg_obj, Message)
-                        else "LumiaHost"
+                        else "LumiHost"
                     ),
                 )
                 await self.process_restart_message(msg_obj)
-                os.system("lumiahost update")
+                os.system("lumihost update")
                 return
 
             with contextlib.suppress(Exception):
