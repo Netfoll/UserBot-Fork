@@ -16,13 +16,10 @@ from ..inline.types import BotInlineCall
 logger = logging.getLogger(__name__)
 
 imgs = [
-    "https://i.gifer.com/GmUB.gif",
-    "https://i.gifer.com/Afdn.gif",
-    "https://i.gifer.com/3uvT.gif",
-    "https://i.gifer.com/2qQQ.gif",
-    "https://i.gifer.com/Lym6.gif",
-    "https://i.gifer.com/IjT4.gif",
-    "https://i.gifer.com/A9H.gif",
+    "https://i.gifer.com/Erie.gif",
+    "https://i.gifer.com/QD5k.gif",
+    "https://i.gifer.com/ZAAd.gif",
+    "https://i.gifer.com/KmhC.gif",
 ]
 
 
@@ -32,23 +29,20 @@ class QuickstartMod(loader.Module):
 
     strings = {
         "name": "Quickstart",
-        "base": """🌘🇬🇧 <b>Hello.</b> You've just installed <b>Hikka</b> userbot.
+        "base": """👋🏻 <b>Hi!</b> I am a <B> inline-bot Netfoll</B>, then let's go through a little training and configure Netfoll for your needs
 
-❓ <b>Need help?</b> Feel free to join our support chat. We help <b>everyone</b>.
+🤙🏻 <b>We advise you to join </b><a href="https://t.me/NetfollUB "><b>our chat!</b></a><b> There you can find help if you don't understand something or if there are problems
 
-📼 <b>You can find and install modules using @hikkamods_bot. Simply enter your search query and click ⛩ Install on needed module</b>
+</b> ⚡️ <b>You can search for interesting modules using </b>@hikkamods_bot<b>, use it as a built-in installation on the required module.
+</b> 💥 <i>You can find channels of confirmed developers can be found </i><a href="https://t.me/NetfollUB/279 "><I> am here
 
-📣 <b>Check out community made channels with modules: <a href="https://t.me/hikka_ub/126">show</a></b>
+</i></a> 🎯 <b>A brief guide</b>:
 
-💁‍♀️ <b>Quickstart:</b>
+<i> 🔸 In order to find out the modules installed on you, use .mods
+🔹 To install the module from the file, use </i> <code>.lm</code><i> (</i><code>.loadmod</code><i>) and to delete </i>.unloadmod
+<i> 🔺 More usage guides can be found in the chat </i><a href="https://t.me/NetfollUB/3373 ">Netfoll
 
-1️⃣ <b>Type</b> <code>.help</code> <b>to see modules list</b>
-2️⃣ <b>Type</b> <code>.help &lt;ModuleName/command&gt;</code> <b>to see help of module ModuleName</b>
-3️⃣ <b>Type</b> <code>.dlmod &lt;link&gt;</code> <b>to load module from link</b>
-4️⃣ <b>Type</b> <code>.loadmod</code> <b>with reply to file to install module from it</b>
-5️⃣ <b>Type</b> <code>.unloadmod &lt;ModuleName&gt;</code> <b>to unload module ModuleName</b>
-
-💡 <b>Hikka supports modules from Friendly-Telegram, DragonUserbot and GeekTG, as well as its own ones.</b>""",
+</a><i> 🤝 <b>Netfoll</b> is based on <b>Hikka</b>, therefore supports modules <b>Hikka</b>, <b>FTG</b>, <b>DragonUB</b> and <b>GeekTG</b> and their own.</i>""",
         "railway": (
             "🚂 <b>Your userbot is installed on Railway</b>. This platform has only"
             " <b>500 free hours per month</b>. Once this limit is reached, your"
@@ -57,27 +51,24 @@ class QuickstartMod(loader.Module):
         ),
         "language_saved": "🇬🇧 Language saved!",
         "language": "🇬🇧 English",
-        "btn_support": "🥷 Support chat",
+        "btn_support": "👾 Netfoll Chat",
     }
 
     strings_ru = {
-        "base": """🌘🇷🇺 <b>Привет.</b> Твой юзербот <b>Hikka</b> установлен.
+        "base": """👋🏻 <b>Привет!</b> Я являюсь<b> Inline-ботом Netfoll</b>, давай пройдем небольшое обучение и настроим Netfoll под твои нужды 
 
-❓ <b>Нужна помощь?</b> Вступай в наш чат поддержки. Мы помогаем <b>всем</b>.
+🤙🏻 <b>Советуем вступить в </b><a href="https://t.me/NetfollUB"><b>наш чат!</b></a><b> Там вы сможете найти помощь если чего то не поймете или если будут проблемы
 
-📼 <b>Ты можешь искать и устанавливать модули через @hikkamods_bot. Просто введи поисковый запрос и нажми ⛩ Install на нужном модуле</b>
+</b>⚡️ <b>Искать интересные модули можно с помощью </b>@hikkamods_bot<b>, используйте его как inline или как обычного бота и для установки нажмите ⛩ Install на требуемом модуле. 
+</b>💥 <i>Вы можете найти каналы подтверждённых разработчиков можно найти </i><a href="https://t.me/NetfollUB/279"><i>тут
 
-📣 <b>Загляни в каналы с модулями, созданными комьюнити: <a href="https://t.me/hikka_ub/126">показать</a></b>
+</i></a>🎯 <b>Краткий гайд</b>:
 
-💁‍♀️ <b>Быстрый гайд:</b>
+<i>🔸 Для того чтобы узнать модули установленные у вас используй .mods
+🔹 Для установки модуля с файла используй</i> <code>.lm</code><i> (</i><code>.loadmod</code><i>) а для удаления </i>.unloadmod
+<i>🔺 Больше гайдов по использованию можете найти в чате </i><a href="https://t.me/NetfollUB/3373">Netfoll
 
-1️⃣ <b>Напиши</b> <code>.help</code> <b>чтобы увидеть список модулей</b>
-2️⃣ <b>Напиши</b> <code>.help &lt;Название модуля/команда&gt;</code> <b>чтобы увидеть описание модуля</b>
-3️⃣ <b>Напиши</b> <code>.dlmod &lt;ссылка&gt;</code> <b>чтобы загрузить модуль из ссылка</b>
-4️⃣ <b>Напиши</b> <code>.loadmod</code> <b>ответом на файл, чтобы загрузить модуль из него</b>
-5️⃣ <b>Напиши</b> <code>.unloadmod &lt;Название модуля&gt;</code> <b>чтобы выгрузить модуль</b>
-
-💡 <b>Hikka поддерживает модули из Friendly-Telegram, DragonUserbot и GeekTG, а также свои собственные.</b>
+</a><i>🤝 <b>Netfoll</b> основан на <b>Hikka</b>, поэтому поддерживает модули <b>Hikka</b>, <b>FTG</b>, <b>DragonUB</b> и <b>GeekTG</b> и свои собственные.</i>
 """,
         "railway": (
             "🚂 <b>Твой юзербот установлен на Railway</b>. На этой платформе ты"
@@ -87,7 +78,7 @@ class QuickstartMod(loader.Module):
         ),
         "language_saved": "🇷🇺 Язык сохранен!",
         "language": "🇷🇺 Русский",
-        "btn_support": "🥷 Чат поддержки",
+        "btn_support": "👾 Чат Netfoll",
     }
 
     async def client_ready(self):
@@ -99,7 +90,7 @@ class QuickstartMod(loader.Module):
                 [
                     {
                         "text": self.strings("btn_support"),
-                        "url": "https://t.me/hikka_talks",
+                        "url": "https://t.me/netfollub",
                     }
                 ],
             ]
