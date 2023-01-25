@@ -232,7 +232,7 @@ class TokenObtainment(InlineUnit):
                     for msg in [
                         "/setinline",
                         button.text,
-                        "user@hikka:~$",
+                        "👾 Inline-Commands...",
                         "/setinlinefeedback",
                         button.text,
                         "Enabled",
