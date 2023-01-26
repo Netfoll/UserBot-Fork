@@ -124,7 +124,7 @@ class HikkaInfoMod(loader.Module):
             ),
             loader.ConfigValue(
                 "banner_url",
-                "https://github.com/MXRRI/Netfoll/raw/Dev/assets/banner.png",
+                "https://github.com/MXRRI/Netfoll/raw/stable/assets/banner.png",
                 lambda: self.strings("_cfg_banner"),
                 validator=loader.validators.Link(),
             ),

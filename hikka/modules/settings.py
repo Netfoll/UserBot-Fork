@@ -240,16 +240,13 @@ class CoreMod(loader.Module):
         """Get Hikka version"""
         await utils.answer_file(
             message,
-            "https://github.com/MXRRI/Netfoll/raw/Dev/assets/banner.png",
+            "https://github.com/MXRRI/Netfoll/raw/stable/assets/banner.png",
             self.strings("hikka").format(
                 (
                     (
                         utils.get_platform_emoji(self._client)
                         + (
-                            "<emoji document_id=5192756799647785066>✌️</emoji><emoji"
-                            " document_id=5193117564015747203>✌️</emoji><emoji"
-                            " document_id=5195050806105087456>✌️</emoji><emoji"
-                            " document_id=5195457642587233944>✌️</emoji>"
+                            ""
                             if "LAVHOST" in os.environ
                             else ""
                         )
