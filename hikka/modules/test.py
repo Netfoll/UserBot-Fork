@@ -45,7 +45,7 @@ class TestMod(loader.Module):
             " logs at verbosity</b> <code>{}</code><b>.</b>"
         ),
         "logs_caption": (
-            "<emoji document_id=5188377234380954537>🌘</emoji> <b>Hikka logs with"
+            "<emoji document_id=5384307092599348179>🫡</emoji> <b>Netfoll logs with"
             " verbosity</b> <code>{}</code>\n\n<emoji"
             " document_id=6318902906900711458>⚪️</emoji> <b>Version:"
             " {}.{}.{}</b>{}"
@@ -106,7 +106,7 @@ class TestMod(loader.Module):
             " уровня</b> <code>{}</code><b>.</b>"
         ),
         "logs_caption": (
-            "<emoji document_id=5188377234380954537>🌘</emoji> <b>Логи Hikka уровня"
+            "<emoji document_id=5384307092599348179>🫡</emoji> Логи <b>Netfoll</b> уровня"
             "</b> <code>{}</code>\n\n<emoji document_id=6318902906900711458>⚪️</emoji>"
             " <b>Версия: {}.{}.{}</b>{}"
         ),
