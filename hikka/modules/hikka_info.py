@@ -31,7 +31,7 @@ class HikkaInfoMod(loader.Module):
         "send_info": "Send userbot info",
         "description": "ℹ This will not compromise any sensitive info",
         "up-to-date": (
-            "<emoji document_id=5215191209131123104>💎</emoji> <b>Up-to-date</b>"
+            ""
         ),
         "update_required": (
             "<emoji document_id=6334760737906362392>⚡</emoji> <b>Update required"
@@ -74,7 +74,7 @@ class HikkaInfoMod(loader.Module):
         "description": "ℹ Это не раскроет никакой личной информации",
         "_ihandle_doc_info": "Отправить информацию о юзерботе",
         "up-to-date": (
-            "<emoji document_id=5215191209131123104>💎</emoji> <b>Актуальная версия</b>"
+            ""
         ),
         "update_required": (
             "<emoji document_id=6334760737906362392>⚡</emoji> <b>Требуется обновление"
@@ -191,7 +191,7 @@ class HikkaInfoMod(loader.Module):
                 f" {self.strings('prefix')}:</b> {prefix}\n<b>{{}}"
                 f" {self.strings('uptime')}:"
                 f"</b> {utils.formatted_uptime()}\n\n<b>{{}}"
-                f" CPU and RAM usage: {utils.get_cpu_usage()}% | {utils.get_ram_usage()} MB\n"
+                f" Usage: CPU {utils.get_cpu_usage()}% | RAM {utils.get_ram_usage()} MB\n"
                 f"{platform}"
             ).format(
                 *map(
@@ -220,7 +220,7 @@ class HikkaInfoMod(loader.Module):
         )
 
     @loader.inline_handler(
-        thumb_url="https://img.icons8.com/external-others-inmotus-design/344/external-Moon-round-icons-others-inmotus-design-2.png"
+        thumb_url="https://img.icons8.com/nolan/512/info-squared.png"
     )
     @loader.inline_everyone
     async def info(self, _: InlineQuery) -> dict:
@@ -235,7 +235,7 @@ class HikkaInfoMod(loader.Module):
                 else {"message": self._render_info(True)}
             ),
             "thumb": (
-                "https://github.com/MXRRI/Netfoll/raw/Dev/assets/bot_pfp.png"
+                "https://github.com/MXRRI/Netfoll/raw/Stable/assets/bot_pfp.png"
             ),
             "reply_markup": self._get_mark(),
         }
