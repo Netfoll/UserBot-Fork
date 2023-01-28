@@ -186,12 +186,12 @@ class HikkaInfoMod(loader.Module):
             if self.config["custom_message"]
             else (
                 f'<b>{{}} for <b>{me}</b></b>\n\n{{}}'
-                f" {self.strings('version')}:</b> {_version} {build}<b>\n"
+                f" <b>{self.strings('version')}:</b> {_version} {build}<b>\n"
                 f"</b>{upd}\n<b>{{}}"
-                f" {self.strings('prefix')}:</b> {prefix}\n<b>{{}}"
-                f" {self.strings('uptime')}:"
+                f" <b>{self.strings('prefix')}:</b> {prefix}\n<b>{{}}"
+                f" <b>{self.strings('uptime')}:"
                 f"</b> {utils.formatted_uptime()}\n\n<b>{{}}"
-                f" Usage: CPU {utils.get_cpu_usage()}% | RAM {utils.get_ram_usage()} MB\n"
+                f" <b>Usage:</b> CPU {utils.get_cpu_usage()}% | RAM {utils.get_ram_usage()} MB\n"
                 f"{platform}"
             ).format(
                 *map(
