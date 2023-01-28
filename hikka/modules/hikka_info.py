@@ -31,11 +31,11 @@ class HikkaInfoMod(loader.Module):
         "send_info": "Send userbot info",
         "description": "ℹ This will not compromise any sensitive info",
         "up-to-date": (
-            ""
+            "\n"
         ),
         "update_required": (
             "<emoji document_id=6334760737906362392>⚡</emoji> <b>Update required"
-            "</b> <code>.update</code>"
+            "</b> <code>.update</code>\n"
         ),
         "setinfo_no_args": (
             "<emoji document_id=5370881342659631698>😢</emoji> <b>You need to specify"
@@ -74,11 +74,11 @@ class HikkaInfoMod(loader.Module):
         "description": "ℹ Это не раскроет никакой личной информации",
         "_ihandle_doc_info": "Отправить информацию о юзерботе",
         "up-to-date": (
-            ""
+            "\n"
         ),
         "update_required": (
             "<emoji document_id=6334760737906362392>⚡</emoji> <b>Требуется обновление"
-            "</b> <code>.update</code>"
+            "</b> <code>.update</code>\n"
         ),
         "_cfg_cst_msg": (
             "Кастомный текст сообщения в info. Может содержать ключевые слова {me},"
@@ -186,8 +186,8 @@ class HikkaInfoMod(loader.Module):
             if self.config["custom_message"]
             else (
                 f'<b>{{}} for <b>{me}</b></b>\n\n{{}}'
-                f" {self.strings('version')}:</b> {_version} {build}<b>"
-                f"</b>\n{upd}\n\n<b>{{}}"
+                f" {self.strings('version')}:</b> {_version} {build}<b>\n"
+                f"</b>{upd}\n<b>{{}}"
                 f" {self.strings('prefix')}:</b> {prefix}\n<b>{{}}"
                 f" {self.strings('uptime')}:"
                 f"</b> {utils.formatted_uptime()}\n\n<b>{{}}"
