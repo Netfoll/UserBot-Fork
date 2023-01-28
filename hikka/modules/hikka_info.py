@@ -192,7 +192,7 @@ class HikkaInfoMod(loader.Module):
                 f" <b>{self.strings('uptime')}:"
                 f"</b> {utils.formatted_uptime()}\n\n<b>{{}}"
                 f" <b>Usage:</b> CPU {utils.get_cpu_usage()}% | RAM {utils.get_ram_usage()} MB\n"
-                f"{platform}"
+                f"<b>{platform}</b>"
             ).format(
                 *map(
                     lambda x: utils.remove_html(x) if inline else x,
