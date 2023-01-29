@@ -31,11 +31,11 @@ class HikkaInfoMod(loader.Module):
         "send_info": "Send userbot info",
         "description": "ℹ This will not compromise any sensitive info",
         "up-to-date": (
-            "<emoji document_id=5215191209131123104>💎</emoji> <b>Up-to-date</b>"
+            ""
         ),
         "update_required": (
             "<emoji document_id=6334760737906362392>⚡</emoji> <b>Update required"
-            "</b> <code>.update</code>"
+            "</b> <code>.update</code>\n"
         ),
         "setinfo_no_args": (
             "<emoji document_id=5370881342659631698>😢</emoji> <b>You need to specify"
@@ -74,11 +74,11 @@ class HikkaInfoMod(loader.Module):
         "description": "ℹ Это не раскроет никакой личной информации",
         "_ihandle_doc_info": "Отправить информацию о юзерботе",
         "up-to-date": (
-            "<emoji document_id=5215191209131123104>💎</emoji> <b>Актуальная версия</b>"
+            ""
         ),
         "update_required": (
             "<emoji document_id=6334760737906362392>⚡</emoji> <b>Требуется обновление"
-            "</b> <code>.update</code>"
+            "</b> <code>.update</code>\n"
         ),
         "_cfg_cst_msg": (
             "Кастомный текст сообщения в info. Может содержать ключевые слова {me},"
@@ -124,7 +124,7 @@ class HikkaInfoMod(loader.Module):
             ),
             loader.ConfigValue(
                 "banner_url",
-                "https://github.com/MXRRI/Netfoll/raw/Dev/assets/banner.png",
+                "https://github.com/MXRRI/Netfoll/raw/stable/assets/banner.png",
                 lambda: self.strings("_cfg_banner"),
                 validator=loader.validators.Link(),
             ),
@@ -161,7 +161,7 @@ class HikkaInfoMod(loader.Module):
             "🕶": "<emoji document_id=5407025283456835913>📱</emoji>",
             "🐈‍⬛": "<emoji document_id=6334750507294262724>🐈‍⬛</emoji>",
             "✌️": "<emoji document_id=5469986291380657759>✌️</emoji>",
-            "👾": "<emoji document_id=5370869711888194012>👾</emoji> ",
+            "👾": "<emoji document_id=5866169914603081371>🐧</emoji> ",
         }.items():
             platform = platform.replace(emoji, icon)
 
@@ -186,13 +186,13 @@ class HikkaInfoMod(loader.Module):
             if self.config["custom_message"]
             else (
                 f'<b>{{}} for <b>{me}</b></b>\n\n{{}}'
-                f" {self.strings('version')}:</b> {_version} {build}<b>"
-                f"</b>\n{upd}\n\n<b>{{}}"
-                f" {self.strings('prefix')}:</b> {prefix}\n<b>{{}}"
-                f" {self.strings('uptime')}:"
+                f" <b>{self.strings('version')}:</b> {_version} {build}<b>\n"
+                f"</b>{upd}\n<b>{{}}"
+                f" <b>{self.strings('prefix')}:</b> {prefix}\n<b>{{}}"
+                f" <b>{self.strings('uptime')}:"
                 f"</b> {utils.formatted_uptime()}\n\n<b>{{}}"
-                f" CPU and RAM usage: {utils.get_cpu_usage()}% | {utils.get_ram_usage()} MB\n"
-                f"{platform}"
+                f" <b>Usage:</b> CPU {utils.get_cpu_usage()}% | RAM {utils.get_ram_usage()} MB\n"
+                f"<b>{platform}</b>"
             ).format(
                 *map(
                     lambda x: utils.remove_html(x) if inline else x,
@@ -220,7 +220,7 @@ class HikkaInfoMod(loader.Module):
         )
 
     @loader.inline_handler(
-        thumb_url="https://img.icons8.com/external-others-inmotus-design/344/external-Moon-round-icons-others-inmotus-design-2.png"
+        thumb_url="https://img.icons8.com/nolan/512/info-squared.png"
     )
     @loader.inline_everyone
     async def info(self, _: InlineQuery) -> dict:
@@ -235,7 +235,7 @@ class HikkaInfoMod(loader.Module):
                 else {"message": self._render_info(True)}
             ),
             "thumb": (
-                "https://github.com/MXRRI/Netfoll/raw/Dev/assets/bot_pfp.png"
+                "https://github.com/MXRRI/Netfoll/raw/Stable/assets/bot_pfp.png"
             ),
             "reply_markup": self._get_mark(),
         }

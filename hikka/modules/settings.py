@@ -180,11 +180,9 @@ class CoreMod(loader.Module):
             " document_id=5377437404078546699>💜</emoji> <b>Hikka-TL:"
             "</b> <i>{}</i>\n{}"
             " <b>Hikka-Pyro:</b> <i>{}</i>\n"
-            "<emoji document_id=5188666899860298925>🌒</emoji> <b>Hikka:</b> <i>V1.6.0</i>\n\n<emoji"
-            " document_id=5454182070156794055>⌨️</emoji> <b>Hikka Developer:"
-            " hikariatama.t.me</b>\n<emoji"
-            " document_id=5213459976533581054>💛</emoji>"
-            " <b>Developers: netfoll.t.me/3</b>"
+            "<emoji document_id=5188666899860298925>🌒</emoji> <b>Hikka:</b> <i>V1.6.0</i>\n<emoji"
+            " document_id=6327560044845991305>👾</emoji>"
+            " <b>Разработчики: netfoll.t.me/3</b>"
         ),
         "_cls_doc": "Управление базовыми настройками юзербота",
         "confirm_cleardb": "⚠️ <b>Вы уверены, что хотите сбросить базу данных?</b>",
@@ -199,8 +197,8 @@ class CoreMod(loader.Module):
             " то?</b>"
         ),
         "unstable": (
-            "\n\n<emoji document_id=5467370583282950466>🙈</emoji> <b>Ты используешь"
-            " нестабильную ветку</b> <code>{}</code><b>!</b>"
+            "\n\n<emoji document_id=6334517075821725662>👀</emoji> <b>Используется"
+            " нестабильная ветка</b> <code>{}</code><b>!</b>"
         ),
         "prefix_collision": (
             "<emoji document_id=5469654973308476699>💣</emoji> <b>Префиксы Dragon и"
@@ -240,16 +238,13 @@ class CoreMod(loader.Module):
         """Get Hikka version"""
         await utils.answer_file(
             message,
-            "https://github.com/MXRRI/Netfoll/raw/Dev/assets/banner.png",
+            "https://github.com/MXRRI/Netfoll/raw/stable/assets/banner.png",
             self.strings("hikka").format(
                 (
                     (
                         utils.get_platform_emoji(self._client)
                         + (
-                            "<emoji document_id=5192756799647785066>✌️</emoji><emoji"
-                            " document_id=5193117564015747203>✌️</emoji><emoji"
-                            " document_id=5195050806105087456>✌️</emoji><emoji"
-                            " document_id=5195457642587233944>✌️</emoji>"
+                            ""
                             if "LAVHOST" in os.environ
                             else ""
                         )
@@ -269,7 +264,7 @@ class CoreMod(loader.Module):
             )
             + (
                 ""
-                if version.branch == "master"
+                if version.branch == "stable"
                 else self.strings("unstable").format(version.branch)
             ),
         )
