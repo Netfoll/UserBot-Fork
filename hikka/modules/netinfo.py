@@ -28,8 +28,6 @@ class HikkaInfoMod(loader.Module):
         "prefix": "Prefix",
         "uptime": "Uptime",
         "branch": "Branch",
-        "cpu_usage": "CPU usage",
-        "ram_usage": "RAM usage",
         "send_info": "Send userbot info",
         "description": "ℹ This will not compromise any sensitive info",
         "up-to-date": (
@@ -48,8 +46,8 @@ class HikkaInfoMod(loader.Module):
             " successfully</b>"
         ),
         "_cfg_cst_msg": (
-            "Custom message for info. May contain {me}, {version}, {build}, {prefix},"
-            " {platform}, {upd}, {uptime}, {cpu_usage}, {ram_usage}, {branch} keywords"
+            "Custom message for info. May contain {me}, {version}, {prefix},"
+            " {platform}, {upd}, {uptime}, {cpu_usage}, {ram_usage} keywords"
         ),
         "_cfg_cst_btn": "Custom button for info. Leave empty to remove button",
         "_cfg_banner": "URL to image banner",
@@ -70,8 +68,6 @@ class HikkaInfoMod(loader.Module):
         "prefix": "Префикс",
         "uptime": "Аптайм",
         "branch": "Ветка",
-        "cpu_usage": "Использование CPU",
-        "ram_usage": "Использование RAM",
         "send_info": "Отправить информацию о юзерботе",
         "description": "ℹ Это не раскроет никакой личной информации",
         "_ihandle_doc_info": "Отправить информацию о юзерботе",
@@ -84,8 +80,8 @@ class HikkaInfoMod(loader.Module):
         ),
         "_cfg_cst_msg": (
             "Кастомный текст сообщения в info. Может содержать ключевые слова {me},"
-            " {version}, {build}, {prefix}, {platform}, {upd}, {uptime}, {cpu_usage},"
-            " {ram_usage}, {branch}"
+            " {version}, {prefix}, {platform}, {upd}, {uptime}, {cpu_usage},"
+            " {ram_usage}"
         ),
         "_cfg_cst_btn": (
             "Кастомная кнопка в сообщении в info. Оставь пустым, чтобы убрать кнопку"
@@ -205,8 +201,7 @@ class HikkaInfoMod(loader.Module):
                 f" <b>{self.strings('prefix')}:</b> {prefix}\n<b>{{}}"
                 f" <b>{self.strings('uptime')}:"
                 f"</b> {utils.formatted_uptime()}\n\n<b>{{}}"
-                f" <b>Usage:</b> CPU {utils.get_cpu_usage()}% | RAM {utils.get_ram_usage()} MB\n"
-                f"<b>{platform}</b>"
+                f"<b>{platform} ({utils.get_cpu_usage()}% | {utils.get_ram_usage()})</b>"
             ).format(
                 *map(
                     lambda x: utils.remove_html(x) if inline else x,
