@@ -1,8 +1,10 @@
-# ©️ Dan Gazizullin, 2021-2022
-# This file is a part of Hikka Userbot
-# 🌐 https://github.com/hikariatama/Hikka
-# You can redistribute it and/or modify it under the terms of the GNU AGPLv3
-# 🔑 https://www.gnu.org/licenses/agpl-3.0.html
+#             █ █ ▀ █▄▀ ▄▀█ █▀█ ▀
+#             █▀█ █ █ █ █▀█ █▀▄ █
+#              © Copyright 2023
+#           https://t.me/hikariatama
+#
+# 🔒      Licensed under the GNU AGPLv3
+# 🌐 https://www.gnu.org/licenses/agpl-3.0.html
 # Morri and Penggrin modifided Hikka files for Netfoll
 # 🌐 https://github.com/MXRRI/Netfoll
 
@@ -130,6 +132,18 @@ class HikkaInfoMod(loader.Module):
             ),
         )
 
+    async def client_ready(self):
+        self._me = await self._client.get_me()
+
+        # Legacy migration
+        if (
+            self.config["banner_url"]
+            == "https://github.com/MXRRI/Netfoll/raw/stable/assets/banner.png"
+        ):
+            self.config[
+                "banner_url"
+            ] = "https://github.com/MXRRI/Netfoll/raw/stable/assets/banner.png"
+
     def _render_info(self, inline: bool) -> str:
         try:
             repo = git.Repo(search_parent_directories=True)
@@ -141,15 +155,15 @@ class HikkaInfoMod(loader.Module):
             upd = ""
 
         me = '<b><a href="tg://user?id={}">{}</a></b>'.format(
-            self._client.hikka_me.id,
-            utils.escape_html(get_display_name(self._client.hikka_me)),
+            self._me.id,
+            utils.escape_html(get_display_name(self._me)),
         )
         build = utils.get_commit_url()
         _version = f'<i>{version.branch} {".".join(list(map(str, list(version.netver))))}</i>'
         prefix = f"«<code>{utils.escape_html(self.get_prefix())}</code>»"
 
         platform = utils.get_named_platform()
-
+       
         for emoji, icon in {
             "🍊": "<emoji document_id=5449599833973203438>🧡</emoji>",
             "🍇": "<emoji document_id=5449468596952507859>💜</emoji>",
@@ -235,15 +249,11 @@ class HikkaInfoMod(loader.Module):
                 else {"message": self._render_info(True)}
             ),
             "thumb": (
-                "https://github.com/MXRRI/Netfoll/raw/Stable/assets/bot_pfp.png"
+                "hhttps://github.com/MXRRI/Netfoll/raw/Stable/assets/bot_pfp.png"
             ),
             "reply_markup": self._get_mark(),
         }
 
-    @loader.command(
-        ru_doc="Отправляет информацию о боте",
-        aliases=["инфо", "штащ", "byaj"],
-    )
     @loader.unrestricted
     async def infocmd(self, message: Message):
         """Send userbot info"""
@@ -260,11 +270,17 @@ class HikkaInfoMod(loader.Module):
                 ),
             )
         else:
-            await utils.answer_file(
-                message,
-                self.config["banner_url"],
-                self._render_info(False),
-            )
+            try:
+                await self._client.send_file(
+                    message.peer_id,
+                    self.config["banner_url"],
+                    caption=self._render_info(False),
+                )
+            except Exception:
+                await utils.answer(message, self._render_info(False))
+            else:
+                if message.out:
+                    await message.delete()
 
     @loader.unrestricted
     @loader.command(
