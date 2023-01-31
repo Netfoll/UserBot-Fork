@@ -1,8 +1,10 @@
-# ©️ Dan Gazizullin, 2021-2022
-# This file is a part of Hikka Userbot
-# 🌐 https://github.com/hikariatama/Hikka
-# You can redistribute it and/or modify it under the terms of the GNU AGPLv3
-# 🔑 https://www.gnu.org/licenses/agpl-3.0.html
+#             █ █ ▀ █▄▀ ▄▀█ █▀█ ▀
+#             █▀█ █ █ █ █▀█ █▀▄ █
+#              © Copyright 2023
+#           https://t.me/hikariatama
+#
+# 🔒      Licensed under the GNU AGPLv3
+# 🌐 https://www.gnu.org/licenses/agpl-3.0.html
 # Morri and Penggrin modifided Hikka files for Netfoll
 # 🌐 https://github.com/MXRRI/Netfoll
 
@@ -26,17 +28,8 @@ class HikkaInfoMod(loader.Module):
         "prefix": "Prefix",
         "uptime": "Uptime",
         "branch": "Branch",
-        "cpu_usage": "CPU usage",
-        "ram_usage": "RAM usage",
         "send_info": "Send userbot info",
         "description": "ℹ This will not compromise any sensitive info",
-        "up-to-date": (
-            ""
-        ),
-        "update_required": (
-            "<emoji document_id=6334760737906362392>⚡</emoji> <b>Update required"
-            "</b> <code>.update</code>\n"
-        ),
         "setinfo_no_args": (
             "<emoji document_id=5370881342659631698>😢</emoji> <b>You need to specify"
             " text to change info to</b>"
@@ -46,8 +39,8 @@ class HikkaInfoMod(loader.Module):
             " successfully</b>"
         ),
         "_cfg_cst_msg": (
-            "Custom message for info. May contain {me}, {version}, {build}, {prefix},"
-            " {platform}, {upd}, {uptime}, {cpu_usage}, {ram_usage}, {branch} keywords"
+            "Custom message for info. May contain {me}, {version}, {prefix},"
+            " {platform}, {upd}, {uptime}, {cpu_usage}, {ram_usage} keywords"
         ),
         "_cfg_cst_btn": "Custom button for info. Leave empty to remove button",
         "_cfg_banner": "URL to image banner",
@@ -68,22 +61,13 @@ class HikkaInfoMod(loader.Module):
         "prefix": "Префикс",
         "uptime": "Аптайм",
         "branch": "Ветка",
-        "cpu_usage": "Использование CPU",
-        "ram_usage": "Использование RAM",
         "send_info": "Отправить информацию о юзерботе",
         "description": "ℹ Это не раскроет никакой личной информации",
         "_ihandle_doc_info": "Отправить информацию о юзерботе",
-        "up-to-date": (
-            ""
-        ),
-        "update_required": (
-            "<emoji document_id=6334760737906362392>⚡</emoji> <b>Требуется обновление"
-            "</b> <code>.update</code>\n"
-        ),
         "_cfg_cst_msg": (
             "Кастомный текст сообщения в info. Может содержать ключевые слова {me},"
-            " {version}, {build}, {prefix}, {platform}, {upd}, {uptime}, {cpu_usage},"
-            " {ram_usage}, {branch}"
+            " {version}, {prefix}, {platform}, {upd}, {uptime}, {cpu_usage},"
+            " {ram_usage}"
         ),
         "_cfg_cst_btn": (
             "Кастомная кнопка в сообщении в info. Оставь пустым, чтобы убрать кнопку"
@@ -115,7 +99,7 @@ class HikkaInfoMod(loader.Module):
             ),
             loader.ConfigValue(
                 "custom_button",
-                ["None", "None"],
+                None,
                 lambda: self.strings("_cfg_cst_btn"),
                 validator=loader.validators.Union(
                     loader.validators.Series(fixed_len=2),
@@ -130,26 +114,23 @@ class HikkaInfoMod(loader.Module):
             ),
         )
 
-    def _render_info(self, inline: bool) -> str:
-        try:
-            repo = git.Repo(search_parent_directories=True)
-            diff = repo.git.log([f"HEAD..origin/{version.branch}", "--oneline"])
-            upd = (
-                self.strings("update_required") if diff else self.strings("up-to-date")
-            )
-        except Exception:
-            upd = ""
+    async def client_ready(self):
+        self._me = await self._client.get_me()
 
+        if self.config["banner_url"] == "https://github.com/MXRRI/Netfoll/raw/stable/assets/banner.png":
+            self.config["banner_url"] = "https://github.com/MXRRI/Netfoll/raw/stable/assets/banner.png"
+
+    def _render_info(self, inline: bool) -> str:
         me = '<b><a href="tg://user?id={}">{}</a></b>'.format(
-            self._client.hikka_me.id,
-            utils.escape_html(get_display_name(self._client.hikka_me)),
+            self._me.id,
+            utils.escape_html(get_display_name(self._me)),
         )
         build = utils.get_commit_url()
         _version = f'<i>{version.branch} {".".join(list(map(str, list(version.netver))))}</i>'
         prefix = f"«<code>{utils.escape_html(self.get_prefix())}</code>»"
 
         platform = utils.get_named_platform()
-
+       
         for emoji, icon in {
             "🍊": "<emoji document_id=5449599833973203438>🧡</emoji>",
             "🍇": "<emoji document_id=5449468596952507859>💜</emoji>",
@@ -166,18 +147,12 @@ class HikkaInfoMod(loader.Module):
             platform = platform.replace(emoji, icon)
 
         return (
-            (
-                "\n"
-                if "hikka" not in self.config["custom_message"].lower()
-                else ""
-            )
-            + self.config["custom_message"].format(
+            self.config["custom_message"].format(
                 me=me,
                 version=_version,
                 build=build,
                 prefix=prefix,
                 platform=platform,
-                upd=upd,
                 uptime=utils.formatted_uptime(),
                 cpu_usage=utils.get_cpu_usage(),
                 ram_usage=f"{utils.get_ram_usage()} MB",
@@ -185,14 +160,12 @@ class HikkaInfoMod(loader.Module):
             )
             if self.config["custom_message"]
             else (
-                f'<b>{{}} for <b>{me}</b></b>\n\n{{}}'
-                f" <b>{self.strings('version')}:</b> {_version} {build}<b>\n"
-                f"</b>{upd}\n<b>{{}}"
-                f" <b>{self.strings('prefix')}:</b> {prefix}\n<b>{{}}"
-                f" <b>{self.strings('uptime')}:"
-                f"</b> {utils.formatted_uptime()}\n\n<b>{{}}"
-                f" <b>Usage:</b> CPU {utils.get_cpu_usage()}% | RAM {utils.get_ram_usage()} MB\n"
-                f"<b>{platform}</b>"
+                f'<b>{{}} for {me}</b>\n\n'
+                f"<emoji document_id=6334456392228800167>🪢</emoji> <b>{self.strings('version')}:</b> {_version} {build}\n"
+                f"<emoji document_id=6334701737940616970>💫</emoji> <b>{self.strings('prefix')}:</b> {prefix}\n"
+                f"<emoji document_id=6334620339720423126>🕛</emoji> <b>{self.strings('uptime')}:</b>"
+                f" {utils.formatted_uptime()}\n\n"
+                f"<b>{platform} ({utils.get_cpu_usage()}% | {utils.get_ram_usage()} RAM)</b>"
             ).format(
                 *map(
                     lambda x: utils.remove_html(x) if inline else x,
@@ -200,10 +173,6 @@ class HikkaInfoMod(loader.Module):
                         utils.get_platform_emoji()
                         if self._client.hikka_me.premium and not inline
                         else "👾 Netfoll",
-                        "<emoji document_id=6334456392228800167>🪢</emoji>",
-                        "<emoji document_id=6334701737940616970>💫</emoji>",
-                        "<emoji document_id=6334620339720423126>🕛</emoji>",
-                        "<emoji document_id=6334685601748486176>🎨</emoji>",
                     ),
                 )
             )
@@ -212,16 +181,14 @@ class HikkaInfoMod(loader.Module):
     def _get_mark(self):
         return (
             {
-                "text": self.config["custom_button"][0],
-                "url": self.config["custom_button"][1],
+                "text": self.config["custom_button"][0], 
+                "url": self.config["custom_button"][1]
             }
             if self.config["custom_button"]
             else None
         )
 
-    @loader.inline_handler(
-        thumb_url="https://img.icons8.com/nolan/512/info-squared.png"
-    )
+    @loader.inline_handler(thumb_url="https://img.icons8.com/nolan/512/info-squared.png")
     @loader.inline_everyone
     async def info(self, _: InlineQuery) -> dict:
         """Send userbot info"""
@@ -234,25 +201,19 @@ class HikkaInfoMod(loader.Module):
                 if self.config["banner_url"]
                 else {"message": self._render_info(True)}
             ),
-            "thumb": (
-                "https://github.com/MXRRI/Netfoll/raw/Stable/assets/bot_pfp.png"
-            ),
+            "thumb": "hhttps://github.com/MXRRI/Netfoll/raw/Stable/assets/bot_pfp.png",
             "reply_markup": self._get_mark(),
         }
 
-    @loader.command(
-        ru_doc="Отправляет информацию о боте",
-        aliases=["инфо", "штащ", "byaj"],
-    )
-    @loader.unrestricted
-    async def infocmd(self, message: Message):
+    @loader.command()
+    async def info(self, message: Message):
         """Send userbot info"""
 
         if self.config["custom_button"]:
             await self.inline.form(
                 message=message,
                 text=self._render_info(True),
-                reply_markup=self._get_mark(),
+                reply_markup=[{'text': 'test', 'url': 'https://github.com/'}],
                 **(
                     {"photo": self.config["banner_url"]}
                     if self.config["banner_url"]
@@ -260,28 +221,29 @@ class HikkaInfoMod(loader.Module):
                 ),
             )
         else:
-            await utils.answer_file(
-                message,
-                self.config["banner_url"],
-                self._render_info(False),
-            )
+            try:
+                await self._client.send_file(
+                    message.peer_id,
+                    self.config["banner_url"],
+                    caption=self._render_info(False),
+                )
+            except Exception:
+                await utils.answer(message, self._render_info(False))
+            else:
+                if message.out:
+                    await message.delete()
 
     @loader.unrestricted
-    @loader.command(
-        ru_doc="Отправить информацию по типу 'Что такое Netfoll?'",
-    )
+    @loader.command(ru_doc="Отправить информацию по типу 'Что такое Netfoll?'",)
     async def whonetfoll(self, message: Message):
         """Send info aka 'What is Hikka?'"""
         await utils.answer(message, self.strings("desc"))
 
-    @loader.command(
-        ru_doc="<текст> - Изменить текст в .info",
-    )
+    @loader.command(ru_doc="<текст> - Изменить текст в .info",)
     async def setinfo(self, message: Message):
         """<text> - Change text in .info"""
         args = utils.get_args_html(message)
         if not args:
             return await utils.answer(message, self.strings("setinfo_no_args"))
-
         self.config["custom_message"] = args
         await utils.answer(message, self.strings("setinfo_success"))

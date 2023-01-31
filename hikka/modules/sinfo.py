@@ -71,7 +71,7 @@ class SysInfoMod(loader.Module):
                 f"<b>{names}</b>\n\n"
                 f'<b>{self.strings("cpu")} ({processor}): {cores} {self.strings("core")} ({cpu_load}%)</b>\n'
                 f'<b>{self.strings("ram")}: {ram}/{ram_load_mb} MB ({ram_load_procent}%)</b>\n'
-                f'<b>{self.strings("use")}: RAM {ram_use}MB / CPU{cpu_use}%</b>\n\n'
+                f'<b>{self.strings("use")}: {ram_use} MB / CPU {cpu_use}%</b>\n\n'
                 f'<b>{self.strings("pyver")}: {pyver}</b>\n'
                 f'<b>{self.strings("release")}: {release}</b>\n'
                 f'<b>{self.strings("system")}: {system} ({ver})</b>\n\n'
