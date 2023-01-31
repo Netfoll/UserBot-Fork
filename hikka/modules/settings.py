@@ -418,7 +418,8 @@ Format - (alias / command and args)"""
             await utils.answer(message, self.strings("alias_args"))
             return
 
-        alias, cmd = args.split(' / ')
+        alias, cmd = args.split('/')
+        
         if self.allmodules.add_alias(alias, cmd):
             self.set(
                 "aliases",
