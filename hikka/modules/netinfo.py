@@ -143,7 +143,8 @@ class HikkaInfoMod(loader.Module):
         _version = f'<i>{version.branch} {".".join(list(map(str, list(version.netver))))}</i>'
         prefix = f"«<code>{utils.escape_html(self.get_prefix())}</code>»"
 
-        platform = utils.get_named_platform()      
+        platform = utils.get_named_platform()
+           
         for emoji, icon in {
             "🍊": "<emoji document_id=5449599833973203438>🧡</emoji>",
             "🍇": "<emoji document_id=5449468596952507859>💜</emoji>",
