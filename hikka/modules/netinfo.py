@@ -174,11 +174,15 @@ class HikkaInfoMod(loader.Module):
                 platform=platform,
                 upd=upd,
                 uptime=utils.formatted_uptime(),
+                cpu_usage=utils.get_cpu_usage(),
+                ram_usage=f"{utils.get_ram_usage()} MB",
                 branch=version.branch,
             )
             if self.config["custom_message"]
             else (
                 f'<b>{{}} for <b>{me}</b></b>\n\n{{}}'
+                f" <b>{self.strings('version')}:</b> {_version} {build}<b>\n"
+                f"</b>{upd}\n<b>{{}}"
             ).format(
                 *map(
                     lambda x: utils.remove_html(x) if inline else x,
