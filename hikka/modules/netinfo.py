@@ -174,8 +174,6 @@ class HikkaInfoMod(loader.Module):
                 platform=platform,
                 upd=upd,
                 uptime=utils.formatted_uptime(),
-                cpu_usage=utils.get_cpu_usage(),
-                ram_usage=f"{utils.get_ram_usage()} MB",
                 branch=version.branch,
             )
             if self.config["custom_message"]
@@ -186,7 +184,7 @@ class HikkaInfoMod(loader.Module):
                 f" <b>{self.strings('prefix')}:</b> {prefix}\n<b>{{}}"
                 f" <b>{self.strings('uptime')}:"
                 f"</b> {utils.formatted_uptime()}\n\n<b>{{}}"
-                f"<b>{platform} ({utils.get_cpu_usage()}% | {utils.get_ram_usage()})</b>"
+                f"<b>{platform}</b>"
             ).format(
                 *map(
                     lambda x: utils.remove_html(x) if inline else x,
