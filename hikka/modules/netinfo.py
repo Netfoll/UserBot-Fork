@@ -172,11 +172,7 @@ class HikkaInfoMod(loader.Module):
             platform = platform.replace(emoji, icon)
 
         return (
-            (
-                "\n"
-                if "hikka" not in self.config["custom_message"].lower()
-                else ""
-            )
+            ""
             + self.config["custom_message"].format(
                 me=me,
                 version=_version,
