@@ -183,6 +183,8 @@ class HikkaInfoMod(loader.Module):
                 f'<b>{{}} for <b>{me}</b></b>\n\n{{}}'
                 f" <b>{self.strings('version')}:</b> {_version} {build}<b>\n"
                 f"</b>{upd}\n<b>{{}}"
+                f" <b>{self.strings('prefix')}:</b> {prefix}\n<b>{{}}"
+                f" <b>{self.strings('uptime')}:"
                 f"</b> {utils.formatted_uptime()}\n\n<b>{{}}"
                 f"<b>{platform} ({utils.get_cpu_usage()}% | {utils.get_ram_usage()} RAM)</b>"
             ).format(
@@ -192,10 +194,9 @@ class HikkaInfoMod(loader.Module):
                         utils.get_platform_emoji()
                         if self._client.hikka_me.premium and not inline
                         else "👾 Netfoll",
-                        "<emoji document_id=6334456392228800167>🪢</emoji>",
-                        "<emoji document_id=6334701737940616970>💫</emoji>",
-                        "<emoji document_id=6334620339720423126>🕛</emoji>",
-                        "<emoji document_id=6334620339720423126>🕛</emoji>",
+                        "1",
+                        "2",
+                        "3",
                     ),
                 )
             )
