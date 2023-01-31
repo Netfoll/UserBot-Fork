@@ -250,7 +250,7 @@ class CoreMod(loader.Module):
                         )
                     )
                     if self._client.hikka_me.premium and CUSTOM_EMOJIS
-                    else "👾 <b>Netfoll userbot</b>"
+                    else "👾 <b>Netfoll</b>"
                 ),
                 *version.netver,
                 utils.get_commit_url(),
