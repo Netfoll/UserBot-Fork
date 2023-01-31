@@ -215,10 +215,12 @@ class HikkaInfoMod(loader.Module):
                 message=message,
                 text=self._render_info(True),
                 reply_markup=[
-                    {
-                        "text": self.config["custom_button"][0], 
-                        "url": self.config["custom_button"][1]
-                    },
+                    [
+                        {
+                            "text": self.config["custom_button"][0], 
+                            "url": self.config["custom_button"][1]
+                        }
+                    ]
                 ],
                 **(
                     {"photo": self.config["banner_url"]}
