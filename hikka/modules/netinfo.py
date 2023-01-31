@@ -219,7 +219,7 @@ class HikkaInfoMod(loader.Module):
                         "text": self.config["custom_button"][0], 
                         "url": self.config["custom_button"][1]
                     },
-                ]
+                ],
                 **(
                     {"photo": self.config["banner_url"]}
                     if self.config["banner_url"]
