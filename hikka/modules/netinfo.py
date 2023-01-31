@@ -172,8 +172,7 @@ class HikkaInfoMod(loader.Module):
             platform = platform.replace(emoji, icon)
 
         return (
-            ""
-            + self.config["custom_message"].format(
+            self.config["custom_message"].format(
                 me=me,
                 version=_version,
                 build=build,
