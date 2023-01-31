@@ -187,19 +187,6 @@ class HikkaInfoMod(loader.Module):
                 f" <b>{self.strings('uptime')}:"
                 f"</b> {utils.formatted_uptime()}\n\n<b>{{}}"
                 f"<b>{platform} ({utils.get_cpu_usage()}% | {utils.get_ram_usage()} RAM)</b>"
-            ).format(
-                *map(
-                    lambda x: utils.remove_html(x) if inline else x,
-                    (
-                        utils.get_platform_emoji()
-                        if self._client.hikka_me.premium and not inline
-                        else "👾 Netfoll",
-                        "1",
-                        "2",
-                        "3",
-                        "4",
-                    ),
-                )
             )
         )
 
