@@ -159,6 +159,7 @@ class HikkaInfoMod(loader.Module):
             "👾": "<emoji document_id=5866169914603081371>🐧</emoji> ",
         }.items():
             platform = platform.replace(emoji, icon)
+
         return (
             (
                 "\n"
@@ -185,7 +186,7 @@ class HikkaInfoMod(loader.Module):
                 f" <b>{self.strings('prefix')}:</b> {prefix}\n<b>{{}}"
                 f" <b>{self.strings('uptime')}:"
                 f"</b> {utils.formatted_uptime()}\n\n<b>{{}}"
-                f"<b>{platform} ({utils.get_cpu_usage()}% | {utils.get_ram_usage()} RAM)</b>"
+                f"<b>{platform} ({utils.get_cpu_usage()}% | {utils.get_ram_usage()})</b>"
             ).format(
                 *map(
                     lambda x: utils.remove_html(x) if inline else x,
