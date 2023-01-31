@@ -117,7 +117,6 @@ class HikkaInfoMod(loader.Module):
     async def client_ready(self):
         self._me = await self._client.get_me()
 
-        # Legacy migration
         if self.config["banner_url"] == "https://github.com/MXRRI/Netfoll/raw/stable/assets/banner.png":
             self.config["banner_url"] = "https://github.com/MXRRI/Netfoll/raw/stable/assets/banner.png"
 
@@ -181,7 +180,10 @@ class HikkaInfoMod(loader.Module):
 
     def _get_mark(self):
         return (
-            {"text": self.config["custom_button"][0], "url": self.config["custom_button"][1]}
+            {
+                "text": self.config["custom_button"][0], 
+                "url": self.config["custom_button"][1]
+            }
             if self.config["custom_button"]
             else None
         )
