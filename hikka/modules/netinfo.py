@@ -181,7 +181,10 @@ class HikkaInfoMod(loader.Module):
 
     def _get_mark(self):
         return (
-            {"text": self.config["custom_button"][0], "url": self.config["custom_button"][1]}
+            {
+                "text": self.config["custom_button"][0], 
+                "url": self.config["custom_button"][1]
+            }
             if self.config["custom_button"]
             else None
         )
@@ -211,7 +214,12 @@ class HikkaInfoMod(loader.Module):
             await self.inline.form(
                 message=message,
                 text=self._render_info(True),
-                reply_markup=self._get_mark(),
+                reply_markup=[
+                    {
+                        "text": self.config["custom_button"][0], 
+                        "url": self.config["custom_button"][1]
+                    },
+                ]
                 **(
                     {"photo": self.config["banner_url"]}
                     if self.config["banner_url"]
