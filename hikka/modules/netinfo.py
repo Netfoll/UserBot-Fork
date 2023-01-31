@@ -30,9 +30,7 @@ class HikkaInfoMod(loader.Module):
         "branch": "Branch",
         "send_info": "Send userbot info",
         "description": "ℹ This will not compromise any sensitive info",
-        "up-to-date": (
-            ""
-        ),
+        "up-to-date": "<emoji document_id=5784891605601225888>🥺</emoji> Actuale version",
         "update_required": (
             "<emoji document_id=6334760737906362392>⚡</emoji> <b>Update required"
             "</b> <code>.update</code>\n"
@@ -71,9 +69,7 @@ class HikkaInfoMod(loader.Module):
         "send_info": "Отправить информацию о юзерботе",
         "description": "ℹ Это не раскроет никакой личной информации",
         "_ihandle_doc_info": "Отправить информацию о юзерботе",
-        "up-to-date": (
-            ""
-        ),
+        "up-to-date": "<emoji document_id=5784891605601225888>🥺</emoji> Актуальная версия",
         "update_required": (
             "<emoji document_id=6334760737906362392>⚡</emoji> <b>Требуется обновление"
             "</b> <code>.update</code>\n"
