@@ -410,7 +410,7 @@ class CoreMod(loader.Module):
     @loader.command(ru_doc="Установить алиас для команды")
     async def addalias(self, message: Message):
         """Set an alias for a command"""
-        args = utils.get_args(message)
+        args = utils.get_args_raw(message)
 
         if len(args) != 2:
             await utils.answer(message, self.strings("alias_args"))
