@@ -232,35 +232,4 @@ class HikkaInfoMod(loader.Module):
                 message=message,
                 text=self._render_info(True),
                 reply_markup=self._get_mark(),
-                **(
-                    {"photo": self.config["banner_url"]}
-                    if self.config["banner_url"]
-                    else {}
-                ),
             )
-        else:
-            await utils.answer_file(
-                message,
-                self.config["banner_url"],
-                self._render_info(False),
-            )
-
-    @loader.unrestricted
-    @loader.command(
-        ru_doc="Отправить информацию по типу 'Что такое Netfoll?'",
-    )
-    async def hikkainfo(self, message: Message):
-        """Send info aka 'What is Hikka?'"""
-        await utils.answer(message, self.strings("desc"))
-
-    @loader.command(
-        ru_doc="<текст> - Изменить текст в .info",
-    )
-    async def setinfo(self, message: Message):
-        """<text> - Change text in .info"""
-        args = utils.get_args_html(message)
-        if not args:
-            return await utils.answer(message, self.strings("setinfo_no_args"))
-
-        self.config["custom_message"] = args
-        await utils.answer(message, self.strings("setinfo_success"))
