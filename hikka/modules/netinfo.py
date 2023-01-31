@@ -15,7 +15,6 @@ from telethon.utils import get_display_name
 from .. import loader, utils, version
 from ..inline.types import InlineQuery
 
-
 @loader.tds
 class HikkaInfoMod(loader.Module):
     """Show userbot info"""
