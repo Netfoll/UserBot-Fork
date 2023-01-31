@@ -15,6 +15,7 @@ from telethon.utils import get_display_name
 from .. import loader, utils, version
 from ..inline.types import InlineQuery
 
+
 @loader.tds
 class HikkaInfoMod(loader.Module):
     """Show userbot info"""
@@ -29,11 +30,6 @@ class HikkaInfoMod(loader.Module):
         "branch": "Branch",
         "send_info": "Send userbot info",
         "description": "ℹ This will not compromise any sensitive info",
-        "up-to-date": "<emoji document_id=5784891605601225888>🥺</emoji> Actuale version",
-        "update_required": (
-            "<emoji document_id=6334760737906362392>⚡</emoji> <b>Update required"
-            "</b> <code>.update</code>\n"
-        ),
         "setinfo_no_args": (
             "<emoji document_id=5370881342659631698>😢</emoji> <b>You need to specify"
             " text to change info to</b>"
@@ -68,11 +64,6 @@ class HikkaInfoMod(loader.Module):
         "send_info": "Отправить информацию о юзерботе",
         "description": "ℹ Это не раскроет никакой личной информации",
         "_ihandle_doc_info": "Отправить информацию о юзерботе",
-        "up-to-date": "<emoji document_id=5784891605601225888>🥺</emoji> Актуальная версия",
-        "update_required": (
-            "<emoji document_id=6334760737906362392>⚡</emoji> <b>Требуется обновление"
-            "</b> <code>.update</code>\n"
-        ),
         "_cfg_cst_msg": (
             "Кастомный текст сообщения в info. Может содержать ключевые слова {me},"
             " {version}, {prefix}, {platform}, {upd}, {uptime}, {cpu_usage},"
@@ -131,15 +122,6 @@ class HikkaInfoMod(loader.Module):
             self.config["banner_url"] = "https://github.com/MXRRI/Netfoll/raw/stable/assets/banner.png"
 
     def _render_info(self, inline: bool) -> str:
-        try:
-            repo = git.Repo(search_parent_directories=True)
-            diff = repo.git.log([f"HEAD..origin/{version.branch}", "--oneline"])
-            upd = (
-                self.strings("update_required") if diff else self.strings("up-to-date")
-            )
-        except Exception:
-            upd = ""
-
         me = '<b><a href="tg://user?id={}">{}</a></b>'.format(
             self._me.id,
             utils.escape_html(get_display_name(self._me)),
@@ -172,7 +154,6 @@ class HikkaInfoMod(loader.Module):
                 build=build,
                 prefix=prefix,
                 platform=platform,
-                upd=upd,
                 uptime=utils.formatted_uptime(),
                 cpu_usage=utils.get_cpu_usage(),
                 ram_usage=f"{utils.get_ram_usage()} MB",
@@ -182,7 +163,6 @@ class HikkaInfoMod(loader.Module):
             else (
                 f'<b>{{}} for <b>{me}</b></b>\n\n'
                 f"<emoji document_id=6334456392228800167>🪢</emoji> <b>{self.strings('version')}:</b> {_version} {build}<b>\n"
-                f"</b>{upd}<b>"
                 f"<emoji document_id=6334701737940616970>💫</emoji> <b>{self.strings('prefix')}:</b> {prefix}\n<b>"
                 f"<emoji document_id=6334620339720423126>🕛</emoji> <b>{self.strings('uptime')}:"
                 f"</b> {utils.formatted_uptime()}\n\n<b>"
