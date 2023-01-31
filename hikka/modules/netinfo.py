@@ -241,8 +241,8 @@ class HikkaInfoMod(loader.Module):
             "reply_markup": self._get_mark(),
         }
 
-    @loader.unrestricted
-    async def infocmd(self, message: Message):
+    @loader.command()
+    async def info(self, message: Message):
         """Send userbot info"""
 
         if self.config["custom_button"]:
