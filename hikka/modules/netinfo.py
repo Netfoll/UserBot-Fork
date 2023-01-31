@@ -99,7 +99,7 @@ class HikkaInfoMod(loader.Module):
             ),
             loader.ConfigValue(
                 "custom_button",
-                None,
+                ["👾 𝐴𝑠𝑡𝑟𝑜 𝑂𝑓𝑓𝑡𝑜𝑝 🥀", "https://t.me/AstroOfftop"],
                 lambda: self.strings("_cfg_cst_btn"),
                 validator=loader.validators.Union(
                     loader.validators.Series(fixed_len=2),
