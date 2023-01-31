@@ -57,74 +57,6 @@ class HikkaInfoMod(loader.Module):
         ),
     }
 
-    strings_ru = {
-        "owner": "Владелец",
-        "version": "Версия",
-        "build": "Сборка",
-        "prefix": "Префикс",
-        "uptime": "Аптайм",
-        "branch": "Ветка",
-        "send_info": "Отправить информацию о юзерботе",
-        "description": "ℹ Это не раскроет никакой личной информации",
-        "_ihandle_doc_info": "Отправить информацию о юзерботе",
-        "up-to-date": (
-            ""
-        ),
-        "update_required": (
-            "<emoji document_id=6334760737906362392>⚡</emoji> <b>Требуется обновление"
-            "</b> <code>.update</code>\n"
-        ),
-        "_cfg_cst_msg": (
-            "Кастомный текст сообщения в info. Может содержать ключевые слова {me},"
-            " {version}, {prefix}, {platform}, {upd}, {uptime}, {cpu_usage},"
-            " {ram_usage}"
-        ),
-        "_cfg_cst_btn": (
-            "Кастомная кнопка в сообщении в info. Оставь пустым, чтобы убрать кнопку"
-        ),
-        "_cfg_banner": "Ссылка на баннер-картинку",
-        "setinfo_no_args": (
-            "<emoji document_id=5370881342659631698>😢</emoji> <b>Тебе нужно указать"
-            " текст для кастомного инфо</b>"
-        ),
-        "setinfo_success": (
-            "<emoji document_id=5436040291507247633>🎉</emoji> <b>Текст инфо успешно"
-            " изменен</b>"
-        ),
-        "desc": (
-            "<emoji document_id=4929415445443773080>🚀</emoji>"
-            " <b>Netfoll</b>\n\nTelegram юзербот с огромным количеством функций, из"
-            " которых: инлайн галереи, формы, списки основанных на Hikka. Юзербот - программа, которая запускается на"
-            " твоем Telegram-аккаунте. Когда ты пишешь команду в любом чате, она"
-            " сразу же выполняется. Обрати внимание на живые примеры на <a"
-            ' href="https://github.com/MXRRI/Netfoll">GitHub</a>'
-        ),
-    }
-
-
-    def __init__(self):
-        self.config = loader.ModuleConfig(
-            loader.ConfigValue(
-                "custom_message",
-                doc=lambda: self.strings("_cfg_cst_msg"),
-            ),
-            loader.ConfigValue(
-                "custom_button",
-                ["None", "None"],
-                lambda: self.strings("_cfg_cst_btn"),
-                validator=loader.validators.Union(
-                    loader.validators.Series(fixed_len=2),
-                    loader.validators.NoneType(),
-                ),
-            ),
-            loader.ConfigValue(
-                "banner_url",
-                "https://github.com/MXRRI/Netfoll/raw/stable/assets/banner.png",
-                lambda: self.strings("_cfg_banner"),
-                validator=loader.validators.Link(),
-            ),
-        )
-
     def _render_info(self, inline: bool) -> str:
         try:
             repo = git.Repo(search_parent_directories=True)
@@ -144,21 +76,6 @@ class HikkaInfoMod(loader.Module):
         prefix = f"«<code>{utils.escape_html(self.get_prefix())}</code>»"
 
         platform = utils.get_named_platform()
-
-        for emoji, icon in {
-            "🍊": "<emoji document_id=5449599833973203438>🧡</emoji>",
-            "🍇": "<emoji document_id=5449468596952507859>💜</emoji>",
-            "❓": "<emoji document_id=5407025283456835913>📱</emoji>",
-            "🍁": "<emoji document_id=5866334008123591985>💻</emoji>",
-            "🦾": "<emoji document_id=5386766919154016047>🦾</emoji>",
-            "🚂": "<emoji document_id=5359595190807962128>🚂</emoji>",
-            "🐳": "<emoji document_id=5431815452437257407>🐳</emoji>",
-            "🕶": "<emoji document_id=5407025283456835913>📱</emoji>",
-            "🐈‍⬛": "<emoji document_id=6334750507294262724>🐈‍⬛</emoji>",
-            "✌️": "<emoji document_id=5469986291380657759>✌️</emoji>",
-            "👾": "<emoji document_id=5866169914603081371>🐧</emoji> ",
-        }.items():
-            platform = platform.replace(emoji, icon)
 
         return (
             (
