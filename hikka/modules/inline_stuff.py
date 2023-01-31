@@ -132,15 +132,7 @@ class InlineStuffMod(loader.Module):
 
                     return True
 
-    @loader.command(
-        ru_doc="<юзернейм> - Изменить юзернейм инлайн бота",
-        it_doc="<username> - Cambia il nome utente del bot inline",
-        de_doc="<username> - Ändere den Inline-Bot-Nutzernamen",
-        tr_doc="<kullanıcı adı> - İçe aktarma botunun kullanıcı adını değiştirin",
-        uz_doc="<foydalanuvchi nomi> - Bot foydalanuvchi nomini o'zgartiring",
-        es_doc="<nombre de usuario> - Cambia el nombre de usuario del bot de inline",
-        kk_doc="<пайдаланушы аты> - Инлайн боттың пайдаланушы атын өзгерту",
-    )
+    @loader.command(ru_doc="<юзернейм> - Изменить юзернейм инлайн бота", alias='setbotname')
     async def ch_hikka_bot(self, message: Message):
         """<username> - Change your Hikka inline bot username"""
         args = utils.get_args_raw(message).strip("@")
