@@ -74,7 +74,6 @@ class HikkaInfoMod(loader.Module):
         build = utils.get_commit_url()
         _version = f'<i>{version.branch} {".".join(list(map(str, list(version.netver))))}</i>'
         prefix = f"«<code>{utils.escape_html(self.get_prefix())}</code>»"
-
         platform = utils.get_named_platform()
         me=me,
         version=_version,
@@ -87,7 +86,7 @@ class HikkaInfoMod(loader.Module):
 
         return (
                 f'<b>{{}} for <b>{me}</b></b>\n\n{{}}'
-                f" <b>{self.strings('version')}:</b> {_version} {build}<b>\n"
+                f" <b>{self.strings('version')}:</b> {version} {build}<b>\n"
                 f"</b>{upd}\n<b>{{}}"
                 f" <b>{self.strings('prefix')}:</b> {prefix}\n<b>{{}}"
                 f" <b>{self.strings('uptime')}:"
