@@ -76,25 +76,16 @@ class HikkaInfoMod(loader.Module):
         prefix = f"«<code>{utils.escape_html(self.get_prefix())}</code>»"
 
         platform = utils.get_named_platform()
+        me=me,
+        version=_version,
+        build=build,
+        prefix=prefix,
+        platform=platform,
+        upd=upd,
+        uptime=utils.formatted_uptime(),
+        branch=version.branch,
 
         return (
-            (
-                "\n"
-                if "hikka" not in self.config["custom_message"].lower()
-                else ""
-            )
-            + self.config["custom_message"].format(
-                me=me,
-                version=_version,
-                build=build,
-                prefix=prefix,
-                platform=platform,
-                upd=upd,
-                uptime=utils.formatted_uptime(),
-                branch=version.branch,
-            )
-            if self.config["custom_message"]
-            else (
                 f'<b>{{}} for <b>{me}</b></b>\n\n{{}}'
                 f" <b>{self.strings('version')}:</b> {_version} {build}<b>\n"
                 f"</b>{upd}\n<b>{{}}"
@@ -103,7 +94,6 @@ class HikkaInfoMod(loader.Module):
                 f"</b> {utils.formatted_uptime()}\n\n<b>{{}}"
                 f"<b>{platform} ({utils.get_cpu_usage()}% | {utils.get_ram_usage()} RAM)</b>"
             )
-        )
 
     def _get_mark(self):
         return (
@@ -144,9 +134,7 @@ class HikkaInfoMod(loader.Module):
     async def infocmd(self, message: Message):
         """Send userbot info"""
 
-        if self.config["custom_button"]:
-            await self.inline.form(
-                message=message,
-                text=self._render_info(True),
-                reply_markup=self._get_mark(),
+        await utils.answer(
+                message,
+                self._render_info(message),
             )
