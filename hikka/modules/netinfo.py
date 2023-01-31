@@ -144,7 +144,7 @@ class HikkaInfoMod(loader.Module):
         prefix = f"«<code>{utils.escape_html(self.get_prefix())}</code>»"
 
         platform = utils.get_named_platform()
-           
+
         for emoji, icon in {
             "🍊": "<emoji document_id=5449599833973203438>🧡</emoji>",
             "🍇": "<emoji document_id=5449468596952507859>💜</emoji>",
@@ -159,7 +159,6 @@ class HikkaInfoMod(loader.Module):
             "👾": "<emoji document_id=5866169914603081371>🐧</emoji> ",
         }.items():
             platform = platform.replace(emoji, icon)
-
         return (
             (
                 "\n"
