@@ -99,7 +99,7 @@ class HikkaInfoMod(loader.Module):
             ),
             loader.ConfigValue(
                 "custom_button",
-                ["👾 𝐴𝑠𝑡𝑟𝑜 𝑂𝑓𝑓𝑡𝑜𝑝 🥀", "https://t.me/AstroOfftop"],
+                None,
                 lambda: self.strings("_cfg_cst_btn"),
                 validator=loader.validators.Union(
                     loader.validators.Series(fixed_len=2),
@@ -181,10 +181,7 @@ class HikkaInfoMod(loader.Module):
 
     def _get_mark(self):
         return (
-            {
-                "text": self.config["custom_button"][0], 
-                "url": self.config["custom_button"][1]
-            }
+            {"text": self.config["custom_button"][0], "url": self.config["custom_button"][1]}
             if self.config["custom_button"]
             else None
         )
@@ -214,14 +211,7 @@ class HikkaInfoMod(loader.Module):
             await self.inline.form(
                 message=message,
                 text=self._render_info(True),
-                reply_markup=[
-                    [
-                        {
-                            "text": self.config["custom_button"][0], 
-                            "url": self.config["custom_button"][1]
-                        }
-                    ]
-                ],
+                reply_markup=self._get_mark(),
                 **(
                     {"photo": self.config["banner_url"]}
                     if self.config["banner_url"]
