@@ -161,11 +161,11 @@ class HikkaInfoMod(loader.Module):
             )
             if self.config["custom_message"]
             else (
-                f'<b>{{}} for <b>{me}</b></b>\n\n'
-                f"<emoji document_id=6334456392228800167>🪢</emoji> <b>{self.strings('version')}:</b> {_version} {build}<b>\n"
-                f"<emoji document_id=6334701737940616970>💫</emoji> <b>{self.strings('prefix')}:</b> {prefix}\n<b>"
-                f"<emoji document_id=6334620339720423126>🕛</emoji> <b>{self.strings('uptime')}:"
-                f"</b> {utils.formatted_uptime()}\n\n<b>"
+                f'<b>{{}} for {me}</b>\n\n'
+                f"<emoji document_id=6334456392228800167>🪢</emoji> <b>{self.strings('version')}:</b> {_version} {build}\n"
+                f"<emoji document_id=6334701737940616970>💫</emoji> <b>{self.strings('prefix')}:</b> {prefix}\n"
+                f"<emoji document_id=6334620339720423126>🕛</emoji> <b>{self.strings('uptime')}:</b>"
+                f" {utils.formatted_uptime()}\n\n<b>"
                 f"<b>{platform} ({utils.get_cpu_usage()}% | {utils.get_ram_usage()} RAM)</b>"
             ).format(
                 *map(
@@ -211,7 +211,7 @@ class HikkaInfoMod(loader.Module):
             await self.inline.form(
                 message=message,
                 text=self._render_info(True),
-                reply_markup=self._get_mark(),
+                reply_markup=[{'text': 'test', 'url': 'https://github.com/'}],
                 **(
                     {"photo": self.config["banner_url"]}
                     if self.config["banner_url"]
