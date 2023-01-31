@@ -69,14 +69,12 @@ class HikkaInfoMod(loader.Module):
         build=build,
         prefix=prefix,
         platform=platform,
-        upd=upd,
         uptime=utils.formatted_uptime(),
         branch=version.branch,
 
         return (
                 f'<b>{{}} for <b>{me}</b></b>\n\n{{}}'
                 f" <b>{self.strings('version')}:</b> {version} {build}<b>\n"
-                f"</b>{upd}\n<b>{{}}"
                 f" <b>{self.strings('prefix')}:</b> {prefix}\n<b>{{}}"
                 f" <b>{self.strings('uptime')}:"
                 f"</b> {utils.formatted_uptime()}\n\n<b>{{}}"
