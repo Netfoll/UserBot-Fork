@@ -416,8 +416,8 @@ class CoreMod(loader.Module):
             await utils.answer(message, self.strings("alias_args"))
             return
 
-        alias = args.split(' / ')[0]
-        cmd = args.split(' / ')[1]
+        alias = args.split('/')[0]
+        cmd = args.split('/')[1]
 
         if self.allmodules.add_alias(alias, cmd):
             self.set(
