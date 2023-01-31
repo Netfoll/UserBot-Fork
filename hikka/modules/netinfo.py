@@ -248,6 +248,10 @@ class HikkaInfoMod(loader.Module):
             "reply_markup": self._get_mark(),
         }
 
+    @loader.command(
+        ru_doc="Отправляет информацию о боте",
+        alias="инфо",
+    )
     @loader.unrestricted
     async def infocmd(self, message: Message):
         """Send userbot info"""
@@ -286,7 +290,6 @@ class HikkaInfoMod(loader.Module):
 
     @loader.command(
         ru_doc="<текст> - Изменить текст в .info",
-         alias="инфо",
     )
     async def setinfo(self, message: Message):
         """<text> - Change text in .info"""
