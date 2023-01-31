@@ -128,13 +128,8 @@ class HikkaInfoMod(loader.Module):
         self._me = await self._client.get_me()
 
         # Legacy migration
-        if (
-            self.config["banner_url"]
-            == "https://github.com/MXRRI/Netfoll/raw/stable/assets/banner.png"
-        ):
-            self.config[
-                "banner_url"
-            ] = "https://github.com/MXRRI/Netfoll/raw/stable/assets/banner.png"
+        if self.config["banner_url"] == "https://github.com/MXRRI/Netfoll/raw/stable/assets/banner.png":
+            self.config["banner_url"] = "https://github.com/MXRRI/Netfoll/raw/stable/assets/banner.png"
 
     def _render_info(self, inline: bool) -> str:
         try:
