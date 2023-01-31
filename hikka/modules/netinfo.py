@@ -201,7 +201,7 @@ class HikkaInfoMod(loader.Module):
                 f" <b>{self.strings('prefix')}:</b> {prefix}\n<b>{{}}"
                 f" <b>{self.strings('uptime')}:"
                 f"</b> {utils.formatted_uptime()}\n\n<b>{{}}"
-                f"<b>{platform} ({utils.get_cpu_usage()}% | {utils.get_ram_usage()})</b>"
+                f"<b>{platform} ({utils.get_cpu_usage()}% | {utils.get_ram_usage()} RAM)</b>"
             ).format(
                 *map(
                     lambda x: utils.remove_html(x) if inline else x,
@@ -212,7 +212,6 @@ class HikkaInfoMod(loader.Module):
                         "<emoji document_id=6334456392228800167>🪢</emoji>",
                         "<emoji document_id=6334701737940616970>💫</emoji>",
                         "<emoji document_id=6334620339720423126>🕛</emoji>",
-                        "<emoji document_id=6334685601748486176>🎨</emoji>",
                     ),
                 )
             )
@@ -287,6 +286,7 @@ class HikkaInfoMod(loader.Module):
 
     @loader.command(
         ru_doc="<текст> - Изменить текст в .info",
+         alias="инфо",
     )
     async def setinfo(self, message: Message):
         """<text> - Change text in .info"""
