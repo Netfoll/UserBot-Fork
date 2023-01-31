@@ -165,7 +165,7 @@ class HikkaInfoMod(loader.Module):
                 f"<emoji document_id=6334456392228800167>🪢</emoji> <b>{self.strings('version')}:</b> {_version} {build}\n"
                 f"<emoji document_id=6334701737940616970>💫</emoji> <b>{self.strings('prefix')}:</b> {prefix}\n"
                 f"<emoji document_id=6334620339720423126>🕛</emoji> <b>{self.strings('uptime')}:</b>"
-                f" {utils.formatted_uptime()}\n\n<b>"
+                f" {utils.formatted_uptime()}\n\n"
                 f"<b>{platform} ({utils.get_cpu_usage()}% | {utils.get_ram_usage()} RAM)</b>"
             ).format(
                 *map(
