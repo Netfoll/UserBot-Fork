@@ -17,7 +17,7 @@ from ..inline.types import InlineQuery
 
 
 @loader.tds
-class HikkaInfoMod(loader.Module):
+class NetfollInfoMod(loader.Module):
     """Show userbot info"""
 
     strings = {
@@ -188,6 +188,7 @@ class HikkaInfoMod(loader.Module):
             else None
         )
 
+
     @loader.inline_handler(thumb_url="https://img.icons8.com/nolan/512/info-squared.png")
     @loader.inline_everyone
     async def info(self, _: InlineQuery) -> dict:
@@ -201,7 +202,9 @@ class HikkaInfoMod(loader.Module):
                 if self.config["banner_url"]
                 else {"message": self._render_info(True)}
             ),
-            "thumb": "hhttps://github.com/MXRRI/Netfoll/raw/Stable/assets/bot_pfp.png",
+            "thumb": (
+                "hhttps://github.com/MXRRI/Netfoll/raw/Stable/assets/bot_pfp.png"
+            ),
             "reply_markup": self._get_mark(),
         }
 
@@ -233,7 +236,6 @@ class HikkaInfoMod(loader.Module):
                 if message.out:
                     await message.delete()
 
-    @loader.unrestricted
     @loader.command(ru_doc="Отправить информацию по типу 'Что такое Netfoll?'",)
     async def whonetfoll(self, message: Message):
         """Send info aka 'What is Hikka?'"""
