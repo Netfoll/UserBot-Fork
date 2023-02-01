@@ -102,6 +102,7 @@ class InlineStuffMod(loader.Module):
             ),
             silent=True,
         )
+        
 
     async def _check_bot(self, username: str) -> bool:
         async with self._client.conversation("@BotFather", exclusive=False) as conv:
