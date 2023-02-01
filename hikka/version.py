@@ -10,7 +10,6 @@
 __version__ = (1, 6, 0)
 netver = (0, 2, 0)
 import os
-
 import git
 
 try:
