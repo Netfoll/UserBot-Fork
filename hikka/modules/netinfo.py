@@ -189,7 +189,7 @@ class NetfollInfoMod(loader.Module):
         )
 
 
-    @loader.inline_handler()
+    @loader.inline_handler(thumb_url="https://img.icons8.com/nolan/512/info-squared.png")
     @loader.inline_everyone
     async def netinfo(self, _: InlineQuery) -> dict:
         """Send userbot info"""
@@ -203,7 +203,7 @@ class NetfollInfoMod(loader.Module):
                 else {"message": self._render_info(True)}
             ),
             "thumb": (
-                "hhttps://github.com/MXRRI/Netfoll/raw/Stable/assets/bot_pfp.png"
+                "https://github.com/MXRRI/Netfoll/raw/Stable/assets/bot_pfp.png"
             ),
             "reply_markup": self._get_mark(),
         }
