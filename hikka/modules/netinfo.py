@@ -190,7 +190,7 @@ class NetfollInfoMod(loader.Module):
 
     @loader.inline_handler(thumb_url="https://img.icons8.com/nolan/512/info-squared.png")
     @loader.inline_everyone
-    async def info(self, _: InlineQuery) -> dict:
+    async def Info(self, _: InlineQuery) -> dict:
         """Send userbot info"""
 
         return {
