@@ -41,7 +41,6 @@ from ..types import CoreOverwriteError, CoreUnloadError, DragonModule
 
 logger = logging.getLogger(__name__)
 
-
 class FakeLock:
     async def __aenter__(self, *args):
         pass
