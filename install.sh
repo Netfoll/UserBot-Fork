@@ -49,7 +49,7 @@ if [ ! x"$SUDO_USER" = x"" ]; then
 	chown "$SUDO_USER:" hikka-install.log
 fi
 
-if [ -d "Hikka/hikka" ]; then
+if [ -d "Netfoll/hikka" ]; then
 	cd Hikka || {
 		printf "\rError: Install git package and re-run installer"
 		exit 6
@@ -57,7 +57,7 @@ if [ -d "Hikka/hikka" ]; then
 	DIR_CHANGED="yes"
 fi
 if [ -f ".setup_complete" ]; then
-	# If hikka is already installed by this script
+	# If Netfoll is already installed by this script
 	PYVER=""
 	if echo "$OSTYPE" | grep -qE '^linux-gnu.*'; then
 		PYVER="3"
@@ -129,13 +129,13 @@ printf "\n\r\033[0;34mCloning repo...\e[0m"
 ##############################################################################
 
 # shellcheck disable=SC2086
-${SUDO_CMD}rm -rf Hikka
+${SUDO_CMD}rm -rf Netfoll
 # shellcheck disable=SC2086
-runout ${SUDO_CMD}git clone https://github.com/hikariatama/Hikka/ || {
+runout ${SUDO_CMD}git clone https://github.com/MXRRI/Netfoll || {
 	errorout "Clone failed."
 	exit 3
 }
-cd Hikka || {
+cd Netfoll || {
 	printf "\r\033[0;33mRun: \033[1;33mpkg install git\033[0;33m and restart installer"
 	exit 7
 }
