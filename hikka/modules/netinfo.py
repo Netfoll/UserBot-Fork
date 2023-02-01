@@ -191,7 +191,7 @@ class NetfollInfoMod(loader.Module):
 
     @loader.inline_handler(thumb_url="https://img.icons8.com/nolan/512/info-squared.png")
     @loader.inline_everyone
-    async def info(self, _: InlineQuery) -> dict:
+    async def netinfo(self, _: InlineQuery) -> dict:
         """Send userbot info"""
 
         return {
@@ -204,8 +204,7 @@ class NetfollInfoMod(loader.Module):
             ),
             "thumb": (
                 "hhttps://github.com/MXRRI/Netfoll/raw/Stable/assets/bot_pfp.png"
-            ),
-            "reply_markup": self._get_mark(),
+            )
         }
 
     @loader.command()
