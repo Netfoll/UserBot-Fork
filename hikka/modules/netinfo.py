@@ -204,7 +204,8 @@ class NetfollInfoMod(loader.Module):
             ),
             "thumb": (
                 "hhttps://github.com/MXRRI/Netfoll/raw/Stable/assets/bot_pfp.png"
-            )
+            ),
+            "reply_markup": self._get_mark(),
         }
 
     @loader.command()
