@@ -363,8 +363,8 @@ class CommandDispatcher:
         if (
             message.is_channel
             and message.is_group
-            and message.chat.title.startswith("hikka-")
-            and message.chat.title != "hikka-logs"
+            and message.chat.title.startswith("netfoll-")
+            and message.chat.title != "netfoll-logs"
         ):
             if not watcher:
                 logger.warning("Ignoring message in datachat \\ logging chat")
