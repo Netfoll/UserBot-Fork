@@ -116,7 +116,6 @@ class NetfollInfoMod(loader.Module):
 
     async def client_ready(self):
         self._me = await self._client.get_me()
-
         if self.config["banner_url"] == "https://github.com/MXRRI/Netfoll/raw/stable/assets/banner.png":
             self.config["banner_url"] = "https://github.com/MXRRI/Netfoll/raw/stable/assets/banner.png"
 
@@ -191,7 +190,7 @@ class NetfollInfoMod(loader.Module):
 
     @loader.inline_handler(thumb_url="https://img.icons8.com/nolan/512/info-squared.png")
     @loader.inline_everyone
-    async def netinfo(self, _: InlineQuery) -> dict:
+    async def info(self, _: InlineQuery) -> dict:
         """Send userbot info"""
 
         return {
