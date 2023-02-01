@@ -58,7 +58,16 @@ class PythonMod(loader.Module):
     }
     
     @loader.owner
-    @loader.command(ru_doc="Выполняет Python код", alias="eval")
+    @loader.command(
+        ru_doc="Выполняет Python код",
+        it_doc="Esegue codice Python",
+        de_doc="Führt Python Code aus",
+        tr_doc="Python kodu çalıştırır",
+        uz_doc="Python kodini ishga tushiradi",
+        es_doc="Ejecuta código Python",
+        kk_doc="Python кодын орындау",
+        alias="eval",
+    )
     async def e(self, message: Message):
         """Evaluates python code"""
         try:
