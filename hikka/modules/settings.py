@@ -89,7 +89,7 @@ class CoreMod(loader.Module):
             " document_id=5377437404078546699>💜</emoji> <b>Hikka-TL:"
             "</b> <i>{}</i>\n{}"
             " <b>Hikka-Pyro:</b> <i>{}</i>\n"
-            "<emoji document_id=5188666899860298925>🌒</emoji> <b>Hikka:</b> <i>V1.6.0</i>\n<emoji"
+            "<emoji document_id=5188666899860298925>🌒</emoji> <b>Hikka:</b> <i>V1.6.1</i>\n<emoji"
             " document_id=6327560044845991305>👾</emoji>"
             " <b>Developers: netfoll.t.me/3</b>"
         ),
@@ -180,7 +180,7 @@ class CoreMod(loader.Module):
             " document_id=5377437404078546699>💜</emoji> <b>Hikka-TL:"
             "</b> <i>{}</i>\n{}"
             " <b>Hikka-Pyro:</b> <i>{}</i>\n"
-            "<emoji document_id=5188666899860298925>🌒</emoji> <b>Hikka:</b> <i>V1.6.0</i>\n<emoji"
+            "<emoji document_id=5188666899860298925>🌒</emoji> <b>Hikka:</b> <i>V1.6.1</i>\n<emoji"
             " document_id=6327560044845991305>👾</emoji>"
             " <b>Разработчики: netfoll.t.me/3</b>"
         ),
