@@ -6,7 +6,6 @@
 # Morri and Penggrin modifided Hikka files for Netfoll
 # 🌐 https://github.com/MXRRI/Netfoll
 
-
 import logging
 import os
 import random
