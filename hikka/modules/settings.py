@@ -231,9 +231,11 @@ class CoreMod(loader.Module):
         module = self.allmodules.get_classname(module)
         return f"{str(chatid)}.{module}" if module else chatid
 
-    @loader.command(ru_doc="Показать версию Netfoll")
+    @loader.command(
+        ru_doc="Показать версию Netfoll",
+    )
     async def netfollcmd(self, message: Message):
-        """Get Netfoll version"""
+        """Get Hikka version"""
         await utils.answer_file(
             message,
             "https://github.com/MXRRI/Netfoll/raw/stable/assets/banner.png",
@@ -267,7 +269,9 @@ class CoreMod(loader.Module):
             ),
         )
 
-    @loader.command(ru_doc="[чат] [модуль] - Отключить бота где-либо")
+    @loader.command(
+        ru_doc="[чат] [модуль] - Отключить бота где-либо",
+    )
     async def blacklist(self, message: Message):
         """[chat_id] [module] - Blacklist the bot from operating somewhere"""
         chatid = await self.blacklistcommon(message)
@@ -280,7 +284,9 @@ class CoreMod(loader.Module):
 
         await utils.answer(message, self.strings("blacklisted").format(chatid))
 
-    @loader.command(ru_doc="[чат] - Включить бота где-либо",)
+    @loader.command(
+        ru_doc="[чат] - Включить бота где-либо",
+    )
     async def unblacklist(self, message: Message):
         """<chat_id> - Unblacklist the bot from operating somewhere"""
         chatid = await self.blacklistcommon(message)
@@ -304,7 +310,9 @@ class CoreMod(loader.Module):
 
             return message.to_id.user_id if message.is_private else False
 
-    @loader.command(ru_doc="[пользователь] - Запретить пользователю выполнять команды")
+    @loader.command(
+        ru_doc="[пользователь] - Запретить пользователю выполнять команды",
+    )
     async def blacklistuser(self, message: Message):
         """[user_id] - Prevent this user from running any commands"""
         user = await self.getuser(message)
@@ -321,7 +329,9 @@ class CoreMod(loader.Module):
 
         await utils.answer(message, self.strings("user_blacklisted").format(user))
 
-    @loader.command(ru_doc="[пользователь] - Разрешить пользователю выполнять команды")
+    @loader.command(
+        ru_doc="[пользователь] - Разрешить пользователю выполнять команды",
+    )
     async def unblacklistuser(self, message: Message):
         """[user_id] - Allow this user to run permitted commands"""
         user = await self.getuser(message)
@@ -342,7 +352,9 @@ class CoreMod(loader.Module):
         )
 
     @loader.owner
-    @loader.command(ru_doc="[dragon] <префикс> - Установить префикс команд")
+    @loader.command(
+        ru_doc="[dragon] <префикс> - Установить префикс команд",
+    )
     async def setprefix(self, message: Message):
         """[dragon] <prefix> - Sets command prefix"""
         args = utils.get_args_raw(message)
@@ -394,7 +406,9 @@ class CoreMod(loader.Module):
         )
 
     @loader.owner
-    @loader.command(ru_doc="Показать список алиасов")
+    @loader.command(
+        ru_doc="Показать список алиасов",
+    )
     async def aliases(self, message: Message):
         """Print all your aliases"""
         aliases = self.allmodules.aliases
@@ -407,7 +421,9 @@ class CoreMod(loader.Module):
         await utils.answer(message, string)
 
     @loader.owner
-    @loader.command(ru_doc="Установить алиас для команды")
+    @loader.command(
+        ru_doc="Установить алиас для команды",
+    )
     async def addalias(self, message: Message):
         """Set an alias for a command"""
         args = utils.get_args(message)
@@ -436,7 +452,9 @@ class CoreMod(loader.Module):
             )
 
     @loader.owner
-    @loader.command(ru_doc="Удалить алиас для команды")
+    @loader.command(
+        ru_doc="Удалить алиас для команды",
+    )
     async def delalias(self, message: Message):
         """Remove an alias for a command"""
         args = utils.get_args(message)
@@ -464,7 +482,9 @@ class CoreMod(loader.Module):
         )
 
     @loader.owner
-    @loader.command(ru_doc="Очистить базу данных")
+    @loader.command(
+        ru_doc="Очистить базу данных",
+    )
     async def cleardb(self, message: Message):
         """Clear the entire database, effectively performing a factory reset"""
         await self.inline.form(
