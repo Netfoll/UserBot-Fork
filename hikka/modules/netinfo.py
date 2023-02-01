@@ -72,7 +72,8 @@ class NetfollInfoMod(loader.Module):
         "_cfg_cst_btn": (
             "Кастомная кнопка в сообщении в info. Оставь пустым, чтобы убрать кнопку"
         ),
-        "_cfg_banner": "Ссылка на баннер-картинку",
+        "_cfg_banner": "Ссылка на баннер",
+        '_bt_text': 'Выберите тип баннера: video, audio, photo, gif.',
         "setinfo_no_args": (
             "<emoji document_id=5370881342659631698>😢</emoji> <b>Тебе нужно указать"
             " текст для кастомного инфо</b>"
@@ -95,7 +96,7 @@ class NetfollInfoMod(loader.Module):
         self.config = loader.ModuleConfig(
             loader.ConfigValue(
                 "custom_message",
-                doc=lambda: self.strings("_cfg_cst_msg"),
+                doc=lambda: self.strings("_cfg_cst_msg")
             ),
             loader.ConfigValue(
                 "custom_button",
@@ -103,14 +104,20 @@ class NetfollInfoMod(loader.Module):
                 lambda: self.strings("_cfg_cst_btn"),
                 validator=loader.validators.Union(
                     loader.validators.Series(fixed_len=2),
-                    loader.validators.NoneType(),
+                    loader.validators.NoneType()
                 ),
+            ),
+            loader.ConfigValue(
+                "banner_type",
+                'video',
+                doc=lambda: self.strings('_bt_text'),
+                validator=loader.validators.Choice(["photo", "video", "audio", "gif"])
             ),
             loader.ConfigValue(
                 "banner_url",
                 "https://github.com/MXRRI/Netfoll/raw/stable/assets/banner.png",
                 lambda: self.strings("_cfg_banner"),
-                validator=loader.validators.Link(),
+                validator=loader.validators.Link()
             ),
         )
 
@@ -196,11 +203,7 @@ class NetfollInfoMod(loader.Module):
         return {
             "title": self.strings("send_info"),
             "description": self.strings("description"),
-            **(
-                {"photo": self.config["banner_url"], "caption": self._render_info(True)}
-                if self.config["banner_url"]
-                else {"message": self._render_info(True)}
-            ),
+            self.config["custom_format"]: self.config["custom_banner"],
             "thumb": (
                 "https://github.com/MXRRI/Netfoll/raw/Stable/assets/bot_pfp.png"
             ),
@@ -216,11 +219,7 @@ class NetfollInfoMod(loader.Module):
                 message=message,
                 text=self._render_info(True),
                 reply_markup=[{'text': 'test', 'url': 'https://github.com/'}],
-                **(
-                    {"photo": self.config["banner_url"]}
-                    if self.config["banner_url"]
-                    else {}
-                ),
+                self.config["custom_format"]: self.config["custom_banner"]
             )
         else:
             try:
