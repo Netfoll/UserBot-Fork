@@ -16,7 +16,7 @@
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-# ©️ Dan Gazizullin, 2021-2022
+# ©️ Dan Gazizullin, 2021-2023
 # This file is a part of Hikka Userbot
 # 🌐 https://github.com/hikariatama/Hikka
 # You can redistribute it and/or modify it under the terms of the GNU AGPLv3
@@ -363,8 +363,8 @@ class CommandDispatcher:
         if (
             message.is_channel
             and message.is_group
-            and message.chat.title.startswith("hikka-")
-            and message.chat.title != "hikka-logs"
+            and message.chat.title.startswith("netfoll-")
+            and message.chat.title != "netfoll-logs"
         ):
             if not watcher:
                 logger.warning("Ignoring message in datachat \\ logging chat")

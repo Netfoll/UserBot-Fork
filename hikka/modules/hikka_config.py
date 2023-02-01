@@ -1,4 +1,4 @@
-# ©️ Dan Gazizullin, 2021-2022
+# ©️ Dan Gazizullin, 2021-2023
 # This file is a part of Hikka Userbot
 # 🌐 https://github.com/hikariatama/Hikka
 # You can redistribute it and/or modify it under the terms of the GNU AGPLv3
@@ -25,10 +25,10 @@ from ..inline.types import InlineCall
 
 @loader.tds
 class HikkaConfigMod(loader.Module):
-    """Interactive configurator for Hikka Userbot"""
+    """Interactive configurator for Netfoll Userbot"""
 
     strings = {
-        "name": "HikkaConfig",
+        "name": "NetConfig",
         "choose_core": "⚙️ <b>Choose a category</b>",
         "configure": "⚙️ <b>Choose a module to configure</b>",
         "configure_lib": "📦 <b>Choose a library to configure</b>",
@@ -96,7 +96,7 @@ class HikkaConfigMod(loader.Module):
         "configure": "⚙️ <b>Выбери модуль для настройки</b>",
         "configure_lib": "📦 <b>Выбери библиотеку для настройки</b>",
         "configuring_mod": (
-            "⚙️ <b>Выбери параметр для модуля</b> <code>{}</code>\n\n<b>Текущие"
+            "⚙️ <b>Выбран модуль:</b> <code>{}</code>\n\n<b>Текущие"
             " настройки:</b>\n\n{}"
         ),
         "configuring_lib": (
@@ -148,10 +148,10 @@ class HikkaConfigMod(loader.Module):
         "remove_item_desc": "✍️ Введи элемент, который нужно удалить",
         "back_btn": "👈 Назад",
         "close_btn": "✖️ Закрыть",
-        "add_item_btn": "➕ Добавить элемент",
-        "remove_item_btn": "➖ Удалить элемент",
-        "show_hidden": "🚸 Показать значение",
-        "hide_value": "🔒 Скрыть значение",
+        "add_item_btn": "➕ Добавить",
+        "remove_item_btn": "➖ Удалить",
+        "show_hidden": "🚸 Показать",
+        "hide_value": "🔒 Скрыть",
         "builtin": "👾 Встроенные",
         "external": "⛓ Установленные",
         "libraries": "📦 Библиотеки",

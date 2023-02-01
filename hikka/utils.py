@@ -16,7 +16,7 @@
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-# ©️ Dan Gazizullin, 2021-2022
+# ©️ Dan Gazizullin, 2021-2023
 # This file is a part of Hikka Userbot
 # 🌐 https://github.com/hikariatama/Hikka
 # You can redistribute it and/or modify it under the terms of the GNU AGPLv3
@@ -96,10 +96,10 @@ from telethon.tl.types import (
     User,
 )
 
+from ._internal import fw_protect
 from .inline.types import InlineCall, InlineMessage
 from .tl_cache import CustomTelegramClient
 from .types import HikkaReplyMarkup, ListLike, Module
-from ._internal import fw_protect
 
 FormattingEntity = typing.Union[
     MessageEntityUnknown,
@@ -806,13 +806,13 @@ async def asset_channel(
 
     if _folder:
         await fw_protect()
-        if _folder != "hikka":
+        if _folder != "netfoll":
             raise NotImplementedError
 
         folders = await client(GetDialogFiltersRequest())
 
         try:
-            folder = next(folder for folder in folders if folder.title == "hikka")
+            folder = next(folder for folder in folders if folder.title == "netfoll")
         except Exception:
             folder = None
 
