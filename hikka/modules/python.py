@@ -22,7 +22,6 @@ from telethon.tl.types import Message
 from .. import loader, main, utils
 from ..log import HikkaException
 
-
 @loader.tds
 class PythonMod(loader.Module):
     """Evaluates python code"""
