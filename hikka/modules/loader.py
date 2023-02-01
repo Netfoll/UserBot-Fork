@@ -41,6 +41,7 @@ from ..types import CoreOverwriteError, CoreUnloadError, DragonModule
 
 logger = logging.getLogger(__name__)
 
+
 class FakeLock:
     async def __aenter__(self, *args):
         pass
@@ -550,7 +551,16 @@ class LoaderMod(loader.Module):
         )
 
     @loader.owner
-    @loader.command(ru_doc="Загрузить модуль из официального репозитория", alias="dlm")
+    @loader.command(
+        ru_doc="Загрузить модуль из официального репозитория",
+        it_doc="Carica un modulo dal repository ufficiale",
+        de_doc="Lade ein Modul aus dem offiziellen Repository",
+        tr_doc="Resmi depodan bir modül yükler",
+        uz_doc="Ofitsial repodan modulni yuklash",
+        es_doc="Cargar un módulo desde el repositorio oficial",
+        kk_doc="Официалдық репозиториянан модульді жүктеу",
+        alias="dlm",
+    )
     async def dlmod(self, message: Message):
         """Install a module from the official module repo"""
         if args := utils.get_args(message):
@@ -589,7 +599,15 @@ class LoaderMod(loader.Module):
             )
 
     @loader.owner
-    @loader.command(ru_doc="Установить пресет модулей")
+    @loader.command(
+        ru_doc="Установить пресет модулей",
+        it_doc="Installa un preset di moduli",
+        de_doc="Installiere ein Modul-Preset",
+        tr_doc="Modül önbelleğini yükle",
+        uz_doc="Modul presetini o'rnatish",
+        es_doc="Instalar un conjunto de módulos",
+        kk_doc="Модульдің пресетін орнату",
+    )
     async def dlpreset(self, message: Message):
         """Set modules preset"""
         args = utils.get_args(message)
@@ -752,7 +770,16 @@ class LoaderMod(loader.Module):
         await self.load_module(doc, call, origin=path_ or "<string>", save_fs=save)
 
     @loader.owner
-    @loader.command(ru_doc="Загрузить модуль из файла", alias=["lm", 'ld'])
+    @loader.command(
+        ru_doc="Загрузить модуль из файла",
+        it_doc="Carica un modulo da un file",
+        de_doc="Lade Modul aus Datei",
+        tr_doc="Dosyadan modül yükle",
+        uz_doc="Fayldan modulni yuklash",
+        es_doc="Cargar módulo desde archivo",
+        kk_doc="Файлдан модульді жүктеу",
+        alias="lm",
+    )
     async def loadmod(self, message: Message):
         """Loads the module file"""
         msg = message if message.file else (await message.get_reply_message())
@@ -1445,7 +1472,15 @@ class LoaderMod(loader.Module):
         await call.answer(self.strings("subscribed"))
 
     @loader.owner
-    @loader.command(ru_doc="Выгрузить модуль")
+    @loader.command(
+        ru_doc="Выгрузить модуль",
+        it_doc="Scarica il modulo",
+        de_doc="Entlädt ein Modul",
+        tr_doc="Bir modülü kaldırır",
+        uz_doc="Modulni o'chirish",
+        es_doc="Descargar el módulo",
+        kk_doc="Модульді жою",
+    )
     async def unloadmod(self, message: Message):
         """Unload module by class name"""
         args = utils.get_args_raw(message)
@@ -1500,7 +1535,15 @@ class LoaderMod(loader.Module):
         await utils.answer(message, msg)
 
     @loader.owner
-    @loader.command(ru_doc="Удалить все модули")
+    @loader.command(
+        ru_doc="Удалить все модули",
+        it_doc="Rimuovi tutti i moduli",
+        de_doc="Entfernt alle Module",
+        tr_doc="Tüm modülleri kaldırır",
+        uz_doc="Barcha modullarni o'chirish",
+        es_doc="Eliminar todos los módulos",
+        kk_doc="Барлық модульді жою",
+    )
     async def clearmodules(self, message: Message):
         """Delete all installed modules"""
         await self.inline.form(
@@ -1518,7 +1561,15 @@ class LoaderMod(loader.Module):
             ],
         )
 
-    @loader.command(ru_doc="Добавить дополнительный репозиторий")
+    @loader.command(
+        ru_doc="Добавить дополнительный репозиторий",
+        it_doc="Aggiungi un repository aggiuntivo",
+        de_doc="Fügt ein zusätzliches Repository hinzu",
+        tr_doc="Ek bir depo ekler",
+        uz_doc="Qo'shimcha repozitoriyani qo'shish",
+        es_doc="Añadir un repositorio adicional",
+        kk_doc="Қосымша қойымдық қосу",
+    )
     async def addrepo(self, message: Message):
         """Add a repository to the list of repositories"""
         args = utils.get_args_raw(message)
@@ -1534,7 +1585,15 @@ class LoaderMod(loader.Module):
 
         await utils.answer(message, self.strings("repo_added").format(args))
 
-    @loader.command(ru_doc="Удалить дополнительный репозиторий")
+    @loader.command(
+        ru_doc="Удалить дополнительный репозиторий",
+        it_doc="Rimuovi un repository aggiuntivo",
+        de_doc="Entfernt ein zusätzliches Repository",
+        tr_doc="Ek bir depoyu kaldırır",
+        uz_doc="Qo'shimcha repozitoriyani o'chirish",
+        es_doc="Eliminar un repositorio adicional",
+        kk_doc="Қосымша қойымдықты жою",
+    )
     async def delrepo(self, message: Message):
         """Remove a repository from the list of repositories"""
         args = utils.get_args_raw(message)
