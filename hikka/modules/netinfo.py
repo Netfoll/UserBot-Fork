@@ -237,7 +237,7 @@ class NetfollInfoMod(loader.Module):
 
     @loader.command(ru_doc="Отправить информацию по типу 'Что такое Netfoll?'",)
     async def whonetfoll(self, message: Message):
-        """Send info aka 'What is Hikka?'"""
+        """Send info aka 'What is Netfoll?'"""
         await utils.answer(message, self.strings("desc"))
 
     @loader.command(ru_doc="<текст> - Изменить текст в .info",)
