@@ -34,6 +34,7 @@ from ..security import (
     SUPPORT,
 )
 
+
 @loader.tds
 class HikkaSecurityMod(loader.Module):
     """Control security settings"""
