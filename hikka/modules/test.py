@@ -454,7 +454,7 @@ class TestMod(loader.Module):
         ghash = utils.get_git_hash()
 
         other = (
-            *main.__version__,
+            *main.netver,
             (
                 " <a"
                 f' href="https://github.com/MXRRI/Netfoll/commit/{ghash}">@{ghash[:8]}</a>'
