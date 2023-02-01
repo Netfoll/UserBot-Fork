@@ -207,7 +207,7 @@ class NetfollInfoMod(loader.Module):
             "reply_markup": self._get_mark(),
         }
 
-    @loader.command()
+    @loader.command(alias='инфо')
     async def info(self, message: Message):
         """Send userbot info"""
 
