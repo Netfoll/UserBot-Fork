@@ -17,7 +17,7 @@ from ..inline.types import InlineQuery
 
 
 @loader.tds
-class NetfollInfoMod(loader.Module):
+class HikkaInfoMod(loader.Module):
     """Show userbot info"""
 
     strings = {
@@ -116,6 +116,7 @@ class NetfollInfoMod(loader.Module):
 
     async def client_ready(self):
         self._me = await self._client.get_me()
+
         if self.config["banner_url"] == "https://github.com/MXRRI/Netfoll/raw/stable/assets/banner.png":
             self.config["banner_url"] = "https://github.com/MXRRI/Netfoll/raw/stable/assets/banner.png"
 
@@ -187,10 +188,9 @@ class NetfollInfoMod(loader.Module):
             else None
         )
 
-
     @loader.inline_handler(thumb_url="https://img.icons8.com/nolan/512/info-squared.png")
     @loader.inline_everyone
-    async def Info(self, _: InlineQuery) -> dict:
+    async def info(self, _: InlineQuery) -> dict:
         """Send userbot info"""
 
         return {
@@ -201,9 +201,7 @@ class NetfollInfoMod(loader.Module):
                 if self.config["banner_url"]
                 else {"message": self._render_info(True)}
             ),
-            "thumb": (
-                "https://github.com/MXRRI/Netfoll/raw/Stable/assets/bot_pfp.png"
-            ),
+            "thumb": "hhttps://github.com/MXRRI/Netfoll/raw/Stable/assets/bot_pfp.png",
             "reply_markup": self._get_mark(),
         }
 
@@ -215,7 +213,7 @@ class NetfollInfoMod(loader.Module):
             await self.inline.form(
                 message=message,
                 text=self._render_info(True),
-                reply_markup=[{'text': self.config['custom_button'][0], 'url': self.config['custom_button'][1]}],
+                reply_markup=[{'text': 'test', 'url': 'https://github.com/'}],
                 **(
                     {"photo": self.config["banner_url"]}
                     if self.config["banner_url"]
@@ -235,6 +233,7 @@ class NetfollInfoMod(loader.Module):
                 if message.out:
                     await message.delete()
 
+    @loader.unrestricted
     @loader.command(ru_doc="Отправить информацию по типу 'Что такое Netfoll?'",)
     async def whonetfoll(self, message: Message):
         """Send info aka 'What is Hikka?'"""

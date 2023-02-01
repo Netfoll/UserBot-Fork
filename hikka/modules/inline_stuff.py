@@ -37,11 +37,11 @@ class InlineStuffMod(loader.Module):
             "<emoji document_id=6318792204118656433>🎉</emoji> <b>Config successfully"
             " saved. Restart userbot to apply changes</b>"
         ),
-        "this_is_hikka": (
-            "🌘 <b>Hi! This is Hikka — powerful modular Telegram userbot. You can"
-            " install it to your account!</b>\n\n<b>🌍 <a"
-            ' href="https://github.com/MXRRI/Netfoll">GitHub</a></b>\n<b>👥 <a'
-            ' href="https://t.me/hikka_talks">Support chat</a></b>'
+        "this_is_netfoll": (
+            "👾 <b>Hello! This is Netfoll, a UserBot based on the best Hikka userbot. You can"
+            " try it or even install it on your account!</b>\n\n<b>💎 <a"
+            ' href="https://github.com/MXRRI/Netfoll">GitHub</a></b>\n<b>👾 <a'
+            ' href="https://t.me/hikkawe_support">Support Chat</a></b>'
         ),
     }
 
@@ -59,7 +59,7 @@ class InlineStuffMod(loader.Module):
             "<emoji document_id=6318792204118656433>🎉</emoji> <b>Настройки сохранены."
             " Для их применения нужно перезагрузить юзербот</b>"
         ),
-        "this_is_hikka": (
+        "this_is_netfoll": (
             "👾 <b>Привет! Это Netfoll, ЮзерБот основанный на лучшем юзерботе Hikka. Вы можете"
             " попробовать его или вовсе установить на свой аккаунт!</b>\n\n<b>💎 <a"
             ' href="https://github.com/MXRRI/Netfoll">GitHub</a></b>\n<b>👾 <a'
@@ -132,15 +132,7 @@ class InlineStuffMod(loader.Module):
 
                     return True
 
-    @loader.command(
-        ru_doc="<юзернейм> - Изменить юзернейм инлайн бота",
-        it_doc="<username> - Cambia il nome utente del bot inline",
-        de_doc="<username> - Ändere den Inline-Bot-Nutzernamen",
-        tr_doc="<kullanıcı adı> - İçe aktarma botunun kullanıcı adını değiştirin",
-        uz_doc="<foydalanuvchi nomi> - Bot foydalanuvchi nomini o'zgartiring",
-        es_doc="<nombre de usuario> - Cambia el nombre de usuario del bot de inline",
-        kk_doc="<пайдаланушы аты> - Инлайн боттың пайдаланушы атын өзгерту",
-    )
+    @loader.command(ru_doc="<юзернейм> - Изменить юзернейм инлайн бота", alias='setbotname')
     async def ch_hikka_bot(self, message: Message):
         """<username> - Change your Hikka inline bot username"""
         args = utils.get_args_raw(message).strip("@")
@@ -175,7 +167,7 @@ class InlineStuffMod(loader.Module):
 
         await message.answer_photo(
             "https://github.com/MXRRI/Netfoll/raw/Dev/assets/banner.png",
-            caption=self.strings("this_is_hikka"),
+            caption=self.strings("this_is_netfoll"),
         )
 
     async def client_ready(self):
