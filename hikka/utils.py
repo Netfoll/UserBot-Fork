@@ -806,13 +806,13 @@ async def asset_channel(
 
     if _folder:
         await fw_protect()
-        if _folder != "hikka":
+        if _folder != "netfoll":
             raise NotImplementedError
 
         folders = await client(GetDialogFiltersRequest())
 
         try:
-            folder = next(folder for folder in folders if folder.title == "hikka")
+            folder = next(folder for folder in folders if folder.title == "netfoll")
         except Exception:
             folder = None
 
