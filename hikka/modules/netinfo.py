@@ -247,3 +247,4 @@ class HikkaInfoMod(loader.Module):
             return await utils.answer(message, self.strings("setinfo_no_args"))
         self.config["custom_message"] = args
         await utils.answer(message, self.strings("setinfo_success"))
+        
