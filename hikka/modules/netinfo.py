@@ -219,7 +219,17 @@ class NetfollInfoMod(loader.Module):
                 message=message,
                 text=self._render_info(True),
                 reply_markup=[{'text': 'test', 'url': 'https://github.com/'}],
-                self.config["custom_format"]: self.config["custom_banner"]
+                **(
+                    {if self.config['banner_type'] == 'photo':
+                        "photo": self.config["banner_url"]}
+                    if self.config['banner_type'] == 'video':
+                        'video': self.config['banner_url']
+                    if self.config['banner_type'] == 'audio':
+                        'audio': self.config['banner_url']
+                    if self.config['banner_type'] == 'gif':
+                        'gif': self.config['banner_url']
+                    else {}
+                ),
             )
         else:
             try:
