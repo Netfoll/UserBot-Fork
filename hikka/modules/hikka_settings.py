@@ -1,4 +1,4 @@
-# ©️ Dan Gazizullin, 2021-2022
+# ©️ Dan Gazizullin, 2021-2023
 # This file is a part of Hikka Userbot
 # 🌐 https://github.com/hikariatama/Hikka
 # You can redistribute it and/or modify it under the terms of the GNU AGPLv3
@@ -21,7 +21,7 @@ from telethon.tl.types import Message
 from telethon.utils import get_display_name
 
 from .. import loader, log, main, utils
-from .._internal import restart, fw_protect
+from .._internal import fw_protect, restart
 from ..inline.types import InlineCall
 
 logger = logging.getLogger(__name__)
@@ -186,8 +186,6 @@ class HikkaSettingsMod(loader.Module):
             " You'll need to authorize using lavHost credentials, specified on"
             " registration</i>"
         ),
-        "disable_stats": "✅ Anonymous stats allowed",
-        "enable_stats": "🚫 Anonymous stats disabled",
         "disable_debugger": "✅ Debugger enabled",
         "enable_debugger": "🚫 Debugger disabled",
     }
@@ -313,8 +311,6 @@ class HikkaSettingsMod(loader.Module):
             " lavHost</b>\n\n<i>💡 Тебе нужно будет авторизоваться, используя данные,"
             " указанные при настройке lavHost</i>"
         ),
-        "disable_stats": "✅ Анонимная стата разрешена",
-        "enable_stats": "🚫 Анонимная стата запрещена",
         "disable_debugger": "✅ Отладчик включен",
         "enable_debugger": "🚫 Отладчик выключен",
     }
@@ -1087,24 +1083,6 @@ class HikkaSettingsMod(loader.Module):
                         "callback": self.inline__setting,
                         "args": (
                             lambda: main.save_config_key("disable_custom_emojis", True),
-                        ),
-                    }
-                ),
-            ],
-            [
-                (
-                    {
-                        "text": self.strings("disable_stats"),
-                        "callback": self.inline__setting,
-                        "args": ("stats", False),
-                    }
-                    if self._db.get(main.__name__, "stats", True)
-                    else {
-                        "text": self.strings("enable_stats"),
-                        "callback": self.inline__setting,
-                        "args": (
-                            "stats",
-                            True,
                         ),
                     }
                 ),
