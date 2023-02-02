@@ -222,18 +222,12 @@ class HelpMod(loader.Module):
             ),  
 
     @loader.command(
-        ru_doc="Показать ссылку на чат помощи Hikka",
-        it_doc="Mostra il link al gruppo di supporto Hikka",
-        de_doc="Zeige den Link zum Hikka-Hilfe-Chat",
-        tr_doc="Hikka yardım sohbetinin bağlantısını göster",
-        uz_doc="Hikka yordam sohbatining havolasini ko'rsatish",
-        es_doc="Mostrar enlace al chat de ayuda de Hikka",
-        kk_doc="Hikka анықтама сөйлесушісінің сілтемесін көрсету",
+        ru_doc="Показать ссылку на чат помощи Netfoll",
     )
     async def support(self, message):
         """Get link of Hikka support chat"""
         if message.out:
-            await self.request_join("@hikka_talks", self.strings("request_join"))
+            await self.request_join("@netfolub", self.strings("request_join"))
 
         await utils.answer(
             message,
@@ -241,7 +235,7 @@ class HelpMod(loader.Module):
                 (
                     utils.get_platform_emoji(self._client)
                     if self._client.hikka_me.premium and CUSTOM_EMOJIS
-                    else "🌘"
+                    else "👾"
                 )
             ),
         )
