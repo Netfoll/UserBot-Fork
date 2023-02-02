@@ -52,36 +52,27 @@ class SysInfoMod(loader.Module):
         "release": "<emoji document_id=5357204066550162638>🎛</emoji> Релиз ОС",
     }
 
+    async def client_ready(self):
+        if "Termux" in utils.get_named_platform():
+            raise loader.SelfUnload
+
     def info(self, message):
         names = self.strings("names")
         processor = utils.escape_html(platform.architecture()[0])
-        pyver = platform.python_version()
-        ver = platform.release()
-        system = platform.system()
-        release = platform.version()
-        cores = psutil.cpu_count(logical=True)
-        cpu_load = psutil.cpu_percent()
         ram = bytes_to_megabytes(psutil.virtual_memory().total - psutil.virtual_memory().available)
         ram_load_mb = bytes_to_megabytes(psutil.virtual_memory().total)
         ram_load_procent = psutil.virtual_memory().percent
-        cpu_use = utils.get_cpu_usage()
-        ram_use = utils.get_ram_usage()
         
         return (
-                f"<b>{names}</b>\n\n"
-                f'<b>{self.strings("cpu")} ({processor}): {cores} {self.strings("core")} ({cpu_load}%)</b>\n'
-                f'<b>{self.strings("ram")}: {ram}/{ram_load_mb} MB ({ram_load_procent}%)</b>\n'
-                f'<b>{self.strings("use")}: {ram_use} MB / CPU {cpu_use}%</b>\n\n'
-                f'<b>{self.strings("pyver")}: {pyver}</b>\n'
-                f'<b>{self.strings("release")}: {release}</b>\n'
-                f'<b>{self.strings("system")}: {system} ({ver})</b>\n\n'
-            )
-    @loader.command(
-    ru_doc="Показать информацию о системе"
-    )
+            f"<b>{names}</b>\n\n"
+            f'<b>{self.strings("cpu")} ({processor}): {psutil.cpu_count(logical=True)} {self.strings("core")} ({psutil.cpu_percent()}%)</b>\n'
+            f'<b>{self.strings("ram")}: {ram}/{ram_load_mb} MB ({ram_load_procent}%)</b>\n'
+            f'<b>{self.strings("use")}: {utils.get_ram_usage()} MB / CPU {utils.get_cpu_usage()}%</b>\n\n'
+            f'<b>{self.strings("pyver")}: {platform.python_version()}</b>\n'
+            f'<b>{self.strings("release")}: {platform.version()}</b>\n'
+            f'<b>{self.strings("system")}: {platform.system()} ({platform.release()})</b>\n\n'
+        )
+    @loader.command(ru_doc="Показать информацию о системе")
     async def sinfocmd(self, message):
         """Show System"""       
-        await utils.answer(
-                message,
-                self.info(message),
-            )
+        await utils.answer(message,self.info(message))
