@@ -65,10 +65,8 @@ TITLE = ""
 
 if sys.stdout.isatty():
     try:
-        DIALOG = TDialog(dialog="dialog", autowidgetsize=True)
-        locale.setlocale(locale.LC_ALL, "")
+        DIALOG = TDialog
     except (ExecutableNotFound, locale.Error):
-        # Fall back to a terminal based configurator.
         DIALOG = TDialog()
 else:
     DIALOG = TDialog()
