@@ -106,7 +106,6 @@ def api_config(data_root: str):
         return
 
     code, id_value = DIALOG.inputbox('''­
-    
 Отлично! Теперь введите API ID
 Для отмены, нажмите Ctrl + Z
     ''')
