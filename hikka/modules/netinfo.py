@@ -129,6 +129,11 @@ class NetfollInfoMod(loader.Module):
         prefix = f"«<code>{utils.escape_html(self.get_prefix())}</code>»"
 
         platform = utils.get_named_platform()
+
+        if 'Termux' not in platform:
+            usage = f"<b>{platform} ({utils.get_cpu_usage()}% | {utils.get_ram_usage()} RAM)</b>"
+        else:
+            usage = '\n'
        
         for emoji, icon in {
             "🍊": "<emoji document_id=5449599833973203438>🧡</emoji>",
@@ -145,10 +150,7 @@ class NetfollInfoMod(loader.Module):
         }.items():
             platform = platform.replace(emoji, icon)
 
-        if platform == '🕶 Termux':
-            usage = '\n'
-        else:
-            usage = "<b>{platform} ({utils.get_cpu_usage()}% | {utils.get_ram_usage()} RAM)</b>"
+        
 
         return (
             self.config["custom_message"].format(
