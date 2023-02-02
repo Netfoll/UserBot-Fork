@@ -444,7 +444,7 @@ class Hikka:
 
         if not self.web:
             try:
-                phone = input("Phone: ")
+                phone = input("Номер телефона: ")
                 client = CustomTelegramClient(
                     MemorySession(),
                     self.api_token.ID,
@@ -500,9 +500,9 @@ class Hikka:
                     device_model="Netfoll",
                 )
 
-                client.start(phone=raise_auth if self.web else lambda: input("Phone: "))
+                client.start(phone=raise_auth if self.web else lambda: input("Номер телефона: "))
 
-                client.phone = "never gonna give you up"
+                client.phone = "protected by toxic"
 
                 self.clients += [client]
             except sqlite3.OperationalError:
@@ -527,7 +527,7 @@ class Hikka:
                 self.sessions.remove(session)
             except InteractiveAuthRequired:
                 logging.error(
-                    "Session %s was terminated and re-auth is required",
+                    """Ошибка авторизации сессии, чтобы починить введи rm %s после чего повтори попытку авторизации""",
                     session.filename,
                 )
                 self.sessions.remove(session)
@@ -571,7 +571,7 @@ class Hikka:
                         | |\  |  __/ |_|  _| (_) | | |
                         |_| \_|\___|\__|_|  \___/|_|_|  
 
-                     ♦ Version: {'.'.join(list(map(str, list(__version__))))} #{build[:7]}
+                     ♦ Netver: {'.'.join(list(map(str, list(__version__))))} #{build[:7]}
                      ♦ {upd}
                      ♦ Platform: {_platform}
                      """
