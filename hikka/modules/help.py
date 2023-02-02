@@ -3,7 +3,7 @@
 # 🌐 https://github.com/hikariatama/Hikka
 # You can redistribute it and/or modify it under the terms of the GNU AGPLv3
 # 🔑 https://www.gnu.org/licenses/agpl-3.0.html
-# Morri and Penggrin modifided Hikka files for Netfoll
+# Netfoll Team modifided Hikka files for Netfoll
 # 🌐 https://github.com/MXRRI/Netfoll
 
 import difflib
@@ -39,7 +39,7 @@ class HelpMod(loader.Module):
             "<emoji document_id=5312383351217201533>☝️</emoji> <b>This is a core"
             " module. You can't unload it nor replace</b>"
         ),
-        "info": "<emoji document_id=6334760737906362392>⚡️</emoji><b> You didn't specify a module to search for</b>\n\n<i>The installed modules can be viewed in</i> <code>.mods</code>"
+        "info": "<emoji document_id=6334760737906362392>⚡️</emoji><b> You didn't specify a module to search for</b>\n\n<i>The installed modules can be viewed in</i> <code>{}mods</code>"
     }
 
     strings_ru = {
@@ -57,7 +57,7 @@ class HelpMod(loader.Module):
             "<emoji document_id=6328010818843575869>ℹ️</emoji> <b>Это встроенный"
             " модуль. Вы не можете его выгрузить или заменить</b>"
         ),
-        "info": "<emoji document_id=6334760737906362392>⚡️</emoji><b> Вы не указали модуль для поиска</b>\n\n<i>Установленные модули можно посмотреть в</i> <code>.mods</code>"
+        "info": "<emoji document_id=6334760737906362392>⚡️</emoji><b> Вы не указали модуль для поиска</b>\n\n<i>Установленные модули можно посмотреть в</i> <code>{}mods</code>"
     }
 
     def find_aliases(self, command: str) -> list:
@@ -209,30 +209,25 @@ class HelpMod(loader.Module):
     async def help(self, message: Message):
         """[module] [-f] - Show help"""
         args = utils.get_args_raw(message)
+        prefix = f"{self.strings('info').format(str(self.get_prefix()))}\n"
         if "-f" in args:
             args = args.replace(" -f", "").replace("-f", "")
 
         if args:
             await self.modhelp(message, args)
-            return
+            return     
         await utils.answer(
             message,
-            self.info(message),
-            ),
+            prefix,
+            ),  
 
     @loader.command(
-        ru_doc="Показать ссылку на чат помощи Hikka",
-        it_doc="Mostra il link al gruppo di supporto Hikka",
-        de_doc="Zeige den Link zum Hikka-Hilfe-Chat",
-        tr_doc="Hikka yardım sohbetinin bağlantısını göster",
-        uz_doc="Hikka yordam sohbatining havolasini ko'rsatish",
-        es_doc="Mostrar enlace al chat de ayuda de Hikka",
-        kk_doc="Hikka анықтама сөйлесушісінің сілтемесін көрсету",
+        ru_doc="Показать ссылку на чат помощи Netfoll",
     )
     async def support(self, message):
         """Get link of Hikka support chat"""
         if message.out:
-            await self.request_join("@hikka_talks", self.strings("request_join"))
+            await self.request_join("@netfolub", self.strings("request_join"))
 
         await utils.answer(
             message,
@@ -240,7 +235,7 @@ class HelpMod(loader.Module):
                 (
                     utils.get_platform_emoji(self._client)
                     if self._client.hikka_me.premium and CUSTOM_EMOJIS
-                    else "🌘"
+                    else "👾"
                 )
             ),
         )

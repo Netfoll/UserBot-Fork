@@ -19,7 +19,7 @@
 # 🌐 https://github.com/hikariatama/Hikka
 # You can redistribute it and/or modify it under the terms of the GNU AGPLv3
 # 🔑 https://www.gnu.org/licenses/agpl-3.0.html
-# Morri and Penggrin modifided Hikka files for Netfoll
+# Netfoll Team modifided Hikka files for Netfoll
 # 🌐 https://github.com/MXRRI/Netfoll
 
 import locale
@@ -34,8 +34,6 @@ from . import utils
 
 
 def _safe_input(*args, **kwargs):
-    """Try to invoke input(*), print an error message if an EOFError or OSError occurs)
-    """
     try:
         return input(*args, **kwargs)
     except (EOFError, OSError):
@@ -46,17 +44,14 @@ def _safe_input(*args, **kwargs):
 
 
 class TDialog:
-    """Reimplementation of dialog.Dialog without external dependencies"""
 
     def inputbox(self, query: str) -> typing.Tuple[bool, str]:
-        """Get a text input of the query"""
         print(query)
         print()
-        inp = _safe_input("Please enter your response, or type nothing to cancel: ")
+        inp = _safe_input("Введите значение...:")
         return (False, "Cancelled") if not inp else (True, inp)
 
     def msgbox(self, msg: str) -> bool:
-        """Print some info"""
         print(msg)
         return True
 
@@ -65,29 +60,57 @@ TITLE = ""
 
 if sys.stdout.isatty():
     try:
+        DIALOG = TDialog()
+    except (ExecutableNotFound, locale.Error):
         DIALOG = Dialog(dialog="dialog", autowidgetsize=True)
         locale.setlocale(locale.LC_ALL, "")
-    except (ExecutableNotFound, locale.Error):
-        # Fall back to a terminal based configurator.
-        DIALOG = TDialog()
 else:
     DIALOG = TDialog()
 
 
 def api_config(data_root: str):
-    """Request API config from user and set"""
-    code, hash_value = DIALOG.inputbox("Enter your API Hash")
+    code, hash_value = DIALOG.inputbox('''­
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ _   _      _    __       _ _ 
+| \ | | ___| |_ / _| ___ | | |
+|  \| |/ _ \ __| |_ / _ \| | |
+| |\  |  __/ |_|  _| (_) | | |
+|_| \_|\___|\__|_|  \___/|_|_|
+
+Пожалуйста, введите API HASH
+Для отмены, нажмите Ctrl + Z
+    ''')
     if not code:
         return
 
     if len(hash_value) != 32 or any(it not in string.hexdigits for it in hash_value):
-        DIALOG.msgbox("Invalid hash")
+        DIALOG.msgbox("Неверный HASH")
         return
 
-    code, id_value = DIALOG.inputbox("Enter your API ID")
+    code, id_value = DIALOG.inputbox('''­
+Отлично! Теперь введите API ID
+    ''')
 
     if not id_value or any(it not in string.digits for it in id_value):
-        DIALOG.msgbox("Invalid ID")
+        DIALOG.msgbox("Неверный ID")
         return
 
     with open(
@@ -98,4 +121,4 @@ def api_config(data_root: str):
     ) as file:
         file.write(id_value + "\n" + hash_value)
 
-    DIALOG.msgbox("API Token and ID set.")
+    DIALOG.msgbox("API данные сохранены. Осталось только ввести номер и код подтверждения. Приступим)\n")

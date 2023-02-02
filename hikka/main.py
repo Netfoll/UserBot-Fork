@@ -22,7 +22,7 @@
 # 🌐 https://github.com/hikariatama/Hikka
 # You can redistribute it and/or modify it under the terms of the GNU AGPLv3
 # 🔑 https://www.gnu.org/licenses/agpl-3.0.html
-# Morri and Penggrin modifided Hikka files for Netfoll
+# Netfoll Team modifided Hikka files for Netfoll
 # 🌐 https://github.com/MXRRI/Netfoll
 
 
@@ -57,7 +57,7 @@ from . import database, loader, utils, version
 from .dispatcher import CommandDispatcher
 from .tl_cache import CustomTelegramClient
 from .translations import Translator
-from .version import __version__
+from .version import netver, __version__
 
 try:
     from .web import core
@@ -444,7 +444,7 @@ class Hikka:
 
         if not self.web:
             try:
-                phone = input("Phone: ")
+                phone = input("Номер телефона: ")
                 client = CustomTelegramClient(
                     MemorySession(),
                     self.api_token.ID,
@@ -456,7 +456,7 @@ class Hikka:
                         f"Netfoll UB"
                     ),
                     app_version=(
-                        f"Netfoll v{__version__[0]}.{__version__[1]}.{__version__[2]}"
+                        f"Netfoll v{netver[0]}.{netver[1]}.{netver[2]}"
                     ),
                 )
 
@@ -500,9 +500,9 @@ class Hikka:
                     device_model="Netfoll",
                 )
 
-                client.start(phone=raise_auth if self.web else lambda: input("Phone: "))
+                client.start(phone=raise_auth if self.web else lambda: input("Номер телефона: "))
 
-                client.phone = "never gonna give you up"
+                client.phone = "protected by toxic"
 
                 self.clients += [client]
             except sqlite3.OperationalError:
@@ -527,7 +527,7 @@ class Hikka:
                 self.sessions.remove(session)
             except InteractiveAuthRequired:
                 logging.error(
-                    "Session %s was terminated and re-auth is required",
+                    """Ошибка авторизации сессии, чтобы починить введи rm %s после чего повтори попытку авторизации""",
                     session.filename,
                 )
                 self.sessions.remove(session)
@@ -571,7 +571,7 @@ class Hikka:
                         | |\  |  __/ |_|  _| (_) | | |
                         |_| \_|\___|\__|_|  \___/|_|_|  
 
-                     ♦ Version: {'.'.join(list(map(str, list(__version__))))} #{build[:7]}
+                     ♦ Version: {'.'.join(list(map(str, list(netver))))} #{build[:7]}
                      ♦ {upd}
                      ♦ Platform: {_platform}
                      """
@@ -585,7 +585,7 @@ class Hikka:
                 )
                 logging.info(
                     "👾 Netfoll %s is working!\n🔏 GitHub commit SHA: %s (%s)\n%s%s",
-                    ".".join(list(map(str, list(__version__)))),
+                    ".".join(list(map(str, list(netver)))),
                     build[:7],
                     upd,
                     web_url,

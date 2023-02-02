@@ -31,6 +31,7 @@ class ModsMod(loader.Module):
             "\n<emoji document_id=5328239124933515868>⚙️</emoji> <b>it's not all modules"
             "Netfoll is loading</b>"
         ),
+        "cmd": "<emoji document_id=546974131930996757> 💫 </emoji> <i><b>To find out the module commands, use <code>{}help</code></i></b>\n",
     }
 
     strings_ru = {

@@ -5,7 +5,7 @@
 #
 # 🔒      Licensed under the GNU AGPLv3
 # 🌐 https://www.gnu.org/licenses/agpl-3.0.html
-# Morri and Penggrin modifided Hikka files for Netfoll
+# Netfoll Team modifided Hikka files for Netfoll
 # 🌐 https://github.com/MXRRI/Netfoll
 
 import git
@@ -129,6 +129,11 @@ class NetfollInfoMod(loader.Module):
         prefix = f"«<code>{utils.escape_html(self.get_prefix())}</code>»"
 
         platform = utils.get_named_platform()
+
+        if 'Termux' not in platform:
+            usage = f"<b>{platform} ({utils.get_cpu_usage()}% | {utils.get_ram_usage()} RAM)</b>"
+        else:
+            usage = '\n'
        
         for emoji, icon in {
             "🍊": "<emoji document_id=5449599833973203438>🧡</emoji>",
@@ -144,6 +149,8 @@ class NetfollInfoMod(loader.Module):
             "👾": "<emoji document_id=5866169914603081371>🐧</emoji> ",
         }.items():
             platform = platform.replace(emoji, icon)
+
+        
 
         return (
             self.config["custom_message"].format(
@@ -164,7 +171,7 @@ class NetfollInfoMod(loader.Module):
                 f"<emoji document_id=6334701737940616970>💫</emoji> <b>{self.strings('prefix')}:</b> {prefix}\n"
                 f"<emoji document_id=6334620339720423126>🕛</emoji> <b>{self.strings('uptime')}:</b>"
                 f" {utils.formatted_uptime()}\n\n"
-                f"<b>{platform} ({utils.get_cpu_usage()}% | {utils.get_ram_usage()} RAM)</b>"
+                f"{usage}"
             ).format(
                 *map(
                     lambda x: utils.remove_html(x) if inline else x,
