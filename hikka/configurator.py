@@ -50,7 +50,10 @@ class TDialog:
     def inputbox(self, query: str) -> typing.Tuple[bool, str]:
         print(query)
         print()
-        inp = _safe_input("Введите значение... Для отмены нажмите Ctrl + Z :")
+        inp = _safe_input("""
+Для отмены, нажмите Ctrl + Z
+
+Введите значение...:""")
         return (False, "Cancelled") if not inp else (True, inp)
 
     def msgbox(self, msg: str) -> bool:
@@ -72,13 +75,11 @@ else:
 
 def api_config(data_root: str):
     code, hash_value = DIALOG.inputbox('''
-   #    #####  ###      ### ###    #     #### ### ### 
-   #     #   #  #        #   #     #    #   #  #   #  
-  # #    #   #  #        #   #    # #   ##     #   #  
-  ###    ####   #        #####    ###    ###   #####  
- #   #   #      #        #   #   #   #     ##  #   #  
- #   #   #      #        #   #   #   #  #   #  #   #  
-### ### ###    ###      ### ### ### ### ####  ### ###
+ _   _      _    __       _ _ 
+| \ | | ___| |_ / _| ___ | | |
+|  \| |/ _ \ __| |_ / _ \| | |
+| |\  |  __/ |_|  _| (_) | | |
+ |_| \_|\___|\__|_|  \___/|_|_|
 
 Пожалуйста, введите API HASH
     ''')
@@ -86,23 +87,21 @@ def api_config(data_root: str):
         return
 
     if len(hash_value) != 32 or any(it not in string.hexdigits for it in hash_value):
-        DIALOG.msgbox("Invalid hash")
+        DIALOG.msgbox("Неверный HASH")
         return
 
     code, id_value = DIALOG.inputbox('''
-   #    #####  ###    ### #####   
-   #     #   #  #      #   #   #  
-  # #    #   #  #      #   #    # 
-  ###    ####   #      #   #    # 
- #   #   #      #      #   #    # 
- #   #   #      #      #   #   #  
-### ### ###    ###    ### #####
+ _   _      _    __       _ _ 
+| \ | | ___| |_ / _| ___ | | |
+|  \| |/ _ \ __| |_ / _ \| | |
+| |\  |  __/ |_|  _| (_) | | |
+ |_| \_|\___|\__|_|  \___/|_|_|
     
 Пожалуйста, введите API ID
     ''')
 
     if not id_value or any(it not in string.digits for it in id_value):
-        DIALOG.msgbox("Invalid ID")
+        DIALOG.msgbox("Неверный ID")
         return
 
     with open(
@@ -113,4 +112,4 @@ def api_config(data_root: str):
     ) as file:
         file.write(id_value + "\n" + hash_value)
 
-    DIALOG.msgbox("API Token and ID set.")
+    DIALOG.msgbox("API данные сохранены. Нажмите Enter для добавления номера.")
