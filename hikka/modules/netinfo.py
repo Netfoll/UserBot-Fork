@@ -157,6 +157,10 @@ class NetfollInfoMod(loader.Module):
                 ram_usage=f"{utils.get_ram_usage()} MB",
                 branch=version.branch,
             )
+            if platform == '🕶 Termux':
+                usage = '\n'
+            else:
+                usage = "<b>{platform} ({utils.get_cpu_usage()}% | {utils.get_ram_usage()} RAM)</b>"
             if self.config["custom_message"]
             else (
                 f'<b>{{}} for {me}</b>\n\n'
@@ -164,7 +168,7 @@ class NetfollInfoMod(loader.Module):
                 f"<emoji document_id=6334701737940616970>💫</emoji> <b>{self.strings('prefix')}:</b> {prefix}\n"
                 f"<emoji document_id=6334620339720423126>🕛</emoji> <b>{self.strings('uptime')}:</b>"
                 f" {utils.formatted_uptime()}\n\n"
-                f"<b>{platform} ({utils.get_cpu_usage()}% | {utils.get_ram_usage()} RAM)</b>"
+                f"{usage}"
             ).format(
                 *map(
                     lambda x: utils.remove_html(x) if inline else x,
