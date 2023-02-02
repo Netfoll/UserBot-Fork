@@ -34,8 +34,6 @@ from . import utils
 
 
 def _safe_input(*args, **kwargs):
-    """Try to invoke input(*), print an error message if an EOFError or OSError occurs)
-    """
     try:
         return input(*args, **kwargs)
     except (EOFError, OSError):
@@ -50,10 +48,7 @@ class TDialog:
     def inputbox(self, query: str) -> typing.Tuple[bool, str]:
         print(query)
         print()
-        inp = _safe_input("""
-Для отмены, нажмите Ctrl + Z
-
-Введите значение...:""")
+        inp = _safe_input("Введите значение...:")
         return (False, "Cancelled") if not inp else (True, inp)
 
     def msgbox(self, msg: str) -> bool:
@@ -74,7 +69,22 @@ else:
 
 
 def api_config(data_root: str):
-    code, hash_value = DIALOG.inputbox('''
+    code, hash_value = DIALOG.inputbox('''­
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  _   _      _    __       _ _ 
 | \ | | ___| |_ / _| ___ | | |
 |  \| |/ _ \ __| |_ / _ \| | |
@@ -82,6 +92,7 @@ def api_config(data_root: str):
 |_| \_|\___|\__|_|  \___/|_|_|
 
 Пожалуйста, введите API HASH
+Для отмены, нажмите Ctrl + Z
     ''')
     if not code:
         return
@@ -90,7 +101,7 @@ def api_config(data_root: str):
         DIALOG.msgbox("Неверный HASH")
         return
 
-    code, id_value = DIALOG.inputbox('''
+    code, id_value = DIALOG.inputbox('''­
  _   _      _    __       _ _ 
 | \ | | ___| |_ / _| ___ | | |
 |  \| |/ _ \ __| |_ / _ \| | |
@@ -98,6 +109,7 @@ def api_config(data_root: str):
 |_| \_|\___|\__|_|  \___/|_|_|
     
 Пожалуйста, введите API ID
+Для отмены, нажмите Ctrl + Z
     ''')
 
     if not id_value or any(it not in string.digits for it in id_value):
