@@ -221,7 +221,6 @@ class HelpMod(loader.Module):
         )     
         await utils.answer(
             message,
-            prefix,
             ),  
 
     @loader.command(
