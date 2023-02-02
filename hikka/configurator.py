@@ -46,17 +46,14 @@ def _safe_input(*args, **kwargs):
 
 
 class TDialog:
-    """Reimplementation of dialog.Dialog without external dependencies"""
 
     def inputbox(self, query: str) -> typing.Tuple[bool, str]:
-        """Get a text input of the query"""
         print(query)
         print()
-        inp = _safe_input("Please enter your response, or type nothing to cancel: ")
+        inp = _safe_input("Введите значение... Для отмены нажмите Ctrl + Z :")
         return (False, "Cancelled") if not inp else (True, inp)
 
     def msgbox(self, msg: str) -> bool:
-        """Print some info"""
         print(msg)
         return True
 
@@ -65,18 +62,26 @@ TITLE = ""
 
 if sys.stdout.isatty():
     try:
+        DIALOG = TDialog()
+    except (ExecutableNotFound, locale.Error):
         DIALOG = Dialog(dialog="dialog", autowidgetsize=True)
         locale.setlocale(locale.LC_ALL, "")
-    except (ExecutableNotFound, locale.Error):
-        # Fall back to a terminal based configurator.
-        DIALOG = TDialog()
 else:
     DIALOG = TDialog()
 
 
 def api_config(data_root: str):
-    """Request API config from user and set"""
-    code, hash_value = DIALOG.inputbox("Enter your API Hash")
+    code, hash_value = DIALOG.inputbox('''
+   #    #####  ###      ### ###    #     #### ### ### 
+   #     #   #  #        #   #     #    #   #  #   #  
+  # #    #   #  #        #   #    # #   ##     #   #  
+  ###    ####   #        #####    ###    ###   #####  
+ #   #   #      #        #   #   #   #     ##  #   #  
+ #   #   #      #        #   #   #   #  #   #  #   #  
+### ### ###    ###      ### ### ### ### ####  ### ###
+
+Пожалуйста, введите API HASH
+    ''')
     if not code:
         return
 
@@ -84,7 +89,17 @@ def api_config(data_root: str):
         DIALOG.msgbox("Invalid hash")
         return
 
-    code, id_value = DIALOG.inputbox("Enter your API ID")
+    code, id_value = DIALOG.inputbox('''
+   #    #####  ###    ### #####   
+   #     #   #  #      #   #   #  
+  # #    #   #  #      #   #    # 
+  ###    ####   #      #   #    # 
+ #   #   #      #      #   #    # 
+ #   #   #      #      #   #   #  
+### ### ###    ###    ### #####
+    
+Пожалуйста, введите API ID
+    ''')
 
     if not id_value or any(it not in string.digits for it in id_value):
         DIALOG.msgbox("Invalid ID")
