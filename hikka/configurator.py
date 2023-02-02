@@ -107,7 +107,6 @@ def api_config(data_root: str):
 
     code, id_value = DIALOG.inputbox('''­
 Отлично! Теперь введите API ID
-Для отмены, нажмите Ctrl + Z
     ''')
 
     if not id_value or any(it not in string.digits for it in id_value):
