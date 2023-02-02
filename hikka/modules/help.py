@@ -215,12 +215,10 @@ class HelpMod(loader.Module):
 
         if args:
             await self.modhelp(message, args)
-            return
-        prefix += (
-            f"\n\n {prefix}"
-        )     
+            return     
         await utils.answer(
             message,
+            prefix,
             ),  
 
     @loader.command(
