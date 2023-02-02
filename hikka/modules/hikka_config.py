@@ -1,4 +1,4 @@
-# ©️ Dan Gazizullin, 2021-2022
+# ©️ Dan Gazizullin, 2021-2023
 # This file is a part of Hikka Userbot
 # 🌐 https://github.com/hikariatama/Hikka
 # You can redistribute it and/or modify it under the terms of the GNU AGPLv3
@@ -25,10 +25,10 @@ from ..inline.types import InlineCall
 
 @loader.tds
 class HikkaConfigMod(loader.Module):
-    """Interactive configurator for Hikka Userbot"""
+    """Interactive configurator for Netfoll Userbot"""
 
     strings = {
-        "name": "HikkaConfig",
+        "name": "NetConfig",
         "choose_core": "⚙️ <b>Choose a category</b>",
         "configure": "⚙️ <b>Choose a module to configure</b>",
         "configure_lib": "📦 <b>Choose a library to configure</b>",

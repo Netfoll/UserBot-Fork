@@ -1,4 +1,4 @@
-# ©️ Dan Gazizullin, 2021-2022
+# ©️ Dan Gazizullin, 2021-2023
 # This file is a part of Hikka Userbot
 # 🌐 https://github.com/hikariatama/Hikka
 # You can redistribute it and/or modify it under the terms of the GNU AGPLv3
@@ -454,7 +454,7 @@ class TestMod(loader.Module):
         ghash = utils.get_git_hash()
 
         other = (
-            *main.__version__,
+            *main.netver,
             (
                 " <a"
                 f' href="https://github.com/MXRRI/Netfoll/commit/{ghash}">@{ghash[:8]}</a>'
