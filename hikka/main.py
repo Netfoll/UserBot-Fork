@@ -57,7 +57,7 @@ from . import database, loader, utils, version
 from .dispatcher import CommandDispatcher
 from .tl_cache import CustomTelegramClient
 from .translations import Translator
-from .version import netver
+from .version import netver, __version__
 
 try:
     from .web import core
