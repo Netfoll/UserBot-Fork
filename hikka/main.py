@@ -57,7 +57,7 @@ from . import database, loader, utils, version
 from .dispatcher import CommandDispatcher
 from .tl_cache import CustomTelegramClient
 from .translations import Translator
-from .version import __version__
+from .version import netver
 
 try:
     from .web import core
@@ -456,7 +456,7 @@ class Hikka:
                         f"Netfoll UB"
                     ),
                     app_version=(
-                        f"Netfoll v{__version__[0]}.{__version__[1]}.{__version__[2]}"
+                        f"Netfoll v{netver[0]}.{netver[1]}.{netver[2]}"
                     ),
                 )
 
@@ -585,7 +585,7 @@ class Hikka:
                 )
                 logging.info(
                     "👾 Netfoll %s is working!\n🔏 GitHub commit SHA: %s (%s)\n%s%s",
-                    ".".join(list(map(str, list(__version__)))),
+                    ".".join(list(map(str, list(netver)))),
                     build[:7],
                     upd,
                     web_url,
