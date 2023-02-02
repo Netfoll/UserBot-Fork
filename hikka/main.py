@@ -571,7 +571,7 @@ class Hikka:
                         | |\  |  __/ |_|  _| (_) | | |
                         |_| \_|\___|\__|_|  \___/|_|_|  
 
-                     ♦ Netver: {'.'.join(list(map(str, list(__version__))))} #{build[:7]}
+                     ♦ Version: {'.'.join(list(map(str, list(netver))))} #{build[:7]}
                      ♦ {upd}
                      ♦ Platform: {_platform}
                      """
