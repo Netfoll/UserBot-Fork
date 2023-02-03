@@ -106,20 +106,11 @@ def get_config_key(key: str) -> typing.Union[str, bool]:
 
 
 def save_config_key(key: str, value: str) -> bool:
-    """
-    Save `key` with `value` to config
-    :param key: Key name in config
-    :param value: Desired value in config
-    :return: `True` on success, otherwise `False`
-    """
+
     try:
-        # Try to open our newly created json config
         with open(CONFIG_PATH, "r") as f:
             config = json.load(f)
     except FileNotFoundError:
-        # If it doesn't exist, just default config to none
-        # It won't cause problems, bc after new save
-        # we will create new one
         config = {}
 
     # Assign config value
@@ -133,27 +124,16 @@ def save_config_key(key: str, value: str) -> bool:
 
 
 def gen_port(cfg: str = "port", no8080: bool = False) -> int:
-    """
-    Generates random free port in case of VDS, and
-    8080 in case of Okteto
-    In case of Docker, also return 8080, as it's already
-    exposed by default
-    :returns: Integer value of generated port
-    """
     if "DOCKER" in os.environ and not no8080:
         return 8080
 
-    # But for own server we generate new free port, and assign to it
 
     port = get_config_key(cfg)
     if port:
         return port
 
-    # If we didn't get port from config, generate new one
-    # First, try to randomly get port
     port = random.randint(1024, 65536)
 
-    # Then ensure it's free
     while not socket.socket(
         socket.AF_INET,
         socket.SOCK_STREAM,
@@ -165,76 +145,17 @@ def gen_port(cfg: str = "port", no8080: bool = False) -> int:
 
 
 def parse_arguments() -> dict:
-    """
-    Parses the arguments
-    :returns: Dictionary with arguments
-    """
     parser = argparse.ArgumentParser()
-    parser.add_argument(
-        "--port",
-        dest="port",
-        action="store",
-        default=gen_port(),
-        type=int,
-    )
-    parser.add_argument("--phone", "-p", action="append")
     parser.add_argument("--no-web", dest="disable_web", action="store_true")
-    parser.add_argument(
-        "--data-root",
-        dest="data_root",
-        default="",
-        help="Root path to store session files in",
-    )
-    parser.add_argument(
-        "--no-auth",
-        dest="no_auth",
-        action="store_true",
-        help="Disable authentication and API token input, exitting if needed",
-    )
-    parser.add_argument(
-        "--proxy-host",
-        dest="proxy_host",
-        action="store",
-        help="MTProto proxy host, without port",
-    )
-    parser.add_argument(
-        "--proxy-port",
-        dest="proxy_port",
-        action="store",
-        type=int,
-        help="MTProto proxy port",
-    )
-    parser.add_argument(
-        "--proxy-secret",
-        dest="proxy_secret",
-        action="store",
-        help="MTProto proxy secret",
-    )
-    parser.add_argument(
-        "--root",
-        dest="disable_root_check",
-        action="store_true",
-        help="Disable `force_insecure` warning",
-    )
-    parser.add_argument(
-        "--proxy-pass",
-        dest="proxy_pass",
-        action="store_true",
-        help="Open proxy pass tunnel on start (not needed on setup)",
-    )
-    arguments = parser.parse_args()
+    arguments = '--no-web'
     logging.debug(arguments)
     if sys.platform == "win32":
-        # Subprocess support; not needed in 3.8 but not harmful
         asyncio.set_event_loop(asyncio.ProactorEventLoop())
 
     return arguments
 
 
 class SuperList(list):
-    """
-    Makes able: await self.allclients.send_message("foo", "bar")
-    """
 
     def __getattribute__(self, attr: str) -> typing.Any:
         if hasattr(list, attr):
