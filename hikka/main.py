@@ -637,6 +637,7 @@ class Hikka:
         """Entrypoint for async init, run once for each user"""
         client.parse_mode = "HTML"
         await client.start()
+        
 
         db = database.Database(client)
         await db.init()
