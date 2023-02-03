@@ -39,7 +39,7 @@ from telethon.utils import parse_phone
 from .. import database, main, utils
 from .._internal import restart
 from ..tl_cache import CustomTelegramClient
-from ..version import __version__, netver
+from ..version import __version__
 
 DATA_DIR = (
     "/data"
@@ -203,12 +203,12 @@ class Web:
     async def _qr_login_poll(self):
         logged_in = False
         self._2fa_needed = False
-        logger.debug("Ожидание QR для входа через сканер...")
+        logger.debug("Waiting for QR login to complete")
         while not logged_in:
             try:
                 logged_in = await self._qr_login.wait(10)
             except asyncio.TimeoutError:
-                logger.debug("Создаю новый QR код...")
+                logger.debug("Recreating QR login")
                 try:
                     await self._qr_login.recreate()
                 except SessionPasswordNeededError:
@@ -218,7 +218,7 @@ class Web:
                 self._2fa_needed = True
                 break
 
-        logger.debug("Вход через QR выполнен. Введите пароль 2FA: %s", self._2fa_needed)
+        logger.debug("QR login completed. 2FA needed: %s", self._2fa_needed)
         self._qr_login = True
 
     async def init_qr_login(self, request: web.Request) -> web.Response:
@@ -233,7 +233,7 @@ class Web:
                 self._qr_task = None
 
             self._2fa_needed = False
-            logger.warning("QR вход отменен. Сессия создана.")
+            logger.warning("QR login cancelled, new session created")
 
         client = self._get_client()
         self._pending_client = client
@@ -264,8 +264,8 @@ class Web:
             connection=self.connection,
             proxy=self.proxy,
             connection_retries=None,
-            device_model=f"Netfoll on {utils.get_named_platform().split(maxsplit=1)[1]}",
-            app_version=f"Netfoll v{netver[0]}.{netver[1]}.{netver[2]}",
+            device_model=f"Hikka on {utils.get_named_platform().split(maxsplit=1)[1]}",
+            app_version=f"Hikka v{__version__[0]}.{__version__[1]}.{__version__[2]}",
         )
 
     async def send_tg_code(self, request: web.Request) -> web.Response:
@@ -279,7 +279,7 @@ class Web:
         phone = parse_phone(text)
 
         if not phone:
-            return web.Response(status=400, body="Неверный формат номера!")
+            return web.Response(status=400, body="Invalid phone number")
 
         client = self._get_client()
 
@@ -306,8 +306,8 @@ class Web:
             f"{hours} hour(-s) " if hours else "",
         )
         return (
-            f"Ошибка! На вашем аккаунте FloodWait на {hours}{minutes}"
-            f'{seconds}. Пожалуйста, подождите пока время пройдет и повторите попытку снова.'
+            f"You got FloodWait for {hours}{minutes}{seconds}. Wait the specified"
+            " amount of time and try again."
         )
 
     async def qr_2fa(self, request: web.Request) -> web.Response:
@@ -316,7 +316,7 @@ class Web:
 
         text = await request.text()
 
-        logger.debug("Пароль 2FA для входа через QR: %s", text)
+        logger.debug("2FA code received for QR login: %s", text)
 
         try:
             self._pending_client._on_login(
@@ -332,19 +332,19 @@ class Web:
                 ).user
             )
         except PasswordHashInvalidError:
-            logger.debug("Неверный пароль! Повторите попытку.")
+            logger.debug("Invalid 2FA code")
             return web.Response(
                 status=403,
                 body="Invalid 2FA password",
             )
         except FloodWaitError as e:
-            logger.debug("У вас FloodWait для ввода пароль.")
+            logger.debug("FloodWait for 2FA code")
             return web.Response(
                 status=421,
                 body=(self._render_fw_error(e)),
             )
 
-        logger.debug("Пароль 2FA принят. Начинаю подготовку Netfoll UB")
+        logger.debug("2FA code accepted, logging in")
         await main.hikka.save_client_session(self._pending_client)
         return web.Response()
 
@@ -416,6 +416,7 @@ class Web:
 
         first_session = not bool(main.hikka.clients)
 
+        # Client is ready to pass in to dispatcher
         main.hikka.clients = list(set(main.hikka.clients + [self._pending_client]))
         self._pending_client = None
 
@@ -435,7 +436,7 @@ class Web:
         markup = InlineKeyboardMarkup()
         markup.add(
             InlineKeyboardButton(
-                "🔓 Разрешить",
+                "🔓 Authorize user",
                 callback_data=f"authorize_web_{token}",
             )
         )
@@ -488,9 +489,9 @@ class Web:
                 bot = user[0].inline.bot
                 msg = await bot.send_message(
                     user[1].tg_id,
-                    '👾 <b>Производится попытка для создания новой сессии.</b>'
-                    f'\n\nIP адресс:{ips}'
-                    '\n\nЕсли это были не вы то просто игнорируйте данное сообщение.',
+                    "🌘🔐 <b>Click button below to confirm web application"
+                    f" ops</b>\n\n<b>Client IP</b>: {ips}\n{cities}\n<i>If you did not"
+                    " request any codes, simply ignore this message</i>",
                     disable_web_page_preview=True,
                     reply_markup=markup,
                 )
@@ -505,14 +506,21 @@ class Web:
                 pass
 
         session = f"hikka_{utils.rand(16)}"
+
         if not ops:
+            # If no auth message was sent, just leave it empty
+            # probably, request was a bug and user doesn't have
+            # inline bot or did not authorize any sessions
             return web.Response(body=session)
+
         if not await main.hikka.wait_for_web_auth(token):
             for op in ops:
                 await op()
             return web.Response(body="TIMEOUT")
+
         for op in ops:
             await op()
+
         self._sessions += [session]
 
         return web.Response(body=session)
