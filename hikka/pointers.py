@@ -8,7 +8,6 @@
 
 import typing
 
-
 class PointerList(list):
     """Pointer to list saved in database"""
 
