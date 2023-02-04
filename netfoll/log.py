@@ -44,7 +44,7 @@ def getlines(filename: str, module_globals=None) -> str:
         if filename.startswith("<") and filename.endswith(">"):
             module = filename[1:-1].split(maxsplit=1)[-1]
             if (
-                module.startswith("hikka.modules")
+                module.startswith("netfoll.modules")
                 or module.startswith("dragon.modules")
             ) and module in sys.modules:
                 return list(
@@ -70,7 +70,7 @@ def override_text(exception: Exception) -> typing.Optional[str]:
     return None
 
 
-class HikkaException:
+class NetfollException:
     def __init__(
         self,
         message: str,
@@ -93,7 +93,7 @@ class HikkaException:
         exc_value: Exception,
         tb: traceback.TracebackException,
         stack: typing.Optional[typing.List[inspect.FrameInfo]] = None,
-    ) -> "HikkaException":
+    ) -> "NetfollException":
         def to_hashable(dictionary: dict) -> dict:
             dictionary = dictionary.copy()
             for key, value in dictionary.items():
@@ -166,7 +166,7 @@ class HikkaException:
             else ""
         )
 
-        return HikkaException(
+        return NetfollException(
             message=override_text(exc_value)
             or (
                 f"<b>🚫 Error!</b>\n{cause_mod}\n<b>🗄 Where:</b>"
@@ -240,14 +240,14 @@ class TelegramLogsHandler(logging.Handler):
             self.targets[0].format(record)
             for record in (self.buffer + self.handledbuffer)
             if record.levelno >= lvl
-            and (not record.hikka_caller or client_id == record.hikka_caller)
+            and (not record.netfoll_caller or client_id == record.netfoll_caller)
         ]
 
     async def _show_full_trace(
         self,
         call: BotInlineCall,
         bot: "aiogram.Bot",  # type: ignore
-        item: HikkaException,
+        item: NetfollException,
     ):
         chunks = (
             item.message
@@ -268,7 +268,7 @@ class TelegramLogsHandler(logging.Handler):
         for chunk in chunks[1:]:
             await bot.send_message(chat_id=call.chat_id, text=chunk)
 
-    def _gen_web_debug_button(self, item: HikkaException) -> list:
+    def _gen_web_debug_button(self, item: NetfollException) -> list:
         if not item.sysinfo:
             return []
 
@@ -293,7 +293,7 @@ class TelegramLogsHandler(logging.Handler):
             }
         ]
 
-    async def _start_debugger(self, call: "InlineCall", item: HikkaException):  # type: ignore
+    async def _start_debugger(self, call: "InlineCall", item: NetfollException):  # type: ignore
         if not self.web_debugger:
             self.web_debugger = WebDebugger()
             await self.web_debugger.proxy_ready.wait()
@@ -356,7 +356,7 @@ class TelegramLogsHandler(logging.Handler):
                         ),
                     )
                     for item in self.tg_buff
-                    if isinstance(item[0], HikkaException)
+                    if isinstance(item[0], NetfollException)
                     and (not item[1] or item[1] == client_id or self.force_send_all)
                 ]
                 for client_id in self._mods
@@ -404,11 +404,11 @@ class TelegramLogsHandler(logging.Handler):
         try:
             caller = next(
                 (
-                    frame_info.frame.f_locals["_hikka_client_id_logging_tag"]
+                    frame_info.frame.f_locals["_netfoll_client_id_logging_tag"]
                     for frame_info in inspect.stack()
                     if isinstance(
                         getattr(getattr(frame_info, "frame", None), "f_locals", {}).get(
-                            "_hikka_client_id_logging_tag"
+                            "_netfoll_client_id_logging_tag"
                         ),
                         int,
                     )
@@ -421,13 +421,13 @@ class TelegramLogsHandler(logging.Handler):
         except Exception:
             caller = None
 
-        record.hikka_caller = caller
+        record.netfoll_caller = caller
 
         if record.levelno >= self.tg_level:
             if record.exc_info:
                 self.tg_buff += [
                     (
-                        HikkaException.from_exc_info(
+                        NetfollException.from_exc_info(
                             *record.exc_info,
                             stack=record.__dict__.get("stack", None),
                         ),
