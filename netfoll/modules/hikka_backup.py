@@ -22,7 +22,7 @@ logger = logging.getLogger(__name__)
 
 
 @loader.tds
-class HikkaBackupMod(loader.Module):
+class NetfollBackupMod(loader.Module):
     """Automatic database backup"""
 
     strings = {
@@ -98,12 +98,12 @@ class HikkaBackupMod(loader.Module):
 
         self._backup_channel, _ = await utils.asset_channel(
             self._client,
-            "hikka-backups",
+            "netfoll-backups",
             "📼 Your database backups will appear here",
             silent=True,
             archive=True,
             avatar="https://github.com/hikariatama/assets/raw/master/hikka-backups.png",
-            _folder="hikka",
+            _folder="netfoll",
         )
 
         self.handler.start()
@@ -167,7 +167,7 @@ class HikkaBackupMod(loader.Module):
             )
 
             backup = io.BytesIO(json.dumps(self._db).encode("utf-8"))
-            backup.name = "hikka-db-backup-{}.json".format(
+            backup.name = "netfoll-db-backup-{}.json".format(
                 getattr(datetime, "datetime", datetime).now().strftime("%d-%m-%Y-%H-%M")
             )
 
@@ -176,5 +176,5 @@ class HikkaBackupMod(loader.Module):
         except loader.StopLoop:
             raise
         except Exception:
-            logger.exception("HikkaBackup failed")
+            logger.exception("NetfollBackup failed")
             await asyncio.sleep(60)
