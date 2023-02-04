@@ -3,23 +3,23 @@
 
 runin() {
 	# Runs the arguments, piping stderr to logfile
-	{ "$@" 2>>../hikka-install.log || return $?; } | while read -r line; do
-		printf "%s\n" "$line" >>../hikka-install.log
+	{ "$@" 2>>../netfoll-install.log || return $?; } | while read -r line; do
+		printf "%s\n" "$line" >>../netfoll-install.log
 	done
 }
 
 runout() {
 	# Runs the arguments, piping stderr to logfile
-	{ "$@" 2>>hikka-install.log || return $?; } | while read -r line; do
-		printf "%s\n" "$line" >>hikka-install.log
+	{ "$@" 2>>netfoll-install.log || return $?; } | while read -r line; do
+		printf "%s\n" "$line" >>netfoll-install.log
 	done
 }
 
 errorin() {
-	cat ../hikka-install.log
+	cat ../netfoll-install.log
 }
 errorout() {
-	cat hikka-install.log
+	cat netfoll-install.log
 }
 
 SUDO_CMD=""
@@ -44,13 +44,13 @@ printf "\n\n\e[3;34;40m Установка. Пожалуйста, подожди
 
 printf "\r\033[0;34mPreparing for installation...\e[0m"
 
-touch hikka-install.log
+touch netfoll-install.log
 if [ ! x"$SUDO_USER" = x"" ]; then
-	chown "$SUDO_USER:" hikka-install.log
+	chown "$SUDO_USER:" netfoll-install.log
 fi
 
-if [ -d "Netfoll/hikka" ]; then
-	cd Hikka || {
+if [ -d "Netfoll/netfoll" ]; then
+	cd netfoll || {
 		printf "\rError: Install git package and re-run installer"
 		exit 6
 	}
@@ -64,7 +64,7 @@ if [ -f ".setup_complete" ]; then
 	fi
 	printf "\rExisting installation detected"
 	clear
-	"python$PYVER" -m hikka "$@"
+	"python$PYVER" -m netfoll "$@"
 	exit $?
 elif [ "$DIR_CHANGED" = "yes" ]; then
 	cd ..
@@ -72,7 +72,7 @@ fi
 
 ##############################################################################
 
-echo "Installing..." >hikka-install.log
+echo "Installing..." >netfoll-install.log
 
 if echo "$OSTYPE" | grep -qE '^linux-gnu.*' && [ -f '/etc/debian_version' ]; then
 	PKGMGR="apt install -y"
@@ -150,13 +150,13 @@ runin "$SUDO_CMD python$PYVER" -m pip install -r requirements.txt --upgrade --us
 	errorin "Requirements failed!"
 	exit 4
 }
-rm -f ../hikka-install.log
+rm -f ../netfoll-install.log
 touch .setup_complete
 
 printf "\r\033[K\033[0;32mDependencies installed!\e[0m"
 printf "\n\033[0;32mStarting...\e[0m\n\n"
 
-${SUDO_CMD}"python$PYVER" -m hikka "$@" || {
+${SUDO_CMD}"python$PYVER" -m netfoll "$@" || {
 	printf "\033[1;31mPython scripts failed\e[0m"
 	exit 5
 }
