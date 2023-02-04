@@ -1048,7 +1048,7 @@ class Modules:
                 module.name.lower(),
                 module.__class__.__name__.lower(),
             ):
-                if module.__origin__.startswith("<core"):
+                if module.__origin__.startswith("<core") and not self._db.get("core", "allow_overwrite_core", False):
                     raise CoreUnloadError(module.__class__.__name__)
 
                 worked += [module.__class__.__name__]
