@@ -133,7 +133,7 @@ class LoaderMod(loader.Module):
         ),
         "inline_init_failed": (
             "<emoji document_id=5454225457916420314>😖</emoji> <b>This module requires"
-            " Hikka inline feature and initialization of InlineManager"
+            " Netfoll inline feature and initialization of InlineManager"
             " failed</b>\n<i>Please, remove one of your old bots from @BotFather and"
             " restart userbot to load this module</i>"
         ),
@@ -342,7 +342,7 @@ class LoaderMod(loader.Module):
         ),
         "inline_init_failed": (
             "<emoji document_id=5454225457916420314>😖</emoji> <b>Этому модулю нужен"
-            " HikkaInline, а инициализация менеджера инлайна неудачна</b>\n<i>Попробуй"
+            " NetfollInline, а инициализация менеджера инлайна неудачна</b>\n<i>Попробуй"
             " удалить одного из старых ботов в @BotFather и перезагрузить юзербота</i>"
         ),
         "_cmd_doc_dlmod": "Скачивает и устаналвивает модуль из репозитория",
