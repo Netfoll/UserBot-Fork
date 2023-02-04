@@ -939,7 +939,7 @@ def get_named_platform() -> str:
     if "LUMIHOST" in os.environ:
         return "😎 LumiHost"
 
-    return f"👾{platform.system()}"
+    return f"👾 {platform.system()}"
     
 
 
