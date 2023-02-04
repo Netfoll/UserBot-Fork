@@ -25,7 +25,6 @@
 # Netfoll Team modifided Hikka files for Netfoll
 # 🌐 https://github.com/MXRRI/Netfoll
 
-
 import argparse
 import asyncio
 import collections
