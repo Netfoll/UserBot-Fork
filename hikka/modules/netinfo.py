@@ -128,7 +128,8 @@ class NetfollInfoMod(loader.Module):
         _version = f'<i>{version.branch} {".".join(list(map(str, list(version.netver))))}</i>'
         prefix = f"«<code>{utils.escape_html(self.get_prefix())}</code>»"
 
-        if 'Termux' not in platform:
+        platfo = utils.get_named_platform()
+        if 'Termux' not in platfo:
             usage = f" ({utils.get_cpu_usage()}% | {utils.get_ram_usage()} RAM)</b>"
         else:
             usage = '\n'
