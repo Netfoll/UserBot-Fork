@@ -27,7 +27,7 @@ class LocalStorage:
     """Saves modules to disk and fetches them if remote storage is not available."""
 
     def __init__(self):
-        self._path = os.path.join(os.path.expanduser("~"), ".hikka", "modules_cache")
+        self._path = os.path.join(os.path.expanduser("~"), ".netfoll", "modules_cache")
         self._ensure_dirs()
 
     @property
