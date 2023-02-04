@@ -58,10 +58,10 @@ def hashable(value: typing.Any) -> bool:
 class CustomTelegramClient(TelegramClient):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self._hikka_entity_cache = {}
-        self._hikka_perms_cache = {}
-        self._hikka_fullchannel_cache = {}
-        self._hikka_fulluser_cache = {}
+        self._netfoll_entity_cache = {}
+        self._netfoll_perms_cache = {}
+        self._netfoll_fullchannel_cache = {}
+        self._netfoll_fulluser_cache = {}
         self.__forbidden_constructors = []
         self.raw_updates_processor = None  # Will be monkeypatched by pyro proxy
 
@@ -87,7 +87,7 @@ class CustomTelegramClient(TelegramClient):
 
         # Will be used to determine, which client caused logging messages
         # parsed via inspect.stack()
-        _hikka_client_id_logging_tag = copy.copy(self.tg_id)  # skipcq
+        _netfoll_client_id_logging_tag = copy.copy(self.tg_id)  # skipcq
 
         if not hashable(entity):
             try:
@@ -111,37 +111,37 @@ class CustomTelegramClient(TelegramClient):
         if (
             not force
             and hashable_entity
-            and hashable_entity in self._hikka_entity_cache
+            and hashable_entity in self._netfoll_entity_cache
             and (
                 not exp
-                or self._hikka_entity_cache[hashable_entity].ts + exp > time.time()
+                or self._netfoll_entity_cache[hashable_entity].ts + exp > time.time()
             )
         ):
             logger.debug(
                 "Using cached entity %s (%s)",
                 entity,
-                type(self._hikka_entity_cache[hashable_entity].entity).__name__,
+                type(self._netfoll_entity_cache[hashable_entity].entity).__name__,
             )
-            return copy.deepcopy(self._hikka_entity_cache[hashable_entity].entity)
+            return copy.deepcopy(self._netfoll_entity_cache[hashable_entity].entity)
 
         resolved_entity = await TelegramClient.get_entity(self, entity)
 
         if resolved_entity:
             cache_record = CacheRecordEntity(hashable_entity, resolved_entity, exp)
-            self._hikka_entity_cache[hashable_entity] = cache_record
+            self._netfoll_entity_cache[hashable_entity] = cache_record
             logger.debug("Saved hashable_entity %s to cache", hashable_entity)
 
             if getattr(resolved_entity, "id", None):
                 logger.debug("Saved resolved_entity id %s to cache", resolved_entity.id)
-                self._hikka_entity_cache[resolved_entity.id] = cache_record
+                self._netfoll_entity_cache[resolved_entity.id] = cache_record
 
             if getattr(resolved_entity, "username", None):
                 logger.debug(
                     "Saved resolved_entity username @%s to cache",
                     resolved_entity.username,
                 )
-                self._hikka_entity_cache[f"@{resolved_entity.username}"] = cache_record
-                self._hikka_entity_cache[resolved_entity.username] = cache_record
+                self._netfoll_entity_cache[f"@{resolved_entity.username}"] = cache_record
+                self._netfoll_entity_cache[resolved_entity.username] = cache_record
 
         return copy.deepcopy(resolved_entity)
 
@@ -164,7 +164,7 @@ class CustomTelegramClient(TelegramClient):
 
         # Will be used to determine, which client caused logging messages
         # parsed via inspect.stack()
-        _hikka_client_id_logging_tag = copy.copy(self.tg_id)  # skipcq
+        _netfoll_client_id_logging_tag = copy.copy(self.tg_id)  # skipcq
 
         entity = await self.get_entity(entity)
         user = await self.get_entity(user) if user else None
@@ -209,16 +209,16 @@ class CustomTelegramClient(TelegramClient):
             not force
             and hashable_entity
             and hashable_user
-            and hashable_user in self._hikka_perms_cache.get(hashable_entity, {})
+            and hashable_user in self._netfoll_perms_cache.get(hashable_entity, {})
             and (
                 not exp
-                or self._hikka_perms_cache[hashable_entity][hashable_user].ts + exp
+                or self._netfoll_perms_cache[hashable_entity][hashable_user].ts + exp
                 > time.time()
             )
         ):
             logger.debug("Using cached perms %s (%s)", hashable_entity, hashable_user)
             return copy.deepcopy(
-                self._hikka_perms_cache[hashable_entity][hashable_user].perms
+                self._netfoll_perms_cache[hashable_entity][hashable_user].perms
             )
 
         resolved_perms = await self.get_permissions(entity, user)
@@ -230,7 +230,7 @@ class CustomTelegramClient(TelegramClient):
                 resolved_perms,
                 exp,
             )
-            self._hikka_perms_cache.setdefault(hashable_entity, {})[
+            self._netfoll_perms_cache.setdefault(hashable_entity, {})[
                 hashable_user
             ] = cache_record
             logger.debug("Saved hashable_entity %s perms to cache", hashable_entity)
@@ -238,13 +238,13 @@ class CustomTelegramClient(TelegramClient):
             def save_user(key: typing.Union[str, int]):
                 nonlocal self, cache_record, user, hashable_user
                 if getattr(user, "id", None):
-                    self._hikka_perms_cache.setdefault(key, {})[user.id] = cache_record
+                    self._netfoll_perms_cache.setdefault(key, {})[user.id] = cache_record
 
                 if getattr(user, "username", None):
-                    self._hikka_perms_cache.setdefault(key, {})[
+                    self._netfoll_perms_cache.setdefault(key, {})[
                         f"@{user.username}"
                     ] = cache_record
-                    self._hikka_perms_cache.setdefault(key, {})[
+                    self._netfoll_perms_cache.setdefault(key, {})[
                         user.username
                     ] = cache_record
 
@@ -298,14 +298,14 @@ class CustomTelegramClient(TelegramClient):
 
         if (
             not force
-            and self._hikka_fullchannel_cache.get(hashable_entity)
-            and not self._hikka_fullchannel_cache[hashable_entity].expired
-            and self._hikka_fullchannel_cache[hashable_entity].ts + exp > time.time()
+            and self._netfoll_fullchannel_cache.get(hashable_entity)
+            and not self._netfoll_fullchannel_cache[hashable_entity].expired
+            and self._netfoll_fullchannel_cache[hashable_entity].ts + exp > time.time()
         ):
-            return self._hikka_fullchannel_cache[hashable_entity].full_channel
+            return self._netfoll_fullchannel_cache[hashable_entity].full_channel
 
         result = await self(GetFullChannelRequest(channel=entity))
-        self._hikka_fullchannel_cache[hashable_entity] = CacheRecordFullChannel(
+        self._netfoll_fullchannel_cache[hashable_entity] = CacheRecordFullChannel(
             hashable_entity,
             result,
             exp,
@@ -348,14 +348,14 @@ class CustomTelegramClient(TelegramClient):
 
         if (
             not force
-            and self._hikka_fulluser_cache.get(hashable_entity)
-            and not self._hikka_fulluser_cache[hashable_entity].expired
-            and self._hikka_fulluser_cache[hashable_entity].ts + exp > time.time()
+            and self._netfoll_fulluser_cache.get(hashable_entity)
+            and not self._netfoll_fulluser_cache[hashable_entity].expired
+            and self._netfoll_fulluser_cache[hashable_entity].ts + exp > time.time()
         ):
-            return self._hikka_fulluser_cache[hashable_entity].full_user
+            return self._netfoll_fulluser_cache[hashable_entity].full_user
 
         result = await self(GetFullUserRequest(entity))
-        self._hikka_fulluser_cache[hashable_entity] = CacheRecordFullUser(
+        self._netfoll_fulluser_cache[hashable_entity] = CacheRecordFullUser(
             hashable_entity,
             result,
             exp,
