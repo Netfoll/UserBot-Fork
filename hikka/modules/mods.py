@@ -1,7 +1,7 @@
-# 
+#
 # 🔒 The MIT License (MIT)
 # 🌐 https://www.gnu.org/licenses/agpl-3.0.html
-# 
+#
 # ---------------------------------------------------------------------------------
 #     ▀▄   ▄▀   👾 Module for Netfoll User Bot (based on Hikka 1.6.0)
 #    ▄█▀███▀█▄  🔒 The MIT License (MIT)
@@ -23,7 +23,7 @@ logger = logging.getLogger(__name__)
 @loader.tds
 class ModsMod(loader.Module):
     """List of all of the modules currently installed"""
-    
+
     strings = {
         "name": "Mods",
         "amount": "<emoji document_id=5316573023094971227>📦</emoji> I have <b>{}</b> modules installed:\n",
@@ -32,6 +32,8 @@ class ModsMod(loader.Module):
             " Netfoll is loading</b>"
         ),
         "cmd": "<emoji document_id=546974131930996757> 💫 </emoji> <i><b>To find out the module commands, use <code>{}help</code></i></b>\n",
+        "module": "<emoji document_id=5402093879316982515>✨</emoji>",
+        "core_module": "<emoji document_id=5400245067694747959>💫</emoji>"
     }
 
     strings_ru = {
@@ -55,7 +57,8 @@ class ModsMod(loader.Module):
                 name = mod.strings["name"]
             except KeyError:
                 name = mod.__clas__.__name__
-            result += f"\n <emoji document_id=5213429323351990315>✨</emoji> <code>{name}</code>"
+            emoji = self.strings("core_module") if mod.__origin__.startswith("<core") else self.strings("module")
+            result += f"\n {emoji} <code>{name}</code>"
 
         result += (
             ""
@@ -67,4 +70,3 @@ class ModsMod(loader.Module):
         )
 
         await utils.answer(message, result)
-
