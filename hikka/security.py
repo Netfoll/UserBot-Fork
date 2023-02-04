@@ -55,6 +55,8 @@ GROUP_MEMBER = 1 << 11
 PM = 1 << 12
 EVERYONE = 1 << 13
 
+
+
 BITMAP = {
     "OWNER": OWNER,
     "SUDO": SUDO,
