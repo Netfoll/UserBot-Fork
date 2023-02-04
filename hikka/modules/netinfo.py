@@ -128,13 +128,13 @@ class NetfollInfoMod(loader.Module):
         _version = f'<i>{version.branch} {".".join(list(map(str, list(version.netver))))}</i>'
         prefix = f"«<code>{utils.escape_html(self.get_prefix())}</code>»"
 
-        platform = utils.get_named_platform()
-
         if 'Termux' not in platform:
-            usage = f"<b>{platform} ({utils.get_cpu_usage()}% | {utils.get_ram_usage()} RAM)</b>"
+            usage = f" ({utils.get_cpu_usage()}% | {utils.get_ram_usage()} RAM)</b>"
         else:
             usage = '\n'
        
+        platform = utils.get_named_platform()
+
         for emoji, icon in {
             "🍊": "<emoji document_id=5449599833973203438>🧡</emoji>",
             "🍇": "<emoji document_id=5449468596952507859>💜</emoji>",
@@ -146,11 +146,9 @@ class NetfollInfoMod(loader.Module):
             "🕶": "<emoji document_id=5407025283456835913>📱</emoji>",
             "🐈‍⬛": "<emoji document_id=6334750507294262724>🐈‍⬛</emoji>",
             "👾": "<emoji document_id=5866169914603081371>🐧</emoji>",
-            "😎": "<emoji document_id=5866169914603081371>🐧</emoji>",
+            "😎": "<emoji document_id=5364105417569868801>😎</emoji>",
         }.items():
             platform = platform.replace(emoji, icon)
-
-        
 
         return (
             self.config["custom_message"].format(
@@ -171,6 +169,7 @@ class NetfollInfoMod(loader.Module):
                 f"<emoji document_id=6334701737940616970>💫</emoji> <b>{self.strings('prefix')}:</b> {prefix}\n"
                 f"<emoji document_id=6334620339720423126>🕛</emoji> <b>{self.strings('uptime')}:</b>"
                 f" {utils.formatted_uptime()}\n\n"
+                f"<b>{platform}"
                 f"{usage}"
             ).format(
                 *map(
