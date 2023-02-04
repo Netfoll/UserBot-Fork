@@ -113,7 +113,7 @@ class InfiniteLoop:
 
     def stop(self, *args, **kwargs):
         with contextlib.suppress(AttributeError):
-            _hikka_client_id_logging_tag = copy.copy(
+            _netfoll_client_id_logging_tag = copy.copy(
                 self.module_instance.allmodules.client.tg_id
             )
 
@@ -130,7 +130,7 @@ class InfiniteLoop:
 
     def start(self, *args, **kwargs):
         with contextlib.suppress(AttributeError):
-            _hikka_client_id_logging_tag = copy.copy(
+            _netfoll_client_id_logging_tag = copy.copy(
                 self.module_instance.allmodules.client.tg_id
             )
 
@@ -320,7 +320,7 @@ def tag(*tags, **kwarg_tags):
     @loader.tag("no_commands", "out")
     @loader.tag("no_commands", out=True)
     @loader.tag(only_messages=True)
-    @loader.tag("only_messages", "only_pm", regex=r"^[.] ?hikka$", from_id=659800858)
+    @loader.tag("only_messages", "only_pm", regex=r"^[.] ?netfoll$", from_id=659800858)
 
     💡 These tags can be used directly in `@loader.watcher`:
     @loader.watcher("no_commands", out=True)
@@ -453,10 +453,10 @@ class Modules:
             callback_handlers = {}
             watchers = []
             for module in self.modules:
-                commands.update(module.hikka_commands)
-                inline_handlers.update(module.hikka_inline_handlers)
-                callback_handlers.update(module.hikka_callback_handlers)
-                watchers.extend(module.hikka_watchers.values())
+                commands.update(module.netfoll_commands)
+                inline_handlers.update(module.netfoll_inline_handlers)
+                callback_handlers.update(module.netfoll_callback_handlers)
+                watchers.extend(module.netfoll_watchers.values())
 
             self.commands = commands
             self.inline_handlers = inline_handlers
@@ -522,7 +522,7 @@ class Modules:
         origin: str = "<core>",
     ) -> typing.List[Module]:
         with contextlib.suppress(AttributeError):
-            _hikka_client_id_logging_tag = copy.copy(self.client.tg_id)
+            _netfoll_client_id_logging_tag = copy.copy(self.client.tg_id)
 
         loaded = []
 
@@ -599,7 +599,7 @@ class Modules:
     ) -> typing.Union[Module, typing.Tuple[ModuleType, DragonModule]]:
         """Register single module from importlib spec"""
         with contextlib.suppress(AttributeError):
-            _hikka_client_id_logging_tag = copy.copy(self.client.tg_id)
+            _netfoll_client_id_logging_tag = copy.copy(self.client.tg_id)
 
         module = importlib.util.module_from_spec(spec)
         sys.modules[module_name] = module
@@ -667,14 +667,14 @@ class Modules:
     def register_commands(self, instance: Module):
         """Register commands from instance"""
         with contextlib.suppress(AttributeError):
-            _hikka_client_id_logging_tag = copy.copy(self.client.tg_id)
+            _netfoll_client_id_logging_tag = copy.copy(self.client.tg_id)
 
         if instance.__origin__.startswith("<core"):
             self._core_commands += list(
-                map(lambda x: x.lower(), list(instance.hikka_commands))
+                map(lambda x: x.lower(), list(instance.netfoll_commands))
             )
 
-        for _command, cmd in instance.hikka_commands.items():
+        for _command, cmd in instance.netfoll_commands.items():
             # Restrict overwriting core modules' commands
             if (
                 _command.lower() in self._core_commands
@@ -688,13 +688,13 @@ class Modules:
             self.commands.update({_command.lower(): cmd})
 
         for alias, cmd in self.aliases.copy().items():
-            if cmd in instance.hikka_commands:
+            if cmd in instance.netfoll_commands:
                 self.add_alias(alias, cmd)
 
         self.register_inline_stuff(instance)
 
     def register_inline_stuff(self, instance: Module):
-        for name, func in instance.hikka_inline_handlers.copy().items():
+        for name, func in instance.netfoll_inline_handlers.copy().items():
             if name.lower() in self.inline_handlers:
                 if (
                     hasattr(func, "__self__")
@@ -718,7 +718,7 @@ class Modules:
 
             self.inline_handlers.update({name.lower(): func})
 
-        for name, func in instance.hikka_callback_handlers.copy().items():
+        for name, func in instance.netfoll_callback_handlers.copy().items():
             if name.lower() in self.callback_handlers and (
                 hasattr(func, "__self__")
                 and hasattr(self.callback_handlers[name], "__self__")
@@ -734,7 +734,7 @@ class Modules:
             self.callback_handlers.update({name.lower(): func})
 
     def unregister_inline_stuff(self, instance: Module, purpose: str):
-        for name, func in instance.hikka_inline_handlers.copy().items():
+        for name, func in instance.netfoll_inline_handlers.copy().items():
             if name.lower() in self.inline_handlers and (
                 hasattr(func, "__self__")
                 and hasattr(self.inline_handlers[name], "__self__")
@@ -749,7 +749,7 @@ class Modules:
                     purpose,
                 )
 
-        for name, func in instance.hikka_callback_handlers.copy().items():
+        for name, func in instance.netfoll_callback_handlers.copy().items():
             if name.lower() in self.callback_handlers and (
                 hasattr(func, "__self__")
                 and hasattr(self.callback_handlers[name], "__self__")
@@ -767,14 +767,14 @@ class Modules:
     def register_watchers(self, instance: Module):
         """Register watcher from instance"""
         with contextlib.suppress(AttributeError):
-            _hikka_client_id_logging_tag = copy.copy(self.client.tg_id)
+            _netfoll_client_id_logging_tag = copy.copy(self.client.tg_id)
 
         for _watcher in self.watchers:
             if _watcher.__self__.__class__.__name__ == instance.__class__.__name__:
                 logger.debug("Removing watcher %s for update", _watcher)
                 self.watchers.remove(_watcher)
 
-        for _watcher in instance.hikka_watchers.values():
+        for _watcher in instance.netfoll_watchers.values():
             self.watchers += [_watcher]
 
     def lookup(
@@ -815,12 +815,12 @@ class Modules:
         return self.__approve.pop(0) if self.__approve else None
 
     def get_prefix(self, userbot: typing.Optional[str] = None) -> str:
-        """Get prefix for specific userbot. Pass `None` to get Hikka prefix"""
+        """Get prefix for specific userbot. Pass `None` to get Betfoll prefix"""
         if userbot == "dragon":
             key = "dragon.prefix"
             default = ","
         else:
-            key = "hikka.main"
+            key = "netfoll.main"
             default = "."
 
         return self._db.get(key, "command_prefix", default)
@@ -828,7 +828,7 @@ class Modules:
     async def complete_registration(self, instance: Module):
         """Complete registration of instance"""
         with contextlib.suppress(AttributeError):
-            _hikka_client_id_logging_tag = copy.copy(self.client.tg_id)
+            _netfoll_client_id_logging_tag = copy.copy(self.client.tg_id)
 
         instance.allmodules = self
         instance.internal_init()
@@ -911,7 +911,7 @@ class Modules:
     def send_config_one(self, mod: Module, skip_hook: bool = False):
         """Send config to single instance"""
         with contextlib.suppress(AttributeError):
-            _hikka_client_id_logging_tag = copy.copy(self.client.tg_id)
+            _netfoll_client_id_logging_tag = copy.copy(self.client.tg_id)
 
         if hasattr(mod, "config"):
             modcfg = self._db.get(
@@ -971,7 +971,7 @@ class Modules:
         from_dlmod: bool = False,
     ):
         with contextlib.suppress(AttributeError):
-            _hikka_client_id_logging_tag = copy.copy(self.client.tg_id)
+            _netfoll_client_id_logging_tag = copy.copy(self.client.tg_id)
 
         if from_dlmod:
             try:
@@ -1040,7 +1040,7 @@ class Modules:
         worked = []
 
         with contextlib.suppress(AttributeError):
-            _hikka_client_id_logging_tag = copy.copy(self.client.tg_id)
+            _netfoll_client_id_logging_tag = copy.copy(self.client.tg_id)
 
         for module in self.modules:
             if classname.lower() in (
