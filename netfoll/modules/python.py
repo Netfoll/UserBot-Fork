@@ -20,7 +20,7 @@ from telethon.sessions import StringSession
 from telethon.tl.types import Message
 
 from .. import loader, main, utils
-from ..log import HikkaException
+from ..log import NetfollException
 
 
 @loader.tds
