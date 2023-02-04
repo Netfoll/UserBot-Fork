@@ -36,7 +36,7 @@ def die():
 
 
 def restart():
-    if "HIKKA_DO_NOT_RESTART" in os.environ:
+    if "NETFOLL_DO_NOT_RESTART" in os.environ:
         print("Got in a loop, exiting")
         sys.exit(0)
 
@@ -48,7 +48,7 @@ def restart():
         os.system("lavhost restart")
         return
 
-    os.environ["HIKKA_DO_NOT_RESTART"] = "1"
+    os.environ["NETFOLL_DO_NOT_RESTART"] = "1"
     if "DOCKER" in os.environ:
         atexit.register(get_startup_callback())
     else:
