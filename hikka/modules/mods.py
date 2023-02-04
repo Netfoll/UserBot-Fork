@@ -29,7 +29,7 @@ class ModsMod(loader.Module):
         "amount": "<emoji document_id=5316573023094971227>📦</emoji> I have <b>{}</b> modules installed:\n",
         "partial_load": (
             "\n<emoji document_id=5328239124933515868>⚙️</emoji> <b>it's not all modules"
-            "Netfoll is loading</b>"
+            " Netfoll is loading</b>"
         ),
         "cmd": "<emoji document_id=546974131930996757> 💫 </emoji> <i><b>To find out the module commands, use <code>{}help</code></i></b>\n",
     }
@@ -38,7 +38,7 @@ class ModsMod(loader.Module):
         "amount": "<emoji document_id=5316573023094971227>📦</emoji> Сейчас установлено <b>{}</b> модулей:",
         "partial_load": (
             "\n<emoji document_id=5328239124933515868>⚙️</emoji> <b>Это не все модули, "
-            "Netfoll загружается</b>"
+            " Netfoll загружается</b>"
         ),
         "cmd": "<emoji document_id=5469741319330996757>💫</emoji> <i><b>Чтобы узнать команды модуля используй <code>{}help</code></i></b>\n",
     }
