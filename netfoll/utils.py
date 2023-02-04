@@ -99,7 +99,7 @@ from telethon.tl.types import (
 from ._internal import fw_protect
 from .inline.types import InlineCall, InlineMessage
 from .tl_cache import CustomTelegramClient
-from .types import HikkaReplyMarkup, ListLike, Module
+from .types import NetfollReplyMarkup, ListLike, Module
 
 FormattingEntity = typing.Union[
     MessageEntityUnknown,
@@ -437,7 +437,7 @@ async def answer(
     message: typing.Union[Message, InlineCall, InlineMessage],
     response: str,
     *,
-    reply_markup: typing.Optional[HikkaReplyMarkup] = None,
+    reply_markup: typing.Optional[NetfollReplyMarkup] = None,
     **kwargs,
 ) -> typing.Union[InlineCall, InlineMessage, Message]:
     """
@@ -509,7 +509,7 @@ async def answer(
     if isinstance(response, str) and not kwargs.pop("asfile", False):
         text, entities = parse_mode.parse(response)
 
-        if len(text) >= 4096 and not hasattr(message, "hikka_grepped"):
+        if len(text) >= 4096 and not hasattr(message, "netfoll_grepped"):
             try:
                 if not message.client.loader.inline.init_complete:
                     raise
@@ -957,7 +957,7 @@ def get_platform_emoji(client: typing.Optional[CustomTelegramClient] = None) -> 
     )
 
     if client and (
-        client.loader.db.get("hikka.translations", "lang", False) or ""
+        client.loader.db.get("netfoll.translations", "lang", False) or ""
     ).startswith("ar"):
         BASE = tuple(reversed(BASE))
 
