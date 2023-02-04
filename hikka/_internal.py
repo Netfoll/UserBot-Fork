@@ -14,7 +14,6 @@ import random
 import signal
 import sys
 
-
 async def fw_protect():
     await asyncio.sleep(random.randint(1000, 3000) / 1000)
 
