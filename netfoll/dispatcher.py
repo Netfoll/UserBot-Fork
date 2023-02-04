@@ -105,17 +105,17 @@ class CommandDispatcher:
         self.security = security.SecurityManager(client, db)
 
         self.check_security = self.security.check
-        self._me = self._client.hikka_me.id
+        self._me = self._client.netfoll_me.id
         self._cached_usernames = [
             (
-                self._client.hikka_me.username.lower()
-                if self._client.hikka_me.username
-                else str(self._client.hikka_me.id)
+                self._client.netfoll_me.username.lower()
+                if self._client.netfoll_me.username
+                else str(self._client.netfoll_me.id)
             )
         ]
 
         self._cached_usernames.extend(
-            getattr(self._client.hikka_me, "usernames", None) or []
+            getattr(self._client.netfoll_me, "usernames", None) or []
         )
 
         self.raw_handlers = []
@@ -249,7 +249,7 @@ class CommandDispatcher:
         message.edit = my_edit
         message.reply = my_reply
         message.respond = my_respond
-        message.hikka_grepped = True
+        message.netfoll_grepped = True
 
         return message
 
@@ -684,7 +684,7 @@ class CommandDispatcher:
     ):
         # Will be used to determine, which client caused logging messages
         # parsed via inspect.stack()
-        _hikka_client_id_logging_tag = copy.copy(self.client.tg_id)  # skipcq
+        _netfoll_client_id_logging_tag = copy.copy(self.client.tg_id)  # skipcq
         try:
             await func(message)
         except Exception as e:
