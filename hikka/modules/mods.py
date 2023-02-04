@@ -10,7 +10,6 @@
 #      ▀▀ ▀▀
 # ---------------------------------------------------------------------------------
 # meta developer: @Netfoll
-# scope: hikka_only
 # scope: hikka_min 1.6.0
 
 from .. import loader, utils
@@ -26,7 +25,7 @@ class ModsMod(loader.Module):
 
     strings = {
         "name": "Mods",
-        "amount": "<emoji document_id=5316573023094971227>📦</emoji> I have <b>{}</b> modules installed:\n",
+        "amount": "<emoji document_id=5316573023094971227>📦</emoji> Right now there is <b>{}</b> modules loaded:\n",
         "partial_load": (
             "\n<emoji document_id=5328239124933515868>⚙️</emoji> <b>it's not all modules"
             " Netfoll is loading</b>"
@@ -37,7 +36,7 @@ class ModsMod(loader.Module):
     }
 
     strings_ru = {
-        "amount": "<emoji document_id=5316573023094971227>📦</emoji> Сейчас установлено <b>{}</b> модулей:",
+        "amount": "<emoji document_id=5316573023094971227>📦</emoji> Сейчас загружено <b>{}</b> модулей:",
         "partial_load": (
             "\n<emoji document_id=5328239124933515868>⚙️</emoji> <b>Это не все модули,"
             " Netfoll загружается</b>"
@@ -60,13 +59,7 @@ class ModsMod(loader.Module):
             emoji = self.strings("core_module") if mod.__origin__.startswith("<core") else self.strings("module")
             result += f"\n {emoji} <code>{name}</code>"
 
-        result += (
-            ""
-            if self.lookup("Loader").fully_loaded
-            else f"\n\n{self.strings('partial_load')}"
-        )
-        result += (
-            f"\n\n {prefix}"
-        )
+        result += "" if self.lookup("Loader").fully_loaded else f"\n\n{self.strings('partial_load')}"
+        result += f"\n\n {prefix}"
 
         await utils.answer(message, result)
