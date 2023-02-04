@@ -14,6 +14,7 @@ import typing
 
 import requests
 
+
 from . import utils
 
 logger = logging.getLogger(__name__)
