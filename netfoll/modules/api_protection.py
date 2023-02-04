@@ -271,7 +271,7 @@ class APIRatelimiterMod(loader.Module):
 
         self._client._call = new_call
         self._client._old_call_rewritten = old_call
-        self._client._call._hikka_overwritten = True
+        self._client._call._netfoll_overwritten = True
         logger.debug("Successfully installed ratelimiter")
 
     async def on_unload(self):
