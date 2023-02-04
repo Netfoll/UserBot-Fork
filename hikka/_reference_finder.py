@@ -13,9 +13,7 @@ def proxy0(data):
 
     return proxy1
 
-
 _CELLTYPE = type(proxy0(None).__closure__[0])
-
 
 def replace_all_refs(replace_from: typing.Any, replace_to: typing.Any) -> typing.Any:
     """
