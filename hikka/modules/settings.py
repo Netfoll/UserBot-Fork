@@ -144,7 +144,7 @@ class CoreMod(loader.Module):
         ),
         "prefix_set": (
             "{} <b>Выставлен новый префикс,"
-            " Ч, для того чтобы вернуть старый префикс используй</b> <code>{newprefix}setprefix"
+            " для того чтобы вернуть старый префикс используй</b> <code>{newprefix}setprefix"
             " {oldprefix}</code>"
         ),
         "alias_created": (
