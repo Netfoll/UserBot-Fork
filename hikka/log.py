@@ -39,15 +39,7 @@ old = linecache.getlines
 
 
 def getlines(filename: str, module_globals=None) -> str:
-    """
-    Get the lines for a Python source file from the cache.
-    Update the cache if it doesn't contain an entry for this file already.
-
-    Modified version of original `linecache.getlines`, which returns the
-    source code of Hikka and Dragon modules properly. This is needed for
-    interactive line debugger in werkzeug web debugger.
-    """
-
+    '''da'''
     try:
         if filename.startswith("<") and filename.endswith(">"):
             module = filename[1:-1].split(maxsplit=1)[-1]
