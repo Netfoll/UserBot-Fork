@@ -122,7 +122,7 @@ else:
         restart()
 
     if __name__ == "__main__":
-        if "HIKKA_DO_NOT_RESTART" in os.environ:
-            del os.environ["HIKKA_DO_NOT_RESTART"]
+        if "NETFOLL_DO_NOT_RESTART" in os.environ:
+            del os.environ["NETFOLL_DO_NOT_RESTART"]
 
         main.netfoll.main()  # Execute main function
