@@ -19,7 +19,6 @@ except ImportError as e:
     if "RAILWAY" in os.environ:
         raise e
 
-
 import typing
 
 from telethon.errors.rpcerrorlist import ChannelsTooMuchError
