@@ -73,11 +73,11 @@ class UpdaterMod(loader.Module):
         "no_update": "🚸 <b>You are on the latest version, pull updates anyway?</b>",
         "cancel": "🚫 Cancel",
         "lumihost_restart": (
-            "<emoji document_id=6334395558312020287>❄️</emoji> <b>Your {} is"
+            "<b>Your {} is"
             " restarting...</b>"
         ),
         "lumihost_update": (
-            "<emoji document_id=6334395558312020287>❄️</emoji> <b>Your {} is"
+            "<b>Your {} is"
             " updating...</b>"
         ),
         "full_success": (
@@ -138,11 +138,11 @@ class UpdaterMod(loader.Module):
         "cancel": "🚫 Отмена",
         "_cls_doc": "Обновляет юзербот",
         "lumihost_restart": (
-            "<emoji document_id=6334395558312020287>❄️</emoji> <b>Твой {}"
+            "<b>Твой {}"
             " перезагружается...</b>"
         ),
         "lumihost_update": (
-            "<emoji document_id=6334395558312020287>❄️</emoji> <b>Твой {}"
+            "<b>Твой {}"
             " обновляется...</b>"
         ),
     }
@@ -229,11 +229,11 @@ class UpdaterMod(loader.Module):
             )
             if "LUMIHOST" not in os.environ
             else self.strings("lumihost_restart").format(
-                '</b><emoji document_id=6334395558312020287>❄️</emoji> LumiHost<b>'
+                '</b><emoji document_id=5364105417569868801>😎</emoji> LumiHost<b>'
                 if self._client.hikka_me.premium
                 and CUSTOM_EMOJIS
                 and isinstance(msg_obj, Message)
-                else "LumiHost"
+                else "😎 LumiHost"
             ),
         )
 
@@ -361,11 +361,11 @@ class UpdaterMod(loader.Module):
                 msg_obj = await utils.answer(
                     msg_obj,
                     self.strings("lumihost_update").format(
-                        "</b><emoji document_id=6334395558312020287>❄️</emoji> LumiHost<b>"
+                        "</b><emoji document_id=5364105417569868801>😎</emoji> LumiHost<b>"
                         if self._client.hikka_me.premium
                         and CUSTOM_EMOJIS
                         and isinstance(msg_obj, Message)
-                        else "LumiHost"
+                        else "😎 LumiHost"
                     ),
                 )
                 await self.process_restart_message(msg_obj)
