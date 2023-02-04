@@ -24,6 +24,7 @@ from functools import wraps
 from types import FunctionType, ModuleType
 from uuid import uuid4
 
+
 from telethon.tl.tlobject import TLObject
 
 from . import security, utils, validators, version  # skipcq
