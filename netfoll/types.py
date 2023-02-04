@@ -52,7 +52,7 @@ logger = logging.getLogger(__name__)
 
 
 JSONSerializable = typing.Union[str, int, float, bool, list, dict, None]
-HikkaReplyMarkup = typing.Union[typing.List[typing.List[dict]], typing.List[dict], dict]
+NetfollReplyMarkup = typing.Union[typing.List[typing.List[dict]], typing.List[dict], dict]
 ListLike = typing.Union[list, set, tuple]
 Command = typing.Callable[..., typing.Awaitable[typing.Any]]
 
@@ -160,7 +160,7 @@ class Module:
         return get_commands(self)
 
     @property
-    def hikka_commands(self) -> typing.Dict[str, Command]:
+    def netfoll_commands(self) -> typing.Dict[str, Command]:
         """List of commands that module supports"""
         return get_commands(self)
 
@@ -170,7 +170,7 @@ class Module:
         return get_inline_handlers(self)
 
     @property
-    def hikka_inline_handlers(self) -> typing.Dict[str, Command]:
+    def netfoll_inline_handlers(self) -> typing.Dict[str, Command]:
         """List of inline handlers that module supports"""
         return get_inline_handlers(self)
 
@@ -180,7 +180,7 @@ class Module:
         return get_callback_handlers(self)
 
     @property
-    def hikka_callback_handlers(self) -> typing.Dict[str, Command]:
+    def netfoll_callback_handlers(self) -> typing.Dict[str, Command]:
         """List of callback handlers that module supports"""
         return get_callback_handlers(self)
 
@@ -190,7 +190,7 @@ class Module:
         return get_watchers(self)
 
     @property
-    def hikka_watchers(self) -> typing.Dict[str, Command]:
+    def netfoll_watchers(self) -> typing.Dict[str, Command]:
         """List of watchers that module supports"""
         return get_watchers(self)
 
@@ -198,32 +198,32 @@ class Module:
     def commands(self, _):
         pass
 
-    @hikka_commands.setter
-    def hikka_commands(self, _):
+    @netfoll_commands.setter
+    def netfoll_commands(self, _):
         pass
 
     @inline_handlers.setter
     def inline_handlers(self, _):
         pass
 
-    @hikka_inline_handlers.setter
-    def hikka_inline_handlers(self, _):
+    @netfoll_inline_handlers.setter
+    def netfoll_inline_handlers(self, _):
         pass
 
     @callback_handlers.setter
     def callback_handlers(self, _):
         pass
 
-    @hikka_callback_handlers.setter
-    def hikka_callback_handlers(self, _):
+    @netfoll_callback_handlers.setter
+    def netfoll_callback_handlers(self, _):
         pass
 
     @watchers.setter
     def watchers(self, _):
         pass
 
-    @hikka_watchers.setter
-    def hikka_watchers(self, _):
+    @netfoll_watchers.setter
+    def netfoll_watchers(self, _):
         pass
 
     async def animate(
@@ -248,7 +248,7 @@ class Module:
         from . import utils
 
         with contextlib.suppress(AttributeError):
-            _hikka_client_id_logging_tag = copy.copy(self.client.tg_id)
+            _netfoll_client_id_logging_tag = copy.copy(self.client.tg_id)
 
         if interval < 0.1:
             logger.warning(
@@ -319,9 +319,9 @@ class Module:
         from . import utils
 
         self._db.set(
-            "hikka.main",
+            "netfoll.main",
             "declined_joins",
-            list(set(self._db.get("hikka.main", "declined_joins", []) + [channel.id])),
+            list(set(self._db.get("netfoll.main", "declined_joins", []) + [channel.id])),
         )
         event.status = False
         event.set()
@@ -361,7 +361,7 @@ class Module:
         )
 
         channel = await self.client.get_entity(peer)
-        if channel.id in self._db.get("hikka.main", "declined_joins", []):
+        if channel.id in self._db.get("netfoll.main", "declined_joins", []):
             if assure_joined:
                 raise LoadError(
                     f"You need to join @{channel.username} in order to use this module"
@@ -407,7 +407,7 @@ class Module:
             ),
         )
 
-        self.hikka_wait_channel_approve = (
+        self.netfoll_wait_channel_approve = (
             self.__class__.__name__,
             channel,
             reason,
@@ -415,7 +415,7 @@ class Module:
         await event.wait()
 
         with contextlib.suppress(AttributeError):
-            delattr(self, "hikka_wait_channel_approve")
+            delattr(self, "netfoll_wait_channel_approve")
 
         if assure_joined and not event.status:
             raise LoadError(
@@ -478,7 +478,7 @@ class Module:
                     )
                 )
 
-        module = f"hikka.libraries.{url.replace('%', '%%').replace('.', '%d')}"
+        module = f"netfoll.libraries.{url.replace('%', '%%').replace('.', '%d')}"
         origin = f"<library {url}>"
 
         spec = importlib.machinery.ModuleSpec(
@@ -568,7 +568,7 @@ class Module:
             all(
                 line.replace(" ", "") != "#scope:no_stats" for line in code.splitlines()
             )
-            and self._db.get("hikka.main", "stats", True)
+            and self._db.get("netfoll.main", "stats", True)
             and url is not None
             and utils.check_url(url)
         ):
@@ -662,14 +662,14 @@ class DragonModule:
         self.url = None
         self.commands = {}
         self.watchers = {}
-        self.hikka_watchers = {}
+        self.netfoll_watchers = {}
         self.inline_handlers = {}
-        self.hikka_inline_handlers = {}
+        self.netfoll_inline_handlers = {}
         self.callback_handlers = {}
-        self.hikka_callback_handlers = {}
+        self.netfoll_callback_handlers = {}
 
     @property
-    def hikka_commands(
+    def netfoll_commands(
         self,
     ) -> typing.Dict[str, Command]:
         return self.commands
