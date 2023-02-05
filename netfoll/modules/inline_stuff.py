@@ -140,9 +140,10 @@ class InlineStuffMod(loader.Module):
         uz_doc="<foydalanuvchi nomi> - Bot foydalanuvchi nomini o'zgartiring",
         es_doc="<nombre de usuario> - Cambia el nombre de usuario del bot de inline",
         kk_doc="<пайдаланушы аты> - Инлайн боттың пайдаланушы атын өзгерту",
+        alias='setbotname',
     )
-    async def ch_hikka_bot(self, message: Message):
-        """<username> - Change your Hikka inline bot username"""
+    async def ch_netfoll_bot(self, message: Message):
+        """<username> - Change your Netfoll inline bot username"""
         args = utils.get_args_raw(message).strip("@")
         if (
             not args
@@ -165,8 +166,8 @@ class InlineStuffMod(loader.Module):
                 await utils.answer(message, self.strings("bot_username_occupied"))
                 return
 
-        self._db.set("hikka.inline", "custom_bot", args)
-        self._db.set("hikka.inline", "bot_token", None)
+        self._db.set("netfoll.inline", "custom_bot", args)
+        self._db.set("netfoll.inline", "bot_token", None)
         await utils.answer(message, self.strings("bot_updated"))
 
     async def aiogram_watcher(self, message: BotInlineMessage):
