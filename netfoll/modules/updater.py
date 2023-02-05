@@ -222,7 +222,7 @@ class UpdaterMod(loader.Module):
             msg_obj,
             self.strings("restarting_caption").format(
                 utils.get_platform_emoji(self._client)
-                if self._client.hikka_me.premium
+                if self._client.netfoll_me.premium
                 and CUSTOM_EMOJIS
                 and isinstance(msg_obj, Message)
                 else "Netfoll"
@@ -230,7 +230,7 @@ class UpdaterMod(loader.Module):
             if "LUMIHOST" not in os.environ
             else self.strings("lumihost_restart").format(
                 '</b><emoji document_id=6334395558312020287>❄️</emoji> LumiHost<b>'
-                if self._client.hikka_me.premium
+                if self._client.netfoll_me.premium
                 and CUSTOM_EMOJIS
                 and isinstance(msg_obj, Message)
                 else "LumiHost"
@@ -248,7 +248,7 @@ class UpdaterMod(loader.Module):
             return
 
         with contextlib.suppress(Exception):
-            await main.hikka.web.stop()
+            await main.netfoll.web.stop()
 
         handler = logging.getLogger().handlers[0]
         handler.setLevel(logging.CRITICAL)
@@ -362,7 +362,7 @@ class UpdaterMod(loader.Module):
                     msg_obj,
                     self.strings("lumihost_update").format(
                         "</b><emoji document_id=6334395558312020287>❄️</emoji> LumiHost<b>"
-                        if self._client.hikka_me.premium
+                        if self._client.netfoll_me.premium
                         and CUSTOM_EMOJIS
                         and isinstance(msg_obj, Message)
                         else "LumiHost"
@@ -428,7 +428,7 @@ class UpdaterMod(loader.Module):
     async def _add_folder(self):
         folders = await self._client(GetDialogFiltersRequest())
 
-        if any(getattr(folder, "title", None) == "hikka" for folder in folders):
+        if any(getattr(folder, "title", None) == "netfoll" for folder in folders):
             return
 
         try:
@@ -448,7 +448,7 @@ class UpdaterMod(loader.Module):
                     folder_id,
                     DialogFilter(
                         folder_id,
-                        title="hikka",
+                        title="netfoll",
                         pinned_peers=(
                             [
                                 await self._client.get_input_entity(
@@ -466,18 +466,18 @@ class UpdaterMod(loader.Module):
                             )
                             if dialog.name
                             in {
-                                "hikka-logs",
-                                "hikka-onload",
-                                "hikka-assets",
-                                "hikka-backups",
-                                "hikka-acc-switcher",
+                                "netfoll-logs",
+                                "netfoll-onload",
+                                "netfoll-assets",
+                                "netfoll-backups",
+                                "netfoll-acc-switcher",
                                 "silent-tags",
                             }
                             and dialog.is_channel
                             and (
                                 dialog.entity.participants_count == 1
                                 or dialog.entity.participants_count == 2
-                                and dialog.name in {"hikka-logs", "silent-tags"}
+                                and dialog.name in {"netfoll-logs", "silent-tags"}
                             )
                             or (
                                 self._client.loader.inline.init_complete
@@ -486,10 +486,8 @@ class UpdaterMod(loader.Module):
                             )
                             or dialog.entity.id
                             in [
-                                1554874075,
-                                1697279580,
-                                1679998924,
-                            ]  # official hikka chats
+                                1806375007,
+                            ]  # official netfoll chats
                         ],
                         emoticon="🐱",
                         exclude_peers=[],
@@ -506,7 +504,7 @@ class UpdaterMod(loader.Module):
             )
         except Exception:
             logger.critical(
-                "Can't create Hikka folder. Possible reasons are:\n"
+                "Can't create Netfoll folder. Possible reasons are:\n"
                 "- User reached the limit of folders in Telegram\n"
                 "- User got floodwait\n"
                 "Ignoring error and adding folder addition to ignore list"
