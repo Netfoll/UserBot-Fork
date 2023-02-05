@@ -109,7 +109,7 @@ class Database(dict):
                 "netfoll-assets",
                 "🌆 Your Netfoll assets will be stored here",
                 archive=True,
-                avatar="https://raw.githubusercontent.com/hikariatama/assets/master/hikka-assets.png",
+                avatar="https://raw.githubusercontent.com/MXRRI/assets/master/bot_pfp.png",
             )
         except ChannelsTooMuchError:
             self._assets = None
