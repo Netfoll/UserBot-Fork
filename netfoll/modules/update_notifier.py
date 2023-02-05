@@ -22,7 +22,7 @@ class UpdateNotifierMod(loader.Module):
     strings = {
         "name": "UpdateNotifier",
         "update_required": (
-            "🌘 <b>Netfoll Update available!</b>\n\nNew Netfoll version released.\n🔮"
+            "👾 <b>Netfoll Update available!</b>\n\nNew Netfoll version released.\n🔮"
             " <b>Netfoll <s>{}</s> -> {}</b>\n\n{}"
         ),
         "more": "\n<i><b>🎥 And {} more...</b></i>",
