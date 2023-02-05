@@ -574,7 +574,7 @@ class Netfoll:
                      ♦ Version: {'.'.join(list(map(str, list(netver))))} #{build[:7]}
                      ♦ {upd}
                      ♦ Platform: {_platform}
-                     ♦ Prefix: {prefix}
+                     ♦ Prefix: <<{prefix}>>
                      """
 
             if not self.omit_log:
