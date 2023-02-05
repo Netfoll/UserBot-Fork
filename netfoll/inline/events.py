@@ -33,7 +33,7 @@ logger = logging.getLogger(__name__)
 class Events(InlineUnit):
     async def _message_handler(self, message: AiogramMessage):
         """Processes incoming messages"""
-        if message.chat.type != "private" or message.text == "/start hikka init":
+        if message.chat.type != "private" or message.text == "/start netfoll init":
             return
 
         for mod in self._allmodules.modules:
@@ -398,7 +398,7 @@ class Events(InlineUnit):
                 doc = "🦥 No docs"
 
             try:
-                thumb = getattr(fun, "thumb_url", None) or fun.__self__.hikka_meta_pic
+                thumb = getattr(fun, "thumb_url", None) or fun.__self__.netfoll_meta_pic
             except Exception:
                 thumb = None
 
