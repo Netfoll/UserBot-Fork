@@ -34,7 +34,7 @@ from telethon.extensions.html import CUSTOM_EMOJIS
 from telethon.tl.types import Message
 
 from .. import main, utils
-from ..types import HikkaReplyMarkup
+from ..types import NetfollReplyMarkup
 from .types import InlineMessage, InlineUnit
 
 logger = logging.getLogger(__name__)
@@ -64,7 +64,7 @@ class Form(InlineUnit):
         self,
         text: str,
         message: typing.Union[Message, int],
-        reply_markup: typing.Optional[HikkaReplyMarkup] = None,
+        reply_markup: typing.Optional[NetfollReplyMarkup] = None,
         *,
         force_me: bool = False,
         always_allow: typing.Optional[typing.List[int]] = None,
@@ -94,9 +94,9 @@ class Form(InlineUnit):
                     be bigger, than default one (1 day) and must be either `int` or `False`
         :param on_unload: Callback, called when form is unloaded and/or closed. You can clean up trash
                           or perform another needed action
-        :param manual_security: By default, Hikka will try to inherit inline buttons security from the caller (command)
+        :param manual_security: By default, Netfoll will try to inherit inline buttons security from the caller (command)
                                 If you want to avoid this, pass `manual_security=True`
-        :param disable_security: By default, Hikka will try to inherit inline buttons security from the caller (command)
+        :param disable_security: By default, Netfoll will try to inherit inline buttons security from the caller (command)
                                  If you want to disable all security checks on this form in particular, pass `disable_security=True`
         :param photo: Attach a photo to the form. URL must be supplied
         :param gif: Attach a gif to the form. URL must be supplied
@@ -111,7 +111,7 @@ class Form(InlineUnit):
         :return: If form is sent, returns :obj:`InlineMessage`, otherwise returns `False`
         """
         with contextlib.suppress(AttributeError):
-            _hikka_client_id_logging_tag = copy.copy(self._client.tg_id)
+            _netfoll_client_id_logging_tag = copy.copy(self._client.tg_id)
 
         if reply_markup is None:
             reply_markup = []
@@ -272,7 +272,7 @@ class Form(InlineUnit):
                 )(
                     (
                         utils.get_platform_emoji(self._client)
-                        if self._client.hikka_me.premium and CUSTOM_EMOJIS
+                        if self._client.netfoll_me.premium and CUSTOM_EMOJIS
                         else "👾"
                     )
                     + self._client.loader.lookup("translations").strings(
@@ -452,8 +452,8 @@ class Form(InlineUnit):
                 [
                     InlineQueryResultPhoto(
                         id=utils.rand(20),
-                        title="Hikka",
-                        description="Hikka",
+                        title="Netfol",
+                        description="Netfoll",
                         caption=form.get("text"),
                         parse_mode="HTML",
                         photo_url=form["photo"],
@@ -472,7 +472,7 @@ class Form(InlineUnit):
                 [
                     InlineQueryResultGif(
                         id=utils.rand(20),
-                        title="Hikka",
+                        title="Netfoll",
                         caption=form.get("text"),
                         parse_mode="HTML",
                         gif_url=form["gif"],
@@ -491,8 +491,8 @@ class Form(InlineUnit):
                 [
                     InlineQueryResultVideo(
                         id=utils.rand(20),
-                        title="Hikka",
-                        description="Hikka",
+                        title="Netfoll",
+                        description="Netfoll",
                         caption=form.get("text"),
                         parse_mode="HTML",
                         video_url=form["video"],
@@ -512,8 +512,8 @@ class Form(InlineUnit):
                 [
                     InlineQueryResultDocument(
                         id=utils.rand(20),
-                        title="Hikka",
-                        description="Hikka",
+                        title="Netfoll",
+                        description="Netfoll",
                         caption=form.get("text"),
                         parse_mode="HTML",
                         document_url=form["file"],
@@ -532,7 +532,7 @@ class Form(InlineUnit):
                         id=utils.rand(20),
                         latitude=form["location"][0],
                         longitude=form["location"][1],
-                        title="Hikka",
+                        title="Netfoll",
                         reply_markup=self.generate_markup(
                             form["uid"],
                         ),
@@ -548,7 +548,7 @@ class Form(InlineUnit):
                         audio_url=form["audio"]["url"],
                         caption=form.get("text"),
                         parse_mode="HTML",
-                        title=form["audio"].get("title", "Hikka"),
+                        title=form["audio"].get("title", "Netfoll"),
                         performer=form["audio"].get("performer"),
                         audio_duration=form["audio"].get("duration"),
                         reply_markup=self.generate_markup(
@@ -563,7 +563,7 @@ class Form(InlineUnit):
                 [
                     InlineQueryResultArticle(
                         id=utils.rand(20),
-                        title="Hikka",
+                        title="Netfoll",
                         input_message_content=InputTextMessageContent(
                             form["text"],
                             "HTML",
