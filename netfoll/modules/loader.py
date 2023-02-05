@@ -133,13 +133,13 @@ class LoaderMod(loader.Module):
         ),
         "inline_init_failed": (
             "<emoji document_id=5454225457916420314>😖</emoji> <b>This module requires"
-            " Hikka inline feature and initialization of InlineManager"
+            " Netfoll inline feature and initialization of InlineManager"
             " failed</b>\n<i>Please, remove one of your old bots from @BotFather and"
             " restart userbot to load this module</i>"
         ),
         "version_incompatible": (
             "<emoji document_id=5454225457916420314>😖</emoji> <b>This module requires"
-            " Hikka {}+\nPlease, update with</b> <code>.update</code>"
+            " Netfoll {}+\nPlease, update with</b> <code>.update</code>"
         ),
         "ffmpeg_required": (
             "<emoji document_id=5454225457916420314>😖</emoji> <b>This module requires"
@@ -313,7 +313,7 @@ class LoaderMod(loader.Module):
         ),
         "version_incompatible": (
             "<emoji document_id=5454225457916420314>😖</emoji> <b>Этому модулю"
-            " требуется Hikka версии {}+\nОбновись с помощью</b> <code>.update</code>"
+            " требуется Netfoll версии {}+\nОбновись с помощью</b> <code>.update</code>"
         ),
         "ffmpeg_required": (
             "<emoji document_id=5454225457916420314>😖</emoji> <b>Этому модулю"
@@ -342,7 +342,7 @@ class LoaderMod(loader.Module):
         ),
         "inline_init_failed": (
             "<emoji document_id=5454225457916420314>😖</emoji> <b>Этому модулю нужен"
-            " HikkaInline, а инициализация менеджера инлайна неудачна</b>\n<i>Попробуй"
+            " NetfollInline, а инициализация менеджера инлайна неудачна</b>\n<i>Попробуй"
             " удалить одного из старых ботов в @BotFather и перезагрузить юзербота</i>"
         ),
         "_cmd_doc_dlmod": "Скачивает и устаналвивает модуль из репозитория",
@@ -490,7 +490,7 @@ class LoaderMod(loader.Module):
 
         self.allmodules.add_aliases(self.lookup("settings").get("aliases", {}))
 
-        main.hikka.ready.set()
+        main.netfoll.ready.set()
 
         asyncio.ensure_future(self._update_modules())
         asyncio.ensure_future(self._async_init())
@@ -947,7 +947,7 @@ class LoaderMod(loader.Module):
                 await self._client.pyro_proxy.dispatcher.start()
                 dragon.apply_compat(self._client)
         else:
-            module_name = f"hikka.modules.{uid}"
+            module_name = f"netfoll.modules.{uid}"
             doc = geek.compat(doc)
 
         async def core_overwrite(e: CoreOverwriteError):
@@ -1134,13 +1134,13 @@ class LoaderMod(loader.Module):
                         async def inner_proxy():
                             nonlocal instance, message
                             while True:
-                                if hasattr(instance, "hikka_wait_channel_approve"):
+                                if hasattr(instance, "netfoll_wait_channel_approve"):
                                     if message:
                                         (
                                             module,
                                             channel,
                                             reason,
-                                        ) = instance.hikka_wait_channel_approve
+                                        ) = instance.netfoll_wait_channel_approve
                                         message = await utils.answer(
                                             message,
                                             self.strings("wait_channel_approve").format(
@@ -1250,7 +1250,7 @@ class LoaderMod(loader.Module):
                 developer_entity = await (
                     self._client.force_get_entity
                     if (
-                        developer in self._client._hikka_entity_cache
+                        developer in self._client._netfoll_entity_cache
                         and getattr(
                             await self._client.get_entity(developer), "left", True
                         )
