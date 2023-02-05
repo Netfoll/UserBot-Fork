@@ -108,7 +108,7 @@ class CoreMod(loader.Module):
             " unstable branch</b> <code>{}</code><b>!</b>"
         ),
         "prefix_collision": (
-            "<emoji document_id=5469654973308476699>💣</emoji> <b>Your Dragon and Hikka"
+            "<emoji document_id=5469654973308476699>💣</emoji> <b>Your Dragon and Netfoll"
             " prefixes must be different!</b>"
         ),
     }
@@ -202,7 +202,7 @@ class CoreMod(loader.Module):
         ),
         "prefix_collision": (
             "<emoji document_id=5469654973308476699>💣</emoji> <b>Префиксы Dragon и"
-            " Hikka должны отличаться!</b>"
+            " Netfoll должны отличаться!</b>"
         ),
     }
 
@@ -235,7 +235,7 @@ class CoreMod(loader.Module):
         ru_doc="Показать версию Netfoll",
     )
     async def netfollcmd(self, message: Message):
-        """Get Hikka version"""
+        """Get Netfoll version"""
         await utils.answer_file(
             message,
             "https://github.com/MXRRI/Netfoll/raw/stable/assets/banner.png",
@@ -249,7 +249,7 @@ class CoreMod(loader.Module):
                             else ""
                         )
                     )
-                    if self._client.hikka_me.premium and CUSTOM_EMOJIS
+                    if self._client.netfoll_me.premium and CUSTOM_EMOJIS
                     else "👾 <b>Netfoll</b>"
                 ),
                 *version.netver,
