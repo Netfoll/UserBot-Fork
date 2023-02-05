@@ -561,7 +561,7 @@ class Netfoll:
             upd = r"Update required" if diff else r"Up-to-date"
 
             _platform = utils.get_named_platform()
-            prefix = loader.get_prefix()
+            prefix = message.client.loader.get_prefix()
 
             logo1 = f"""
 
