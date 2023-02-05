@@ -32,7 +32,7 @@ from telethon.extensions.html import CUSTOM_EMOJIS
 from telethon.tl.types import Message
 
 from .. import main, utils
-from ..types import HikkaReplyMarkup
+from ..types import NetfollReplyMarkup
 from .types import InlineMessage, InlineUnit
 
 logger = logging.getLogger(__name__)
@@ -58,7 +58,7 @@ class Gallery(InlineUnit):
         next_handler: typing.Union[callable, typing.List[str]],
         caption: typing.Union[typing.List[str], str, callable] = "",
         *,
-        custom_buttons: typing.Optional[HikkaReplyMarkup] = None,
+        custom_buttons: typing.Optional[NetfollReplyMarkup] = None,
         force_me: bool = False,
         always_allow: typing.Optional[typing.List[int]] = None,
         manual_security: bool = False,
@@ -87,16 +87,16 @@ class Gallery(InlineUnit):
                         be loaded. Toggle this attribute, if your callback is too slow to load photos
                         in real time
         :param gif: Whether the gallery will be filled with gifs. If you omit this argument and specify
-                    gifs in `next_handler`, Hikka will try to determine the filetype of these images
-        :param manual_security: By default, Hikka will try to inherit inline buttons security from the caller (command)
+                    gifs in `next_handler`, Netfoll will try to determine the filetype of these images
+        :param manual_security: By default, Netfoll will try to inherit inline buttons security from the caller (command)
                                 If you want to avoid this, pass `manual_security=True`
-        :param disable_security: By default, Hikka will try to inherit inline buttons security from the caller (command)
+        :param disable_security: By default, Netfoll will try to inherit inline buttons security from the caller (command)
                                  If you want to disable all security checks on this gallery in particular, pass `disable_security=True`
         :param silent: Whether the gallery must be sent silently (w/o "Opening gallery..." message)
         :return: If gallery is sent, returns :obj:`InlineMessage`, otherwise returns `False`
         """
         with contextlib.suppress(AttributeError):
-            _hikka_client_id_logging_tag = copy.copy(self._client.tg_id)
+            _netfoll_client_id_logging_tag = copy.copy(self._client.tg_id)
 
         custom_buttons = self._validate_markup(custom_buttons)
 
@@ -258,8 +258,8 @@ class Gallery(InlineUnit):
                 )(
                     (
                         utils.get_platform_emoji(self._client)
-                        if self._client.hikka_me.premium and CUSTOM_EMOJIS
-                        else "🌘"
+                        if self._client.netfoll_me.premium and CUSTOM_EMOJIS
+                        else "👾"
                     )
                     + self._client.loader.lookup("translations").strings(
                         "opening_gallery"
