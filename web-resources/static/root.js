@@ -35,7 +35,7 @@ function auth(callback) {
                     return
                 }
 
-                if (response.startsWith("hikka_")) {
+                if (response.startsWith("netfoll_")) {
                     $.cookie("session", response)
                     auth_required = false;
                     $(".authorized").hide().fadeIn(100);
