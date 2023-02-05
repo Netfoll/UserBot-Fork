@@ -222,7 +222,7 @@ class Translations(loader.Module):
         ru_doc="[ссылка на пак | пустое чтобы удалить] - Изменить внешний пак перевода",
     )
     async def dllangpackcmd(self, message: Message):
-        """[link to a langpack | empty to remove] - Change Hikka translate pack (external)
+        """[link to a langpack | empty to remove] - Change Netfoll translate pack (external)
         """
         args = utils.get_args_raw(message)
 
