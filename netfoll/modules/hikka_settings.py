@@ -39,11 +39,11 @@ ALL_INVOKES = [
 
 
 @loader.tds
-class HikkaSettingsMod(loader.Module):
-    """Advanced settings for Hikka Userbot"""
+class NetfollSettingsMod(loader.Module):
+    """Advanced settings for Netfoll Userbot"""
 
     strings = {
-        "name": "HikkaSettings",
+        "name": "NetfollSettings",
         "watchers": (
             "<emoji document_id=5424885441100782420>👀</emoji>"
             " <b>Watchers:</b>\n\n<b>{}</b>"
@@ -100,7 +100,7 @@ class HikkaSettingsMod(loader.Module):
         "cmd404": (
             "<emoji document_id=5469791106591890404>🪄</emoji> <b>Command not found</b>"
         ),
-        "inline_settings": "⚙️ <b>Here you can configure your Hikka settings</b>",
+        "inline_settings": "⚙️ <b>Here you can configure your Netfoll settings</b>",
         "confirm_update": (
             "🧭 <b>Please, confirm that you want to update. Your userbot will be"
             " restarted</b>"
@@ -123,7 +123,7 @@ class HikkaSettingsMod(loader.Module):
         ),
         "nonick_warning": (
             "Warning! You enabled NoNick with default prefix! "
-            "You may get muted in Hikka chats. Change prefix or "
+            "You may get muted in Netfoll chats. Change prefix or "
             "disable NoNick!"
         ),
         "reply_required": (
@@ -131,12 +131,12 @@ class HikkaSettingsMod(loader.Module):
             " of user, which needs to be added to NoNick</b>"
         ),
         "deauth_confirm": (
-            "⚠️ <b>This action will fully remove Hikka from this account and can't be"
-            " reverted!</b>\n\n<i>- Hikka chats will be removed\n- Session will be"
-            " terminated and removed\n- Hikka inline bot will be removed</i>"
+            "⚠️ <b>This action will fully remove Netfoll from this account and can't be"
+            " reverted!</b>\n\n<i>- Netfoll chats will be removed\n- Session will be"
+            " terminated and removed\n- Netfoll inline bot will be removed</i>"
         ),
         "deauth_confirm_step2": (
-            "⚠️ <b>Are you really sure you want to delete Hikka?</b>"
+            "⚠️ <b>Are you really sure you want to delete Netfoll?</b>"
         ),
         "deauth_yes": "I'm sure",
         "deauth_no_1": "I'm not sure",
@@ -144,9 +144,9 @@ class HikkaSettingsMod(loader.Module):
         "deauth_no_3": "I'm struggling to answer",
         "deauth_cancel": "🚫 Cancel",
         "deauth_confirm_btn": "😢 Delete",
-        "uninstall": "😢 <b>Uninstalling Hikka...</b>",
+        "uninstall": "😢 <b>Uninstalling Netfoll...</b>",
         "uninstalled": (
-            "😢 <b>Hikka uninstalled. Web interface is still active, you can add another"
+            "😢 <b>Netfoll uninstalled. Web interface is still active, you can add another"
             " account</b>"
         ),
         "cmd_nn_list": (
@@ -166,23 +166,23 @@ class HikkaSettingsMod(loader.Module):
             " show...</b>"
         ),
         "privacy_leak": (
-            "⚠️ <b>This command gives access to your Hikka web interface. It's not"
+            "⚠️ <b>This command gives access to your Netfoll web interface. It's not"
             " recommended to run it in public group chats. Consider using it in <a"
             " href='tg://openmessage?user_id={}'>Saved messages</a>. Type"
             "</b> <code>{}proxypass force_insecure</code> <b>to ignore this warning</b>"
         ),
         "privacy_leak_nowarn": (
-            "⚠️ <b>This command gives access to your Hikka web interface. It's not"
+            "⚠️ <b>This command gives access to your Netfoll web interface. It's not"
             " recommended to run it in public group chats. Consider using it in <a"
             " href='tg://openmessage?user_id={}'>Saved messages</a>.</b>"
         ),
-        "opening_tunnel": "🔁 <b>Opening tunnel to Hikka web interface...</b>",
+        "opening_tunnel": "🔁 <b>Opening tunnel to Netfoll web interface...</b>",
         "tunnel_opened": "🎉 <b>Tunnel opened. This link is valid for about 1 hour</b>",
         "web_btn": "🌍 Web interface",
         "btn_yes": "🚸 Open anyway",
         "btn_no": "🔻 Cancel",
         "lavhost_web": (
-            "✌️ <b>This link leads to your Hikka web interface on lavHost</b>\n\n<i>💡"
+            "✌️ <b>This link leads to your Netfoll web interface on lavHost</b>\n\n<i>💡"
             " You'll need to authorize using lavHost credentials, specified on"
             " registration</i>"
         ),
@@ -226,7 +226,7 @@ class HikkaSettingsMod(loader.Module):
         "cmd404": (
             "<emoji document_id=5469791106591890404>🪄</emoji> <b>Команда не найдена</b>"
         ),
-        "inline_settings": "⚙️ <b>Здесь можно управлять настройками Hikka</b>",
+        "inline_settings": "⚙️ <b>Здесь можно управлять настройками Netfoll</b>",
         "confirm_update": "🧭 <b>Подтвердите обновление. Юзербот будет перезагружен</b>",
         "confirm_restart": "🔄 <b>Подтвердите перезагрузку</b>",
         "suggest_fs": "✅ Предлагать сохранение модулей",
@@ -244,10 +244,10 @@ class HikkaSettingsMod(loader.Module):
             "<emoji document_id=5312526098750252863>🚫</emoji> <b>Эту команду нужно"
             " выполнять в чате</b>"
         ),
-        "_cls_doc": "Дополнительные настройки Hikka",
+        "_cls_doc": "Дополнительные настройки Netfoll",
         "nonick_warning": (
             "Внимание! Ты включил NoNick со стандартным префиксом! "
-            "Тебя могут замьютить в чатах Hikka. Измени префикс или "
+            "Тебя могут замьютить в чатах Netfoll. Измени префикс или "
             "отключи глобальный NoNick!"
         ),
         "reply_required": (
@@ -255,20 +255,20 @@ class HikkaSettingsMod(loader.Module):
             " пользователя, для которого нужно включить NoNick</b>"
         ),
         "deauth_confirm": (
-            "⚠️ <b>Это действие полностью удалит Hikka с этого аккаунта! Его нельзя"
-            " отменить</b>\n\n<i>- Все чаты, связанные с Hikka будут удалены\n- Сессия"
-            " Hikka будет сброшена\n- Инлайн бот Hikka будет удален</i>"
+            "⚠️ <b>Это действие полностью удалит Netfoll с этого аккаунта! Его нельзя"
+            " отменить</b>\n\n<i>- Все чаты, связанные с Netfoll будут удалены\n- Сессия"
+            " Netfoll будет сброшена\n- Инлайн бот Netfoll будет удален</i>"
         ),
-        "deauth_confirm_step2": "⚠️ <b>Ты точно уверен, что хочешь удалить Hikka?</b>",
+        "deauth_confirm_step2": "⚠️ <b>Ты точно уверен, что хочешь удалить Netfoll?</b>",
         "deauth_yes": "Я уверен",
         "deauth_no_1": "Я не уверен",
         "deauth_no_2": "Не точно",
         "deauth_no_3": "Нет",
         "deauth_cancel": "🚫 Отмена",
         "deauth_confirm_btn": "😢 Удалить",
-        "uninstall": "😢 <b>Удаляю Hikka...</b>",
+        "uninstall": "😢 <b>Удаляю Netfoll...</b>",
         "uninstalled": (
-            "😢 <b>Hikka удалена. Веб-интерфейс все еще активен, можно добавить другие"
+            "😢 <b>Netfoll удален. Веб-интерфейс все еще активен, можно добавить другие"
             " аккаунты!</b>"
         ),
         "cmd_nn_list": (
@@ -288,18 +288,18 @@ class HikkaSettingsMod(loader.Module):
             " показывать...</b>"
         ),
         "privacy_leak": (
-            "⚠️ <b>Эта команда дает доступ к веб-интерфейсу Hikka. Ее выполнение в"
+            "⚠️ <b>Эта команда дает доступ к веб-интерфейсу Netfoll. Ее выполнение в"
             " публичных чатах является угрозой безопасности. Предпочтительно выполнять"
             " ее в <a href='tg://openmessage?user_id={}'>Избранных сообщениях</a>."
             " Выполни</b> <code>{}proxypass force_insecure</code> <b>чтобы отключить"
             " это предупреждение</b>"
         ),
         "privacy_leak_nowarn": (
-            "⚠️ <b>Эта команда дает доступ к веб-интерфейсу Hikka. Ее выполнение в"
+            "⚠️ <b>Эта команда дает доступ к веб-интерфейсу HikNetfollka. Ее выполнение в"
             " публичных чатах является угрозой безопасности. Предпочтительно выполнять"
             " ее в <a href='tg://openmessage?user_id={}'>Избранных сообщениях</a>.</b>"
         ),
-        "opening_tunnel": "🔁 <b>Открываю тоннель к веб-интерфейсу Hikka...</b>",
+        "opening_tunnel": "🔁 <b>Открываю тоннель к веб-интерфейсу Netfoll...</b>",
         "tunnel_opened": (
             "🎉 <b>Тоннель открыт. Эта ссылка будет активна не более часа</b>"
         ),
@@ -307,7 +307,7 @@ class HikkaSettingsMod(loader.Module):
         "btn_yes": "🚸 Все равно открыть",
         "btn_no": "🔻 Закрыть",
         "lavhost_web": (
-            "✌️ <b>По этой ссылке ты попадешь в веб-интерфейс Hikka на"
+            "✌️ <b>По этой ссылке ты попадешь в веб-интерфейс Netfoll на"
             " lavHost</b>\n\n<i>💡 Тебе нужно будет авторизоваться, используя данные,"
             " указанные при настройке lavHost</i>"
         ),
@@ -428,16 +428,16 @@ class HikkaSettingsMod(loader.Module):
 
     @loader.owner
     @loader.command(
-        ru_doc="Удалить Hikka",
-        it_doc="Disinstalla Hikka",
-        de_doc="Hikka deinstallieren",
-        tr_doc="Hikka'yı kaldır",
-        uz_doc="Hikka'ni o'chirish",
-        es_doc="Desinstalar Hikka",
-        kk_doc="Hikka'ны жою",
+        ru_doc="Удалить Netfoll",
+        it_doc="Disinstalla Netfoll",
+        de_doc="Netfoll deinstallieren",
+        tr_doc="Netfoll'yı kaldır",
+        uz_doc="Netfoll'ni o'chirish",
+        es_doc="Desinstalar Netfoll",
+        kk_doc="Netfoll'ны жою",
     )
-    async def uninstall_hikka(self, message: Message):
-        """Uninstall Hikka"""
+    async def uninstall_netfoll(self, message: Message):
+        """Uninstall Netfoll"""
         await self.inline.form(
             self.strings("deauth_confirm"),
             message,
@@ -1137,23 +1137,23 @@ class HikkaSettingsMod(loader.Module):
 
     @loader.owner
     @loader.command(
-        ru_doc="Открыть тоннель к веб-интерфейсу Hikka",
-        it_doc="Apri il tunnel al web interface di Hikka",
-        de_doc="Öffne einen Tunnel zum Hikka Webinterface",
-        tr_doc="Hikka Web Arayüzüne bir tünel aç",
-        uz_doc="Hikka veb-interfeysi uchun tunel ochish",
-        es_doc="Abrir un túnel al interfaz web de Hikka",
-        kk_doc="Hikka веб-интерфейсіне тунель ашу",
+        ru_doc="Открыть тоннель к веб-интерфейсу Netfoll",
+        it_doc="Apri il tunnel al web interface di Netfoll",
+        de_doc="Öffne einen Tunnel zum Netfoll Webinterface",
+        tr_doc="Netfoll Web Arayüzüne bir tünel aç",
+        uz_doc="Netfoll veb-interfeysi uchun tunel ochish",
+        es_doc="Abrir un túnel al interfaz web de Netfoll",
+        kk_doc="Netfoll веб-интерфейсіне тунель ашу",
     )
     async def weburl(self, message: Message, force: bool = False):
-        """Opens web tunnel to your Hikka web interface"""
+        """Opens web tunnel to your Netfoll web interface"""
         if "LAVHOST" in os.environ:
             form = await self.inline.form(
                 self.strings("lavhost_web"),
                 message=message,
                 reply_markup={
                     "text": self.strings("web_btn"),
-                    "url": await main.hikka.web.get_url(proxy_pass=False),
+                    "url": await main.netfoll.web.get_url(proxy_pass=False),
                 },
                 gif="https://t.me/hikari_assets/28",
             )
@@ -1209,7 +1209,7 @@ class HikkaSettingsMod(loader.Module):
                 ),
             )
 
-        url = await main.hikka.web.get_url(proxy_pass=True)
+        url = await main.netfoll.web.get_url(proxy_pass=True)
 
         await form.edit(
             self.strings("tunnel_opened"),
@@ -1277,45 +1277,45 @@ class HikkaSettingsMod(loader.Module):
         if module == "core":
             if method == "clear_entity_cache":
                 result = (
-                    f"Dropped {len(self._client._hikka_entity_cache)} cache records"
+                    f"Dropped {len(self._client._netfoll_entity_cache)} cache records"
                 )
-                self._client._hikka_entity_cache = {}
+                self._client._netfoll_entity_cache = {}
             elif method == "clear_fulluser_cache":
                 result = (
-                    f"Dropped {len(self._client._hikka_fulluser_cache)} cache records"
+                    f"Dropped {len(self._client._netfoll_fulluser_cache)} cache records"
                 )
-                self._client._hikka_fulluser_cache = {}
+                self._client._netfoll_fulluser_cache = {}
             elif method == "clear_fullchannel_cache":
                 result = (
-                    f"Dropped {len(self._client._hikka_fullchannel_cache)} cache"
+                    f"Dropped {len(self._client._netfoll_fullchannel_cache)} cache"
                     " records"
                 )
-                self._client._hikka_fullchannel_cache = {}
+                self._client._netfoll_fullchannel_cache = {}
             elif method == "clear_perms_cache":
-                result = f"Dropped {len(self._client._hikka_perms_cache)} cache records"
-                self._client._hikka_perms_cache = {}
+                result = f"Dropped {len(self._client._netfoll_perms_cache)} cache records"
+                self._client._netfoll_perms_cache = {}
             elif method == "clear_cache":
                 result = (
-                    f"Dropped {len(self._client._hikka_entity_cache)} entity cache"
+                    f"Dropped {len(self._client._netfoll_entity_cache)} entity cache"
                     " records\nDropped"
-                    f" {len(self._client._hikka_fulluser_cache)} fulluser cache"
+                    f" {len(self._client._netfoll_fulluser_cache)} fulluser cache"
                     " records\nDropped"
-                    f" {len(self._client._hikka_fullchannel_cache)} fullchannel cache"
+                    f" {len(self._client._netfoll_fullchannel_cache)} fullchannel cache"
                     " records"
                 )
-                self._client._hikka_entity_cache = {}
-                self._client._hikka_fulluser_cache = {}
-                self._client._hikka_fullchannel_cache = {}
-                self._client.hikka_me = await self._client.get_me()
+                self._client._netfoll_entity_cache = {}
+                self._client._netfoll_fulluser_cache = {}
+                self._client._netfoll_fullchannel_cache = {}
+                self._client.netfoll_me = await self._client.get_me()
             elif method == "reload_core":
                 core_quantity = await self.lookup("loader").reload_core()
                 result = f"Reloaded {core_quantity} core modules"
             elif method == "inspect_cache":
                 result = (
                     "Entity cache:"
-                    f" {len(self._client._hikka_entity_cache)} records\nFulluser cache:"
-                    f" {len(self._client._hikka_fulluser_cache)} records\nFullchannel"
-                    f" cache: {len(self._client._hikka_fullchannel_cache)} records"
+                    f" {len(self._client._netfoll_entity_cache)} records\nFulluser cache:"
+                    f" {len(self._client._netfoll_fulluser_cache)} records\nFullchannel"
+                    f" cache: {len(self._client._netfoll_fullchannel_cache)} records"
                 )
             elif method == "inspect_modules":
                 result = (
