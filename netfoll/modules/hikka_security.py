@@ -36,7 +36,7 @@ from ..security import (
 
 
 @loader.tds
-class HikkaSecurityMod(loader.Module):
+class NetfollSecurityMod(loader.Module):
     """Control security settings"""
 
     service_strings = {
@@ -176,7 +176,7 @@ class HikkaSecurityMod(loader.Module):
     }
 
     strings = {
-        "name": "HikkaSecurity",
+        "name": "NetfollSecurity",
         "no_command": "🚫 <b>Command</b> <code>{}</code> <b>not found!</b>",
         "permissions": (
             "🔐 <b>Here you can configure permissions for</b> <code>{}{}</code>"
