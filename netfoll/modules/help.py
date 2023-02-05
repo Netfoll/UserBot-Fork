@@ -34,7 +34,7 @@ class HelpMod(loader.Module):
             "<emoji document_id=5312383351217201533>☝️</emoji> <b>No exact match"
             " occured, so the closest result is shown instead</b>"
         ),
-        "request_join": "You requested link for Hikka support chat",
+        "request_join": "You requested link for Netfoll support chat",
         "core_notice": (
             "<emoji document_id=5312383351217201533>☝️</emoji> <b>This is a core"
             " module. You can't unload it nor replace</b>"
@@ -52,7 +52,7 @@ class HelpMod(loader.Module):
             "<emoji document_id=5312383351217201533>☝️</emoji> <b>Точного совпадения"
             " не нашлось, поэтому было выбрано наиболее подходящее</b>"
         ),
-        "request_join": "Вы запросили ссылку на чат помощи Hikka",
+        "request_join": "Вы запросили ссылку на чат помощи Netfoll",
         "core_notice": (
             "<emoji document_id=6328010818843575869>ℹ️</emoji> <b>Это встроенный"
             " модуль. Вы не можете его выгрузить или заменить</b>"
@@ -225,7 +225,7 @@ class HelpMod(loader.Module):
         ru_doc="Показать ссылку на чат помощи Netfoll",
     )
     async def support(self, message):
-        """Get link of Hikka support chat"""
+        """Get link of Netfoll support chat"""
         if message.out:
             await self.request_join("@netfolub", self.strings("request_join"))
 
