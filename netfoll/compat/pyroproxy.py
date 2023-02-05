@@ -63,7 +63,7 @@ class PyroProxyClient(PyroClient):
                     translations.__name__, "lang", "en"
                 ).split()[0],
                 "in_memory": True,
-                "phone_number": tl_client.hikka_me.phone,
+                "phone_number": tl_client.netfoll_me.phone,
             }
         )
 
