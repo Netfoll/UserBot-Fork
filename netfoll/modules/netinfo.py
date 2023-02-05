@@ -177,7 +177,7 @@ class NetfollInfoMod(loader.Module):
                     lambda x: utils.remove_html(x) if inline else x,
                     (
                         utils.get_platform_emoji()
-                        if self._client.hikka_me.premium and not inline
+                        if self._client.netfoll_me.premium and not inline
                         else "👾 Netfoll",
                     ),
                 )
