@@ -77,7 +77,7 @@ class PythonMod(loader.Module):
                 **await self.getattrs(message),
             )
         except Exception:
-            item = HikkaException.from_exc_info(*sys.exc_info())
+            item = NetfollException.from_exc_info(*sys.exc_info())
 
             await utils.answer(
                 message,
@@ -110,7 +110,7 @@ class PythonMod(loader.Module):
             )
 
     def censor(self, ret: str) -> str:
-        ret = ret.replace(str(self._client.hikka_me.phone), "&lt;phone&gt;")
+        ret = ret.replace(str(self._client.netfoll_me.phone), "&lt;phone&gt;")
 
         if redis := os.environ.get("REDIS_URL") or main.get_config_key("redis_uri"):
             ret = ret.replace(redis, f'redis://{"*" * 26}')
@@ -118,7 +118,7 @@ class PythonMod(loader.Module):
         if db := os.environ.get("DATABASE_URL") or main.get_config_key("db_uri"):
             ret = ret.replace(db, f'postgresql://{"*" * 26}')
 
-        if btoken := self._db.get("hikka.inline", "bot_token", False):
+        if btoken := self._db.get("netfoll.inline", "bot_token", False):
             ret = ret.replace(
                 btoken,
                 f'{btoken.split(":")[0]}:{"*" * 26}',
