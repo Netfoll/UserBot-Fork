@@ -561,7 +561,6 @@ class Netfoll:
             upd = r"Update required" if diff else r"Up-to-date"
 
             _platform = utils.get_named_platform()
-            prefix = self._db.get("netfoll.main", "command_prefix", '.')
 
             logo1 = f"""
 
@@ -574,7 +573,6 @@ class Netfoll:
                      ♦ Version: {'.'.join(list(map(str, list(netver))))} #{build[:7]}
                      ♦ {upd}
                      ♦ Platform: {_platform}
-                     ♦ Prefix: <<{prefix}>>
                      """
 
             if not self.omit_log:
