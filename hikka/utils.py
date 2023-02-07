@@ -57,6 +57,7 @@ from telethon.tl.functions.channels import (
     EditAdminRequest,
     EditPhotoRequest,
     InviteToChannelRequest,
+    EditTitleRequest,
 )
 from telethon.tl.functions.messages import (
     GetDialogFiltersRequest,
@@ -758,10 +759,20 @@ async def asset_channel(
     ):
         return client._channels_cache[title]["peer"], False
 
-    title = title.replace("hikka-", "netfoll-") if title.startswith("hikka-") else title
+    # legacy netfoll / hikka chats conversion to netfoll
+    if title.startswith("hikka-"):
+        title = title.replace("hikka-", "netfoll-")
 
     async for d in client.iter_dialogs():
         if (d.title == title) or ((d.title.replace("hikka-", "netfoll-") == title) if d.title.startswith("hikka-") else False):
+            if d.title.startswith("hikka-"):
+                await client(
+                    EditTitleRequest(
+                        d.title,
+                        title
+                    )
+                )
+
             client._channels_cache[title] = {"peer": d.entity, "exp": int(time.time())}
             if invite_bot:
                 if all(
