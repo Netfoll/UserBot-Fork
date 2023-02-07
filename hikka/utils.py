@@ -724,6 +724,25 @@ async def invite_inline_bot(
         )
 
 
+async def convert_folders(client):
+    folders = await client(GetDialogFiltersRequest())
+
+    try:
+        folder = next(folder for folder in folders if folder.title == "hikka")
+    except Exception:
+        folder = None
+
+    if folder is not None:
+        folder.title = "netfoll"
+
+        await client(
+            UpdateDialogFilterRequest(
+                folder.id,
+                folder,
+            )
+        )
+
+
 async def asset_channel(
     client: CustomTelegramClient,
     title: str,
@@ -819,6 +838,10 @@ async def asset_channel(
 
     if _folder:
         await fw_protect()
+        await convert_folders(client)
+
+        _folder = "netfoll" if _folder == "hikka" else _folder
+
         if _folder != "netfoll":
             raise NotImplementedError
 
