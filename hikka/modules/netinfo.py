@@ -8,7 +8,6 @@
 # Netfoll Team modifided Hikka files for Netfoll
 # 🌐 https://github.com/MXRRI/Netfoll
 
-import git
 from telethon.tl.types import Message
 from telethon.utils import get_display_name
 
@@ -21,7 +20,7 @@ class NetfollInfoMod(loader.Module):
     """Show userbot info"""
 
     strings = {
-        "name": "Info",
+        "name": "NetfollInfo",
         "owner": "Owner",
         "version": "Version",
         "build": "Build",
