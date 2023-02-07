@@ -474,7 +474,7 @@ class TestMod(loader.Module):
     async def client_ready(self):
         chat, _ = await utils.asset_channel(
             self._client,
-            "hikka-logs",
+            "netfoll-logs",
             "🌘 Your Netfoll logs will appear in this chat",
             silent=True,
             invite_bot=True,

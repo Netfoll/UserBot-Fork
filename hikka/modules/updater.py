@@ -466,18 +466,18 @@ class UpdaterMod(loader.Module):
                             )
                             if dialog.name
                             in {
-                                "hikka-logs",
-                                "hikka-onload",
-                                "hikka-assets",
-                                "hikka-backups",
-                                "hikka-acc-switcher",
+                                "netfoll-logs",
+                                "netfoll-onload",
+                                "netfoll-assets",
+                                "netfoll-backups",
+                                "netfoll-acc-switcher",
                                 "silent-tags",
                             }
                             and dialog.is_channel
                             and (
                                 dialog.entity.participants_count == 1
                                 or dialog.entity.participants_count == 2
-                                and dialog.name in {"hikka-logs", "silent-tags"}
+                                and dialog.name in {"netfoll-logs", "silent-tags"}
                             )
                             or (
                                 self._client.loader.inline.init_complete
