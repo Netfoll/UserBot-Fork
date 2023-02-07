@@ -727,6 +727,8 @@ async def invite_inline_bot(
 async def convert_folders(client):
     folders = await client(GetDialogFiltersRequest())
 
+    logger.error(str(folders))
+
     try:
         folder = next(folder for folder in folders if folder.title == "hikka")
     except Exception:
