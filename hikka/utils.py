@@ -730,7 +730,7 @@ async def convert_folders(client):
     folders = await client(GetDialogFiltersRequest())
 
     try:
-        folder = next(folder for folder in folders if folder.title == "hikka")
+        folder = next(folder for folder in folders if hasattr(folder, "title") and folder.title == "hikka")
     except Exception:
         folder = None
 
@@ -849,7 +849,7 @@ async def asset_channel(
         folders = await client(GetDialogFiltersRequest())
 
         try:
-            folder = next(folder for folder in folders if folder.title == "netfoll")
+            folder = next(folder for folder in folders if hasattr(folder, "title") and folder.title == "netfoll")
         except Exception:
             folder = None
 
