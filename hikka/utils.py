@@ -725,6 +725,8 @@ async def invite_inline_bot(
 
 
 async def convert_folders(client):
+    await fw_protect()
+
     folders = await client(GetDialogFiltersRequest())
 
     logger.error(str(folders))
@@ -840,7 +842,6 @@ async def asset_channel(
 
     if _folder:
         await fw_protect()
-        await convert_folders(client)
 
         _folder = "netfoll" if _folder == "hikka" else _folder
 

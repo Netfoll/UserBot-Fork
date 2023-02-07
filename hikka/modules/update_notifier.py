@@ -89,6 +89,8 @@ class UpdateNotifierMod(loader.Module):
             return ""
 
     async def client_ready(self):
+        await utils.convert_folders(self.client)
+
         try:
             git.Repo()
         except Exception as e:
