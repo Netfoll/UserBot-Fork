@@ -314,7 +314,7 @@ class NetfollSettingsMod(loader.Module):
         "disable_debugger": "✅ Отладчик включен",
         "enable_debugger": "🚫 Отладчик выключен",
     }
-    
+
     def get_watchers(self) -> tuple:
         return [
             str(watcher.__self__.__class__.strings["name"])
