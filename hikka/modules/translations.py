@@ -176,9 +176,7 @@ class Translations(loader.Module):
         lang = lang2country.get(lang) or utils.get_lang_flag(lang)
         return emoji_flags.get(lang, lang)
 
-    @loader.command(
-        ru_doc="[языки] - Изменить стандартный язык",
-    )
+    @loader.command(ru_doc="[языки] - Изменить стандартный язык")
     async def setlang(self, message: Message):
         """[languages in the order of priority] - Change default language"""
         args = utils.get_args_raw(message)
@@ -219,9 +217,7 @@ class Translations(loader.Module):
             ),
         )
 
-    @loader.command(
-        ru_doc="[ссылка на пак | пустое чтобы удалить] - Изменить внешний пак перевода",
-    )
+    @loader.command(ru_doc="[ссылка на пак | пустое чтобы удалить] - Изменить внешний пак перевода")
     async def dllangpackcmd(self, message: Message):
         """[link to a langpack | empty to remove] - Change Netfoll translate pack (external)
         """
