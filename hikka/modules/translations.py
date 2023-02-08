@@ -20,6 +20,7 @@ SUPPORTED_LANGUAGES = {
     "ru": "🇷🇺 Русский",
 }
 
+
 @loader.tds
 class Translations(loader.Module):
     """Processes internal translations"""
