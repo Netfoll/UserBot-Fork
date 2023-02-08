@@ -217,9 +217,9 @@ class Translations(loader.Module):
             ),
         )
 
-    @loader.command(ru_doc="[ссылка на пак | пустое чтобы удалить] - Изменить внешний пак перевода")
+    @loader.command(ru_doc="[ссылка на пак | ничего чтобы удалить] - Изменить внешний пак перевода")
     async def dllangpackcmd(self, message: Message):
-        """[link to a langpack | empty to remove] - Change Netfoll translate pack (external)
+        """[link to a langpack | empty to remove] - Change external translation pack
         """
         args = utils.get_args_raw(message)
 
