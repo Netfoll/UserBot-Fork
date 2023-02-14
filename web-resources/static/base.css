@@ -4,7 +4,6 @@
     🌐 https://github.com/hikariatama/Hikka
     You can redistribute it and/or modify it under the terms of the GNU AGPLv3
     🔑 https://www.gnu.org/licenses/agpl-3.0.html
-    Modify for Netfoll | @Netfoll
 */
 
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Open+Sans:wght@300&display=swap');
@@ -53,7 +52,7 @@ body {
     z-index: -1;
     border-radius: 50%;
     /* background: rgb(127, 35, 112); */
-    background: rgb(152, 17, 170);
+    background: rgb(80, 80, 158);
     filter: blur(100px);
     transition: background .5s ease;
 }
@@ -626,39 +625,6 @@ label {
     overflow: hidden;
 }
 
-.auth-code-form, .eula-form {
-    display: none;
-    width: 60%;
-    height: 80%;
-    padding: 0;
-    border-radius: 15px;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    margin: auto;
-    z-index: 101;
-    text-align: center;
-}
-
-.eula-form .code-caption {
-    padding: 0 30px;
-}
-
-.eula-form {
-    height: 60%;
-    width: 50%;
-}
-
-@media screen and (max-width: 736px) {
-    .auth-code-form, .eula-form {
-        width: 100%;
-        height: 100%;
-        margin: 0;
-    }
-}
-
 .enter {
     padding: 5px 10px;
     border: 1px solid #dc137b;
@@ -778,3 +744,4 @@ label {
 .moon {
     height: 30px;
 }
+

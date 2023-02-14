@@ -66,7 +66,6 @@ $("#get_started")
             credentials: "include"
         }).then((response) => {
             if (!response.ok) {
-                show_eula();
                 return;
             }
             if (auth_required) return auth(() => {
@@ -409,7 +408,6 @@ function process_next() {
             .then((response) => {
                 if (!response.ok) {
                     if (response.status == 403) {
-                        show_eula();
                     } else {
                         response.text().then((text) => {
                             error_state();
