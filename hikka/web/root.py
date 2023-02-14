@@ -265,8 +265,8 @@ class Web:
             connection=self.connection,
             proxy=self.proxy,
             connection_retries=None,
-            device_model=f"Hikka on {utils.get_named_platform().split(maxsplit=1)[1]}",
-            app_version=f"Hikka v{__version__[0]}.{__version__[1]}.{__version__[2]}",
+            device_model=f"Netfoll on {utils.get_named_platform().split(maxsplit=1)[1]}",
+            app_version=f"Netfoll v{__version__[0]}.{__version__[1]}.{__version__[2]}",
         )
 
     async def can_add(self, request: web.Request) -> web.Response:
