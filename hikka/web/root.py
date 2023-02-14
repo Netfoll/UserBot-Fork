@@ -269,12 +269,6 @@ class Web:
             app_version=f"Hikka v{__version__[0]}.{__version__[1]}.{__version__[2]}",
         )
 
-    async def can_add(self, request: web.Request) -> web.Response:
-        if self.client_data and ("LAVHOST" in os.environ or "LUMIHOST" in os.environ):
-            return web.Response(status=403, body="Forbidden by host EULA")
-
-        return web.Response(status=200, body="Yes")
-
     async def send_tg_code(self, request: web.Request) -> web.Response:
         if not self._check_session(request):
             return web.Response(status=401, body="Authorization required")
