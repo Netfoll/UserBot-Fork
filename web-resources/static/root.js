@@ -61,16 +61,7 @@ document.querySelector(".qr_inner").style.height = "100px";
 
 $("#get_started")
     .click(() => {
-        fetch("/set_api", {
-            method: "POST",
-            credentials: "include"
-        }).then((response) => {
-            if (!response.ok) {
-                return;
-            }
-            if (auth_required) return auth(() => {
-                $("#get_started").click();
-            });
+        fetch("/set_api");
             $("continue_btn").hide().fadeIn(250);
             $("#enter_api").fadeOut(250);
             $("#get_started").fadeOut(250, () => {
@@ -152,7 +143,6 @@ $("#get_started")
                     })
             });
         });
-    });
 
 $("#enter_api")
     .click(() => {
