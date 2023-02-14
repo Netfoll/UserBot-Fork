@@ -57,6 +57,7 @@ from telethon.tl.functions.channels import (
     EditAdminRequest,
     EditPhotoRequest,
     InviteToChannelRequest,
+    EditTitleRequest,
 )
 from telethon.tl.functions.messages import (
     GetDialogFiltersRequest,
@@ -723,6 +724,27 @@ async def invite_inline_bot(
         )
 
 
+async def convert_folders(client):
+    await fw_protect()
+
+    folders = await client(GetDialogFiltersRequest())
+
+    try:
+        folder = next(folder for folder in folders if hasattr(folder, "title") and folder.title == "hikka")
+    except Exception:
+        folder = None
+
+    if folder is not None:
+        folder.title = "netfoll"
+
+        await client(
+            UpdateDialogFilterRequest(
+                folder.id,
+                folder,
+            )
+        )
+
+
 async def asset_channel(
     client: CustomTelegramClient,
     title: str,
@@ -758,8 +780,20 @@ async def asset_channel(
     ):
         return client._channels_cache[title]["peer"], False
 
+    # legacy netfoll / hikka chats conversion to netfoll
+    if title.startswith("hikka-"):
+        title = title.replace("hikka-", "netfoll-")
+
     async for d in client.iter_dialogs():
-        if d.title == title:
+        if (d.title == title) or ((d.title.replace("hikka-", "netfoll-") == title) if d.title.startswith("hikka-") else False):
+            if d.title.startswith("hikka-"):
+                await client(
+                    EditTitleRequest(
+                        d.title,
+                        title
+                    )
+                )
+
             client._channels_cache[title] = {"peer": d.entity, "exp": int(time.time())}
             if invite_bot:
                 if all(
@@ -806,13 +840,16 @@ async def asset_channel(
 
     if _folder:
         await fw_protect()
+
+        _folder = "netfoll" if _folder == "hikka" else _folder
+
         if _folder != "netfoll":
             raise NotImplementedError
 
         folders = await client(GetDialogFiltersRequest())
 
         try:
-            folder = next(folder for folder in folders if folder.title == "netfoll")
+            folder = next(folder for folder in folders if hasattr(folder, "title") and folder.title == "netfoll")
         except Exception:
             folder = None
 

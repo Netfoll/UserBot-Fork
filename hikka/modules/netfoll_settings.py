@@ -39,11 +39,11 @@ ALL_INVOKES = [
 
 
 @loader.tds
-class HikkaSettingsMod(loader.Module):
+class NetfollSettingsMod(loader.Module):
     """Advanced settings for Hikka Userbot"""
 
     strings = {
-        "name": "HikkaSettings",
+        "name": "NetfollSettings",
         "watchers": (
             "<emoji document_id=5424885441100782420>👀</emoji>"
             " <b>Watchers:</b>\n\n<b>{}</b>"
@@ -314,7 +314,7 @@ class HikkaSettingsMod(loader.Module):
         "disable_debugger": "✅ Отладчик включен",
         "enable_debugger": "🚫 Отладчик выключен",
     }
-    
+
     def get_watchers(self) -> tuple:
         return [
             str(watcher.__self__.__class__.strings["name"])
@@ -428,7 +428,7 @@ class HikkaSettingsMod(loader.Module):
 
     @loader.owner
     @loader.command(ru_doc="Удалить Netfoll")
-    async def uninstall_hikka(self, message: Message):
+    async def uninstall_netfoll(self, message: Message):
         """Uninstall Netfoll"""
         await self.inline.form(
             self.strings("deauth_confirm"),

@@ -24,11 +24,11 @@ from ..inline.types import InlineCall
 
 
 @loader.tds
-class HikkaConfigMod(loader.Module):
+class NetfollConfigMod(loader.Module):
     """Interactive configurator for Netfoll Userbot"""
 
     strings = {
-        "name": "NetConfig",
+        "name": "NetfollConfig",
         "choose_core": "⚙️ <b>Choose a category</b>",
         "configure": "⚙️ <b>Choose a module to configure</b>",
         "configure_lib": "📦 <b>Choose a library to configure</b>",
