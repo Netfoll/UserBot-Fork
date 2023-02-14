@@ -8,7 +8,6 @@
 # Netfoll Team modifided Hikka files for Netfoll
 # 🌐 https://github.com/MXRRI/Netfoll
 
-import git
 from telethon.tl.types import Message
 from telethon.utils import get_display_name
 
@@ -21,7 +20,7 @@ class NetfollInfoMod(loader.Module):
     """Show userbot info"""
 
     strings = {
-        "name": "Info",
+        "name": "NetfollInfo",
         "owner": "Owner",
         "version": "Version",
         "build": "Build",
@@ -128,29 +127,28 @@ class NetfollInfoMod(loader.Module):
         _version = f'<i>{version.branch} {".".join(list(map(str, list(version.netver))))}</i>'
         prefix = f"«<code>{utils.escape_html(self.get_prefix())}</code>»"
 
-        platform = utils.get_named_platform()
-
-        if 'Termux' not in platform:
-            usage = f"<b>{platform} ({utils.get_cpu_usage()}% | {utils.get_ram_usage()} RAM)</b>"
+        platfo = utils.get_named_platform()
+        if 'Termux' not in platfo:
+            usage = f" ({utils.get_cpu_usage()}% | {utils.get_ram_usage()} RAM)</b>"
         else:
             usage = '\n'
        
+        platform = utils.get_named_platform()
+
         for emoji, icon in {
             "🍊": "<emoji document_id=5449599833973203438>🧡</emoji>",
-            "🍇": "<emoji document_id=5449468596952507859>💜</emoji>",
-            "❓": "<emoji document_id=5407025283456835913>📱</emoji>",
+            "🍇": "<emoji document_id=6334737201485579954>🍇</emoji>",
+            "❓": "<emoji document_id=5866460679594053316>📱</emoji>",
             "🍁": "<emoji document_id=5866334008123591985>💻</emoji>",
             "🦾": "<emoji document_id=5386766919154016047>🦾</emoji>",
             "🚂": "<emoji document_id=5359595190807962128>🚂</emoji>",
-            "🐳": "<emoji document_id=5431815452437257407>🐳</emoji>",
-            "🕶": "<emoji document_id=5407025283456835913>📱</emoji>",
+            "🐳": "<emoji document_id=6334586503968065308>🐳</emoji>",
+            "🕶": "<emoji document_id=5866460679594053316>📱</emoji>",
             "🐈‍⬛": "<emoji document_id=6334750507294262724>🐈‍⬛</emoji>",
-            "✌️": "<emoji document_id=5469986291380657759>✌️</emoji>",
-            "👾": "<emoji document_id=5866169914603081371>🐧</emoji> ",
+            "👾": "<emoji document_id=5866169914603081371>🐧</emoji>",
+            "😎": "<emoji document_id=5364105417569868801>😎</emoji>",
         }.items():
             platform = platform.replace(emoji, icon)
-
-        
 
         return (
             self.config["custom_message"].format(
@@ -171,6 +169,7 @@ class NetfollInfoMod(loader.Module):
                 f"<emoji document_id=6334701737940616970>💫</emoji> <b>{self.strings('prefix')}:</b> {prefix}\n"
                 f"<emoji document_id=6334620339720423126>🕛</emoji> <b>{self.strings('uptime')}:</b>"
                 f" {utils.formatted_uptime()}\n\n"
+                f"<b>{platform}"
                 f"{usage}"
             ).format(
                 *map(

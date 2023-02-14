@@ -7,7 +7,6 @@
 import inspect
 import logging
 import os
-import random
 import time
 import typing
 from io import BytesIO
@@ -62,12 +61,6 @@ class TestMod(loader.Module):
             "<emoji document_id=5431449001532594346>⚡️</emoji> <b>Telegram ping:</b>"
             " <code>{}</code> <b>ms</b>\n<emoji"
             " document_id=5445284980978621387>🚀</emoji> <b>Uptime: {}</b>"
-        ),
-        "ping_hint": (
-            "<emoji document_id=5472146462362048818>💡</emoji> <i>Telegram ping mostly"
-            " depends on Telegram servers latency and other external factors and has"
-            " nothing to do with the parameters of server on which userbot is"
-            " installed</i>"
         ),
         "confidential": (
             "⚠️ <b>Log level</b> <code>{}</code> <b>may reveal your confidential info,"
@@ -134,12 +127,6 @@ class TestMod(loader.Module):
             " document_id=5445284980978621387>🚀</emoji> <b>Прошло с последней"
             " перезагрузки: {}</b>"
         ),
-        "ping_hint": (
-            "<emoji document_id=5472146462362048818>💡</emoji> <i>Скорость отклика"
-            " Telegram в большей степени зависит от загруженности серверов Telegram и"
-            " других внешних факторов и никак не связана с параметрами сервера, на"
-            " который установлен юзербот</i>"
-        ),
         "confidential": (
             "⚠️ <b>Уровень логов</b> <code>{}</code> <b>может содержать личную"
             " информацию, будь осторожен</b>"
@@ -169,11 +156,11 @@ class TestMod(loader.Module):
             loader.ConfigValue(
                 "force_send_all",
                 False,
-                "⚠️ Do not touch, if you don't know what it does!\nBy default, Hikka"
+                "⚠️ Do not touch, if you don't know what it does!\nBy default, Netfoll"
                 " will try to determine, which client caused logs. E.g. there is a"
                 " module TestModule installed on Client1 and TestModule2 on Client2. By"
                 " default, Client2 will get logs from TestModule2, and Client1 will get"
-                " logs from TestModule. If this option is enabled, Hikka will send all"
+                " logs from TestModule. If this option is enabled, Netfoll will send all"
                 " logs to Client1 and Client2, even if it is not the one that caused"
                 " the log.",
                 validator=loader.validators.Boolean(),
@@ -200,15 +187,7 @@ class TestMod(loader.Module):
             "CRITICAL": 50,
         }[self.config["tglog_level"]]
 
-    @loader.command(
-        ru_doc="Ответь на сообщение, чтобы показать его дамп",
-        it_doc="Rispondi al messaggio per mostrare il suo dump",
-        de_doc="Antworten Sie auf eine Nachricht, um ihren Dump anzuzeigen",
-        tr_doc="Dökümünü göstermek için bir iletiyi yanıtlayın",
-        uz_doc="Xabarning axlatini ko'rsatish uchun unga javob bering",
-        es_doc="Responde a un mensaje para mostrar su volcado",
-        kk_doc="Дампын көрсету үшін хабарламаға жауап беріңіз",
-    )
+    @loader.command(ru_doc="Ответь на сообщение, чтобы показать его дамп")
     async def dump(self, message: Message):
         """Use in reply to get a dump of a message"""
         if not message.is_reply:
@@ -221,15 +200,7 @@ class TestMod(loader.Module):
             + "</code>",
         )
 
-    @loader.command(
-        ru_doc="Очистить логи",
-        it_doc="Cancella i log",
-        de_doc="Logs löschen",
-        tr_doc="Günlükleri temizle",
-        uz_doc="Jurnalni tozalash",
-        es_doc="Limpiar registros",
-        kk_doc="Логтарды тазалау",
-    )
+    @loader.command(ru_doc="Очистить логи")
     async def clearlogs(self, message: Message):
         """Clear logs"""
         for handler in logging.getLogger().handlers:
@@ -329,15 +300,7 @@ class TestMod(loader.Module):
             self.strings("debugging_enabled").format(instance.__class__.__name__),
         )
 
-    @loader.command(
-        ru_doc="<уровень> - Показать логи",
-        it_doc="<livello> - Mostra i log",
-        de_doc="<Level> - Zeige Logs",
-        uz_doc="<daraja> - Loglarni ko'rsatish",
-        tr_doc="<seviye> - Günlükleri göster",
-        es_doc="<nivel> - Mostrar registros",
-        kk_doc="<деңгей> - Логтарды көрсету",
-    )
+    @loader.command(ru_doc="<уровень> - Показать логи")
     async def logs(
         self,
         message: typing.Union[Message, InlineCall],
@@ -481,15 +444,7 @@ class TestMod(loader.Module):
             )
 
     @loader.owner
-    @loader.command(
-        ru_doc="<время> - Заморозить бота на N секунд",
-        it_doc="<tempo> - Congela il bot per N secondi",
-        de_doc="<Zeit> - Stoppe den Bot für N Sekunden",
-        tr_doc="<süre> - Botu N saniye boyunca durdur",
-        uz_doc="<vaqt> - Botni N soniya davomida to'xtatish",
-        es_doc="<tiempo> - Congela el bot durante N segundos",
-        kk_doc="<уақыт> - Ботты N секунд ұзақтығында тұзатып қой",
-    )
+    @loader.command(ru_doc="<время> - Заморозить бота на N секунд")
     async def suspend(self, message: Message):
         """<time> - Suspends the bot for N seconds"""
         try:
@@ -502,15 +457,7 @@ class TestMod(loader.Module):
         except ValueError:
             await utils.answer(message, self.strings("suspend_invalid_time"))
 
-    @loader.command(
-        ru_doc="Проверить скорость отклика юзербота",
-        it_doc="Controlla la velocità di risposta del userbot",
-        de_doc="Überprüfe die Antwortgeschwindigkeit des Userbots",
-        tr_doc="Kullanıcı botunun yanıt hızını kontrol edin",
-        uz_doc="Foydalanuvchi botining javob tezligini tekshiring",
-        es_doc="Comprueba la velocidad de respuesta del bot de usuario",
-        kk_doc="Қолданушы ботының жауап шығу уақытын тексеру",
-    )
+    @loader.command(ru_doc="Проверить скорость отклика юзербота")
     async def ping(self, message: Message):
         """Test your userbot ping"""
         start = time.perf_counter_ns()
@@ -522,18 +469,13 @@ class TestMod(loader.Module):
                 round((time.perf_counter_ns() - start) / 10**6, 3),
                 utils.formatted_uptime(),
             )
-            + (
-                ("\n\n" + self.strings("ping_hint"))
-                if random.choice([0, 0, 1]) == 1
-                else ""
-            ),
         )
 
     async def client_ready(self):
         chat, _ = await utils.asset_channel(
             self._client,
-            "hikka-logs",
-            "🌘 Your Hikka logs will appear in this chat",
+            "netfoll-logs",
+            "🌘 Your Netfoll logs will appear in this chat",
             silent=True,
             invite_bot=True,
             avatar="https://github.com/hikariatama/assets/raw/master/hikka-logs.png",

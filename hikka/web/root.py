@@ -75,6 +75,7 @@ class Web:
         self.app.router.add_post("/init_qr_login", self.init_qr_login)
         self.app.router.add_post("/get_qr_url", self.get_qr_url)
         self.app.router.add_post("/qr_2fa", self.qr_2fa)
+        self.app.router.add_post("/can_add", self.can_add)
         self.api_set = asyncio.Event()
         self.clients_set = asyncio.Event()
 
@@ -267,6 +268,12 @@ class Web:
             device_model=f"Hikka on {utils.get_named_platform().split(maxsplit=1)[1]}",
             app_version=f"Hikka v{__version__[0]}.{__version__[1]}.{__version__[2]}",
         )
+
+    async def can_add(self, request: web.Request) -> web.Response:
+        if self.client_data and ("LAVHOST" in os.environ or "LUMIHOST" in os.environ):
+            return web.Response(status=403, body="Forbidden by host EULA")
+
+        return web.Response(status=200, body="Yes")
 
     async def send_tg_code(self, request: web.Request) -> web.Response:
         if not self._check_session(request):

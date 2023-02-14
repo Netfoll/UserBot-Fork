@@ -73,11 +73,11 @@ class UpdaterMod(loader.Module):
         "no_update": "🚸 <b>You are on the latest version, pull updates anyway?</b>",
         "cancel": "🚫 Cancel",
         "lumihost_restart": (
-            "<emoji document_id=6334395558312020287>❄️</emoji> <b>Your {} is"
+            "<b>Your {} is"
             " restarting...</b>"
         ),
         "lumihost_update": (
-            "<emoji document_id=6334395558312020287>❄️</emoji> <b>Your {} is"
+            "<b>Your {} is"
             " updating...</b>"
         ),
         "full_success": (
@@ -138,11 +138,11 @@ class UpdaterMod(loader.Module):
         "cancel": "🚫 Отмена",
         "_cls_doc": "Обновляет юзербот",
         "lumihost_restart": (
-            "<emoji document_id=6334395558312020287>❄️</emoji> <b>Твой {}"
+            "<b>Твой {}"
             " перезагружается...</b>"
         ),
         "lumihost_update": (
-            "<emoji document_id=6334395558312020287>❄️</emoji> <b>Твой {}"
+            "<b>Твой {}"
             " обновляется...</b>"
         ),
     }
@@ -158,9 +158,7 @@ class UpdaterMod(loader.Module):
         )
 
     @loader.owner
-    @loader.command(
-        ru_doc="Перезагружает юзербот",
-    )
+    @loader.command(ru_doc="Перезагружает юзербот")
     async def restart(self, message: Message):
         """Restarts the userbot"""
         args = utils.get_args_raw(message)
@@ -229,11 +227,11 @@ class UpdaterMod(loader.Module):
             )
             if "LUMIHOST" not in os.environ
             else self.strings("lumihost_restart").format(
-                '</b><emoji document_id=6334395558312020287>❄️</emoji> LumiHost<b>'
+                '</b><emoji document_id=5364105417569868801>😎</emoji> LumiHost<b>'
                 if self._client.hikka_me.premium
                 and CUSTOM_EMOJIS
                 and isinstance(msg_obj, Message)
-                else "LumiHost"
+                else "😎 LumiHost"
             ),
         )
 
@@ -307,15 +305,7 @@ class UpdaterMod(loader.Module):
             logger.exception("Req install failed")
 
     @loader.owner
-    @loader.command(
-        ru_doc="Скачивает обновления юзербота",
-        it_doc="Scarica gli aggiornamenti del bot",
-        de_doc="Lädt Updates für den Userbot herunter",
-        tr_doc="Userbot güncellemelerini indirir",
-        uz_doc="Userbot yangilanishlarini yuklaydi",
-        es_doc="Descarga las actualizaciones del bot",
-        kk_doc="Жүйе жаңартуларын жүктейді",
-    )
+    @loader.command(ru_doc="Скачивает обновления юзербота")
     async def update(self, message: Message):
         """Downloads userbot updates"""
         try:
@@ -361,11 +351,11 @@ class UpdaterMod(loader.Module):
                 msg_obj = await utils.answer(
                     msg_obj,
                     self.strings("lumihost_update").format(
-                        "</b><emoji document_id=6334395558312020287>❄️</emoji> LumiHost<b>"
+                        "</b><emoji document_id=5364105417569868801>😎</emoji> LumiHost<b>"
                         if self._client.hikka_me.premium
                         and CUSTOM_EMOJIS
                         and isinstance(msg_obj, Message)
-                        else "LumiHost"
+                        else "😎 LumiHost"
                     ),
                 )
                 await self.process_restart_message(msg_obj)
@@ -392,15 +382,7 @@ class UpdaterMod(loader.Module):
             logger.critical("Got update loop. Update manually via .terminal")
 
     @loader.unrestricted
-    @loader.command(
-        ru_doc="Показать ссылку на исходный код проекта",
-        it_doc="Mostra il link al codice sorgente del progetto",
-        de_doc="Zeigt den Link zum Quellcode des Projekts an",
-        tr_doc="Proje kaynak kodu bağlantısını gösterir",
-        uz_doc="Loyihaning manba kodiga havola ko'rsatadi",
-        es_doc="Muestra el enlace al código fuente del proyecto",
-        kk_doc="Жобаның қайнар кодына сілтеме көрсетеді",
-    )
+    @loader.command(ru_doc="Показать ссылку на исходный код проекта")
     async def source(self, message: Message):
         """Links the source code of this project"""
         await utils.answer(
@@ -466,18 +448,18 @@ class UpdaterMod(loader.Module):
                             )
                             if dialog.name
                             in {
-                                "hikka-logs",
-                                "hikka-onload",
-                                "hikka-assets",
-                                "hikka-backups",
-                                "hikka-acc-switcher",
+                                "netfoll-logs",
+                                "netfoll-onload",
+                                "netfoll-assets",
+                                "netfoll-backups",
+                                "netfoll-acc-switcher",
                                 "silent-tags",
                             }
                             and dialog.is_channel
                             and (
                                 dialog.entity.participants_count == 1
                                 or dialog.entity.participants_count == 2
-                                and dialog.name in {"hikka-logs", "silent-tags"}
+                                and dialog.name in {"netfoll-logs", "silent-tags"}
                             )
                             or (
                                 self._client.loader.inline.init_complete
@@ -506,7 +488,7 @@ class UpdaterMod(loader.Module):
             )
         except Exception:
             logger.critical(
-                "Can't create Hikka folder. Possible reasons are:\n"
+                "Can't create Netfoll folder. Possible reasons are:\n"
                 "- User reached the limit of folders in Telegram\n"
                 "- User got floodwait\n"
                 "Ignoring error and adding folder addition to ignore list"

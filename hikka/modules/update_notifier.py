@@ -17,13 +17,13 @@ from ..inline.types import InlineCall
 
 @loader.tds
 class UpdateNotifierMod(loader.Module):
-    """Tracks latest Hikka releases, and notifies you, if update is required"""
+    """Tracks latest Netfoll releases, and notifies you, if update is required"""
 
     strings = {
         "name": "UpdateNotifier",
         "update_required": (
-            "🌘 <b>Hikka Update available!</b>\n\nNew Hikka version released.\n🔮"
-            " <b>Hikka <s>{}</s> -> {}</b>\n\n{}"
+            "👾 <b>Netfoll Update available!</b>\n\nNew Netfoll version released.\n💿"
+            " <b>Netfoll <s>{}</s> -> {}</b>\n\nChanges: 👇🏻\n\n{}"
         ),
         "more": "\n<i><b>🎥 And {} more...</b></i>",
         "_cfg_doc_disable_notifications": "Disable update notifications",
@@ -35,7 +35,7 @@ class UpdateNotifierMod(loader.Module):
     strings_ru = {
         "update_required": (
             "👾 <b>Новая версия Netfoll!</b>\n\nВ GitHub вышла новая версия.\n💿"
-            " <b>Netfoll <s>{}</s> -> {}</b>\n\nChanges: 👇🏻\n\n{}"
+            " <b>Netfoll <s>{}</s> -> {}</b>\n\nИзменения: 👇🏻\n\n{}"
         ),
         "more": "\n<i><b>🎥 И еще {}...</b></i>",
         "_cfg_doc_disable_notifications": "Отключить уведомления об обновлениях",
@@ -89,6 +89,8 @@ class UpdateNotifierMod(loader.Module):
             return ""
 
     async def client_ready(self):
+        await utils.convert_folders(self.client)
+
         try:
             git.Repo()
         except Exception as e:
@@ -96,8 +98,8 @@ class UpdateNotifierMod(loader.Module):
 
         self._markup = lambda: self.inline.generate_markup(
             [
-                {"text": self.strings("update"), "data": "hikka_update"},
-                {"text": self.strings("ignore"), "data": "hikka_upd_ignore"},
+                {"text": self.strings("update"), "data": "netfoll_update"},
+                {"text": self.strings("ignore"), "data": "netfoll_upd_ignore"},
             ]
         )
 
@@ -152,10 +154,10 @@ class UpdateNotifierMod(loader.Module):
     @loader.callback_handler()
     async def update(self, call: InlineCall):
         """Process update buttons clicks"""
-        if call.data not in {"hikka_update", "hikka_upd_ignore"}:
+        if call.data not in {"netfoll_update", "netfoll_upd_ignore"}:
             return
 
-        if call.data == "hikka_upd_ignore":
+        if call.data == "netfoll_upd_ignore":
             self.set("ignore_permanent", self.get_latest())
             await call.answer(self.strings("latest_disabled"))
             return
