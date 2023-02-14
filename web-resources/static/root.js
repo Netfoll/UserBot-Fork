@@ -61,7 +61,7 @@ document.querySelector(".qr_inner").style.height = "100px";
 
 $("#get_started")
     .click(() => {
-        fetch("/can_add", {
+        fetch("", {
             method: "POST",
             credentials: "include"
         }).then((response) => {

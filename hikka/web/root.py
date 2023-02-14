@@ -75,7 +75,6 @@ class Web:
         self.app.router.add_post("/init_qr_login", self.init_qr_login)
         self.app.router.add_post("/get_qr_url", self.get_qr_url)
         self.app.router.add_post("/qr_2fa", self.qr_2fa)
-        self.app.router.add_post("/can_add", self.can_add)
         self.api_set = asyncio.Event()
         self.clients_set = asyncio.Event()
 
