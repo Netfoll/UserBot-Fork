@@ -4,6 +4,8 @@
   🌐 https://github.com/hikariatama/Hikka
   You can redistribute it and/or modify it under the terms of the GNU AGPLv3
   🔑 https://www.gnu.org/licenses/agpl-3.0.html
+  Netfoll Team modifided Hikka files for Netfoll
+  🌐 https://github.com/MXRRI/Netfoll
 -->
 
 {% extends "base.jinja2" %}
@@ -11,7 +13,6 @@
 {% block head %}
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/bodymovin/5.8.1/lottie.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/Snowstorm/20131208/snowstorm-min.js" async></script>
 <script src="//unpkg.com/@dotlottie/player-component@1.0.0/dist/dotlottie-player.js"></script>
 <script src="//unpkg.com/qr-code-styling@1.5.0/lib/qr-code-styling.js"></script>
 
@@ -54,14 +55,17 @@
   </div>
   <div class="blur main installation">
     <div class="title">
-      <div class="hikka_label">
-        <div class="label_inner">
-          <img src="{{ platform_emoji }}" class="moon">
-          &nbsp;Netfoll
-        </div>
+        </div><div>
+        <img class="marginauto" src="https://github.com/MXRRI/Assets/raw/main/Netfoll.gif" width="124" height="124 alt="""
       </div>
+    <style>
+.marginauto {
+    margin: 10px auto 20px;
+    display: block;
+}
+</style>  
     </div><br>
-    <div class="description"><span style="color:#28a0dc">Awesomeness</span> is in your hands<br><span
+    <div class="description"><span style="color:#9428dc">Control</span> is in your hands<br><span
         style="color: #18cc18; display: none" class="authorized">Authorized!</span></div>
     <div class="center">
       {% if not tg_done %}
