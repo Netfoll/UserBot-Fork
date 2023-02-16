@@ -536,7 +536,7 @@ class TestMod(loader.Module):
             "👾 Your Netfoll logs will appear in this chat",
             silent=True,
             invite_bot=True,
-            avatar="https://github.com/hikariatama/assets/raw/master/hikka-logs.png",
+            avatar="https://github.com/MXRII/Netfoll/assets/raw/master/logs.jpg",
         )
 
         self._logchat = int(f"-100{chat.id}")
