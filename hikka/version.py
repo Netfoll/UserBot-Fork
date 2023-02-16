@@ -9,6 +9,7 @@
 
 __version__ = (1, 6, 1)
 netver = (0, 2, 3)
+netrev = "R2"
 import os
 
 import git
