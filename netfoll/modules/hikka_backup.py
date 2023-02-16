@@ -102,7 +102,7 @@ class NetfollBackupMod(loader.Module):
             "📼 Your database backups will appear here",
             silent=True,
             archive=True,
-            avatar="https://github.com/hikariatama/assets/raw/master/hikka-backups.png",
+            avatar="https://github.com/MXRRI/Netfoll/assets/raw/master/backup.jpg",
             _folder="netfoll",
         )
 
