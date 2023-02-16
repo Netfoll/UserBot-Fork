@@ -41,5 +41,3 @@ print_center "
 "
 
 eval "termux-open-url http://localhost:1242"
-
-
