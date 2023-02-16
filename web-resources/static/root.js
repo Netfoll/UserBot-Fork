@@ -65,10 +65,6 @@ $("#get_started")
             method: "POST",
             credentials: "include"
         }).then((response) => {
-            if (!response.ok) {
-                show_eula();
-                return;
-            }
             if (auth_required) return auth(() => {
                 $("#get_started").click();
             });
