@@ -56,18 +56,9 @@ class PythonMod(loader.Module):
         ),
         "_cls_doc": "Выполняет Python код",
     }
-    
+
     @loader.owner
-    @loader.command(
-        ru_doc="Выполняет Python код",
-        it_doc="Esegue codice Python",
-        de_doc="Führt Python Code aus",
-        tr_doc="Python kodu çalıştırır",
-        uz_doc="Python kodini ishga tushiradi",
-        es_doc="Ejecuta código Python",
-        kk_doc="Python кодын орындау",
-        alias="eval",
-    )
+    @loader.command(ru_doc="Выполняет Python код", alias="eval")
     async def e(self, message: Message):
         """Evaluates python code"""
         try:
@@ -129,7 +120,7 @@ class PythonMod(loader.Module):
 
         ret = ret.replace(
             StringSession.save(self._client.session),
-            "StringSession(**************************)",
+            f"StringSession({'*' * 26})",
         )
 
         return ret

@@ -29,6 +29,7 @@ class NetfollBackupMod(loader.Module):
         "name": "NetfollBackup",
         "period": (
             "⌚️ <b>Unit «Netfoll-ALPHA»</b> creates database backups periodically. You can"
+            "⌚️ <b>Unit «ALPHA»</b> creates database backups periodically. You can"
             " change this behavior later.\n\nPlease, select the periodicity of"
             " automatic database backups"
         ),

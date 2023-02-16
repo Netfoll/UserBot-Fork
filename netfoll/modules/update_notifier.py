@@ -35,7 +35,7 @@ class UpdateNotifierMod(loader.Module):
     strings_ru = {
         "update_required": (
             "👾 <b>Новая версия Netfoll!</b>\n\nВ GitHub вышла новая версия.\n💿"
-            " <b>Netfoll <s>{}</s> -> {}</b>\n\nChanges: 👇🏻\n\n{}"
+            " <b>Netfoll <s>{}</s> -> {}</b>\n\nИзменения: 👇🏻\n\n{}"
         ),
         "more": "\n<i><b>🎥 И еще {}...</b></i>",
         "_cfg_doc_disable_notifications": "Отключить уведомления об обновлениях",
@@ -89,6 +89,8 @@ class UpdateNotifierMod(loader.Module):
             return ""
 
     async def client_ready(self):
+        await utils.convert_folders(self.client)
+
         try:
             git.Repo()
         except Exception as e:

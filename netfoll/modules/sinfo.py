@@ -1,33 +1,34 @@
 # 🔒 Licensed under the GNU GPLv3
 # 🌐 https://www.gnu.org/licenses/agpl-3.0.html
-# 
+#
 # ---------------------------------------------------------------------------------
-#     ▀▄   ▄▀   👾 Module for Netfoll User Bot (based on Hikka 1.6.0)
+#     ▀▄   ▄▀   👾 Module for Netfoll UserBot (based on Hikka 1.6.0)
 #    ▄█▀███▀█▄  🔒 Licensed under the GNU GPLv3
-#   █▀███████▀█ ⚠️ Owner @DarkModules and @Netfoll
+#   █▀███████▀█ ⚠️ @DarkModules & @Netfoll
 #   █ █▀▀▀▀▀█ █
 #      ▀▀ ▀▀
 # ---------------------------------------------------------------------------------
-# Name: SysImfo
-# Description: Show System
-# Author: Netfoll
+# Name: SysInfo
+# Description: Show system info
+# Author: Netfoll Team
 # Commands:
 # .sinfo
 # ---------------------------------------------------------------------------------
 
-from telethon.tl.types import Message
+# meta developer: @Netfoll
+# scope: hikka_min 1.6.0
+# requires: psutil
 
 from .. import loader, utils
 import platform
 import psutil
 
 __version__ = (1, 0, 0)
-# meta developer: @Netfoll
-# scope: hikka_min 1.6.0
-# requires: psutil
+
 
 def bytes_to_megabytes(b: int) -> int:
     return round(b / 1024 / 1024, 1)
+
 
 @loader.tds
 class SysInfoMod(loader.Module):
@@ -62,7 +63,7 @@ class SysInfoMod(loader.Module):
         ram = bytes_to_megabytes(psutil.virtual_memory().total - psutil.virtual_memory().available)
         ram_load_mb = bytes_to_megabytes(psutil.virtual_memory().total)
         ram_load_procent = psutil.virtual_memory().percent
-        
+
         return (
             f"<b>{names}</b>\n\n"
             f'<b>{self.strings("cpu")} ({processor}): {psutil.cpu_count(logical=True)} {self.strings("core")} ({psutil.cpu_percent()}%)</b>\n'
@@ -72,7 +73,8 @@ class SysInfoMod(loader.Module):
             f'<b>{self.strings("release")}: {platform.version()}</b>\n'
             f'<b>{self.strings("system")}: {platform.system()} ({platform.release()})</b>\n\n'
         )
+
     @loader.command(ru_doc="Показать информацию о системе")
     async def sinfocmd(self, message):
-        """Show System"""       
-        await utils.answer(message,self.info(message))
+        """Show System"""
+        await utils.answer(message, self.info(message))

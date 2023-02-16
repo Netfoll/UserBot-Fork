@@ -295,7 +295,7 @@ class NetfollSettingsMod(loader.Module):
             " это предупреждение</b>"
         ),
         "privacy_leak_nowarn": (
-            "⚠️ <b>Эта команда дает доступ к веб-интерфейсу HikNetfollka. Ее выполнение в"
+            "⚠️ <b>Эта команда дает доступ к веб-интерфейсу Netfoll. Ее выполнение в"
             " публичных чатах является угрозой безопасности. Предпочтительно выполнять"
             " ее в <a href='tg://openmessage?user_id={}'>Избранных сообщениях</a>.</b>"
         ),
@@ -314,7 +314,7 @@ class NetfollSettingsMod(loader.Module):
         "disable_debugger": "✅ Отладчик включен",
         "enable_debugger": "🚫 Отладчик выключен",
     }
-    
+
     def get_watchers(self) -> tuple:
         return [
             str(watcher.__self__.__class__.strings["name"])
@@ -450,15 +450,7 @@ class NetfollSettingsMod(loader.Module):
             ],
         )
 
-    @loader.command(
-        ru_doc="Показать активные смотрители",
-        it_doc="Mostra i guardatori attivi",
-        de_doc="Aktive Beobachter anzeigen",
-        tr_doc="Etkin gözlemcileri göster",
-        uz_doc="Faol ko'rib chiqqanlarni ko'rsatish",
-        es_doc="Mostrar observadores activos",
-        kk_doc="Белсенді көздерді көрсету",
-    )
+    @loader.command(ru_doc="Показать активные смотрители")
     async def watchers(self, message: Message):
         """List current watchers"""
         watchers, disabled_watchers = self.get_watchers()
@@ -472,15 +464,7 @@ class NetfollSettingsMod(loader.Module):
             message, self.strings("watchers").format("\n".join(watchers))
         )
 
-    @loader.command(
-        ru_doc="<module> - Включить/выключить смотрителя в текущем чате",
-        it_doc="<module> - Abilita/disabilita il guardatore nel gruppo corrente",
-        de_doc="<module> - Aktiviere/Deaktiviere Beobachter in diesem Chat",
-        tr_doc="<module> - Bu sohbetteki gözlemciyi etkinleştirin/devre dışı bırakın",
-        uz_doc="<module> - Joriy suhbatda ko'rib chiqqanlarni yoqish/yopish",
-        es_doc="<module> - Habilitar / deshabilitar observador en este chat",
-        kk_doc="<module> - Бұл сөйлесуде көздерді қосу/өшіру",
-    )
+    @loader.command(ru_doc="<module> - Включить/выключить смотрителя в текущем чате")
     async def watcherbl(self, message: Message):
         """<module> - Toggle watcher in current chat"""
         args = utils.get_args_raw(message)
@@ -538,55 +522,7 @@ class NetfollSettingsMod(loader.Module):
             "[-p - только в лс]\n"
             "[-o - только исходящие]\n"
             "[-i - только входящие]"
-        ),
-        it_doc=(
-            "<module> - Gestisci le regole globali del guardatore\n"
-            "Argomenti:\n"
-            "[-c - solo nei gruppi]\n"
-            "[-p - solo nei messaggi privati]\n"
-            "[-o - solo in uscita]\n"
-            "[-i - solo in entrata]"
-        ),
-        de_doc=(
-            "<module> - Verwalte globale Beobachterregeln\n"
-            "Argumente:\n"
-            "[-c - Nur in Chats]\n"
-            "[-p - Nur in privaten Chats]\n"
-            "[-o - Nur ausgehende Nachrichten]\n"
-            "[-i - Nur eingehende Nachrichten]"
-        ),
-        tr_doc=(
-            "<module> - Genel gözlemci kurallarını yönetin\n"
-            "Argümanlar:\n"
-            "[-c - Yalnızca sohbetlerde]\n"
-            "[-p - Yalnızca özel sohbetlerde]\n"
-            "[-o - Yalnızca giden mesajlar]\n"
-            "[-i - Yalnızca gelen mesajlar]"
-        ),
-        uz_doc=(
-            "<module> - Umumiy ko'rib chiqqan qoidalarni boshqarish\n"
-            "Argumentlar:\n"
-            "[-c - Faqat suhbatlarda]\n"
-            "[-p - Faqat shaxsiy suhbatlarda]\n"
-            "[-o - Faqat chiqarilgan xabarlar]\n"
-            "[-i - Faqat kelgan xabarlar]"
-        ),
-        es_doc=(
-            "<module> - Administre las reglas del observador global\n"
-            "Argumentos:\n"
-            "[-c - Solo en chats]\n"
-            "[-p - Solo en chats privados]\n"
-            "[-o - Solo mensajes salientes]\n"
-            "[-i - Solo mensajes entrantes]"
-        ),
-        kk_doc=(
-            "<module> - Қоғамдық көздерді басқару\n"
-            "Аргументтер:\n"
-            "[-c - Тек сөйлесуде]\n"
-            "[-p - Тек шахси сөйлесуде]\n"
-            "[-o - Тек шығарылған хабарлар]\n"
-            "[-i - Тек келген хабарлар]"
-        ),
+        )
     )
     async def watchercmd(self, message: Message):
         """<module> - Toggle global watcher rules
@@ -654,15 +590,7 @@ class NetfollSettingsMod(loader.Module):
         self._db.set(main.__name__, "disabled_watchers", disabled_watchers)
         await utils.answer(message, self.strings("disabled").format(args))
 
-    @loader.command(
-        ru_doc="Включить NoNick для определенного пользователя",
-        it_doc="Abilita NoNick per un utente specifico",
-        de_doc="Aktiviere NoNick für einen bestimmten Benutzer",
-        tr_doc="Belirli bir kullanıcı için NoNick'i etkinleştirin",
-        uz_doc="Belgilangan foydalanuvchi uchun NoNickni yoqish",
-        es_doc="Habilitar NoNick para un usuario específico",
-        kk_doc="Белгіленген пайдаланушы үшін NoNick түрлендірілген",
-    )
+    @loader.command(ru_doc="Включить NoNick для определенного пользователя")
     async def nonickuser(self, message: Message):
         """Allow no nickname for certain user"""
         reply = await message.get_reply_message()
@@ -685,15 +613,7 @@ class NetfollSettingsMod(loader.Module):
 
         self._db.set(main.__name__, "nonickusers", nn)
 
-    @loader.command(
-        ru_doc="Включить NoNick для определенного чата",
-        it_doc="Abilita NoNick per una chat specifica",
-        de_doc="Aktiviere NoNick für einen bestimmten Chat",
-        tr_doc="Belirli bir sohbet için NoNick'i etkinleştirin",
-        uz_doc="Belgilangan suhbat uchun NoNickni yoqish",
-        es_doc="Habilitar NoNick para un chat específico",
-        kk_doc="Белгіленген сөйлесу үшін NoNick түрлендірілген",
-    )
+    @loader.command(ru_doc="Включить NoNick для определенного чата")
     async def nonickchat(self, message: Message):
         """Allow no nickname in certain chat"""
         if message.is_private:
@@ -725,15 +645,7 @@ class NetfollSettingsMod(loader.Module):
 
         self._db.set(main.__name__, "nonickchats", nn)
 
-    @loader.command(
-        ru_doc="Включить NoNick для определенной команды",
-        it_doc="Abilita NoNick per un comando specifico",
-        de_doc="Aktiviere NoNick für einen bestimmten Befehl",
-        tr_doc="Belirli bir komut için NoNick'i etkinleştirin",
-        uz_doc="Belgilangan buyruq uchun NoNickni yoqish",
-        es_doc="Habilitar NoNick para un comando específico",
-        kk_doc="Белгіленген комманда үшін NoNick түрлендірілген",
-    )
+    @loader.command(ru_doc="Включить NoNick для определенной команды")
     async def nonickcmdcmd(self, message: Message):
         """Allow certain command to be executed without nickname"""
         args = utils.get_args_raw(message)
@@ -768,15 +680,7 @@ class NetfollSettingsMod(loader.Module):
 
         self._db.set(main.__name__, "nonickcmds", nn)
 
-    @loader.command(
-        ru_doc="Показать список активных NoNick команд",
-        it_doc="Mostra la lista dei comandi NoNick attivi",
-        de_doc="Zeige eine Liste der aktiven NoNick Befehle",
-        tr_doc="Etkin NoNick komutlarının listesini göster",
-        uz_doc="Yoqilgan NoNick buyruqlar ro'yxatini ko'rsatish",
-        es_doc="Mostrar una lista de comandos NoNick activos",
-        kk_doc="Қосылған NoNick коммандалар тізімін көрсету",
-    )
+    @loader.command(ru_doc="Показать список активных NoNick команд",)
     async def nonickcmds(self, message: Message):
         """Returns the list of NoNick commands"""
         if not self._db.get(main.__name__, "nonickcmds", []):
@@ -795,15 +699,7 @@ class NetfollSettingsMod(loader.Module):
             ),
         )
 
-    @loader.command(
-        ru_doc="Показать список активных NoNick пользователей",
-        it_doc="Mostra la lista degli utenti NoNick attivi",
-        de_doc="Zeige eine Liste der aktiven NoNick Benutzer",
-        tr_doc="Etkin NoNick kullanıcılarının listesini göster",
-        uz_doc="Yoqilgan NoNick foydalanuvchilar ro'yxatini ko'rsatish",
-        es_doc="Mostrar una lista de usuarios NoNick activos",
-        kk_doc="Қосылған NoNick пайдаланушылар тізімін көрсету",
-    )
+    @loader.command(ru_doc="Показать список активных NoNick пользователей",)
     async def nonickusers(self, message: Message):
         """Returns the list of NoNick users"""
         users = []
@@ -841,15 +737,7 @@ class NetfollSettingsMod(loader.Module):
             self.strings("user_nn_list").format("\n".join(users)),
         )
 
-    @loader.command(
-        ru_doc="Показать список активных NoNick чатов",
-        it_doc="Mostra la lista dei gruppi NoNick attivi",
-        de_doc="Zeige eine Liste der aktiven NoNick Chats",
-        tr_doc="Etkin NoNick sohbetlerinin listesini göster",
-        uz_doc="Yoqilgan NoNick suhbatlar ro'yxatini ko'rsatish",
-        es_doc="Mostrar una lista de chats NoNick activos",
-        kk_doc="Қосылған NoNick сөйлесушілер тізімін көрсету",
-    )
+    @loader.command(ru_doc="Показать список активных NoNick чатов")
     async def nonickchats(self, message: Message):
         """Returns the list of NoNick chats"""
         chats = []
@@ -1118,15 +1006,7 @@ class NetfollSettingsMod(loader.Module):
         ]
 
     @loader.owner
-    @loader.command(
-        ru_doc="Показать настройки",
-        it_doc="Mostra le impostazioni",
-        de_doc="Zeige die Einstellungen",
-        tr_doc="Ayarları göster",
-        uz_doc="Sozlamalarni ko'rsatish",
-        es_doc="Mostrar configuración",
-        kk_doc="Баптауларды көрсету",
-    )
+    @loader.command(ru_doc="Показать настройки")
     async def settings(self, message: Message):
         """Show settings menu"""
         await self.inline.form(

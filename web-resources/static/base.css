@@ -1,10 +1,9 @@
 /*
-    ©️ Dan Gazizullin, 2021-2023
+    ©️ Dan Gazizullin, 2021-2022
     This file is a part of Hikka Userbot
     🌐 https://github.com/hikariatama/Hikka
     You can redistribute it and/or modify it under the terms of the GNU AGPLv3
     🔑 https://www.gnu.org/licenses/agpl-3.0.html
-    Modify for Netfoll | @Netfoll
 */
 
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Open+Sans:wght@300&display=swap');
@@ -53,7 +52,7 @@ body {
     z-index: -1;
     border-radius: 50%;
     /* background: rgb(127, 35, 112); */
-    background: rgb(152, 17, 170);
+    background: rgb(80, 80, 158);
     filter: blur(100px);
     transition: background .5s ease;
 }
@@ -778,3 +777,4 @@ label {
 .moon {
     height: 30px;
 }
+

@@ -38,7 +38,7 @@ class InlineStuffMod(loader.Module):
             " saved. Restart userbot to apply changes</b>"
         ),
         "this_is_hikka": (
-            "🌘 <b>Hi! This is Hikka — powerful modular Telegram userbot. You can"
+            "🌘 <b>Hi! This is Netfoll, UserBot that is based on the best UserBot Hikka. You can"
             " install it to your account!</b>\n\n<b>🌍 <a"
             ' href="https://github.com/MXRRI/Netfoll">GitHub</a></b>\n<b>👥 <a'
             ' href="https://t.me/hikka_talks">Support chat</a></b>'

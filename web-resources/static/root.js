@@ -1,5 +1,5 @@
 /*
-    ©️ Dan Gazizullin, 2021-2022
+    ©️ Dan Gazizullin, 2021-2023
     This file is a part of Hikka Userbot
     🌐 https://github.com/hikariatama/Hikka
     You can redistribute it and/or modify it under the terms of the GNU AGPLv3
@@ -146,7 +146,6 @@ $("#get_started")
                     })
             });
         });
-    });
 
 $("#enter_api")
     .click(() => {
@@ -230,23 +229,6 @@ function show_2fa() {
     $("#monkey").hide();
     $("#monkey-close").hide().fadeIn(100);
     _current_block = "2fa";
-}
-
-function show_eula() {
-    $(".main").fadeOut(250);
-    $(".eula-form").hide().fadeIn(250, () => {
-        $("#law").html("");
-        anim = bodymovin.loadAnimation({
-            container: document.getElementById("law"),
-            renderer: "canvas",
-            loop: true,
-            autoplay: true,
-            path: "https://static.hikari.gay/forbidden.json",
-            rendererSettings: {
-                clearCanvas: true,
-            }
-        });
-    });
 }
 
 function tg_code(processing_2fa = false) {
@@ -419,7 +401,6 @@ function process_next() {
             .then((response) => {
                 if (!response.ok) {
                     if (response.status == 403) {
-                        show_eula();
                     } else {
                         response.text().then((text) => {
                             error_state();

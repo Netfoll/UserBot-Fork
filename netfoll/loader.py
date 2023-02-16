@@ -683,7 +683,8 @@ class Modules:
                 with contextlib.suppress(Exception):
                     self.modules.remove(instance)
 
-                raise CoreOverwriteError(command=_command)
+                if not self._db.get("core", "allow_overwrite_core", False):
+                    raise CoreOverwriteError(command=_command)
 
             self.commands.update({_command.lower(): cmd})
 
@@ -836,11 +837,12 @@ class Modules:
         for module in self.modules:
             if module.__class__.__name__ == instance.__class__.__name__:
                 if module.__origin__.startswith("<core"):
-                    raise CoreOverwriteError(
-                        module=module.__class__.__name__[:-3]
-                        if module.__class__.__name__.endswith("Mod")
-                        else module.__class__.__name__
-                    )
+                    if not self._db.get("core", "allow_overwrite_core", False):
+                        raise CoreOverwriteError(
+                            module=module.__class__.__name__[:-3]
+                            if module.__class__.__name__.endswith("Mod")
+                            else module.__class__.__name__
+                        )
 
                 logger.debug("Removing module %s for update", module)
                 await module.on_unload()
@@ -1047,7 +1049,7 @@ class Modules:
                 module.name.lower(),
                 module.__class__.__name__.lower(),
             ):
-                if module.__origin__.startswith("<core"):
+                if module.__origin__.startswith("<core") and not self._db.get("core", "allow_overwrite_core", False):
                     raise CoreUnloadError(module.__class__.__name__)
 
                 worked += [module.__class__.__name__]

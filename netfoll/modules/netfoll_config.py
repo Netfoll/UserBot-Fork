@@ -24,11 +24,11 @@ from ..inline.types import InlineCall
 
 
 @loader.tds
-class NetConfigMod(loader.Module):
+class NetfollConfigMod(loader.Module):
     """Interactive configurator for Netfoll Userbot"""
 
     strings = {
-        "name": "NetConfig",
+        "name": "NetfollConfig",
         "choose_core": "⚙️ <b>Choose a category</b>",
         "configure": "⚙️ <b>Choose a module to configure</b>",
         "configure_lib": "📦 <b>Choose a library to configure</b>",
@@ -131,7 +131,7 @@ class NetConfigMod(loader.Module):
             "♻️ <b>Параметр</b> <code>{}</code> <b>библиотеки</b> <code>{}</code><b>"
             " сброшен до значения по умолчанию</b>\n<b>Текущее: {}</b>"
         ),
-        "_cls_doc": "Интерактивный конфигуратор netfoll",
+        "_cls_doc": "Интерактивный конфигуратор Netfoll",
         "args": "🚫 <b>Ты указал неверные аргументы</b>",
         "no_mod": "🚫 <b>Модуль не существует</b>",
         "no_option": "🚫 <b>У модуля нет такого значения конфига</b>",

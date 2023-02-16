@@ -197,15 +197,9 @@ class HelpMod(loader.Module):
                 else ""
             ),
         )
-    def info(self, message):
-            return (
-                f"<b>{self.strings('info')}</b>\n"
-            )
 
     @loader.unrestricted
-    @loader.command(
-        ru_doc="[модуль] [-f] - Показать помощь",
-    )
+    @loader.command(ru_doc="[модуль] [-f] - Показать помощь",)
     async def help(self, message: Message):
         """[module] [-f] - Show help"""
         args = utils.get_args_raw(message)
@@ -215,15 +209,11 @@ class HelpMod(loader.Module):
 
         if args:
             await self.modhelp(message, args)
-            return     
-        await utils.answer(
-            message,
-            prefix,
-            ),  
+            return
 
-    @loader.command(
-        ru_doc="Показать ссылку на чат помощи Netfoll",
-    )
+        await utils.answer(message, prefix)
+
+    @loader.command(ru_doc="Показать ссылку на чат помощи Netfoll")
     async def support(self, message):
         """Get link of Netfoll support chat"""
         if message.out:

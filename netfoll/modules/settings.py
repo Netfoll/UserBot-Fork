@@ -143,8 +143,8 @@ class CoreMod(loader.Module):
             " состоять только из одного символа</b>"
         ),
         "prefix_set": (
-            "{} <b>Префикс обновлен."
-            " Чтобы вернуть его, используй</b> <code>{newprefix}setprefix"
+            "{} <b>Выставлен новый префикс,"
+            " для того чтобы вернуть старый префикс используй</b> <code>{newprefix}setprefix"
             " {oldprefix}</code>"
         ),
         "alias_created": (
@@ -396,7 +396,7 @@ class CoreMod(loader.Module):
                 (
                     DRAGON_EMOJI
                     if is_dragon
-                    else "<emoji document_id=5197474765387864959>👍</emoji>"
+                    else "<emoji document_id=5370869711888194012>👾</emoji>"
                 ),
                 newprefix=utils.escape_html(
                     self.get_prefix() if is_dragon else args[0]
