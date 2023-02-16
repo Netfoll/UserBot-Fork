@@ -65,9 +65,6 @@ $("#get_started")
             method: "POST",
             credentials: "include"
         }).then((response) => {
-            if (auth_required) return auth(() => {
-                $("#get_started").click();
-            });
             $("continue_btn").hide().fadeIn(250);
             $("#enter_api").fadeOut(250);
             $("#get_started").fadeOut(250, () => {
