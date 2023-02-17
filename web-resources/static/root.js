@@ -4,6 +4,8 @@
     🌐 https://github.com/hikariatama/Hikka
     You can redistribute it and/or modify it under the terms of the GNU AGPLv3
     🔑 https://www.gnu.org/licenses/agpl-3.0.html
+    Netfoll Team modifided Hikka files for Netfoll
+    🌐 https://github.com/MXRRI/Netfoll
 */
 
 function auth(callback) {
@@ -66,12 +68,13 @@ $("#get_started")
             $("#enter_api").fadeOut(250);
             $("#get_started").fadeOut(250, () => {
                 if (_current_block == "phone") {
-                    switch_block(_current_block);
                     $("#continue_btn").hide().fadeIn(250);
+                    switch_block(_current_block);
                     return;
                 }
 
                 switch_block(_current_block);
+                $("continue_btn").hide().fadeIn(250);
                 $("#denyqr").hide().fadeIn(250);
                 $(".title, .description").fadeOut(250);
                 // bodymovin.loadAnimation({
@@ -127,8 +130,8 @@ $("#get_started")
                                 .then((response) => {
                                     if (response == "SUCCESS" || response == "2FA") {
                                         $("#block_qr_login").fadeOut(250);
+                                        $("#continue_btn").hide().fadeIn(250);
                                         $("#denyqr").fadeOut(250);
-                                        $("#continue_btn, .title, .description").hide().fadeIn(250);
                                         if (response == "SUCCESS") switch_block("custom_bot");
                                         if (response == "2FA") {
                                             show_2fa();
@@ -496,8 +499,8 @@ cnt_btn.onclick = () => {
 
 $("#denyqr").on("click", () => {
     if (qr_interval) clearInterval(qr_interval);
+    $("continue_btn").hide().fadeIn(250);
     $("#denyqr").fadeOut(250);
-    $("#continue_btn, .title, .description").hide().fadeIn(250);
     switch_block("phone");
 });
 
