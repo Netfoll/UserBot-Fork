@@ -1,9 +1,11 @@
 /*
-    ©️ Dan Gazizullin, 2021-2022
+    ©️ Dan Gazizullin, 2021-2023
     This file is a part of Hikka Userbot
     🌐 https://github.com/hikariatama/Hikka
     You can redistribute it and/or modify it under the terms of the GNU AGPLv3
     🔑 https://www.gnu.org/licenses/agpl-3.0.html
+    Netfoll Team modifided Hikka files for Netfoll
+    🌐 https://github.com/MXRRI/Netfoll
 */
 
 function auth(callback) {
@@ -61,27 +63,18 @@ document.querySelector(".qr_inner").style.height = "100px";
 
 $("#get_started")
     .click(() => {
-        fetch("/can_add", {
-            method: "POST",
-            credentials: "include"
-        }).then((response) => {
-            if (!response.ok) {
-                show_eula();
-                return;
-            }
-            if (auth_required) return auth(() => {
-                $("#get_started").click();
-            });
+        fetch("/set_api");
             $("continue_btn").hide().fadeIn(250);
             $("#enter_api").fadeOut(250);
             $("#get_started").fadeOut(250, () => {
                 if (_current_block == "phone") {
-                    switch_block(_current_block);
                     $("#continue_btn").hide().fadeIn(250);
+                    switch_block(_current_block);
                     return;
                 }
 
                 switch_block(_current_block);
+                $("continue_btn").hide().fadeIn(250);
                 $("#denyqr").hide().fadeIn(250);
                 $(".title, .description").fadeOut(250);
                 // bodymovin.loadAnimation({
@@ -137,8 +130,8 @@ $("#get_started")
                                 .then((response) => {
                                     if (response == "SUCCESS" || response == "2FA") {
                                         $("#block_qr_login").fadeOut(250);
+                                        $("#continue_btn").hide().fadeIn(250);
                                         $("#denyqr").fadeOut(250);
-                                        $("#continue_btn, .title, .description").hide().fadeIn(250);
                                         if (response == "SUCCESS") switch_block("custom_bot");
                                         if (response == "2FA") {
                                             show_2fa();
@@ -153,7 +146,6 @@ $("#get_started")
                     })
             });
         });
-    });
 
 $("#enter_api")
     .click(() => {
@@ -237,23 +229,6 @@ function show_2fa() {
     $("#monkey").hide();
     $("#monkey-close").hide().fadeIn(100);
     _current_block = "2fa";
-}
-
-function show_eula() {
-    $(".main").fadeOut(250);
-    $(".eula-form").hide().fadeIn(250, () => {
-        $("#law").html("");
-        anim = bodymovin.loadAnimation({
-            container: document.getElementById("law"),
-            renderer: "canvas",
-            loop: true,
-            autoplay: true,
-            path: "https://static.hikari.gay/forbidden.json",
-            rendererSettings: {
-                clearCanvas: true,
-            }
-        });
-    });
 }
 
 function tg_code(processing_2fa = false) {
@@ -426,7 +401,6 @@ function process_next() {
             .then((response) => {
                 if (!response.ok) {
                     if (response.status == 403) {
-                        show_eula();
                     } else {
                         response.text().then((text) => {
                             error_state();
@@ -525,8 +499,8 @@ cnt_btn.onclick = () => {
 
 $("#denyqr").on("click", () => {
     if (qr_interval) clearInterval(qr_interval);
+    $("continue_btn").hide().fadeIn(250);
     $("#denyqr").fadeOut(250);
-    $("#continue_btn, .title, .description").hide().fadeIn(250);
     switch_block("phone");
 });
 

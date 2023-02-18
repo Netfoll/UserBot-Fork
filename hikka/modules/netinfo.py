@@ -124,7 +124,7 @@ class NetfollInfoMod(loader.Module):
             utils.escape_html(get_display_name(self._me)),
         )
         build = utils.get_commit_url()
-        _version = f'<i>{version.branch} {".".join(list(map(str, list(version.netver))))}</i>'
+        _version = f'<i>{version.branch} {".".join(list(map(str, list(version.netver))))} {version.netrev}</i>'
         prefix = f"«<code>{utils.escape_html(self.get_prefix())}</code>»"
 
         platfo = utils.get_named_platform()

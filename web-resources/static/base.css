@@ -1,14 +1,15 @@
 /*
-    ©️ Dan Gazizullin, 2021-2023
+    ©️ Dan Gazizullin, 2021-2022
     This file is a part of Hikka Userbot
     🌐 https://github.com/hikariatama/Hikka
     You can redistribute it and/or modify it under the terms of the GNU AGPLv3
     🔑 https://www.gnu.org/licenses/agpl-3.0.html
-    Modify for Netfoll | @Netfoll
+    Netfoll Team modifided Hikka files for Netfoll
+    🌐 https://github.com/MXRRI/Netfoll
 */
 
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Open+Sans:wght@300&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Hubballi&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas%20Neue&display=swap');
 
 @font-face {
     font-family: 'Movement';
@@ -24,8 +25,8 @@ html {
 }
 
 body {
-    /* background: #16181d; */
-    font-family: Hubballi;
+    background: #16181d;
+    font-family: Bebas Neue;
 }
 
 .bg {
@@ -53,7 +54,7 @@ body {
     z-index: -1;
     border-radius: 50%;
     /* background: rgb(127, 35, 112); */
-    background: rgb(152, 17, 170);
+    background: rgb(16, 7, 27);
     filter: blur(100px);
     transition: background .5s ease;
 }
@@ -103,7 +104,7 @@ body {
 
 .title {
     font-size: 50px;
-    font-family: Hubballi;
+    font-family: Kanit;
     text-align: center;
     color: #fff;
     width: 100%;
@@ -121,7 +122,7 @@ body {
     z-index: 2;
     position: relative;
     line-height: 1.3;
-    font-family: Hubballi;
+    font-family: Kanit;
 }
 
 .wrapper {
@@ -261,8 +262,8 @@ label {
     user-select: none;
 }
 
-#denyqr,
 #continue_btn,
+#denyqr,
 #block_api_id,
 #block_api_hash,
 #block_phone,
@@ -778,3 +779,4 @@ label {
 .moon {
     height: 30px;
 }
+
