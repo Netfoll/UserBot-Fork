@@ -347,7 +347,7 @@ class UpdaterMod(loader.Module):
             os.system(f"cd {utils.get_base_dir()} && cd .. && git reset --hard HEAD")
 
         try:
-            if "LUMIHOST" in os.environ:
+            if "LOMIHOST" in os.environ:
                 msg_obj = await utils.answer(
                     msg_obj,
                     self.strings("lumihost_update").format(
@@ -359,7 +359,6 @@ class UpdaterMod(loader.Module):
                     ),
                 )
                 await self.process_restart_message(msg_obj)
-                os.system("git pull")
                 return
 
             with contextlib.suppress(Exception):
