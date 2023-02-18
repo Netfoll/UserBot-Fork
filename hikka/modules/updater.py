@@ -347,17 +347,7 @@ class UpdaterMod(loader.Module):
             os.system(f"cd {utils.get_base_dir()} && cd .. && git reset --hard HEAD")
 
         try:
-            if "LOMIHOST" in os.environ:
-                msg_obj = await utils.answer(
-                    msg_obj,
-                    self.strings("lumihost_update").format(
-                        "</b><emoji document_id=5364105417569868801>😎</emoji> LumiHost<b>"
-                        if self._client.hikka_me.premium
-                        and CUSTOM_EMOJIS
-                        and isinstance(msg_obj, Message)
-                        else "😎 LumiHost"
-                    ),
-                )
+            if "" in os.environ:
                 await self.process_restart_message(msg_obj)
                 return
 
