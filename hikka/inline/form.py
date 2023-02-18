@@ -383,6 +383,8 @@ class Form(InlineUnit):
         self._units[unit_id]["chat"] = utils.get_chat_id(m)
         self._units[unit_id]["message_id"] = m.id
 
+        logger.error(f"{type(message)} == Message: {isinstance(message, Message)} ... {message.out=} ... {status_message=}")
+
         if isinstance(message, Message) and message.out:
             await message.delete()
 
