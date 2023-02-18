@@ -225,7 +225,7 @@ class UpdaterMod(loader.Module):
                 and isinstance(msg_obj, Message)
                 else "Netfoll"
             )
-            if "LUMIHOST" not in os.environ
+            if "LUMIHOST" in os.environ
             else self.strings("lumihost_restart").format(
                 '</b><emoji document_id=5364105417569868801>😎</emoji> LumiHost<b>'
                 if self._client.hikka_me.premium
@@ -359,7 +359,7 @@ class UpdaterMod(loader.Module):
                     ),
                 )
                 await self.process_restart_message(msg_obj)
-                os.system("lumihost update")
+                os.system("git pull")
                 return
 
             with contextlib.suppress(Exception):
