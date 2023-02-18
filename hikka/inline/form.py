@@ -383,7 +383,7 @@ class Form(InlineUnit):
         self._units[unit_id]["chat"] = utils.get_chat_id(m)
         self._units[unit_id]["message_id"] = m.id
 
-        logger.error(f"{type(message)} == Message: {isinstance(message, Message)} ... {message.out=} ... {status_message=}")
+        logger.debug(f"{type(message)} == Message: {isinstance(message, Message)} ... {message.out=} ... {status_message=}")
 
         if isinstance(message, Message) and message.out:
             await message.delete()
@@ -428,10 +428,7 @@ class Form(InlineUnit):
                                     .format(random.choice(VERIFICATION_EMOJIES))
                                 ),
                                 input_message_content=InputTextMessageContent(
-                                    "🔄 <b>Сохраняю значение...</b>\n"
-                                    "<i>Это сообщение удалится автоматически.</i>"
-                                    if inline_query.from_user.id == self._me
-                                    else "🔄 <b>Сохраняю значение...</b>",
+                                    "🔄 <b>Сохраняю!</b>",
                                     "HTML",
                                     disable_web_page_preview=True,
                                 ),
