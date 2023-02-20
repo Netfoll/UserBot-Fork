@@ -241,7 +241,7 @@ class UpdaterMod(loader.Module):
 
         await self._db.remote_force_save()
 
-        if "LAVHOST" in os.environ:
+        if "LAVHOST" not in os.environ:
             os.system("lavhost restart")
             return
 
