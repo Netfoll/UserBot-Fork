@@ -225,7 +225,7 @@ class UpdaterMod(loader.Module):
                 and isinstance(msg_obj, Message)
                 else "Netfoll"
             )
-            if "LUMIHOST" in os.environ
+            if "LUMIHOST" not in os.environ
             else self.strings("lumihost_restart").format(
                 '</b><emoji document_id=5364105417569868801>😎</emoji> LumiHost<b>'
                 if self._client.hikka_me.premium
@@ -241,7 +241,7 @@ class UpdaterMod(loader.Module):
 
         await self._db.remote_force_save()
 
-        if "LAVHOST" not in os.environ:
+        if "LAVHOST" in os.environ:
             os.system("lavhost restart")
             return
 
