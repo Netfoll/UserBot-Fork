@@ -161,7 +161,7 @@ class Translations(loader.Module):
         }
 
     strings_sv = {
-        "lang_saved": "{} <b>Издание смененно!</b>",
+        "lang_saved": "🎴 <b>Издание сменено!</b>",
         "pack_saved": (
             "<emoji document_id=5197474765387864959>👍</emoji> <b>Пакет переводов"
             " сохранён!</b>"
