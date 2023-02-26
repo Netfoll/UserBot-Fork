@@ -89,7 +89,7 @@ class NetfollInfoMod(loader.Module):
 
     strings_ua = {
         "version":"Версія",
-        "prefix": "префікс",
+        "prefix": "Префікс",
         "uptime":"Аптайм",
         "send_info": "надіслати інформацію про юзербот",
         "опис": " ℹ це не розкриє жодної особистої інформації",

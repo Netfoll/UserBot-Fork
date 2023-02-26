@@ -160,7 +160,7 @@ class Translations(loader.Module):
         ),
         }
     
-    strings_ru = {
+    strings_ua = {
         "lang_saved": "{} <b>Мова збережена!</b>",
         "pack_saved": (
             "<emoji document_id=5197474765387864959>👍</emoji> <b>Пакет перекладів"
