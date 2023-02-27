@@ -8,8 +8,8 @@
 # 🌐 https://github.com/MXRRI/Netfoll
 
 __version__ = (1, 6, 1)
-netver = (0, 2, 4)
-netrev = "R2"
+netver = (0, 3, 0)
+netrev = ""
 import os
 
 import git

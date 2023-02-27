@@ -18,7 +18,7 @@ logger = logging.getLogger(__name__)
 SUPPORTED_LANGUAGES = {
     "en": "🇬🇧 English",
     "ru": "🇷🇺 Русский",
-    "ua": "🇺🇦 Український",
+    "uk": "🇺🇦 Український (Переводити)",
 }
 
 
@@ -160,7 +160,7 @@ class Translations(loader.Module):
         ),
         }
     
-    strings_ua = {
+    strings_uk = {
         "lang_saved": "{} <b>Мова збережена!</b>",
         "pack_saved": (
             "<emoji document_id=5197474765387864959>👍</emoji> <b>Пакет перекладів"

@@ -38,10 +38,10 @@ class InlineStuffMod(loader.Module):
             " saved. Restart userbot to apply changes</b>"
         ),
         "this_is_hikka": (
-            "🌘 <b>Hi! This is Netfoll, UserBot that is based on the best UserBot Hikka. You can"
+            "👾 <b>Hi! This is Netfoll, UserBot that is based on the best UserBot Hikka. You can"
             " install it to your account!</b>\n\n<b>🌍 <a"
-            ' href="https://github.com/MXRRI/Netfoll">GitHub</a></b>\n<b>👥 <a'
-            ' href="https://t.me/hikka_talks">Support chat</a></b>'
+            ' href="https://github.com/MXRRI/Netfoll">GitHub</a></b>\n<b>👾 <a'
+            ' href="https://t.me/NetfollUB">Чат поддержки</a></b>'
         ),
     }
 
@@ -57,13 +57,35 @@ class InlineStuffMod(loader.Module):
         ),
         "bot_updated": (
             "<emoji document_id=6318792204118656433>🎉</emoji> <b>Настройки сохранены."
-            " Для их применения нужно перезагрузить юзербот</b>"
+            " Для их применения нужно перезагрузить Netfoll</b>"
         ),
         "this_is_hikka": (
-            "👾 <b>Привет! Это Netfoll, ЮзерБот основанный на лучшем юзерботе Hikka. Вы можете"
-            " попробовать его или вовсе установить на свой аккаунт!</b>\n\n<b>💎 <a"
+            "👾 <b>Привет! Это Netfoll, ЮзерБот основанный на Hikka. Вы можете"
+            " установить на свой аккаунт!</b>\n\n<b>💎 <a"
             ' href="https://github.com/MXRRI/Netfoll">GitHub</a></b>\n<b>👾 <a'
-            ' href="https://t.me/hikkawe_support">Чат поддержки</a></b>'
+            ' href="https://t.me/NetfollUB">Чат поддержки</a></b>'
+        ),
+    }
+
+    strings_uk = {
+        "bot_username_invalid": (
+            "<emoji document_id=5312526098750252863>🚫</emoji> <b>Неправильний нік"
+            " бот. Він повинен закінчуватися на</b> <code>bot</code> <b>і бути не коротше"
+            " ніж 5 символів</b>"
+        ),
+        "bot_username_occupied": (
+            "<emoji document_id=5312526098750252863>🚫</emoji> <b>Такий нік бота вже"
+            " зайнятий</b>"
+        ),
+        "bot_updated": (
+            "<emoji document_id=6318792204118656433>🎉</emoji> <b>Налаштування збережені."
+            " Для їх застосування потрібно перезавантажити Netfoll</b>"
+        ),
+        "this_is_hikka": (
+            "👾 <b>Привіт! Це Netfoll, заснований на Hikka. Ви можете"
+            " встановити на свій аккаунт!</b>\n\n<b>💎 <a"
+            ' href="https://github.com/MXRRI/Netfoll">GitHub</a></b>\n<b>👾 <a'
+            ' href="https://t.me/NetfollUB">Чат підтримки</a></b>'
         ),
     }
 
