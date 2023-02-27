@@ -161,7 +161,7 @@ class Translations(loader.Module):
         }
     
     strings_uk = {
-        "lang_saved": "{} <b>Мова збережена!</b>",
+        "lang_saved": "🇺🇦 <b>Мова збережена!</b>",
         "pack_saved": (
             "<emoji document_id=5197474765387864959>👍</emoji> <b>Пакет перекладів"
             " зберігати!</b>"
