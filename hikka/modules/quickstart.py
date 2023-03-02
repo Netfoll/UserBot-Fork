@@ -120,7 +120,6 @@ class QuickstartMod(loader.Module):
                     for lang in [
                         "en",
                         "ru",
-                        "uk",
                     ]
                 ],
                 2,
