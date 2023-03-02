@@ -972,6 +972,9 @@ def get_named_platform() -> str:
 
     if "LUMIHOST" in os.environ:
         return "😎 LumiHost"
+    
+    if "PYTHONDONTWRITEBYTECODE" in os.environ:
+        return "🧩 Back4App"
 
     if "DOCKER" in os.environ:
         return "🐳 Docker"     
