@@ -647,6 +647,7 @@ class LoaderMod(loader.Module):
                 # Currenly the trusted developers are specified
                 [
                     "https://github.com/MXRRI/Modules/raw/master"
+                    "https://github.com/Den4ikSuperOstryyPer4ik/Astro-Modules/raw/main"
                     "https://github.com/hikariatama/host/raw/master",
                     "https://github.com/MoriSummerz/ftg-mods/raw/main",
                     "https://gitlab.com/CakesTwix/friendly-userbot-modules/-/raw/master",
