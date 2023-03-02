@@ -12,7 +12,7 @@ requests==2.27.1
 aiogram==2.19
 grapheme==0.6.0
 emoji==2.1.0
-werkzeug==2.2.2
+werkzeug==2.2.3
 psutil==5.9.4
 
 # Python 3.8+
