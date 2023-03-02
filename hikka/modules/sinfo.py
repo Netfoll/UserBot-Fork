@@ -53,6 +53,13 @@ class SysInfoMod(loader.Module):
         "release": "<emoji document_id=5357204066550162638>🎛</emoji> Релиз ОС",
     }
 
+    strings_uk = {
+        "names": "<emoji document_id=5357506110125254467>💎</emoji> Інформація про систему",
+        "core": "Ядер",
+        "use": "<emoji document_id=5357312566013993869>📼</emoji> ЮБ використовує",
+        "release": "<emoji document_id=5357204066550162638>🎛</emoji> Реліз ОС",
+    }
+
     async def client_ready(self):
         if "Termux" in utils.get_named_platform():
             raise loader.SelfUnload

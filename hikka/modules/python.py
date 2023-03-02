@@ -57,6 +57,21 @@ class PythonMod(loader.Module):
         "_cls_doc": "Выполняет Python код",
     }
 
+    strings_uk = {
+        "eval": (
+            "<emoji document_id=4985626654563894116>💻</emoji><b>"
+            " Код:</b>\n<code>{}</code>\n\n<emoji"
+            " document_id=5197688912457245639>✅</emoji><b>"
+            " Результат:</b>\n<code>{}</code>"
+        ),
+        "err": (
+            "<emoji document_id=4985626654563894116>💻</emoji><b>"
+            " Код:</b>\n<code>{}</code>\n\n<emoji"
+            " document_id=5312526098750252863>🚫</emoji> <b>Помилка:</b>\n{}"
+        ),
+        "_cls_doc": "Виконує Python код",
+    }
+
     @loader.owner
     @loader.command(ru_doc="Выполняет Python код", alias="eval")
     async def e(self, message: Message):
