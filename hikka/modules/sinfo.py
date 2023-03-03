@@ -59,7 +59,7 @@ class SysInfoMod(loader.Module):
         "names": "<emoji document_id=5357506110125254467>💎</emoji> Інформація про систему",
         "core": "Ядер",
         "use": "<emoji document_id=5357312566013993869>📼</emoji> ЮБ використовує",
-        "platform": "<emoji document_id=5370869711888194012>👾</emoji> Плафторма",
+        "platform": "<emoji document_id=5370869711888194012>👾</emoji> Платформа",
         "release": "<emoji document_id=5357204066550162638>🎛</emoji> Реліз ОС",
     }
 
@@ -76,11 +76,11 @@ class SysInfoMod(loader.Module):
         plat = utils.get_named_platform()
 
         return (
-            f"<b>{names}</b>\n\n"
+            f"<b>{names}</b>\n"
+            f'<b>{self.strings("platform")}: {plat}</b>\n\n'
             f'<b>{self.strings("cpu")} ({processor}): {psutil.cpu_count(logical=True)} {self.strings("core")} ({psutil.cpu_percent()}%)</b>\n'
             f'<b>{self.strings("ram")}: {ram}/{ram_load_mb} MB ({ram_load_procent}%)</b>\n'
             f'<b>{self.strings("use")}: {utils.get_ram_usage()} MB / CPU {utils.get_cpu_usage()}%</b>\n\n'
-            f'<b>{self.strings("platform")}: {plat}</b>\n'
             f'<b>{self.strings("pyver")}: {platform.python_version()}</b>\n'
             f'<b>{self.strings("release")}: {platform.version()}</b>\n'
             f'<b>{self.strings("system")}: {platform.system()} ({platform.release()})</b>\n\n'
