@@ -73,14 +73,14 @@ class SysInfoMod(loader.Module):
         ram = bytes_to_megabytes(psutil.virtual_memory().total - psutil.virtual_memory().available)
         ram_load_mb = bytes_to_megabytes(psutil.virtual_memory().total)
         ram_load_procent = psutil.virtual_memory().percent
-        platform = utils.get_named_platform()
+        plat = utils.get_named_platform()
 
         return (
             f"<b>{names}</b>\n\n"
             f'<b>{self.strings("cpu")} ({processor}): {psutil.cpu_count(logical=True)} {self.strings("core")} ({psutil.cpu_percent()}%)</b>\n'
             f'<b>{self.strings("ram")}: {ram}/{ram_load_mb} MB ({ram_load_procent}%)</b>\n'
             f'<b>{self.strings("use")}: {utils.get_ram_usage()} MB / CPU {utils.get_cpu_usage()}%</b>\n\n'
-            f'<b>{self.strings("platform")}: {platform}</b>\n'
+            f'<b>{self.strings("platform")}: {plat}</b>\n'
             f'<b>{self.strings("pyver")}: {platform.python_version()}</b>\n'
             f'<b>{self.strings("release")}: {platform.version()}</b>\n'
             f'<b>{self.strings("system")}: {platform.system()} ({platform.release()})</b>\n\n'
