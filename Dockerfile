@@ -8,7 +8,7 @@ ENV PIP_NO_CACHE_DIR=1 \
 
 RUN apt update && apt install libcairo2 git build-essential -y --no-install-recommends
 RUN rm -rf /var/lib/apt/lists /var/cache/apt/archives /tmp/*
-RUN git clone https://github.com/hikariatama/Hikka /Hikka
+RUN git clone --branch skeleton https://github.com/MXRRI/Netfoll
 
 WORKDIR /Netfoll
 RUN pip install --no-warn-script-location --no-cache-dir -r requirements.txt
