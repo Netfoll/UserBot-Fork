@@ -45,7 +45,7 @@ class SysInfoMod(loader.Module):
         "platform": "<emoji document_id=5370869711888194012>👾</emoji> Platform",
         "release": "<emoji document_id=5357204066550162638>🎛</emoji> Release OS",
         "system": "<emoji document_id=5357312566013993869>📼</emoji> OS",
-        "distribution": "<emoji document_id=5357127263944975958>💽</emoji> Distribution:",
+        "distribution": "<emoji document_id=5357127263944975958>💽</emoji> Distribution",
     }
 
     strings_ru = {
@@ -54,7 +54,7 @@ class SysInfoMod(loader.Module):
         "use": "<emoji document_id=5357312566013993869>📼</emoji> ЮБ Использует",
         "platform": "<emoji document_id=5370869711888194012>👾</emoji> Плафторма",
         "release": "<emoji document_id=5357204066550162638>🎛</emoji> Релиз ОС",
-        "distribution": "<emoji document_id=5357127263944975958>💽</emoji> Дистрибутив:",
+        "distribution": "<emoji document_id=5357127263944975958>💽</emoji> Дистрибутив",
     }
 
     strings_uk = {
@@ -63,7 +63,7 @@ class SysInfoMod(loader.Module):
         "use": "<emoji document_id=5357312566013993869>📼</emoji> ЮБ використовує",
         "platform": "<emoji document_id=5370869711888194012>👾</emoji> Платформа",
         "release": "<emoji document_id=5357204066550162638>🎛</emoji> Реліз ОС",
-        "distribution": "<emoji document_id=5357127263944975958>💽</emoji> Дистрибутив:",
+        "distribution": "<emoji document_id=5357127263944975958>💽</emoji> Дистрибутив",
     }
 
     async def client_ready(self):
