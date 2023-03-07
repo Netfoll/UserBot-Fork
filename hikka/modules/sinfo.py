@@ -76,11 +76,13 @@ class SysInfoMod(loader.Module):
         ram_load_mb = bytes_to_megabytes(psutil.virtual_memory().total)
         ram_load_procent = psutil.virtual_memory().percent
         plat = utils.get_named_platform()
-        distribution = lines.split('=')[1].strip().strip('"') 
-        line = line.startswith('PRETTY_NAME=')
         with open('/etc/os-release') as f:
-           lines = f.readlines()
-
+            lines = f.readlines()
+        distribution = ""
+        for line in lines:
+            if line.startswith('PRETTY_NAME='):
+                distribution = line.split('=')[1].strip().strip('"')
+                break
         return (
             f"<b>{names}</b>\n"
             f'<b>{self.strings("platform")}: {plat}</b>\n\n'
