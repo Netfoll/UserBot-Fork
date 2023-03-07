@@ -67,7 +67,7 @@ class SysInfoMod(loader.Module):
         if "Termux" in utils.get_named_platform():
             raise loader.SelfUnload
 
-    def info(self):
+    def info(self, message):
         names = self.strings("names")
         processor = utils.escape_html(platform.architecture()[0])
         ram = bytes_to_megabytes(psutil.virtual_memory().total - psutil.virtual_memory().available)
