@@ -94,8 +94,8 @@ class SysInfoMod(loader.Module):
             f'<b>{self.strings("use")}: {utils.get_ram_usage()} MB / CPU {utils.get_cpu_usage()}%</b>\n\n'
             f'<b>{self.strings("pyver")}: {platform.python_version()}</b>\n'
             f'<b>{self.strings("release")}: {platform.version()}</b>\n'
-            f'<b>{self.strings("system")}: {platform.system()} ({platform.release()})</b>\n\n'
-            f'<b>{self.strings("distribution")}: {distribution}</b>'
+            f'<b>{self.strings("system")}: {platform.system()} ({platform.release()})</b>\n'
+            f'<b>{self.strings("distribution")}: {distribution}</b>\n'
         )
 
     @loader.command(ru_doc="Показать информацию о системе")
