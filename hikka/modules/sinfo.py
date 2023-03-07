@@ -65,7 +65,9 @@ class SysInfoMod(loader.Module):
 
     async def client_ready(self):
         if "Termux" in utils.get_named_platform():
-            raise loader.SelfUnload
+            raise loader.SelfUnload   
+    with open('/etc/os-release') as f:
+        lines = f.readlines()            
 
     def info(self, message):
         names = self.strings("names")
@@ -74,6 +76,10 @@ class SysInfoMod(loader.Module):
         ram_load_mb = bytes_to_megabytes(psutil.virtual_memory().total)
         ram_load_procent = psutil.virtual_memory().percent
         plat = utils.get_named_platform()
+        distribution = lines.split('=')[1].strip().strip('"') 
+        line = line.startswith('PRETTY_NAME=')
+        with open('/etc/os-release') as f:
+           lines = f.readlines()
 
         return (
             f"<b>{names}</b>\n"
@@ -84,6 +90,7 @@ class SysInfoMod(loader.Module):
             f'<b>{self.strings("pyver")}: {platform.python_version()}</b>\n'
             f'<b>{self.strings("release")}: {platform.version()}</b>\n'
             f'<b>{self.strings("system")}: {platform.system()} ({platform.release()})</b>\n\n'
+            f'{distribution}'
         )
 
     @loader.command(ru_doc="Показать информацию о системе")
