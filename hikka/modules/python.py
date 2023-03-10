@@ -20,7 +20,7 @@ from telethon.sessions import StringSession
 from telethon.tl.types import Message
 
 from .. import loader, main, utils
-from ..log import HikkaException
+from ..log import NetfollException
 
 
 @loader.tds
@@ -57,21 +57,6 @@ class PythonMod(loader.Module):
         "_cls_doc": "Выполняет Python код",
     }
 
-    strings_uk = {
-        "eval": (
-            "<emoji document_id=4985626654563894116>💻</emoji><b>"
-            " Код:</b>\n<code>{}</code>\n\n<emoji"
-            " document_id=5197688912457245639>✅</emoji><b>"
-            " Результат:</b>\n<code>{}</code>"
-        ),
-        "err": (
-            "<emoji document_id=4985626654563894116>💻</emoji><b>"
-            " Код:</b>\n<code>{}</code>\n\n<emoji"
-            " document_id=5312526098750252863>🚫</emoji> <b>Помилка:</b>\n{}"
-        ),
-        "_cls_doc": "Виконує Python код",
-    }
-
     @loader.owner
     @loader.command(ru_doc="Выполняет Python код", alias="eval")
     async def e(self, message: Message):
@@ -83,7 +68,7 @@ class PythonMod(loader.Module):
                 **await self.getattrs(message),
             )
         except Exception:
-            item = HikkaException.from_exc_info(*sys.exc_info())
+            item = NetfollException.from_exc_info(*sys.exc_info())
 
             await utils.answer(
                 message,
@@ -116,7 +101,7 @@ class PythonMod(loader.Module):
             )
 
     def censor(self, ret: str) -> str:
-        ret = ret.replace(str(self._client.hikka_me.phone), "&lt;phone&gt;")
+        ret = ret.replace(str(self._client.netfoll_me.phone), "&lt;phone&gt;")
 
         if redis := os.environ.get("REDIS_URL") or main.get_config_key("redis_uri"):
             ret = ret.replace(redis, f'redis://{"*" * 26}')
@@ -124,7 +109,7 @@ class PythonMod(loader.Module):
         if db := os.environ.get("DATABASE_URL") or main.get_config_key("db_uri"):
             ret = ret.replace(db, f'postgresql://{"*" * 26}')
 
-        if btoken := self._db.get("hikka.inline", "bot_token", False):
+        if btoken := self._db.get("netfoll.inline", "bot_token", False):
             ret = ret.replace(
                 btoken,
                 f'{btoken.split(":")[0]}:{"*" * 26}',
