@@ -4,8 +4,6 @@
   🌐 https://github.com/hikariatama/Hikka
   You can redistribute it and/or modify it under the terms of the GNU AGPLv3
   🔑 https://www.gnu.org/licenses/agpl-3.0.html
-  Netfoll Team modifided Hikka files for Netfoll
-  🌐 https://github.com/MXRRI/Netfoll
 -->
 
 {% extends "base.jinja2" %}
@@ -13,6 +11,7 @@
 {% block head %}
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/bodymovin/5.8.1/lottie.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/Snowstorm/20131208/snowstorm-min.js" async></script>
 <script src="//unpkg.com/@dotlottie/player-component@1.0.0/dist/dotlottie-player.js"></script>
 <script src="//unpkg.com/qr-code-styling@1.5.0/lib/qr-code-styling.js"></script>
 
@@ -30,43 +29,48 @@
 </div>
 <div class="blur auth vert_center">
   <div id="tg_icon"></div>
-  <div class="waiting_for_auth">Waiting for authentification...</div>
-  <div class="confirm_auth">Please, confirm action in <span style="color:#28a0dc">Telegram</span></div>
+  <div class="waiting_for_auth">Ожидание авторизцаии...</div>
+  <div class="confirm_auth">Пожалуйста, разрешите вход у <span style="color:#28a0dc">Инлайн бота</span></div>
 </div>
 <div class="auth-code-form blur">
   <div id="monkey"></div>
   <div id="monkey-close"></div>
-  <span class="code-caption">Enter the code you recieved from Telegram</span>
+  <span class="code-caption">Введите код отправленный вам в Телеграм</span>
   <input type="text" class="code-input" autocomplete="off">
   <div class="enter">Enter</div>
+</div>
+<div class="eula-form blur">
+  <div class="vert_center" style="height: 100%">
+    <div>
+      <div id="law"></div>
+      <br><br>
+      <span class="code-caption">Вы <span style="color:#c54245">не можете</span> добавить более одного аккаунта на вашем хостинге.</span>
+    </div>
+  </div>
 </div>
 <div class="wrapper">
   <div class="blur main finish_block">
     <div id="installation_icon"></div>
     <div class="title">Netfoll is installed</div>
     <div class="description">
-      Netfoll is installed. You can close this page now.
+      Netfoll успешно установлен. Вы можете закрыть эту страницу
       <br>
-      <b>It might take a while for installation to fully complete. Please, be patient.</b>
+      <b>Может потребоваться некоторое время для полного завершения установки. Ожидайте...</b>
       <br>
-      <span style="font-size: 24px;">Check <span style="color:#28a0dc">Telegram</span> for a message from your <b>inline
-          bot</b></span>
+      <span style="font-size: 24px;">Проверьте сообщение от Инлайн бота в <span style="color:#28a0dc">Телеграме</span> чтобы подтвердить вход</b></span>
     </div>
   </div>
   <div class="blur main installation">
     <div class="title">
-        </div><div>
-        <img class="marginauto" src="https://github.com/MXRRI/Assets/raw/main/Netfoll.gif" width="124" height="124 alt="""
+      <div class="netfoll_label">
+        <div class="label_inner">
+          <img src="{{ platform_emoji }}" class="moon">
+          &nbsp;Netfoll
+        </div>
       </div>
-    <style>
-.marginauto {
-    margin: 10px auto 20px;
-    display: block;
-}
-</style>  
     </div><br>
-    <div class="description"><span style="color:#9428dc">Control</span> is in your hands<br><span
-        style="color: #18cc18; display: none" class="authorized">Authorized!</span></div>
+    <div class="description"><span style="color:#28a0dc">Все</span> в твоих руках<br><span
+        style="color: #18cc18; display: none" class="authorized">Авторизован!</span></div>
     <div class="center">
       {% if not tg_done %}
       <div class="button" id="get_started">
@@ -84,7 +88,7 @@
       <div class="button" id="get_started">
         <div class="horiz_center">
           <div class="vert_center">
-            Add phone
+            Добавить ноиер
           </div>
 
           <div class="vert_center">
@@ -97,7 +101,7 @@
       <div class="button" id="enter_api">
         <div class="horiz_center">
           <div class="vert_center">
-            Change API Creds
+            Изменить API данные
           </div>
 
           <div class="vert_center">
@@ -115,16 +119,16 @@
         <input class="api_hash" id="api_hash" placeholder="••••••••••••••••••••••••••••••••" style="width: 24em;">
       </span>
       <span id="block_phone">
-        <label class="phone" for="phone">Phone: </label>
+        <label class="phone" for="phone">Номер: </label>
         <input class="phone" id="phone" placeholder="••••••••••••" style="width: 12em;">
       </span>
       <span id="block_2fa">
-        <label class="_2fa" for="_2fa">2FA Password: </label>
+        <label class="_2fa" for="_2fa">2FA Пароль: </label>
         <input class="_2fa" id="_2fa" placeholder="password" style="width: 12em;" type="password">
       </span>
       <span id="block_custom_bot">
-        <label class="custom_bot" for="custom_bot">Inline bot username (E.g. @username_bot): </label>
-        <input class="custom_bot" id="custom_bot" placeholder="Leave empty to generate automatically"
+        <label class="custom_bot" for="custom_bot">Юзернейм инлайн бота : </label>
+        <input class="custom_bot" id="custom_bot" placeholder="Оставьте пустым для рандомного имени"
           style="width: 20em;" type="text">
       </span>
       <span id="block_qr_login">
@@ -134,7 +138,7 @@
               autoplay
               loop
               mode="normal"
-              src="https://static.hikari.gay/4T7FajtZbx.lottie"
+              src=https://0x0.st/oR1y.lottie"
               style="width: 100px; height: 100px"
             >
             </dotlottie-player>
@@ -143,13 +147,13 @@
         <div class="tg_guide">
           <ol>
             <li>
-              <span>Open Telegram on your phone</span>
+              <span>Откройте Телеграм на вашем телефоне</span>
             </li>
             <li>
-              <span>Go to <b>Settings</b> → <b>Devices</b> → <b>Link Desktop Device</b></span>
+              <span>Перейдите в <b>Настройки</b> → <b>Устройства</b> → <b>Подключить устройство</b></span>
             </li>
             <li>
-              <span>Point your phone at this screen to confirm login</span>
+              <span>Наведите камеру телефона чтобы отсканировать</span>
             </li>
           </ol>
         </div>
@@ -171,7 +175,7 @@
       <div id="denyqr" class="button">
         <div class="horiz_center">
           <div class="vert_center">
-            Auth using phone instead
+            Войти с помощью телефона
           </div>
 
           <div class="vert_center">
