@@ -1,17 +1,5 @@
+# 🔐 Licensed under the GNU AGPLv3.
 # ---------------------------------------------------------------------------------
-#  /\_/\  🌐 This module was loaded through https://t.me/hikkamods_bot
-# ( o.o )  🔐 Licensed under the GNU AGPLv3.
-#  > ^ <   ⚠️ Owner of heta.hikariatama.ru doesn't take any responsibilities or intellectual property rights regarding this script
-# ---------------------------------------------------------------------------------
-# Name: inline_bot_manager
-# Description: Control over your Inline bot!
-# Author: Den4ikSuperOstryyPer4ik
-# Commands:
-# .inlinebothelp | .ibsetname | .ibsetqtext | .ibsetdescription | .ibsetabout
-# .ibcheckname
-# ---------------------------------------------------------------------------------
-
-
 #               _             __  __           _       _
 #     /\       | |           |  \/  |         | |     | |
 #    /  \   ___| |_ _ __ ___ | \  / | ___   __| |_   _| | ___  ___
@@ -19,7 +7,7 @@
 #  / ____ \\__ \ |_| | | (_) | |  | | (_) | (_| | |_| | |  __/\__ \
 # /_/    \_\___/\__|_|  \___/|_|  |_|\___/ \__,_|\__,_|_|\___||___/
 #
-#               © Copyright 2022
+#               © Copyright 2023
 #
 #      https://t.me/Den4ikSuperOstryyPer4ik
 #                      and
@@ -29,8 +17,6 @@
 #    https://www.gnu.org/licenses/agpl-3.0.html
 
 # meta developer: @AstroModules
-# meta pic: https://img.icons8.com/plasticine/200/000000/bot.png
-# meta banner: еще нету :(
 # scope: hikka_only
 # scope: hikka_min 1.3.0
 

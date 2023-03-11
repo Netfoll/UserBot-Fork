@@ -147,6 +147,63 @@ class UpdaterMod(loader.Module):
         ),
     }
 
+    strings_uk = {
+        "source": (
+            "<emoji document_id=5456255401194429832>📖</emoji> <b>Вихідний код можна"
+            " прочитавши</b> <a href='{}'>тут</a>"
+        ),
+        "restarting_caption": (
+            "<emoji document_id=5325792861885570739>🕗</emoji> <b>Твого {}"
+            " перезавантажувати...</b>"
+        ),
+        "downloading": (
+            "<emoji document_id=5328274090262275771>🕗</emoji> <b>Скачування"
+            " оновлення...</b>"
+        ),
+        "installing": (
+            "<emoji document_id=5328274090262275771>🕗</emoji> <b>Установка"
+            " оновлення...</b>"
+        ),
+        "success": (
+            "<emoji document_id=5305683825005700455>🕗</emoji> <b>Перезавантаження"
+            " успішний! {}</b>\n<i>Йде процес завантаження Модулів...</i>\n<i>Перезавантаження"
+            " тривати {} сек</i>"
+        ),
+        "full_success": (
+            "<emoji document_id=5348526883992510786>💜</emoji> <b>Юзербот готовий до"
+            " роботи! {}</b>\n<i>Повне перезавантаження зайняло {} сек</i>"
+        ),
+        "secure_boot_complete": (
+            "<emoji document_id=5472308992514464048>🔐</emoji> <b>Безпечне завантаження"
+            " завершений! {}</b>\n<i>Перезавантаження зайняло {} сек</i>"
+        ),
+        "origin_cfg_doc": "Посилання, з якої будуть завантажуватися оновлення",
+        "btn_restart": "🔄 Перезавантажитися",
+        "btn_update": "🧭 Оновитися",
+        "restart_confirm": "❓ <b>Ви впевнені, що хочете перезавантажитися?</b>",
+        "secure_boot_confirm": (
+            "❓ <b>Ти впевнений, що"
+            " хочеш перезавантажитися в режимі безпечного завантаження?</b>"
+        ),
+        "update_confirm": (
+            "❓ <b>Ти впевнений, що"
+            " хочеш оновитися??\n\n<a"
+            ' href="https://github.com/MXRRI/Netfoll/commit/{}">{}</a> ⤑ <a'
+            ' href="https://github.com/MXRRI/Netfoll/commit/{}">{}</a></b>'
+        ),
+        "no_update": "🚸 <b>У вас остання версія. Оновитися примусово?</b>",
+        "cancel": "🚫 Скасування",
+        "_cls_doc": "Оновлює юзербот",
+        "lumihost_restart": (
+            "<b>Твого {}"
+            " перезавантажувати...</b>"
+        ),
+        "lumihost_update": (
+            "<b>Твого {}"
+            " оновлюватися...</b>"
+        ),
+    }    
+
     def __init__(self):
         self.config = loader.ModuleConfig(
             loader.ConfigValue(
@@ -223,15 +280,15 @@ class UpdaterMod(loader.Module):
                 if self._client.netfoll_me.premium
                 and CUSTOM_EMOJIS
                 and isinstance(msg_obj, Message)
-                else "Netfoll"
+                else "<emoji document_id=5364105417569868801>😎</emoji> <b>LumiHost</b>"
             )
-            if "LUMIHOST" not in os.environ
+            if "LUMIHOST" in os.environ
             else self.strings("lumihost_restart").format(
-                '</b><emoji document_id=6334395558312020287>❄️</emoji> LumiHost<b>'
+                '<emoji document_id=5364105417569868801>😎</emoji> <b>LumiHost</b>'
                 if self._client.netfoll_me.premium
                 and CUSTOM_EMOJIS
                 and isinstance(msg_obj, Message)
-                else "😎 LumiHost"
+                else "Netfoll"
             ),
         )
 
@@ -347,19 +404,8 @@ class UpdaterMod(loader.Module):
             os.system(f"cd {utils.get_base_dir()} && cd .. && git reset --hard HEAD")
 
         try:
-            if "LUMIHOST" in os.environ:
-                msg_obj = await utils.answer(
-                    msg_obj,
-                    self.strings("lumihost_update").format(
-                        "</b><emoji document_id=6334395558312020287>❄️</emoji> LumiHost<b>"
-                        if self._client.netfoll_me.premium
-                        and CUSTOM_EMOJIS
-                        and isinstance(msg_obj, Message)
-                        else "<b>😎 LumiHost</b>"
-                    ),
-                )
+            if "" in os.environ:
                 await self.process_restart_message(msg_obj)
-                os.system("lumihost update")
                 return
 
             with contextlib.suppress(Exception):
@@ -468,8 +514,10 @@ class UpdaterMod(loader.Module):
                             )
                             or dialog.entity.id
                             in [
-                                1806375007,
-                            ]  # official netfoll chats
+                                1554874075,
+                                1697279580,
+                                1679998924,
+                            ]  # official hikka chats
                         ],
                         emoticon="🐱",
                         exclude_peers=[],

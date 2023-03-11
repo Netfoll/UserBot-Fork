@@ -317,7 +317,8 @@ class LoaderMod(loader.Module):
         ),
         "ffmpeg_required": (
             "<emoji document_id=5454225457916420314>😖</emoji> <b>Этому модулю"
-            " требуется FFMPEG, который не установлен</b>"
+            " требуется FFMPEG, который не установлен</b>\n\n"
+            "<i>https://teletype.in/@netfoll/FFMPEG</i>"
         ),
         "developer": (
             "\n\n<emoji document_id=5875452644599795072>🫶</emoji> <b>Разработчик:"

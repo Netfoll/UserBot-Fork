@@ -67,6 +67,29 @@ class InlineStuffMod(loader.Module):
         ),
     }
 
+    strings_uk = {
+        "bot_username_invalid": (
+            "<emoji document_id=5312526098750252863>🚫</emoji> <b>Неправильний нік"
+            " бот. Він повинен закінчуватися на</b> <code>bot</code> <b>і бути не коротше"
+            " ніж 5 символів</b>"
+        ),
+        "bot_username_occupied": (
+            "<emoji document_id=5312526098750252863>🚫</emoji> <b>Такий нік бота вже"
+            " зайнятий</b>"
+        ),
+        "bot_updated": (
+            "<emoji document_id=6318792204118656433>🎉</emoji> <b>Налаштування збережені."
+            " Для їх застосування потрібно перезавантажити Netfoll</b>"
+        ),
+        "this_is_hikka": (
+            "👾 <b>Привіт! Це Netfoll, заснований на Hikka. Ви можете"
+            " встановити на свій аккаунт!</b>\n\n<b>💎 <a"
+            ' href="https://github.com/MXRRI/Netfoll">GitHub</a></b>\n<b>👾 <a'
+            ' href="https://t.me/NetfollUB">Чат підтримки</a></b>'
+        ),
+    }
+
+
     async def watcher(self, message: Message):
         if (
             getattr(message, "out", False)

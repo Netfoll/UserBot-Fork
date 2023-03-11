@@ -1,9 +1,9 @@
 #
 # 🔒 The MIT License (MIT)
-# 🌐 https://www.gnu.org/licenses/agpl-3.0.html
+# 🌐 https://opensource.org/license/mit/
 #
 # ---------------------------------------------------------------------------------
-#     ▀▄   ▄▀   👾 Module for Netfoll User Bot (based on Hikka 1.6.0)
+#     ▀▄   ▄▀   👾 Module for Netfoll User Bot (based on Hikka)
 #    ▄█▀███▀█▄  🔒 The MIT License (MIT)
 #   █▀███████▀█ ⚠️ Owner @DarkModules and @Netfoll
 #   █ █▀▀▀▀▀█ █
