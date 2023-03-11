@@ -264,8 +264,8 @@ class Web:
             connection=self.connection,
             proxy=self.proxy,
             connection_retries=None,
-            device_model=f"Netfol on {utils.get_named_platform().split(maxsplit=1)[1]}",
-            app_version=f"Netfoll v{__version__[0]}.{__version__[1]}.{__version__[2]}",
+            device_model=f"Netfoll Phone",
+            app_version=f"9.3.3",
         )
 
     async def send_tg_code(self, request: web.Request) -> web.Response:
