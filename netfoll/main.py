@@ -501,7 +501,7 @@ class Netfoll:
 
                 client.start(phone=raise_auth if self.web else lambda: input("Номер телефона: "))
 
-                client.phone = "protected by toxic"
+                client.phone = "protected by netfoll developers"
 
                 self.clients += [client]
             except sqlite3.OperationalError:
