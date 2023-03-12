@@ -8,6 +8,7 @@
     🌐 https://github.com/MXRRI/Netfoll
 */
 
+
 function auth(callback) {
     $(".main").fadeOut(250);
     setTimeout(() => {

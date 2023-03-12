@@ -18,6 +18,7 @@ runout() {
 errorin() {
 	cat ../hikka-install.log
 }
+
 errorout() {
 	cat hikka-install.log
 }
