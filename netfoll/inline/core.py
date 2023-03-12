@@ -66,7 +66,7 @@ class InlineManager(
 
         self._token = db.get("netfoll.inline", "bot_token", False)
 
-    async def _cleaner(self):
+    async def cleaner(self):
         """Cleans outdated inline units"""
         while True:
             for unit_id, unit in self._units.copy().items():
@@ -75,7 +75,7 @@ class InlineManager(
 
             await asyncio.sleep(5)
 
-    async def _register_manager(
+    async def register_manager(
         self,
         after_break: bool = False,
         ignore_token_checks: bool = False,
@@ -181,7 +181,7 @@ class InlineManager(
         self._task = asyncio.ensure_future(self._dp.start_polling())
         self._cleaner_task = asyncio.ensure_future(self._cleaner())
 
-    async def _stop(self):
+    async def stop(self):
         self._task.cancel()
         self._dp.stop_polling()
         self._cleaner_task.cancel()
