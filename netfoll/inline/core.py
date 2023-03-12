@@ -1,12 +1,12 @@
 """Inline buttons, galleries and other Telegram-Bot-API stuff"""
 
-# ©️ Dan Gazizullin, 2021-2023
-# This file is a part of Hikka Userbot
-# 🌐 https://github.com/hikariatama/Hikka
-# You can redistribute it and/or modify it under the terms of the GNU AGPLv3
-# 🔑 https://www.gnu.org/licenses/agpl-3.0.html
-# Netfoll Team modifided Hikka files for Netfoll
-# 🌐 https://github.com/MXRRI/Netfoll
+#             █ █ ▀ █▄▀ ▄▀█ █▀█ ▀
+#             █▀█ █ █ █ █▀█ █▀▄ █
+#              © Copyright 2022
+#           https://t.me/hikariatama
+#
+# 🔒      Licensed under the GNU AGPLv3
+# 🌐 https://www.gnu.org/licenses/agpl-3.0.html
 
 import asyncio
 import logging
@@ -20,7 +20,6 @@ from telethon.tl.functions.contacts import UnblockRequest
 from telethon.utils import get_display_name
 
 from ..database import Database
-from ..tl_cache import CustomTelegramClient
 from .bot_pm import BotPM
 from .events import Events
 from .form import Form
@@ -43,9 +42,20 @@ class InlineManager(
     List,
     BotPM,
 ):
+    _units = {}
+    _custom_map = {}
+
+    fsm = {}
+
+    _web_auth_tokens = []
+
+    _markup_ttl = 60 * 60 * 24
+
+    init_complete = False
+
     def __init__(
         self,
-        client: CustomTelegramClient,
+        client: "TelegramClient",  # type: ignore
         db: Database,
         allmodules: "Modules",  # type: ignore
     ):
@@ -53,14 +63,6 @@ class InlineManager(
         self._client = client
         self._db = db
         self._allmodules = allmodules
-
-        self._units = {}
-        self._custom_map = {}
-        self.fsm = {}
-        self._web_auth_tokens = []
-
-        self._markup_ttl = 60 * 60 * 24
-        self.init_complete = False
 
         self._token = db.get("netfoll.inline", "bot_token", False)
 
@@ -73,14 +75,15 @@ class InlineManager(
 
             await asyncio.sleep(5)
 
-    async def register_manager(
+    async def _register_manager(
         self,
         after_break: bool = False,
         ignore_token_checks: bool = False,
     ):
         # Get info about user to use it in this class
-        self._me = self._client.tg_id
-        self._name = get_display_name(self._client.netfoll_me)
+        me = await self._client.get_me()
+        self._me = me.id
+        self._name = get_display_name(me)
 
         if not ignore_token_checks:
             # Assert that token is set to valid, and if not,
@@ -111,22 +114,20 @@ class InlineManager(
 
         # Start the bot in case it can send you messages
         try:
-            m = await self._client.send_message(self.bot_username, "/start netfoll init")
+            m = await self._client.send_message(self.bot_username, "/start")
         except (InputUserDeactivatedError, ValueError):
             self._db.set("netfoll.inline", "bot_token", None)
             self._token = False
 
             if not after_break:
-                return await self.register_manager(True)
+                return await self._register_manager(True)
 
             self.init_complete = False
             return False
         except YouBlockedUserError:
             await self._client(UnblockRequest(id=self.bot_username))
             try:
-                m = await self._client.send_message(
-                    self.bot_username, "/start netfoll init"
-                )
+                m = await self._client.send_message(self.bot_username, "/start")
             except Exception:
                 logger.critical("Can't unblock users bot", exc_info=True)
                 return False
@@ -155,7 +156,7 @@ class InlineManager(
 
         self._dp.register_message_handler(
             self._message_handler,
-            lambda *_: True,
+            lambda *args: True,
             content_types=["any"],
         )
 
