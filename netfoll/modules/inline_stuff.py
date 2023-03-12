@@ -163,6 +163,7 @@ class InlineStuffMod(loader.Module):
         uz_doc="<foydalanuvchi nomi> - Bot foydalanuvchi nomini o'zgartiring",
         es_doc="<nombre de usuario> - Cambia el nombre de usuario del bot de inline",
         kk_doc="<пайдаланушы аты> - Инлайн боттың пайдаланушы атын өзгерту",
+        alias='ch_netfoll_bot'
     )
     async def setuserbot(self, message: Message):
         """<username> - Change your Netfoll inline bot username"""
