@@ -16,4 +16,4 @@ RUN pip install --no-warn-script-location --no-cache-dir -r requirements.txt
 EXPOSE 8080
 RUN mkdir /data
 
-CMD python -m hikka
+CMD python -m netfoll
