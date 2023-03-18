@@ -1,4 +1,4 @@
-hikka-tl==1.24.14
+telethon==1.27.0
 hikka-pyro==2.0.66
 tgcrypto==1.2.5
 aiofile==3.8.1
