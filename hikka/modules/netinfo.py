@@ -260,6 +260,7 @@ class NetfollInfoMod(loader.Module):
             try:
                 await self._client.send_file(
                     message.peer_id,
+                    reply_to=utils.get_topic(message)
                     self.config["banner_url"],
                     caption=self._render_info(False),
                 )
