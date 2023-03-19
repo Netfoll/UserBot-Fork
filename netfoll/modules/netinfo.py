@@ -257,8 +257,8 @@ class NetfollInfoMod(loader.Module):
             try:
                 await self._client.send_file(
                     message.peer_id,
-                    reply_to=utils.get_topic(message),
                     self.config["banner_url"],
+                    reply_to=utils.get_topic(message),
                     caption=self._render_info(False),
                 )
             except Exception:
