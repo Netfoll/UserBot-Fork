@@ -47,10 +47,10 @@ else:
         try:
             import telethon
 
-            if tuple(map(int, telethon.__version__.split("."))) < (1, 24, 12):
+            if tuple(map(int, telethon.__version__.split("."))) < (1, 27, 0):
                 raise ImportError
         except ImportError:
-            print("🔄 Installing Hikka-TL...")
+            print("🔄 Installing Telethon...")
 
             subprocess.run(
                 [
@@ -62,7 +62,7 @@ else:
                     "-q",
                     "--disable-pip-version-check",
                     "--no-warn-script-location",
-                    "hikka-tl",
+                    "telethon==1.27.0",
                 ],
                 check=True,
             )
