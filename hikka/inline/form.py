@@ -278,7 +278,6 @@ class Form(InlineUnit):
                     + self._client.loader.lookup("translations").strings(
                         "opening_form"
                     ),
-                    **({"reply_to": utils.get_topic(message)} if message.out else {}),
                 )
             except Exception:
                 status_message = None
