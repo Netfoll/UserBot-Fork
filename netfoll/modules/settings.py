@@ -8,7 +8,7 @@
 
 import os
 
-import pyrogram
+import pyrogram  # type: ignore
 import telethon
 from telethon.extensions.html import CUSTOM_EMOJIS
 from telethon.tl.types import Message
@@ -297,7 +297,7 @@ class CoreMod(loader.Module):
             "<emoji document_id=5469654973308476699>💣</emoji> <b>Префікси Dragon і"
             " Netfoll повинні відрізнятися!</b>"
         ),
-    }    
+    }
 
     async def blacklistcommon(self, message: Message):
         args = utils.get_args(message)
@@ -336,11 +336,7 @@ class CoreMod(loader.Module):
                 (
                     (
                         utils.get_platform_emoji(self._client)
-                        + (
-                            ""
-                            if "LAVHOST" in os.environ
-                            else ""
-                        )
+                        + ("" if "LAVHOST" in os.environ else "")
                     )
                     if self._client.netfoll_me.premium and CUSTOM_EMOJIS
                     else "👾 <b>Netfoll</b>"

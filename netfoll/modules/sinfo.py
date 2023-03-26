@@ -60,23 +60,26 @@ class SysInfoMod(loader.Module):
 
     async def client_ready(self):
         if "Termux" in utils.get_named_platform():
-            raise loader.SelfUnload   
-    with open('/etc/os-release') as f:
-        lines = f.readlines()            
+            raise loader.SelfUnload
+
+    with open("/etc/os-release") as f:
+        lines = f.readlines()
 
     def info(self, message):
         names = self.strings("names")
         processor = utils.escape_html(platform.architecture()[0])
-        ram = bytes_to_megabytes(psutil.virtual_memory().total - psutil.virtual_memory().available)
+        ram = bytes_to_megabytes(
+            psutil.virtual_memory().total - psutil.virtual_memory().available
+        )
         ram_load_mb = bytes_to_megabytes(psutil.virtual_memory().total)
         ram_load_procent = psutil.virtual_memory().percent
         plat = utils.get_named_platform()
-        with open('/etc/os-release') as f:
+        with open("/etc/os-release") as f:
             lines = f.readlines()
         distribution = ""
         for line in lines:
-            if line.startswith('PRETTY_NAME='):
-                distribution = line.split('=')[1].strip().strip('"')
+            if line.startswith("PRETTY_NAME="):
+                distribution = line.split("=")[1].strip().strip('"')
                 break
         return (
             f"<b>{names}</b>\n"

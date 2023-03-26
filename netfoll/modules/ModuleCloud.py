@@ -59,6 +59,7 @@ class ModuleCloudMod(loader.Module):
 
     @loader.command(
         ru_doc="<имя модуля> - Отправить ссылку на модуль",
+        uk_doc="<ім'я модуля> - Надіслати посилання на модуль",
     )
     async def mlcmd(self, message: Message):
         """<module name> - Send link to module"""

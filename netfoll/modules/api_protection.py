@@ -19,7 +19,6 @@ from telethon.tl.types import Message
 
 from .. import loader, utils
 from ..inline.types import InlineCall
-from ..web.debugger import WebDebugger
 
 logger = logging.getLogger(__name__)
 
@@ -103,17 +102,8 @@ class APIRatelimiterMod(loader.Module):
         ),
         "btn_no": "🚫 No",
         "btn_yes": "✅ Yes",
-        "web_pin": (
-            "🔓 <b>Click the button below to show Werkzeug debug PIN. Do not give it to"
-            " anyone.</b>"
-        ),
-        "web_pin_btn": "🐞 Show Werkzeug PIN",
         "proxied_url": "🌐 Proxied URL",
         "local_url": "🏠 Local URL",
-        "debugger_disabled": (
-            "<emoji document_id=5312526098750252863>🚫</emoji> <b>Web debugger is"
-            " disabled, url is not available</b>"
-        ),
     }
 
     strings_ru = {
@@ -153,17 +143,8 @@ class APIRatelimiterMod(loader.Module):
         ),
         "btn_no": "🚫 Нет",
         "btn_yes": "✅ Да",
-        "web_pin": (
-            "🔓 <b>Нажми на кнопку ниже, чтобы показать Werkzeug debug PIN. Не давай его"
-            " никому.</b>"
-        ),
-        "web_pin_btn": "🐞 Показать Werkzeug PIN",
         "proxied_url": "🌐 Проксированная ссылка",
         "local_url": "🏠 Локальная ссылка",
-        "debugger_disabled": (
-            "<emoji document_id=5312526098750252863>🚫</emoji> <b>Веб-отладчик отключен,"
-            " ссылка недоступна</b>"
-        ),
     }
 
     _ratelimiter = []
@@ -282,12 +263,7 @@ class APIRatelimiterMod(loader.Module):
 
     @loader.command(
         ru_doc="<время в секундах> - Заморозить защиту API на N секунд",
-        it_doc="<tempo in secondi> - Congela la protezione API per N secondi",
-        de_doc="<Sekunden> - API-Schutz für N Sekunden einfrieren",
-        tr_doc="<saniye> - API korumasını N saniye dondur",
-        uz_doc="<soniya> - API himoyasini N soniya o'zgartirish",
-        es_doc="<segundos> - Congela la protección de la API durante N segundos",
-        kk_doc="<секунд> - API қорғауын N секундтік уақытта құлыптау",
+        uk_doc="<Час у секундах> - Заморозити захист API на N секунд",
     )
     async def suspend_api_protect(self, message: Message):
         """<time in seconds> - Suspend API Ratelimiter for n seconds"""
@@ -302,12 +278,7 @@ class APIRatelimiterMod(loader.Module):
 
     @loader.command(
         ru_doc="Включить/выключить защиту API",
-        it_doc="Attiva/disattiva la protezione API",
-        de_doc="API-Schutz einschalten / ausschalten",
-        tr_doc="API korumasını aç / kapat",
-        uz_doc="API himoyasini yoqish / o'chirish",
-        es_doc="Activar / desactivar la protección de API",
-        kk_doc="API қорғауын қосу / жою",
+        uk_doc="Увімкнути/вимкнути захист API",
     )
     async def api_fw_protection(self, message: Message):
         """Toggle API Ratelimiter"""
@@ -317,44 +288,6 @@ class APIRatelimiterMod(loader.Module):
             reply_markup=[
                 {"text": self.strings("btn_no"), "action": "close"},
                 {"text": self.strings("btn_yes"), "callback": self._finish},
-            ],
-        )
-
-    @property
-    def _debugger(self) -> WebDebugger:
-        return logging.getLogger().handlers[0].web_debugger
-
-    async def _show_pin(self, call: InlineCall):
-        await call.answer(f"Werkzeug PIN: {self._debugger.pin}", show_alert=True)
-
-    @loader.command(
-        ru_doc="Показать PIN Werkzeug",
-        it_doc="Mostra il PIN Werkzeug",
-        de_doc="PIN-Werkzeug anzeigen",
-        tr_doc="PIN aracını göster",
-        uz_doc="PIN vositasi ko'rsatish",
-        es_doc="Mostrar herramienta PIN",
-        kk_doc="PIN құралын көрсету",
-    )
-    async def debugger(self, message: Message):
-        """Show the Werkzeug PIN"""
-        await self.inline.form(
-            message=message,
-            text=self.strings("web_pin"),
-            reply_markup=[
-                [
-                    {
-                        "text": self.strings("web_pin_btn"),
-                        "callback": self._show_pin,
-                    }
-                ],
-                [
-                    {"text": self.strings("proxied_url"), "url": self._debugger.url},
-                    {
-                        "text": self.strings("local_url"),
-                        "url": f"http://127.0.0.1:{self._debugger.port}",
-                    },
-                ],
             ],
         )
 

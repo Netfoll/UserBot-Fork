@@ -18,14 +18,6 @@ from ..inline.types import InlineCall
 
 logger = logging.getLogger(__name__)
 
-DEBUG_MODS_DIR = os.path.join(utils.get_base_dir(), "debug_modules")
-
-if not os.path.isdir(DEBUG_MODS_DIR):
-    os.mkdir(DEBUG_MODS_DIR, mode=0o755)
-
-for mod in os.scandir(DEBUG_MODS_DIR):
-    os.remove(mod.path)
-
 
 @loader.tds
 class TestMod(loader.Module):
@@ -210,96 +202,6 @@ class TestMod(loader.Module):
 
         await utils.answer(message, self.strings("logs_cleared"))
 
-    @loader.loop(interval=1, autostart=True)
-    async def watchdog(self):
-        if not os.path.isdir(DEBUG_MODS_DIR):
-            return
-
-        try:
-            for module in os.scandir(DEBUG_MODS_DIR):
-                last_modified = os.stat(module.path).st_mtime
-                cls_ = module.path.split("/")[-1].split(".py")[0]
-
-                if cls_ not in self._memory:
-                    self._memory[cls_] = last_modified
-                    continue
-
-                if self._memory[cls_] == last_modified:
-                    continue
-
-                self._memory[cls_] = last_modified
-                logger.debug("Reloading debug module %s", cls_)
-                with open(module.path, "r") as f:
-                    try:
-                        await next(
-                            module
-                            for module in self.allmodules.modules
-                            if module.__class__.__name__ == "LoaderMod"
-                        ).load_module(
-                            f.read(),
-                            None,
-                            save_fs=False,
-                        )
-                    except Exception:
-                        logger.exception("Failed to reload module in watchdog")
-        except Exception:
-            logger.exception("Failed debugging watchdog")
-            return
-
-    @loader.command()
-    async def debugmod(self, message: Message):
-        """[module] - For developers: Open module for debugging
-        You will be able to track changes in real-time"""
-        args = utils.get_args_raw(message)
-        instance = None
-        for module in self.allmodules.modules:
-            if (
-                module.__class__.__name__.lower() == args.lower()
-                or module.strings["name"].lower() == args.lower()
-            ):
-                if os.path.isfile(
-                    os.path.join(
-                        DEBUG_MODS_DIR,
-                        f"{module.__class__.__name__}.py",
-                    )
-                ):
-                    os.remove(
-                        os.path.join(
-                            DEBUG_MODS_DIR,
-                            f"{module.__class__.__name__}.py",
-                        )
-                    )
-
-                    try:
-                        delattr(module, "netfoll_debug")
-                    except AttributeError:
-                        pass
-
-                    await utils.answer(message, self.strings("debugging_disabled"))
-                    return
-
-                module.netfoll_debug = True
-                instance = module
-                break
-
-        if not instance:
-            await utils.answer(message, self.strings("bad_module"))
-            return
-
-        with open(
-            os.path.join(
-                DEBUG_MODS_DIR,
-                f"{instance.__class__.__name__}.py",
-            ),
-            "wb",
-        ) as f:
-            f.write(inspect.getmodule(instance).__loader__.data)
-
-        await utils.answer(
-            message,
-            self.strings("debugging_enabled").format(instance.__class__.__name__),
-        )
-
     @loader.command(ru_doc="<уровень> - Показать логи")
     async def logs(
         self,
@@ -468,7 +370,7 @@ class TestMod(loader.Module):
             self.strings("results_ping").format(
                 round((time.perf_counter_ns() - start) / 10**6, 3),
                 utils.formatted_uptime(),
-            )
+            ),
         )
 
     async def client_ready(self):

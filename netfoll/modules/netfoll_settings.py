@@ -680,7 +680,9 @@ class NetfollSettingsMod(loader.Module):
 
         self._db.set(main.__name__, "nonickcmds", nn)
 
-    @loader.command(ru_doc="Показать список активных NoNick команд",)
+    @loader.command(
+        ru_doc="Показать список активных NoNick команд",
+    )
     async def nonickcmds(self, message: Message):
         """Returns the list of NoNick commands"""
         if not self._db.get(main.__name__, "nonickcmds", []):
@@ -699,7 +701,9 @@ class NetfollSettingsMod(loader.Module):
             ),
         )
 
-    @loader.command(ru_doc="Показать список активных NoNick пользователей",)
+    @loader.command(
+        ru_doc="Показать список активных NoNick пользователей",
+    )
     async def nonickusers(self, message: Message):
         """Returns the list of NoNick users"""
         users = []
@@ -1126,8 +1130,7 @@ class NetfollSettingsMod(loader.Module):
 
     @loader.command()
     async def invokecmd(self, message: Message):
-        """<module or `core` for built-in methods> <method> - Only for debugging purposes. DO NOT USE IF YOU'RE NOT A DEVELOPER
-        """
+        """<module or `core` for built-in methods> <method> - Only for debugging purposes. DO NOT USE IF YOU'RE NOT A DEVELOPER"""
         args = utils.get_args_raw(message)
         if not args or len(args.split()) < 2:
             await utils.answer(message, self.strings("no_args"))
@@ -1172,7 +1175,9 @@ class NetfollSettingsMod(loader.Module):
                 )
                 self._client._netfoll_fullchannel_cache = {}
             elif method == "clear_perms_cache":
-                result = f"Dropped {len(self._client._netfoll_perms_cache)} cache records"
+                result = (
+                    f"Dropped {len(self._client._netfoll_perms_cache)} cache records"
+                )
                 self._client._netfoll_perms_cache = {}
             elif method == "clear_cache":
                 result = (

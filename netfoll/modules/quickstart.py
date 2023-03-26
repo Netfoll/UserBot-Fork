@@ -90,7 +90,7 @@ class QuickstartMod(loader.Module):
                 [
                     {
                         "text": self.strings("btn_support"),
-                        "url": "https://t.me/netfollub",
+                        "url": "https://t.me/NetfollUB",
                     }
                 ],
             ]

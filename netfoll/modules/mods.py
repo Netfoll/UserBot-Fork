@@ -32,7 +32,7 @@ class ModsMod(loader.Module):
         ),
         "cmd": "<emoji document_id=546974131930996757> 💫 </emoji> <i><b>To find out the module commands, use <code>{}help</code></i></b>\n",
         "module": "<emoji document_id=5402093879316982515>✨</emoji>",
-        "core_module": "<emoji document_id=5400245067694747959>💫</emoji>"
+        "core_module": "<emoji document_id=5400245067694747959>💫</emoji>",
     }
 
     strings_ru = {
@@ -56,10 +56,18 @@ class ModsMod(loader.Module):
                 name = mod.strings["name"]
             except KeyError:
                 name = mod.__clas__.__name__
-            emoji = self.strings("core_module") if mod.__origin__.startswith("<core") else self.strings("module")
+            emoji = (
+                self.strings("core_module")
+                if mod.__origin__.startswith("<core")
+                else self.strings("module")
+            )
             result += f"\n {emoji} <code>{name}</code>"
 
-        result += "" if self.lookup("Loader").fully_loaded else f"\n\n{self.strings('partial_load')}"
+        result += (
+            ""
+            if self.lookup("Loader").fully_loaded
+            else f"\n\n{self.strings('partial_load')}"
+        )
         result += f"\n\n {prefix}"
 
         await utils.answer(message, result)

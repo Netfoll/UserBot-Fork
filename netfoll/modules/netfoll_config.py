@@ -1204,8 +1204,7 @@ class NetfollConfigMod(loader.Module):
         alias="setcfg",
     )
     async def fconfig(self, message: Message):
-        """<module_name> <property_name> <config_value> - set the config value for the module
-        """
+        """<module_name> <property_name> <config_value> - set the config value for the module"""
         args = utils.get_args_raw(message).split(maxsplit=2)
 
         if len(args) < 3:

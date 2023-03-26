@@ -1251,8 +1251,7 @@ class NetfollSecurityMod(loader.Module):
         ),
     )
     async def tsec(self, message: Message):
-        """<"user"/"chat"> [target user or chat] [rule (command/module)] [time] - Add new targeted security rule
-        """
+        """<"user"/"chat"> [target user or chat] [rule (command/module)] [time] - Add new targeted security rule"""
         args = utils.get_args(message)
         if not args:
             if (

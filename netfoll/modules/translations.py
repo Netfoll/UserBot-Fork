@@ -21,6 +21,7 @@ SUPPORTED_LANGUAGES = {
     "uk": "🇺🇦 Український (Переводити)",
 }
 
+
 @loader.tds
 class Translations(loader.Module):
     """Processes internal translations"""
@@ -158,7 +159,7 @@ class Translations(loader.Module):
             " <code>{}</code>"
         ),
     }
-    
+
     strings_uk = {
         "lang_saved": "🇺🇦 <b>Мова збережена!</b>",
         "pack_saved": (
@@ -192,11 +193,11 @@ class Translations(loader.Module):
             "<emoji document_id=5312526098750252863>🚫</emoji> <b>Ви не можете"
             " відправляти вбудовані елементи в цьому чаті</b>"
         ),
-       "invoke_failed": "<b> 🚫 виклик модуля не вдався! Детальніше в логах</b>",
+        "invoke_failed": "<b> 🚫 виклик модуля не вдався! Детальніше в логах</b>",
         "show_inline_cmds": "Показать Показати всі доступні вбудовані команди",
         "no_inline_cmds": "у вас немає доступних inline команд",
         "no_inline_cmds_msg": (
-        "<b> 😔 немає доступних inline команд або у вас немає доступу до них</b>"
+            "<b> 😔 немає доступних inline команд або у вас немає доступу до них</b>"
         ),
         "inline_cmds": "ℹ️ У вас {} доступна (- их) команда (- и)",
         "inline_cmds_msg": "<b>ℹ️ Доступні inline команди:</b>\n\n{}",
@@ -207,23 +208,23 @@ class Translations(loader.Module):
         "keep_id": "⚠️ Не видаляйте ID! {}",
         "choose_language": "🗽 <b>Виберіть мову</b>",
         "not_official": (
-        "<emoji document_id=5312383351217201533> ⚠️ </emoji> <b> ця мова не"
-        "підтримується офіційно</b>"
+            "<emoji document_id=5312383351217201533> ⚠️ </emoji> <b> ця мова не"
+            "підтримується офіційно</b>"
         ),
         "requested_join": (
-        " 💫 <B>Модуль</b> <code>{}</code> <b>запросив приєднання до каналу <a"
-        "href='https://t.me / {}'>{}</a></b>\n\n<b> ❓ Причина:</b><i>{}</i>"
+            " 💫 <B>Модуль</b> <code>{}</code> <b>запросив приєднання до каналу <a"
+            "href='https://t.me / {}'>{}</a></b>\n\n<b> ❓ Причина:</b><i>{}</i>"
         ),
         "fw_error": (
-        "<emoji document_id=5877458226823302157> 🕒 </emoji><B > Команда"
-        "</b > <code > {}< / code> <b > викликав FloodWait {} в методі< / B > <code > {} < / code>"
+            "<emoji document_id=5877458226823302157> 🕒 </emoji><B > Команда"
+            "</b > <code > {}< / code> <b > викликав FloodWait {} в методі< / B > <code > {} < / code>"
         ),
         "rpc_error": (
-        "<emoji document_id=5877477244938489129> 🚫 </emoji> <B>Команда"
-        "</b> <code>{}< / code> <b>не вдалося через помилку RPC:</b>"
-        " <code>{}</code>"
+            "<emoji document_id=5877477244938489129> 🚫 </emoji> <B>Команда"
+            "</b> <code>{}< / code> <b>не вдалося через помилку RPC:</b>"
+            " <code>{}</code>"
         ),
-        }
+    }
 
     async def _change_language(self, call: InlineCall, lang: str):
         self._db.set(translations.__name__, "lang", lang)
@@ -283,10 +284,11 @@ class Translations(loader.Module):
             ),
         )
 
-    @loader.command(ru_doc="[ссылка на пак | ничего чтобы удалить] - Изменить внешний пак перевода")
+    @loader.command(
+        ru_doc="[ссылка на пак | ничего чтобы удалить] - Изменить внешний пак перевода"
+    )
     async def dllangpackcmd(self, message: Message):
-        """[link to a langpack | empty to remove] - Change Netfoll translate pack (external)
-        """
+        """[link to a langpack | empty to remove] - Change Netfoll translate pack (external)"""
         args = utils.get_args_raw(message)
 
         if not args:

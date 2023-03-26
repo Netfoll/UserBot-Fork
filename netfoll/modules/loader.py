@@ -27,7 +27,7 @@ from collections import ChainMap
 from importlib.machinery import ModuleSpec
 from urllib.parse import urlparse
 
-import requests
+import requests  # type: ignore
 import telethon
 from telethon.tl.functions.channels import JoinChannelRequest
 from telethon.tl.types import Channel, Message
@@ -441,7 +441,6 @@ class LoaderMod(loader.Module):
     _links_cache = {}
 
     def __init__(self):
-
         self._storage = RemoteStorage()
 
         self.config = loader.ModuleConfig(
@@ -460,7 +459,7 @@ class LoaderMod(loader.Module):
                     "https://github.com/MoriSummerz/ftg-mods/raw/main",
                     "https://gitlab.com/CakesTwix/friendly-userbot-modules/-/raw/master",
                     "https://github.com/Den4ikSuperOstryyPer4ik/Astro-Modules/raw/main",
-                    "https://github.com/DarkModules/hikkamods/raw/main"
+                    "https://github.com/DarkModules/hikkamods/raw/main",
                 ],
                 lambda: self.strings("add_repo_config_doc"),
                 validator=loader.validators.Series(validator=loader.validators.Link()),
@@ -1265,7 +1264,6 @@ class LoaderMod(loader.Module):
 
             if not isinstance(developer_entity, Channel):
                 developer_entity = None
-
 
             if message is None:
                 return

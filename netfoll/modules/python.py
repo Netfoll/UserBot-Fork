@@ -14,7 +14,7 @@ import typing
 from types import ModuleType
 
 import telethon
-from meval import meval
+from meval import meval  # type: ignore
 from telethon.errors.rpcerrorlist import MessageIdInvalidError
 from telethon.sessions import StringSession
 from telethon.tl.types import Message
@@ -71,7 +71,7 @@ class PythonMod(loader.Module):
         ),
         "_cls_doc": "Виконує Python код",
     }
-    
+
     @loader.owner
     @loader.command(ru_doc="Выполняет Python код", alias="eval")
     async def e(self, message: Message):

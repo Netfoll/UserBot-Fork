@@ -17,7 +17,7 @@ import typing
 from asyncio import Event
 from urllib.parse import urlparse
 
-import grapheme
+import grapheme  # type: ignore
 from aiogram.types import (
     InlineQuery,
     InlineQueryResultArticle,
