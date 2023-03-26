@@ -111,7 +111,9 @@ class InlineManager(
 
         # Start the bot in case it can send you messages
         try:
-            m = await self._client.send_message(self.bot_username, "/start netfoll init")
+            m = await self._client.send_message(
+                self.bot_username, "/start netfoll init"
+            )
         except (InputUserDeactivatedError, ValueError):
             self._db.set("netfoll.inline", "bot_token", None)
             self._token = False
