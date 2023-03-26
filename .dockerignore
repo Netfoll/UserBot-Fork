@@ -146,7 +146,6 @@ data/
 api_token.txt
 .coverage
 .vscode/
-ftg-install.log
 config.ini
 .cache
 config-*.json

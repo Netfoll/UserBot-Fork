@@ -45,11 +45,11 @@ printf "\033[0;34mDownloading configuration files...\e[0m"
 if [ -f "Dockerfile" ]; then
     rm Dockerfile
 fi
-wget -q https://github.com/MXRRI/Netfoll/raw/master/Dockerfile
+wget -q https://github.com/MXRRI/Netfoll/raw/stable/Dockerfile
 if [ -f "docker-compose.yml" ]; then
     rm docker-compose.yml
 fi
-wget -q https://github.com/MXRRI/Netfoll/raw/master/docker-compose.yml
+wget -q https://github.com/MXRRI/Netfoll/raw/stable/docker-compose.yml
 printf "\033[0;32m - success\e[0m\n"
 
 printf "\033[0;34mBuilding docker image...\e[0m"
