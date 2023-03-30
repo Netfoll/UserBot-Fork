@@ -139,7 +139,7 @@ class LoaderMod(loader.Module):
         ),
         "version_incompatible": (
             "<emoji document_id=5454225457916420314>😖</emoji> <b>This module requires"
-            " Hikka {}+\nPlease, update with</b> <code>.update</code>"
+            " Netfoll {}+\nPlease, update with</b> <code>.update</code>"
         ),
         "ffmpeg_required": (
             "<emoji document_id=5454225457916420314>😖</emoji> <b>This module requires"
@@ -313,7 +313,7 @@ class LoaderMod(loader.Module):
         ),
         "version_incompatible": (
             "<emoji document_id=5454225457916420314>😖</emoji> <b>Этому модулю"
-            " требуется Hikka версии {}+\nОбновись с помощью</b> <code>.update</code>"
+            " требуется Netfoll версии {}+\nОбновись с помощью</b> <code>.update</code>"
         ),
         "ffmpeg_required": (
             "<emoji document_id=5454225457916420314>😖</emoji> <b>Этому модулю"
@@ -505,7 +505,7 @@ class LoaderMod(loader.Module):
         ),
         "version_incompatible": (
             "<emoji document_id=5454225457916420314>😖</emoji> <b>Этому модулю"
-            " требуется Hikka версии {}+\nОбновись с помощью</b> <code>.update</code>"
+            " требуется Netfoll версии {}+\nОбновись с помощью</b> <code>.update</code>"
         ),
         "ffmpeg_required": (
             "<emoji document_id=5454225457916420314>😖</emoji> <b>Этому модулю"
@@ -1075,8 +1075,8 @@ class LoaderMod(loader.Module):
                 await utils.answer(message, self.strings("inline_init_failed"))
             return
 
-        if re.search(r"# ?scope: ?hikka_min", doc):
-            ver = re.search(r"# ?scope: ?hikka_min ((?:\d+\.){2}\d+)", doc).group(1)
+        if re.search(r"# ?scope: ?netfoll_min", doc):
+            ver = re.search(r"# ?scope: ?netfoll_min ((?:\d+\.){2}\d+)", doc).group(1)
             ver_ = tuple(map(int, ver.split(".")))
             if main.__version__ < ver_:
                 if isinstance(message, Message):
@@ -1216,7 +1216,9 @@ class LoaderMod(loader.Module):
                                     "sklearn": "scikit-learn",
                                     "pil": "Pillow",
                                     "telethon": "Hikka-TL",
+                                    "hikkatl": "Hikka-TL-New",
                                     "pyrogram": "Hikka-Pyro",
+                                    "hikkapyro": "Hikka-Pyro-New
                                 }.get(e.name.lower(), e.name)
                             ]
 
