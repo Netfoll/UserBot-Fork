@@ -1218,7 +1218,7 @@ class LoaderMod(loader.Module):
                                     "telethon": "Hikka-TL",
                                     "hikkatl": "Hikka-TL-New",
                                     "pyrogram": "Hikka-Pyro",
-                                    "hikkapyro": "Hikka-Pyro-New
+                                    "hikkapyro": "Hikka-Pyro-New",
                                 }.get(e.name.lower(), e.name)
                             ]
 
