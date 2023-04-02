@@ -40,7 +40,7 @@ ALL_INVOKES = [
 
 @loader.tds
 class NetfollSettingsMod(loader.Module):
-    """Advanced settings for Hikka Userbot"""
+    """Advanced settings for Netfoll Userbot"""
 
     strings = {
         "name": "NetfollSettings",

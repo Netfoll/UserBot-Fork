@@ -262,7 +262,7 @@ class InlineQuery(AiogramInlineQuery):
         await self.answer(
             self._get_res(
                 "🚫 426",
-                "You need to update Hikka before sending this request",
+                "You need to update Netfoll before sending this request",
                 "https://img.icons8.com/fluency/344/approve-and-update.png",
             ),
             cache_time=0,

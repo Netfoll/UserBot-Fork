@@ -46,7 +46,7 @@ class NetfollInfoMod(loader.Module):
         "desc": (
             "<emoji document_id=4929415445443773080>🚀</emoji>"
             " <b>Netfoll</b>\n\nTelegram userbot with a lot of features, like inline"
-            " galleries, forms, lists lists based on Hikka. Userbot - software,"
+            " galleries, forms, lists based on Hikka. Userbot - software,"
             " running on your Telegram account. If you write a command to any chat, it"
             " will get executed right there. Check out live examples at <a"
             ' href="https://github.com/MXRRI/Netfoll">GitHub</a>'
