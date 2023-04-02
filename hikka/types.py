@@ -474,7 +474,7 @@ class Module:
             if version.__version__ < ver:
                 _raise(
                     RuntimeError(
-                        f"Library requires Hikka version {'{}.{}.{}'.format(*ver)}+"
+                        f"Library requires Netfoll version {'{}.{}.{}'.format(*ver)}+"
                     )
                 )
 

@@ -1300,7 +1300,7 @@ def check_url(url: str) -> bool:
 
 def get_git_hash() -> typing.Union[str, bool]:
     """
-    Get current Hikka git hash
+    Get current Netfoll git hash
     :return: Git commit hash
     """
     try:
@@ -1311,7 +1311,7 @@ def get_git_hash() -> typing.Union[str, bool]:
 
 def get_commit_url() -> str:
     """
-    Get current Hikka git commit url
+    Get current Netfoll git commit url
     :return: Git commit url
     """
     try:

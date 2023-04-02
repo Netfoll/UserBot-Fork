@@ -815,7 +815,7 @@ class Modules:
         return self.__approve.pop(0) if self.__approve else None
 
     def get_prefix(self, userbot: typing.Optional[str] = None) -> str:
-        """Get prefix for specific userbot. Pass `None` to get Hikka prefix"""
+        """Get prefix for specific userbot. Pass `None` to get Netfoll prefix"""
         if userbot == "dragon":
             key = "dragon.prefix"
             default = ","
