@@ -56,7 +56,7 @@ class InlineBotManagerMod(loader.Module):
     •Your inline bot username --> @{}
 ------------------------------------------------
 • Commands:
-    • <code>{prefix}ibcheckname</code> --> check bot name to be: "<code>🌘 Hikka Userbot of {your nickname}</code>"
+    • <code>{prefix}ibcheckname</code> --> check bot name to be: "<code>🌘 Netfoll Userbot of {your nickname}</code>"
     --------------------------------------------
     • <code>{prefix}ibsetname </code><name> --> set a name for your Inline Bot
     Command example:
@@ -258,13 +258,13 @@ class InlineBotManagerMod(loader.Module):
             )
 
     @loader.command(
-        ru_doc="""-->проверить имя бота, чтобы оно было: "🌘 Hikka Userbot of {ваш ник}" """
+        ru_doc="""-->проверить имя бота, чтобы оно было: "🌘 Netfoll Userbot of {ваш ник}" """
     )
     async def ibchecknamecmd(self, message):
-        """-->check bot name to be: "🌘 Hikka Userbot of {your nickname}" """
+        """-->check bot name to be: "🌘 Netfoll Userbot of {your nickname}" """
         bot_name = self.bot.first_name
         acc_name = self.acc.first_name
-        norm_nameb = f"🌘 Hikka Userbot of {acc_name}"
+        norm_nameb = f"🌘 Netfoll Userbot of {acc_name}"
         if bot_name == norm_nameb:
             await u.answer(message, self.strings("check-yes"))
             logger.debug(self.strings("check-yes"))

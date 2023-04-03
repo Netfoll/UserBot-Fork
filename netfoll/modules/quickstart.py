@@ -46,7 +46,7 @@ class QuickstartMod(loader.Module):
         "railway": (
             "🚂 <b>Your userbot is installed on Railway</b>. This platform has only"
             " <b>500 free hours per month</b>. Once this limit is reached, your"
-            " <b>Hikka will be frozen</b>. Next month <b>you will need to go to"
+            " <b>Netfoll will be frozen</b>. Next month <b>you will need to go to"
             " https://railway.app and restart it</b>."
         ),
         "language_saved": "🇬🇧 Language saved!",
