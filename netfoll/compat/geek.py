@@ -11,7 +11,7 @@ import re
 
 def compat(code: str) -> str:
     """
-    Reformats modules, built for GeekTG to work with Hikka
+    Reformats modules, built for GeekTG to work with Hikka and Netfoll
     :param code: code to reformat
     :return: reformatted code
     """

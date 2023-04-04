@@ -5,7 +5,7 @@
 # 🌐 https://www.gnu.org/licenses/agpl-3.0.html
 #
 # ---------------------------------------------------------------------------------
-#     ▀▄   ▄▀   👾 Module for Netfoll User Bot (based on Hikka)
+#     ▀▄   ▄▀   👾 Module for Netfoll User Bot (based on Hikka 1.6.1)
 #    ▄█▀███▀█▄  🔒 The GNU GPLv3
 #   █▀███████▀█ ⚠️ Owner FTG (Friendly Telegram)
 #   █ █▀▀▀▀▀█ █
