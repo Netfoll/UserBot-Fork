@@ -34,18 +34,18 @@ class NetfollBackupMod(loader.Module):
         ),
         "saved": (
             "✅ Backup period saved. You can re-configure it later with"
-            " .set_backup_period"
+            " .autobackup"
         ),
         "never": (
             "✅ I will not make automatic backups. You can re-configure it later with"
-            " .set_backup_period"
+            " .autobackup"
         ),
         "invalid_args": (
             "🚫 <b>Specify correct backup period in hours, or `0` to disable</b>"
         ),
     }
 
-    strings_uk = {
+    strings_ru = {
         "period": (
             "❗️<b>Советую включить функцию АвтоБэкапа</b> <i>(Unit Alpha)</i>"
             " <b><i>Время от времени Юнит будет создавать бэкапы вашего конфига, чтобы легко вернуть все данные в случае сбоя </i>\n"
@@ -66,7 +66,7 @@ class NetfollBackupMod(loader.Module):
         ),
     }
 
-    strings_ru = {
+    strings_uk = {
         "period": (
             "❗️<b>Раджу включити функцію Автобекапа</b> <i>(Unit Alpha)</i>"
             " <b><i>Час від часу Юніт буде створювати бекапи вашого конфіга, щоб легко повернути всі дані в разі збою </i>\n"
