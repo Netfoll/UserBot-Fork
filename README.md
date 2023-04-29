@@ -28,8 +28,8 @@
 
 # Developers
 <ul>
-<li> <h2><a href="https://github.com/DEV">MXRRI</a></h2>
+<li> <h2><a href="https://github.com/MXRRI">MXRRI</a></h2>
 <li> <h2><a href="https://github.com/penggrin12">penggrin12</a></h2>
-<li> <h2><a href="https://github.com/Yaroslav1734">Yaroslav1734</a></h2>
+<li> <h2><a href="https://github.com/asnct">ASNCT</a></h2>
 
 </ul>
