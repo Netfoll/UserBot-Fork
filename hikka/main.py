@@ -220,6 +220,7 @@ def parse_arguments() -> dict:
         "--proxy-pass",
         dest="proxy_pass",
         action="store_true",
+        default=False,
         help="Open proxy pass tunnel on start (not needed on setup)",
     )
     arguments = parser.parse_args()
@@ -372,7 +373,7 @@ class Hikka:
                 self.loop.run_until_complete(
                     self.web.start(
                         self.arguments.port,
-                        proxy_pass=True,
+                        proxy_pass=self.arguments.proxy_pass,
                     )
                 )
                 self.loop.run_until_complete(self._web_banner())
@@ -474,7 +475,7 @@ class Hikka:
             self.loop.run_until_complete(
                 self.web.start(
                     self.arguments.port,
-                    proxy_pass=True,
+                    proxy_pass=self.arguments.proxy_pass,
                 )
             )
             asyncio.ensure_future(self._web_banner())
