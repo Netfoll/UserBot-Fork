@@ -1,4 +1,4 @@
-# <img src="https://netfoll.site/img/logo.png" alt="Netfoll UserBot" height="40"> Netfoll</a>
+# <img src="https://netfoll.site/assets/images/logo.png" alt="Netfoll UserBot" height="40"> Netfoll</a>
 <h2>Telegram userbot, Based on <a href="https://github.com/hikariatama/hikka">Hikka</a></h2>
 <ul>
 <li> <b>Latest Telegram layer</b> with reactions, video stickers and other stuff</li>
