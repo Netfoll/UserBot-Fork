@@ -235,7 +235,7 @@ class HelpMod(loader.Module):
     async def support(self, message):
         """Get link of Netfoll support chat"""
         if message.out:
-            await self.request_join("@netfolub", self.strings("request_join"))
+            await self.request_join("@netfollub", self.strings("request_join"))
 
         await utils.answer(
             message,

@@ -16,6 +16,6 @@ print_center "
 \033[95m| |\  |  __/ |_|  _| (_) | | |\033[0m
 \033[95m|_| \_|\___|\__|_|  \___/|_|_| \033[0m
 
-\033[95mNetfoll Workning\033[0m
+\033[95mNetfoll started successfully!\033[0m
 \033[95mWeb url: http://localhost:1242\033[0m
 "
