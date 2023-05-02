@@ -86,9 +86,9 @@ class CoreMod(loader.Module):
         ),
         "netfoll": (
             "{} <b>{}.{}.{}</b> <i>{}</i>\n\n<b><emoji"
-            " document_id=5377437404078546699>💜</emoji> <b>Netfoll-TL:"
+            " document_id=5377437404078546699>💜</emoji> <b>Hikka-TL:"
             "</b> <i>{}</i>\n{}"
-            " <b>Netfoll-Pyro:</b> <i>{}</i>\n"
+            " <b>Hikka-Pyro:</b> <i>{}</i>\n"
             "<emoji document_id=5188666899860298925>🌒</emoji> <b>Netfoll:</b> <i>V1.6.1</i>\n<emoji"
             " document_id=6327560044845991305>👾</emoji>"
             " <b>Developers: netfoll.t.me/3</b>"
@@ -177,9 +177,9 @@ class CoreMod(loader.Module):
         ),
         "netfoll": (
             "{} <b>{}.{}.{}</b> <i>{}</i>\n\n<b><emoji"
-            " document_id=5377437404078546699>💜</emoji> <b>Netfoll-TL:"
+            " document_id=5377437404078546699>💜</emoji> <b>Hikka-TL:"
             "</b> <i>{}</i>\n{}"
-            " <b>Netfoll-Pyro:</b> <i>{}</i>\n"
+            " <b>Hikka-Pyro:</b> <i>{}</i>\n"
             "<emoji document_id=5188666899860298925>🌒</emoji> <b>Netfoll:</b> <i>V1.6.1</i>\n<emoji"
             " document_id=6327560044845991305>👾</emoji>"
             " <b>Разработчики: netfoll.t.me/3</b>"
@@ -270,9 +270,9 @@ class CoreMod(loader.Module):
         ),
         "netfoll": (
             "{} <b>{}.{}.{}</b> <i>{}</i>\n\n<b><emoji"
-            " document_id=5377437404078546699>💜</emoji> <b>Netfoll-TL:"
+            " document_id=5377437404078546699>💜</emoji> <b>Hikka-TL:"
             "</b> <i>{}</i>\n{}"
-            " <b>Netfoll-Pyro:</b> <i>{}</i>\n"
+            " <b>Hikka-Pyro:</b> <i>{}</i>\n"
             "<emoji document_id=5188666899860298925>🌒</emoji> <b>Netfoll:</b> <i>V1.6.1</i>\n<emoji"
             " document_id=6327560044845991305>👾</emoji>"
             " <b>Розробники: netfoll.t.me/3</b>"
