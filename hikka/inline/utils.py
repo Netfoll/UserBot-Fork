@@ -512,7 +512,7 @@ class Utils(InlineUnit):
                 ),
             )
         except RetryAfter as e:
-            logger.info("Sleeping %ss on aiogram FloodWait...", e.timeout)
+            logger.info("Sleeping %ss on Aiogram FloodWait...", e.timeout)
             await asyncio.sleep(e.timeout)
             return await self._edit_unit(**utils.get_kwargs())
         except MessageIdInvalid:

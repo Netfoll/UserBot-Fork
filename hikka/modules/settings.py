@@ -84,12 +84,12 @@ class CoreMod(loader.Module):
         "db_cleared": (
             "<emoji document_id=5197474765387864959>👍</emoji> <b>Database cleared</b>"
         ),
-        "hikka": (
+        "netfoll": (
             "{} <b>{}.{}.{}</b> <i>{}</i>\n\n<b><emoji"
-            " document_id=5377437404078546699>💜</emoji> <b>Hikka-TL:"
+            " document_id=5377437404078546699>💜</emoji> <b>Netfoll-TL:"
             "</b> <i>{}</i>\n{}"
-            " <b>Hikka-Pyro:</b> <i>{}</i>\n"
-            "<emoji document_id=5188666899860298925>🌒</emoji> <b>Hikka:</b> <i>V1.6.1</i>\n<emoji"
+            " <b>Netfoll-Pyro:</b> <i>{}</i>\n"
+            "<emoji document_id=5188666899860298925>🌒</emoji> <b>Netfoll:</b> <i>V1.6.1</i>\n<emoji"
             " document_id=6327560044845991305>👾</emoji>"
             " <b>Developers: netfoll.t.me/3</b>"
         ),
@@ -175,12 +175,12 @@ class CoreMod(loader.Module):
         "db_cleared": (
             "<emoji document_id=5197474765387864959>👍</emoji> <b>База очищена</b>"
         ),
-        "hikka": (
+        "netfoll": (
             "{} <b>{}.{}.{}</b> <i>{}</i>\n\n<b><emoji"
-            " document_id=5377437404078546699>💜</emoji> <b>Hikka-TL:"
+            " document_id=5377437404078546699>💜</emoji> <b>Netfoll-TL:"
             "</b> <i>{}</i>\n{}"
-            " <b>Hikka-Pyro:</b> <i>{}</i>\n"
-            "<emoji document_id=5188666899860298925>🌒</emoji> <b>Hikka:</b> <i>V1.6.1</i>\n<emoji"
+            " <b>Netfoll-Pyro:</b> <i>{}</i>\n"
+            "<emoji document_id=5188666899860298925>🌒</emoji> <b>Netfoll:</b> <i>V1.6.1</i>\n<emoji"
             " document_id=6327560044845991305>👾</emoji>"
             " <b>Разработчики: netfoll.t.me/3</b>"
         ),
@@ -268,12 +268,12 @@ class CoreMod(loader.Module):
         "db_cleared": (
             "<emoji document_id=5197474765387864959>👍</emoji> <b>База очищена</b>"
         ),
-        "hikka": (
+        "netfoll": (
             "{} <b>{}.{}.{}</b> <i>{}</i>\n\n<b><emoji"
-            " document_id=5377437404078546699>💜</emoji> <b>Hikka-TL:"
+            " document_id=5377437404078546699>💜</emoji> <b>Netfoll-TL:"
             "</b> <i>{}</i>\n{}"
-            " <b>Hikka-Pyro:</b> <i>{}</i>\n"
-            "<emoji document_id=5188666899860298925>🌒</emoji> <b>Hikka:</b> <i>V1.6.1</i>\n<emoji"
+            " <b>Netfoll-Pyro:</b> <i>{}</i>\n"
+            "<emoji document_id=5188666899860298925>🌒</emoji> <b>Netfoll:</b> <i>V1.6.1</i>\n<emoji"
             " document_id=6327560044845991305>👾</emoji>"
             " <b>Розробники: netfoll.t.me/3</b>"
         ),
@@ -332,7 +332,7 @@ class CoreMod(loader.Module):
         await utils.answer_file(
             message,
             "https://github.com/MXRRI/Netfoll/raw/stable/assets/banner.png",
-            self.strings("hikka").format(
+            self.strings("netfoll").format(
                 (
                     (
                         utils.get_platform_emoji(self._client)
