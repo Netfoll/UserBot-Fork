@@ -443,7 +443,7 @@ async def answer(
 ) -> typing.Union[InlineCall, InlineMessage, Message]:
     """
     Use this to give the response to a command
-    :param message: Message to answer to. Can be a tl message or hikka inline object
+    :param message: Message to answer to. Can be a tl message or Netfoll inline object
     :param response: Response to send
     :param reply_markup: Reply markup to send. If specified, inline form will be used
     :return: Message or inline object
