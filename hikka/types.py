@@ -474,7 +474,7 @@ class Module:
             if version.__version__ < ver:
                 _raise(
                     RuntimeError(
-                        f"Library requires Hikka version {'{}.{}.{}'.format(*ver)}+"
+                        f"Library requires Netfoll version {'{}.{}.{}'.format(*ver)}+"
                     )
                 )
 
@@ -834,7 +834,7 @@ class ModuleConfig(dict):
         if callable(ret):
             try:
                 # Compatibility tweak
-                # does nothing in Hikka
+                # does nothing in Netfoll
                 ret = ret(message)
             except Exception:
                 ret = ret()

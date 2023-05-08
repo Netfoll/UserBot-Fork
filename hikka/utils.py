@@ -443,7 +443,7 @@ async def answer(
 ) -> typing.Union[InlineCall, InlineMessage, Message]:
     """
     Use this to give the response to a command
-    :param message: Message to answer to. Can be a tl message or hikka inline object
+    :param message: Message to answer to. Can be a tl message or Netfoll inline object
     :param response: Response to send
     :param reply_markup: Reply markup to send. If specified, inline form will be used
     :return: Message or inline object
@@ -1300,7 +1300,7 @@ def check_url(url: str) -> bool:
 
 def get_git_hash() -> typing.Union[str, bool]:
     """
-    Get current Hikka git hash
+    Get current Netfoll git hash
     :return: Git commit hash
     """
     try:
@@ -1311,7 +1311,7 @@ def get_git_hash() -> typing.Union[str, bool]:
 
 def get_commit_url() -> str:
     """
-    Get current Hikka git commit url
+    Get current Netfoll git commit url
     :return: Git commit url
     """
     try:
