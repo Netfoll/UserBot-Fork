@@ -60,9 +60,9 @@ class List(InlineUnit):
                     be bigger, than default one (1 day) and must be either `int` or `False`
         :param on_unload: Callback, called when list is unloaded and/or closed. You can clean up trash
                           or perform another needed action
-        :param manual_security: By default, Hikka will try to inherit inline buttons security from the caller (command)
+        :param manual_security: By default, Netfoll will try to inherit inline buttons security from the caller (command)
                                 If you want to avoid this, pass `manual_security=True`
-        :param disable_security: By default, Hikka will try to inherit inline buttons security from the caller (command)
+        :param disable_security: By default, Netfoll will try to inherit inline buttons security from the caller (command)
                                  If you want to disable all security checks on this list in particular, pass `disable_security=True`
         :param silent: Whether the list must be sent silently (w/o "Opening list..." message)
         :param custom_buttons: Custom buttons to add above native ones
@@ -322,7 +322,7 @@ class List(InlineUnit):
                     [
                         InlineQueryResultArticle(
                             id=utils.rand(20),
-                            title="Hikka",
+                            title="Netfoll",
                             input_message_content=InputTextMessageContent(
                                 self.sanitise_text(unit["strings"][0]),
                                 "HTML",

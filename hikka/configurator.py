@@ -121,4 +121,4 @@ def api_config(data_root: str):
     ) as file:
         file.write(id_value + "\n" + hash_value)
 
-    DIALOG.msgbox("API данные сохранены. Осталось только ввести номер и код подтверждения. Приступим)\n")
+    DIALOG.msgbox("API данные сохранены. Осталось только ввести номер и код подтверждения. Приступим!\n")

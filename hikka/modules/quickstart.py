@@ -42,11 +42,11 @@ class QuickstartMod(loader.Module):
 🔹 To install the module from the file, use </i> <code>.lm</code><i> (</i><code>.loadmod</code><i>) and to delete </i>.unloadmod
 <i> 🔺 More usage guides can be found in the chat </i><a href="https://t.me/NetfollUB/3373 ">Netfoll
 
-</a><i> 🤝 <b>Netfoll</b> is based on <b>Hikka</b>, therefore supports modules <b>Hikka</b>, <b>FTG</b>, <b>DragonUB</b> and <b>GeekTG</b> and their own.</i>""",
+</a><i> 🤝 <b>Netfoll</b> is based on <b>Netfoll</b>, therefore supports modules <b>Netfoll</b>, <b>FTG</b>, <b>DragonUB</b> and <b>GeekTG</b> and their own.</i>""",
         "railway": (
             "🚂 <b>Your userbot is installed on Railway</b>. This platform has only"
             " <b>500 free hours per month</b>. Once this limit is reached, your"
-            " <b>Hikka will be frozen</b>. Next month <b>you will need to go to"
+            " <b>Netfoll will be frozen</b>. Next month <b>you will need to go to"
             " https://railway.app and restart it</b>."
         ),
         "language_saved": "🇬🇧 Language saved!",
@@ -68,7 +68,7 @@ class QuickstartMod(loader.Module):
 🔹 Для установки модуля с файла используй</i> <code>.lm</code><i> (</i><code>.loadmod</code><i>) а для удаления </i>.unloadmod
 <i>🔺 Больше гайдов по использованию можете найти в чате </i><a href="https://t.me/NetfollUB/3373">Netfoll
 
-</a><i>🤝 <b>Netfoll</b> основан на <b>Hikka</b>, поэтому поддерживает модули <b>Hikka</b>, <b>FTG</b>, <b>DragonUB</b> и <b>GeekTG</b> и свои собственные.</i>
+</a><i>🤝 <b>Netfoll</b> основан на <b>Netfoll</b>, поэтому поддерживает модули <b>Netfoll</b>, <b>FTG</b>, <b>DragonUB</b> и <b>GeekTG</b> и свои собственные.</i>
 """,
         "railway": (
             "🚂 <b>Твой юзербот установлен на Railway</b>. На этой платформе ты"

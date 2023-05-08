@@ -21,7 +21,7 @@ if (
     and all(trigger not in os.environ for trigger in {"DOCKER", "GOORM"})
 ):
     print("🚫" * 15)
-    print("You attempted to run Hikka on behalf of root user")
+    print("You attempted to run Netfoll on behalf of root user")
     print("Please, create a new user and restart script")
     print("If this action was intentional, pass --root argument instead")
     print("🚫" * 15)
