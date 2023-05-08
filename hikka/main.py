@@ -418,8 +418,8 @@ class Hikka:
 
     async def _web_banner(self):
         """Shows web banner"""
-        logging.info("✅ Web mode ready for configuration")
-        logging.info("🌐 Please visit %s", self.web.url)
+        logging.info("✅ Netfoll is now can be setted up in browser!")
+        logging.info("🌐 Go to %s", self.web.url)
 
     async def wait_for_web_auth(self, token: str) -> bool:
         """
