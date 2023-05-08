@@ -397,7 +397,7 @@ class Hikka:
         session = SQLiteSession(
             os.path.join(
                 self.arguments.data_root or BASE_DIR,
-                f"hikka-{telegram_id}",
+                f"netfoll-{telegram_id}",
             )
         )
 
