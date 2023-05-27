@@ -955,10 +955,9 @@ def get_named_platform() -> str:
     except Exception:
         pass
 
-    if "UBUNTU" in os.environ:
-        return "🦾 GoormIDE"
 
-    if "GOORM" in os.environ:
+
+    if any(trigger in os.environ for trigger in ["UBUNTU", "GOORM"]):
         return "🦾 GoormIDE"
 
     if "RAILWAY" in os.environ:
@@ -972,9 +971,6 @@ def get_named_platform() -> str:
 
     if "LUMIHOST" in os.environ:
         return "😎 LumiHost"
-    
-    if "PYTHONDONTWRITEBYTECODE" in os.environ:
-        return "🧩 Back4App"
 
     if "DOCKER" in os.environ:
         return "🐳 Docker"     
