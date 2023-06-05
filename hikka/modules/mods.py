@@ -10,7 +10,6 @@
 #      ▀▀ ▀▀
 # ---------------------------------------------------------------------------------
 # meta developer: @Netfoll
-# scope: hikka_min 1.6.0
 
 from .. import loader, utils
 import logging

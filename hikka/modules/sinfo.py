@@ -16,8 +16,6 @@
 # ---------------------------------------------------------------------------------
 
 # meta developer: @Netfoll
-# scope: hikka_min 1.6.0
-# requires: psutil
 
 from .. import loader, utils
 import platform
