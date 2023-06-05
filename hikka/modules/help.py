@@ -39,7 +39,7 @@ class HelpMod(loader.Module):
             "<emoji document_id=5312383351217201533>☝️</emoji> <b>This is a core"
             " module. You can't unload it nor replace</b>"
         ),
-        "info": "<emoji document_id=6334760737906362392>⚡️</emoji><b> You didn't specify a module to search for</b>\n\n<i>The installed modules can be viewed in</i> <code>{}mods</code>"
+        "info": "<emoji document_id=6334760737906362392>⚡️</emoji><b> You didn't specify a module to search for</b>\n\n<i>The installed modules can be viewed in</i> <code>{}mods</code>",
     }
 
     strings_ru = {
@@ -57,7 +57,7 @@ class HelpMod(loader.Module):
             "<emoji document_id=6328010818843575869>ℹ️</emoji> <b>Это встроенный"
             " модуль. Вы не можете его выгрузить или заменить</b>"
         ),
-        "info": "<emoji document_id=6334760737906362392>⚡️</emoji><b> Вы не указали модуль для поиска</b>\n\n<i>Установленные модули можно посмотреть в</i> <code>{}mods</code>"
+        "info": "<emoji document_id=6334760737906362392>⚡️</emoji><b> Вы не указали модуль для поиска</b>\n\n<i>Установленные модули можно посмотреть в</i> <code>{}mods</code>",
     }
 
     strings_uk = {
@@ -75,7 +75,7 @@ class HelpMod(loader.Module):
             "<emoji document_id=6328010818843575869>ℹ️</emoji> <b>Це вбудований"
             " модуль. Ви не можете його вивантажити або замінити</b>"
         ),
-        "info": "<emoji document_id=6334760737906362392>⚡️</emoji><b> Ви не вказали модуль для пошуку</b>\n\n<i>Встановлені модулі можна подивитися в</i> <code>{}mods</code>"
+        "info": "<emoji document_id=6334760737906362392>⚡️</emoji><b> Ви не вказали модуль для пошуку</b>\n\n<i>Встановлені модулі можна подивитися в</i> <code>{}mods</code>",
     }
 
     def find_aliases(self, command: str) -> list:
@@ -217,7 +217,9 @@ class HelpMod(loader.Module):
         )
 
     @loader.unrestricted
-    @loader.command(ru_doc="[модуль] [-f] - Показать помощь",)
+    @loader.command(
+        ru_doc="[модуль] [-f] - Показать помощь",
+    )
     async def help(self, message: Message):
         """[module] [-f] - Show help"""
         args = utils.get_args_raw(message)

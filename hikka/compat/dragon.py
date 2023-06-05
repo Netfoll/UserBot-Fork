@@ -42,6 +42,7 @@ DRAGON_EMOJI = "<emoji document_id=5375360100196163660>🐲</emoji>"
 native_import = builtins.__import__
 logger = logging.getLogger(__name__)
 
+
 # This is used to ensure, that dynamic dragon import passes in
 # the right client. Whenever one of the clients attempts to install
 # dragon-specific module, it must aqcuire the `import_lock` or wait
@@ -210,9 +211,10 @@ class DragonScripts:
                 hint_text = f"\n\n<b>Hint: {hint}</b>"
             else:
                 hint_text = ""
-                
-            return f"<b>Error!</b>\n<code>{e.__class__.__name__}: {e}</code>" + hint_text
 
+            return (
+                f"<b>Error!</b>\n<code>{e.__class__.__name__}: {e}</code>" + hint_text
+            )
 
     @staticmethod
     def with_reply(func):

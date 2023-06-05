@@ -136,8 +136,7 @@ class UpdateNotifierMod(loader.Module):
                 self.tg_id,
                 self.strings("update_required").format(
                     utils.get_git_hash()[:6],
-                    '<a href="https://github.com/MXRRI/Netfoll/compare/{}...{}">{}</a>'
-                    .format(
+                    '<a href="https://github.com/MXRRI/Netfoll/compare/{}...{}">{}</a>'.format(
                         utils.get_git_hash()[:12],
                         self.get_latest()[:12],
                         self.get_latest()[:6],

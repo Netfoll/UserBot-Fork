@@ -632,7 +632,6 @@ class LoaderMod(loader.Module):
     _links_cache = {}
 
     def __init__(self):
-
         self._storage = RemoteStorage()
 
         self.config = loader.ModuleConfig(
@@ -1457,7 +1456,6 @@ class LoaderMod(loader.Module):
 
             if not isinstance(developer_entity, Channel):
                 developer_entity = None
-
 
             if message is None:
                 return

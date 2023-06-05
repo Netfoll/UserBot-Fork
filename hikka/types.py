@@ -93,8 +93,7 @@ class Module:
         """Called after client is ready (after config_loaded)"""
 
     def internal_init(self):
-        """Called after the class is initialized in order to pass the client and db. Do not call it yourself
-        """
+        """Called after the class is initialized in order to pass the client and db. Do not call it yourself"""
         self.db = self.allmodules.db
         self._db = self.allmodules.db
         self.client = self.allmodules.client

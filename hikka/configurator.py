@@ -44,7 +44,6 @@ def _safe_input(*args, **kwargs):
 
 
 class TDialog:
-
     def inputbox(self, query: str) -> typing.Tuple[bool, str]:
         print(query)
         print()
@@ -69,7 +68,8 @@ else:
 
 
 def api_config(data_root: str):
-    code, hash_value = DIALOG.inputbox('''­
+    code, hash_value = DIALOG.inputbox(
+        """­
 
 
 
@@ -97,7 +97,8 @@ def api_config(data_root: str):
 
 Пожалуйста, введите API HASH
 Для отмены, нажмите Ctrl + Z
-    ''')
+    """
+    )
     if not code:
         return
 
@@ -105,9 +106,11 @@ def api_config(data_root: str):
         DIALOG.msgbox("Неверный HASH")
         return
 
-    code, id_value = DIALOG.inputbox('''­
+    code, id_value = DIALOG.inputbox(
+        """­
 Отлично! Теперь введите API ID
-    ''')
+    """
+    )
 
     if not id_value or any(it not in string.digits for it in id_value):
         DIALOG.msgbox("Неверный ID")
@@ -121,4 +124,6 @@ def api_config(data_root: str):
     ) as file:
         file.write(id_value + "\n" + hash_value)
 
-    DIALOG.msgbox("API данные сохранены. Осталось только ввести номер и код подтверждения. Приступим!\n")
+    DIALOG.msgbox(
+        "API данные сохранены. Осталось только ввести номер и код подтверждения. Приступим!\n"
+    )
