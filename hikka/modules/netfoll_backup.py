@@ -33,8 +33,7 @@ class NetfollBackupMod(loader.Module):
             " automatic database backups"
         ),
         "saved": (
-            "✅ Backup period saved. You can re-configure it later with"
-            " .autobackup"
+            "✅ Backup period saved. You can re-configure it later with" " .autobackup"
         ),
         "never": (
             "✅ I will not make automatic backups. You can re-configure it later with"
@@ -54,9 +53,7 @@ class NetfollBackupMod(loader.Module):
             "<i>Чтобы в ручную изменить время автобэкапа используйте </i></b><code>.autobackup\n\n"
             "</code>🔻 <b>Выберите срок Автобэкапа</b>"
         ),
-        "saved": (
-            "✅ Периодичность сохранена! Ее можно изменить с помощью .autobackup"
-        ),
+        "saved": ("✅ Периодичность сохранена! Ее можно изменить с помощью .autobackup"),
         "never": (
             "✅ Я не буду делать автоматические резервные копии. Можно отменить"
             " используя .autobackup"

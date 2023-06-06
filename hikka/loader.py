@@ -276,8 +276,7 @@ tds = translatable_docstring  # Shorter name for modules to use
 
 
 def ratelimit(func: Command) -> Command:
-    """Decorator that causes ratelimiting for this command to be enforced more strictly
-    """
+    """Decorator that causes ratelimiting for this command to be enforced more strictly"""
     func.ratelimit = True
     return func
 
@@ -1048,7 +1047,9 @@ class Modules:
                 module.name.lower(),
                 module.__class__.__name__.lower(),
             ):
-                if module.__origin__.startswith("<core") and not self._db.get("core", "allow_overwrite_core", False):
+                if module.__origin__.startswith("<core") and not self._db.get(
+                    "core", "allow_overwrite_core", False
+                ):
                     raise CoreUnloadError(module.__class__.__name__)
 
                 worked += [module.__class__.__name__]

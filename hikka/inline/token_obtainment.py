@@ -46,7 +46,7 @@ class TokenObtainment(InlineUnit):
 
             if "20" in r.raw_text:
                 return False
-                
+
             await fw_protect()
             await m.delete()
             await r.delete()
@@ -180,7 +180,7 @@ class TokenObtainment(InlineUnit):
                         False,
                     ) and not re.search(r"@netfoll_[0-9a-zA-Z]{6}_bot", button.text):
                         continue
-                        
+
                         await fw_protect()
 
                     m = await conv.send_message(button.text)
@@ -203,7 +203,7 @@ class TokenObtainment(InlineUnit):
                         logger.debug("<< %s", r.raw_text)
 
                         await fw_protect()
-                        
+
                         await m.delete()
                         await r.delete()
 
@@ -220,7 +220,7 @@ class TokenObtainment(InlineUnit):
                     # Save token to database, now this bot is ready-to-use
                     self._db.set("hikka.inline", "bot_token", token)
                     self._token = token
-                    
+
                     await fw_protect()
 
                     await m.delete()
@@ -242,7 +242,7 @@ class TokenObtainment(InlineUnit):
                         await fw_protect()
                         m = await conv.send_message(msg)
                         r = await conv.get_response()
-                        
+
                         await fw_protect()
 
                         logger.debug(">> %s", m.raw_text)
@@ -268,7 +268,6 @@ class TokenObtainment(InlineUnit):
 
                         logger.debug(">> %s", m.raw_text)
                         logger.debug("<< %s", r.raw_text)
-
 
                     await fw_protect()
                     await m.delete()

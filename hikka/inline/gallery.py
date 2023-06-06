@@ -349,8 +349,7 @@ class Gallery(InlineUnit):
             typing.List[str],
         ],
     ) -> typing.Union[str, bool]:
-        """Parses photo url from `callback`. Returns url on success, otherwise `False`
-        """
+        """Parses photo url from `callback`. Returns url on success, otherwise `False`"""
         if isinstance(callback, str):
             photo_url = callback
         elif isinstance(callback, list):

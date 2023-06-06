@@ -72,18 +72,6 @@ class TestMod(loader.Module):
             " ignore this warning</b>"
         ),
         "choose_loglevel": "💁‍♂️ <b>Choose log level</b>",
-        "bad_module": (
-            "<emoji document_id=5312526098750252863>🚫</emoji> <b>Module not found</b>"
-        ),
-        "debugging_enabled": (
-            "<emoji document_id=5332533929020761310>✅</emoji> <b>Debugging mode enabled"
-            " for module</b> <code>{0}</code>\n<i>Go to directory named"
-            " `debug_modules`, edit file named `{0}.py` and see changes in real"
-            " time</i>"
-        ),
-        "debugging_disabled": (
-            "<emoji document_id=5332533929020761310>✅</emoji> <b>Debugging disabled</b>"
-        ),
         "send_anyway": "📤 Send anyway",
         "cancel": "🚫 Cancel",
         "logs_cleared": "🗑 <b>Logs cleared</b>",
@@ -102,16 +90,6 @@ class TestMod(loader.Module):
             "<emoji document_id=5384307092599348179>🫡</emoji> Логи <b>Netfoll</b> уровня"
             "</b> <code>{}</code>\n\n<emoji document_id=6318902906900711458>⚪️</emoji>"
             " <b>Версия: {}.{}.{}</b>{}"
-        ),
-        "debugging_enabled": (
-            "<emoji document_id=5332533929020761310>✅</emoji> <b>Режим разработчика"
-            " включен для модуля</b> <code>{0}</code>\n<i>Отправляйся в директорию"
-            " `debug_modules`, изменяй файл `{0}.py`, и смотри изменения в режиме"
-            " реального времени</i>"
-        ),
-        "debugging_disabled": (
-            "<emoji document_id=5332533929020761310>✅</emoji> <b>Режим разработчика"
-            " выключен</b>"
         ),
         "suspend_invalid_time": (
             "<emoji document_id=5312526098750252863>🚫</emoji> <b>Неверное время"
@@ -138,13 +116,6 @@ class TestMod(loader.Module):
             " предупреждение</b>"
         ),
         "choose_loglevel": "💁‍♂️ <b>Выбери уровень логов</b>",
-        "_cmd_doc_dump": "Показать информацию о сообщении",
-        "_cmd_doc_logs": (
-            "<уровень> - Отправляет лог-файл. Уровни ниже WARNING могут содержать"
-            " личную инфомрацию."
-        ),
-        "_cmd_doc_suspend": "<время> - Заморозить бота на некоторое время",
-        "_cmd_doc_ping": "Проверяет скорость отклика юзербота",
         "_cls_doc": "Операции, связанные с самотестированием",
         "send_anyway": "📤 Все равно отправить",
         "cancel": "🚫 Отмена",
@@ -187,7 +158,10 @@ class TestMod(loader.Module):
             "CRITICAL": 50,
         }[self.config["tglog_level"]]
 
-    @loader.command(ru_doc="Ответь на сообщение, чтобы показать его дамп")
+    @loader.command(
+        ru_doc="Ответь на сообщение, чтобы показать его дамп",
+        uk_doc="Дай відповідь на повідомлення, щоб показати його дамп",
+    )
     async def dump(self, message: Message):
         """Use in reply to get a dump of a message"""
         if not message.is_reply:
@@ -200,7 +174,7 @@ class TestMod(loader.Module):
             + "</code>",
         )
 
-    @loader.command(ru_doc="Очистить логи")
+    @loader.command(ru_doc="Очистить логи", uk_doc="Очистити логи")
     async def clearlogs(self, message: Message):
         """Clear logs"""
         for handler in logging.getLogger().handlers:
@@ -245,60 +219,6 @@ class TestMod(loader.Module):
         except Exception:
             logger.exception("Failed debugging watchdog")
             return
-
-    @loader.command()
-    async def debugmod(self, message: Message):
-        """[module] - For developers: Open module for debugging
-        You will be able to track changes in real-time"""
-        args = utils.get_args_raw(message)
-        instance = None
-        for module in self.allmodules.modules:
-            if (
-                module.__class__.__name__.lower() == args.lower()
-                or module.strings["name"].lower() == args.lower()
-            ):
-                if os.path.isfile(
-                    os.path.join(
-                        DEBUG_MODS_DIR,
-                        f"{module.__class__.__name__}.py",
-                    )
-                ):
-                    os.remove(
-                        os.path.join(
-                            DEBUG_MODS_DIR,
-                            f"{module.__class__.__name__}.py",
-                        )
-                    )
-
-                    try:
-                        delattr(module, "hikka_debug")
-                    except AttributeError:
-                        pass
-
-                    await utils.answer(message, self.strings("debugging_disabled"))
-                    return
-
-                module.hikka_debug = True
-                instance = module
-                break
-
-        if not instance:
-            await utils.answer(message, self.strings("bad_module"))
-            return
-
-        with open(
-            os.path.join(
-                DEBUG_MODS_DIR,
-                f"{instance.__class__.__name__}.py",
-            ),
-            "wb",
-        ) as f:
-            f.write(inspect.getmodule(instance).__loader__.data)
-
-        await utils.answer(
-            message,
-            self.strings("debugging_enabled").format(instance.__class__.__name__),
-        )
 
     @loader.command(ru_doc="<уровень> - Показать логи")
     async def logs(
@@ -444,7 +364,10 @@ class TestMod(loader.Module):
             )
 
     @loader.owner
-    @loader.command(ru_doc="<время> - Заморозить бота на N секунд")
+    @loader.command(
+        ru_doc="<время> - Заморозить бота на N секунд",
+        uk_doc="<час> - Заморозити бота на N секунд",
+    )
     async def suspend(self, message: Message):
         """<time> - Suspends the bot for N seconds"""
         try:
@@ -457,7 +380,10 @@ class TestMod(loader.Module):
         except ValueError:
             await utils.answer(message, self.strings("suspend_invalid_time"))
 
-    @loader.command(ru_doc="Проверить скорость отклика юзербота")
+    @loader.command(
+        ru_doc="Проверить скорость отклика юзербота",
+        uk_doc="Перевірити швидкість відгуку юзербота",
+    )
     async def ping(self, message: Message):
         """Test your userbot ping"""
         start = time.perf_counter_ns()
@@ -468,7 +394,7 @@ class TestMod(loader.Module):
             self.strings("results_ping").format(
                 round((time.perf_counter_ns() - start) / 10**6, 3),
                 utils.formatted_uptime(),
-            )
+            ),
         )
 
     async def client_ready(self):

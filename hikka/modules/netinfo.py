@@ -86,24 +86,24 @@ class NetfollInfoMod(loader.Module):
     }
 
     strings_uk = {
-        "version":"Версія",
+        "version": "Версія",
         "prefix": "Префікс",
-        "uptime":"Аптайм",
+        "uptime": "Аптайм",
         "send_info": "Надіслати інформацію про юзербот",
         "опис": " ℹ Це не розкриє жодної особистої інформації",
         "_ihandle_doc_info": "Надіслати інформацію про юзербот",
         "_cfg_cst_msg": (
-        "Кастомний текст повідомлення в info. Може містити ключові слова {me},"
-        " {version}, {prefix}, {platform}, {upd}, {uptime}, {cpu_usage},"
-        " {ram_usage}"
+            "Кастомний текст повідомлення в info. Може містити ключові слова {me},"
+            " {version}, {prefix}, {platform}, {upd}, {uptime}, {cpu_usage},"
+            " {ram_usage}"
         ),
         "_cfg_cst_btn": (
-        "Кастомна кнопка в повідомленні в info. Залиш порожнім, щоб прибрати кнопку"
+            "Кастомна кнопка в повідомленні в info. Залиш порожнім, щоб прибрати кнопку"
         ),
-        "_cfg_banner":"посилання на банер-картинку",
+        "_cfg_banner": "посилання на банер-картинку",
         "setinfo_no_args": (
-        "<emoji document_id=5370881342659631698> 😢 </emoji> <b> вам потрібно вказати"
-        "текст для кастомного Інфо</b>"
+            "<emoji document_id=5370881342659631698> 😢 </emoji> <b> вам потрібно вказати"
+            "текст для кастомного Інфо</b>"
         ),
         "setinfo_success": (
             "<emoji document_id=5436040291507247633>🎉</emoji> <b>Текст Інфо успішно"
@@ -142,8 +142,13 @@ class NetfollInfoMod(loader.Module):
 
     async def client_ready(self):
         self._me = await self._client.get_me()
-        if self.config["banner_url"] == "https://github.com/MXRRI/Netfoll/raw/stable/assets/banner.png":
-            self.config["banner_url"] = "https://github.com/MXRRI/Netfoll/raw/stable/assets/banner.png"
+        if (
+            self.config["banner_url"]
+            == "https://github.com/MXRRI/Netfoll/raw/stable/assets/banner.png"
+        ):
+            self.config[
+                "banner_url"
+            ] = "https://github.com/MXRRI/Netfoll/raw/stable/assets/banner.png"
 
     def _render_info(self, inline: bool) -> str:
         me = '<b><a href="tg://user?id={}">{}</a></b>'.format(
@@ -155,11 +160,11 @@ class NetfollInfoMod(loader.Module):
         prefix = f"«<code>{utils.escape_html(self.get_prefix())}</code>»"
 
         platfo = utils.get_named_platform()
-        if 'Termux' not in platfo:
+        if "Termux" not in platfo:
             usage = f" ({utils.get_cpu_usage()}% | {utils.get_ram_usage()} RAM)</b>"
         else:
-            usage = '\n'
-       
+            usage = "\n"
+
         platform = utils.get_named_platform()
 
         for emoji, icon in {
@@ -192,7 +197,7 @@ class NetfollInfoMod(loader.Module):
             )
             if self.config["custom_message"]
             else (
-                f'<b>{{}} for {me}</b>\n\n'
+                f"<b>{{}} for {me}</b>\n\n"
                 f"<emoji document_id=6334456392228800167>🪢</emoji> <b>{self.strings('version')}:</b> {_version} {build}\n"
                 f"<emoji document_id=6334701737940616970>💫</emoji> <b>{self.strings('prefix')}:</b> {prefix}\n"
                 f"<emoji document_id=6334620339720423126>🕛</emoji> <b>{self.strings('uptime')}:</b>"
@@ -214,15 +219,16 @@ class NetfollInfoMod(loader.Module):
     def _get_mark(self):
         return (
             {
-                "text": self.config["custom_button"][0], 
-                "url": self.config["custom_button"][1]
+                "text": self.config["custom_button"][0],
+                "url": self.config["custom_button"][1],
             }
             if self.config["custom_button"]
             else None
         )
 
-
-    @loader.inline_handler(thumb_url="https://img.icons8.com/nolan/512/info-squared.png")
+    @loader.inline_handler(
+        thumb_url="https://img.icons8.com/nolan/512/info-squared.png"
+    )
     @loader.inline_everyone
     async def Info(self, _: InlineQuery) -> dict:
         """Send userbot info"""
@@ -235,13 +241,11 @@ class NetfollInfoMod(loader.Module):
                 if self.config["banner_url"]
                 else {"message": self._render_info(True)}
             ),
-            "thumb": (
-                "https://github.com/MXRRI/Netfoll/raw/Stable/assets/bot_pfp.png"
-            ),
+            "thumb": ("https://github.com/MXRRI/Netfoll/raw/Stable/assets/bot_pfp.png"),
             "reply_markup": self._get_mark(),
         }
 
-    @loader.command(alias='инфо')
+    @loader.command(alias="инфо")
     async def info(self, message: Message):
         """Send userbot info"""
 
@@ -249,7 +253,12 @@ class NetfollInfoMod(loader.Module):
             await self.inline.form(
                 message=message,
                 text=self._render_info(True),
-                reply_markup=[{'text': self.config['custom_button'][0], 'url': self.config['custom_button'][1]}],
+                reply_markup=[
+                    {
+                        "text": self.config["custom_button"][0],
+                        "url": self.config["custom_button"][1],
+                    }
+                ],
                 **(
                     {"photo": self.config["banner_url"]}
                     if self.config["banner_url"]
@@ -270,12 +279,16 @@ class NetfollInfoMod(loader.Module):
                 if message.out:
                     await message.delete()
 
-    @loader.command(ru_doc="Отправить информацию по типу 'Что такое Netfoll?'",)
+    @loader.command(
+        ru_doc="Отправить информацию по типу 'Что такое Netfoll?'",
+    )
     async def whonetfoll(self, message: Message):
         """Send info aka 'What is Netfoll?'"""
         await utils.answer(message, self.strings("desc"))
 
-    @loader.command(ru_doc="<текст> - Изменить текст в .info",)
+    @loader.command(
+        ru_doc="<текст> - Изменить текст в .info",
+    )
     async def setinfo(self, message: Message):
         """<text> - Change text in .info"""
         args = utils.get_args_html(message)

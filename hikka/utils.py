@@ -730,7 +730,11 @@ async def convert_folders(client):
     folders = await client(GetDialogFiltersRequest())
 
     try:
-        folder = next(folder for folder in folders if hasattr(folder, "title") and folder.title == "hikka")
+        folder = next(
+            folder
+            for folder in folders
+            if hasattr(folder, "title") and folder.title == "hikka"
+        )
     except Exception:
         folder = None
 
@@ -785,14 +789,13 @@ async def asset_channel(
         title = title.replace("hikka-", "netfoll-")
 
     async for d in client.iter_dialogs():
-        if (d.title == title) or ((d.title.replace("hikka-", "netfoll-") == title) if d.title.startswith("hikka-") else False):
+        if (d.title == title) or (
+            (d.title.replace("hikka-", "netfoll-") == title)
+            if d.title.startswith("hikka-")
+            else False
+        ):
             if d.title.startswith("hikka-"):
-                await client(
-                    EditTitleRequest(
-                        d.title,
-                        title
-                    )
-                )
+                await client(EditTitleRequest(d.title, title))
 
             client._channels_cache[title] = {"peer": d.entity, "exp": int(time.time())}
             if invite_bot:
@@ -849,7 +852,11 @@ async def asset_channel(
         folders = await client(GetDialogFiltersRequest())
 
         try:
-            folder = next(folder for folder in folders if hasattr(folder, "title") and folder.title == "netfoll")
+            folder = next(
+                folder
+                for folder in folders
+                if hasattr(folder, "title") and folder.title == "netfoll"
+            )
         except Exception:
             folder = None
 
@@ -972,15 +979,14 @@ def get_named_platform() -> str:
 
     if "LUMIHOST" in os.environ:
         return "😎 LumiHost"
-    
+
     if "PYTHONDONTWRITEBYTECODE" in os.environ:
         return "🧩 Back4App"
 
     if "DOCKER" in os.environ:
-        return "🐳 Docker"     
+        return "🐳 Docker"
 
     return f"👾 {platform.system()}"
-    
 
 
 def get_platform_emoji(client: typing.Optional[CustomTelegramClient] = None) -> str:
@@ -992,9 +998,7 @@ def get_platform_emoji(client: typing.Optional[CustomTelegramClient] = None) -> 
         will be broken.
     :return: Emoji entity in string
     """
-    BASE = (
-        "<emoji document_id=5224301818313450421>👾</emoji> <b>Netfoll</b>",
-    )
+    BASE = ("<emoji document_id=5224301818313450421>👾</emoji> <b>Netfoll</b>",)
 
     if client and (
         client.loader.db.get("hikka.translations", "lang", False) or ""
@@ -1316,9 +1320,7 @@ def get_commit_url() -> str:
     """
     try:
         hash_ = get_git_hash()
-        return (
-            f'<a href="https://github.com/MXRRI/Netfoll/commit/{hash_}">#{hash_[:7]}</a>'
-        )
+        return f'<a href="https://github.com/MXRRI/Netfoll/commit/{hash_}">#{hash_[:7]}</a>'
     except Exception:
         return "Unknown"
 

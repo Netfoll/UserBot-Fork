@@ -16,8 +16,6 @@
 # ---------------------------------------------------------------------------------
 
 # meta developer: @Netfoll
-# scope: hikka_min 1.6.0
-# requires: psutil
 
 from .. import loader, utils
 import platform
@@ -67,7 +65,9 @@ class SysInfoMod(loader.Module):
     def info(self, message):
         names = self.strings("names")
         processor = utils.escape_html(platform.architecture()[0])
-        ram = bytes_to_megabytes(psutil.virtual_memory().total - psutil.virtual_memory().available)
+        ram = bytes_to_megabytes(
+            psutil.virtual_memory().total - psutil.virtual_memory().available
+        )
         ram_load_mb = bytes_to_megabytes(psutil.virtual_memory().total)
         ram_load_procent = psutil.virtual_memory().percent
 
