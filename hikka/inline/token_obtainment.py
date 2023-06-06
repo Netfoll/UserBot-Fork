@@ -121,7 +121,7 @@ class TokenObtainment(InlineUnit):
             # Just return `True`
             return True
 
-        logger.info("Bot token not found in database, attempting search in BotFather")
+        logger.info("Netfoll can't find token in database, taking it from BotFather")
 
         if not self._db.get(__name__, "no_mute", False):
             await utils.dnd(
