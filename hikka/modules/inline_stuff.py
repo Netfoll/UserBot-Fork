@@ -163,7 +163,7 @@ class InlineStuffMod(loader.Module):
         es_doc="<nombre de usuario> - Cambia el nombre de usuario del bot de inline",
         kk_doc="<пайдаланушы аты> - Инлайн боттың пайдаланушы атын өзгерту",
     )
-    async def ch_hikka_bot(self, message: Message):
+    async def ch_netfoll_bot(self, message: Message):
         """<username> - Change your Netfoll inline bot username"""
         args = utils.get_args_raw(message).strip("@")
         if (
