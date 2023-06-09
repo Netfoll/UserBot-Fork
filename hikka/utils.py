@@ -958,7 +958,7 @@ def get_named_platform() -> str:
         from platform import uname
 
         if "microsoft-standard" in uname().release:
-            return "🍁 WSL"
+            return "🍁 Windows WSL"
     except Exception:
         pass
 
@@ -979,9 +979,6 @@ def get_named_platform() -> str:
 
     if "LUMIHOST" in os.environ:
         return "😎 LumiHost"
-
-    if "PYTHONDONTWRITEBYTECODE" in os.environ:
-        return "🧩 Back4App"
 
     if "DOCKER" in os.environ:
         return "🐳 Docker"
