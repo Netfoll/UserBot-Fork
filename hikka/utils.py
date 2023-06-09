@@ -971,9 +971,6 @@ def get_named_platform() -> str:
     if "RAILWAY" in os.environ:
         return "🚂 Railway"
 
-    if "com.termux" in os.environ.get("PREFIX", ""):
-        return "🕶 Termux"
-
     if "CODESPACES" in os.environ:
         return "🐈‍⬛ Codespaces"
 
