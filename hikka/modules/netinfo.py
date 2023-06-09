@@ -162,7 +162,7 @@ class NetfollInfoMod(loader.Module):
 
         platfo = utils.get_named_platform()
         if "Termux" not in platfo:
-            usage = f" ({utils.get_cpu_usage()}% | {utils.get_ram_usage()} RAM)</b>"
+            usage = f" ({psutil.cpu_percent()}% | {utils.get_ram_usage()} RAM)</b>"
         else:
             usage = "\n"
 
