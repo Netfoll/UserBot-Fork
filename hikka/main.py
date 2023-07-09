@@ -562,19 +562,36 @@ class Hikka:
 
             _platform = utils.get_named_platform()
 
-            logo1 = f"""
+            if "SEGFAULT" in os.environ:
+                logo1 = f"""
 
-                         _   _      _    __       _ _ 
-                        | \ | | ___| |_ / _| ___ | | |
-                        |  \| |/ _ \ __| |_ / _ \| | |
-                        | |\  |  __/ |_|  _| (_) | | |
-                        |_| \_|\___|\__|_|  \___/|_|_|  
+                             _   _      _    __       _ _ 
+                            | \ | | ___| |_ / _| ___ | | |
+                            |  \| |/ _ \ __| |_ / _ \| | |
+                            | |\  |  __/ |_|  _| (_) | | |
+                            |_| \_|\___|\__|_|  \___/|_|_|  
 
-                     ♦ Version: {'.'.join(list(map(str, list(netver))))} #{build[:7]}
-                     ♦ {upd}
-                     ♦ Platform: {_platform}
-                     """
+                         ♦ Version: {'.'.join(list(map(str, list(netver))))} #{build[:7]}
+                         ♦ {upd}
+                         ♦ Platform: {_platform}
+                         
+                         ♦ !!!WARNING!!! Segfault is a VERY unstable hosting!
+                         """
 
+            else:
+                logo1 = f"""
+
+                             _   _      _    __       _ _ 
+                            | \ | | ___| |_ / _| ___ | | |
+                            |  \| |/ _ \ __| |_ / _ \| | |
+                            | |\  |  __/ |_|  _| (_) | | |
+                            |_| \_|\___|\__|_|  \___/|_|_|  
+
+                         ♦ Version: {'.'.join(list(map(str, list(netver))))} #{build[:7]}
+                         ♦ {upd}
+                         ♦ Platform: {_platform}
+                         """
+                         
             if not self.omit_log:
                 print(logo1)
                 web_url = (

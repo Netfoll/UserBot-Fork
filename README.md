@@ -12,6 +12,7 @@
 
 # Installation 
 
+#
 <a href="https://t.me/lumihost_bot"><img src="https://raw.githubusercontent.com/mrksbgg/hosting/master/button (1).png"></a>
 
 <br>
@@ -29,7 +30,7 @@
 # Developers
 <ul>
 <li> <h2><a href="https://github.com/MXRRI">MXRRI</a></h2>
-<li> <h2><a href="https://github.com/ASNCT">ASNCT</a></h2>
+<li> <h2><a href="https://github.com/mrksbgg">mrksbgg</a></h2>
 <li> <h2><a href="https://github.com/penggrin12">penggrin12</a></h2>
 
 </ul>
