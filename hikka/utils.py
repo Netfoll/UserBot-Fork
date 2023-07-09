@@ -980,6 +980,9 @@ def get_named_platform() -> str:
     if "DOCKER" in os.environ:
         return "🐳 Docker"
 
+    if "SEGFAULT" in os.environ:
+        return "⚙️ Segfault"
+    
     return f"👾 {platform.system()}"
 
 

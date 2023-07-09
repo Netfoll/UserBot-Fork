@@ -80,6 +80,14 @@ class UpdaterMod(loader.Module):
             "<b>Your {} is"
             " updating...</b>"
         ),
+        "segfault_restart": (
+            "<b>Your {} is"
+            " restarting...</b>"
+        ),
+        "segfault_update": (
+            "<b>Your {} is"
+            " updating...</b>"
+        ),
         "full_success": (
             "<emoji document_id=5348526883992510786>💜</emoji> <b>Userbot ready"
             " to use! {}</b>\n<i>Full restart took {}s</i>"
@@ -145,6 +153,14 @@ class UpdaterMod(loader.Module):
             "<b>Твой {}"
             " обновляется...</b>"
         ),
+        "segfault_restart": (
+            "<b>Твой {}"
+            " перезагружается...</b>"
+        ),
+        "segfault_update": (
+            "<b>Твой {}"
+            " обновляется...</b>"
+        ),
     }
 
     strings_uk = {
@@ -202,6 +218,14 @@ class UpdaterMod(loader.Module):
             "<b>Твого {}"
             " оновлюватися...</b>"
         ),
+        "segfault_restart": (
+            "<b>Твого {}"
+            " перезавантажувати...</b>"
+        ),
+        "segfault_update": (
+            "<b>Твого {}"
+            " оновлюватися...</b>"
+        )
     }    
 
     def __init__(self):
@@ -289,6 +313,14 @@ class UpdaterMod(loader.Module):
                 and CUSTOM_EMOJIS
                 and isinstance(msg_obj, Message)
                 else "Netfoll"
+            )
+            if "SEGFAULT" in os.environ
+            else self.strings("segfault_restart").format(
+                '<emoji document_id=5364105417569868801>⚙️</emoji> <b>Segfault</b>'
+                if self._client.hikka_me.premium
+                and CUSTOM_EMOJIS
+                and isinstance(msg_obj, Message)
+                else "⚙️ Segfault"
             ),
         )
 
