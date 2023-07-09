@@ -91,7 +91,7 @@ class PingMod(loader.Module):
 
     @loader.command()
     async def ping(self, message: Message):
-        """Узнай свой пинг"""
+        """- Get your ping"""
         ping = self.config["ping_message"]
         start = time.perf_counter_ns()
         message = await utils.answer(message, "<code>👾</code>")
