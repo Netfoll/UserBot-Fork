@@ -89,8 +89,8 @@ class PingMod(loader.Module):
             else (f'{self.strings("uptime")}: <b>{uptime}</b>')
         )
 
-    @loader.unrestricted
-    async def pingcmd(self, message: Message):
+    @loader.command()
+    async def ping(self, message: Message):
         """Узнай свой пинг"""
         ping = self.config["ping_message"]
         start = time.perf_counter_ns()
