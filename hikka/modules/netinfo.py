@@ -14,6 +14,7 @@ from telethon.utils import get_display_name
 from .. import loader, utils, version
 from ..inline.types import InlineQuery
 
+import psutil
 
 @loader.tds
 class NetfollInfoMod(loader.Module):
@@ -161,7 +162,7 @@ class NetfollInfoMod(loader.Module):
 
         platfo = utils.get_named_platform()
         if "Termux" not in platfo:
-            usage = f" ({utils.get_cpu_usage()}% | {utils.get_ram_usage()} RAM)</b>"
+            usage = f" ({psutil.cpu_percent()}% | {utils.get_ram_usage()} RAM)</b>"
         else:
             usage = "\n"
 
@@ -191,7 +192,7 @@ class NetfollInfoMod(loader.Module):
                 prefix=prefix,
                 platform=platform,
                 uptime=utils.formatted_uptime(),
-                cpu_usage=utils.get_cpu_usage(),
+                cpu_usage=psutil.cpu_percent(),
                 ram_usage=f"{utils.get_ram_usage()} MB",
                 branch=version.branch,
             )

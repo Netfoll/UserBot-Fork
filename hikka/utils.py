@@ -958,7 +958,7 @@ def get_named_platform() -> str:
         from platform import uname
 
         if "microsoft-standard" in uname().release:
-            return "🍁 WSL"
+            return "🍁 Windows WSL"
     except Exception:
         pass
 
@@ -971,17 +971,11 @@ def get_named_platform() -> str:
     if "RAILWAY" in os.environ:
         return "🚂 Railway"
 
-    if "com.termux" in os.environ.get("PREFIX", ""):
-        return "🕶 Termux"
-
     if "CODESPACES" in os.environ:
         return "🐈‍⬛ Codespaces"
 
     if "LUMIHOST" in os.environ:
         return "😎 LumiHost"
-
-    if "PYTHONDONTWRITEBYTECODE" in os.environ:
-        return "🧩 Back4App"
 
     if "DOCKER" in os.environ:
         return "🐳 Docker"
