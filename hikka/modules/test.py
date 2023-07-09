@@ -57,11 +57,6 @@ class TestMod(loader.Module):
             "<emoji document_id=5452023368054216810>🥶</emoji> <b>Bot suspended"
             " for</b> <code>{}</code> <b>seconds</b>"
         ),
-        "results_ping": (
-            "<emoji document_id=5431449001532594346>⚡️</emoji> <b>Telegram ping:</b>"
-            " <code>{}</code> <b>ms</b>\n<emoji"
-            " document_id=5445284980978621387>🚀</emoji> <b>Uptime: {}</b>"
-        ),
         "confidential": (
             "⚠️ <b>Log level</b> <code>{}</code> <b>may reveal your confidential info,"
             " be careful</b>"
@@ -98,12 +93,6 @@ class TestMod(loader.Module):
         "suspended": (
             "<emoji document_id=5452023368054216810>🥶</emoji> <b>Бот заморожен на</b>"
             " <code>{}</code> <b>секунд</b>"
-        ),
-        "results_ping": (
-            "<emoji document_id=5431449001532594346>⚡️</emoji> <b>Скорость отклика"
-            " Telegram:</b> <code>{}</code> <b>ms</b>\n<emoji"
-            " document_id=5445284980978621387>🚀</emoji> <b>Прошло с последней"
-            " перезагрузки: {}</b>"
         ),
         "confidential": (
             "⚠️ <b>Уровень логов</b> <code>{}</code> <b>может содержать личную"
@@ -379,23 +368,6 @@ class TestMod(loader.Module):
             time.sleep(time_sleep)
         except ValueError:
             await utils.answer(message, self.strings("suspend_invalid_time"))
-
-    @loader.command(
-        ru_doc="Проверить скорость отклика юзербота",
-        uk_doc="Перевірити швидкість відгуку юзербота",
-    )
-    async def ping(self, message: Message):
-        """Test your userbot ping"""
-        start = time.perf_counter_ns()
-        message = await utils.answer(message, "🌘")
-
-        await utils.answer(
-            message,
-            self.strings("results_ping").format(
-                round((time.perf_counter_ns() - start) / 10**6, 3),
-                utils.formatted_uptime(),
-            ),
-        )
 
     async def client_ready(self):
         chat, _ = await utils.asset_channel(
