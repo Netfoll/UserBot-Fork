@@ -94,7 +94,7 @@ class PingMod(loader.Module):
         """- Get your ping"""
         ping = self.config["ping_message"]
         start = time.perf_counter_ns()
-        message = await utils.answer(message, "<code>👾</code>")
+        message = await utils.answer(message, "👾")
         try:
             await utils.answer(
                 message,
