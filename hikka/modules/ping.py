@@ -64,7 +64,7 @@ class PingMod(loader.Module):
             ),
             loader.ConfigValue(
                 "ping_message",
-                "⏱ <b>Response time:</b>",
+                "⏱ <b>Ping:</b>",
                 lambda: self.strings("pingmsg"),
             ),
             loader.ConfigValue(
