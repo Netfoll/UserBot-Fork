@@ -177,5 +177,5 @@ class UpdateNotifierMod(loader.Module):
 
         with contextlib.suppress(Exception):
             await call.delete()
-            
+
         await self.invoke("update", "-f", peer=self.inline.bot_username)
