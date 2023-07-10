@@ -41,7 +41,7 @@ class InlineStuffMod(loader.Module):
             "👾 <b>Hi! This is Netfoll, UserBot that is based on the best UserBot Hikka. You can"
             " install it to your account!</b>\n\n<b>🌍 <a"
             ' href="https://github.com/MXRRI/Netfoll">GitHub</a></b>\n<b>👾 <a'
-            ' href="https://t.me/NetfollUB">Чат поддержки</a></b>'
+            ' href="https://t.me/AllNetfoll">Чат поддержки</a></b>'
         ),
     }
 
@@ -63,7 +63,7 @@ class InlineStuffMod(loader.Module):
             "👾 <b>Привет! Это Netfoll, ЮзерБот основанный на Hikka. Вы можете"
             " установить на свой аккаунт!</b>\n\n<b>💎 <a"
             ' href="https://github.com/MXRRI/Netfoll">GitHub</a></b>\n<b>👾 <a'
-            ' href="https://t.me/NetfollUB">Чат поддержки</a></b>'
+            ' href="https://t.me/AllNetfoll">Чат поддержки</a></b>'
         ),
     }
 
@@ -85,7 +85,7 @@ class InlineStuffMod(loader.Module):
             "👾 <b>Привіт! Це Netfoll, заснований на Hikka. Ви можете"
             " встановити на свій аккаунт!</b>\n\n<b>💎 <a"
             ' href="https://github.com/MXRRI/Netfoll">GitHub</a></b>\n<b>👾 <a'
-            ' href="https://t.me/NetfollUB">Чат підтримки</a></b>'
+            ' href="https://t.me/AllNetfoll">Чат підтримки</a></b>'
         ),
     }
 

@@ -25,7 +25,7 @@
 <li>API_ID and API_HASH from <a href="https://my.telegram.org/apps" color="#2594cb">Telegram</a></li>
 </ul>
 
-# <a href="https://t.me/NetfollUB">Support chat</a>
+# <a href="https://t.me/AllNetfoll">Support chat</a>
 
 # Developers
 <ul>
