@@ -28,7 +28,7 @@ class HelpMod(loader.Module):
         "name": "Help",
         "undoc": "🦥 No docs",
         "support": (
-            "{}\n\n <b>Link to</b> <a href='https://t.me/netfollUB'>support chat</a></b>"
+            "{}\n\n <b>Link to</b> <a href='https://t.me/AllNetfoll'>support chat</a></b>"
         ),
         "not_exact": (
             "<emoji document_id=5312383351217201533>☝️</emoji> <b>No exact match"
@@ -45,7 +45,7 @@ class HelpMod(loader.Module):
     strings_ru = {
         "undoc": "🦥 Нет описания",
         "support": (
-            "{}\n\n <b>Ссылка на</b> <a href='https://t.me/netfollUB'>чат помощи</a></b>"
+            "{}\n\n <b>Ссылка на</b> <a href='https://t.me/AllNetfoll'>чат помощи</a></b>"
         ),
         "_cls_doc": "Показывает помощь по модулям",
         "not_exact": (
@@ -63,7 +63,7 @@ class HelpMod(loader.Module):
     strings_uk = {
         "undoc": "🦥 Немає опису",
         "support": (
-            "{}\n\n <b>Посилання на</b> <a href='https://t.me/netfollUB'>чат допомоги</a></b>"
+            "{}\n\n <b>Посилання на</b> <a href='https://t.me/AllNetfoll'>чат допомоги</a></b>"
         ),
         "_cls_doc": "Показує допомогу по модулях",
         "not_exact": (
@@ -237,7 +237,7 @@ class HelpMod(loader.Module):
     async def support(self, message):
         """Get link of Netfoll support chat"""
         if message.out:
-            await self.request_join("@netfollub", self.strings("request_join"))
+            await self.request_join("@AllNetfoll", self.strings("request_join"))
 
         await utils.answer(
             message,

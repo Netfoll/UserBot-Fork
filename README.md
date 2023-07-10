@@ -12,6 +12,7 @@
 
 # Installation 
 
+#
 <a href="https://t.me/lumihost_bot"><img src="https://raw.githubusercontent.com/mrksbgg/hosting/master/button (1).png"></a>
 
 <br>
@@ -24,12 +25,12 @@
 <li>API_ID and API_HASH from <a href="https://my.telegram.org/apps" color="#2594cb">Telegram</a></li>
 </ul>
 
-# <a href="https://t.me/NetfollUB">Support chat</a>
+# <a href="https://t.me/AllNetfoll">Support chat</a>
 
 # Developers
 <ul>
 <li> <h2><a href="https://github.com/MXRRI">MXRRI</a></h2>
-<li> <h2><a href="https://github.com/ASNCT">ASNCT</a></h2>
+<li> <h2><a href="https://github.com/mrksbgg">mrksbgg</a></h2>
 <li> <h2><a href="https://github.com/penggrin12">penggrin12</a></h2>
 
 </ul>
