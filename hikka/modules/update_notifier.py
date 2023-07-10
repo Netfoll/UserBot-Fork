@@ -8,7 +8,6 @@
 
 import asyncio
 import contextlib
-import os
 
 import git
 
@@ -178,8 +177,5 @@ class UpdateNotifierMod(loader.Module):
 
         with contextlib.suppress(Exception):
             await call.delete()
-
-        if "LUMIHOST" in os.environ:
-            await self.invoke("terminal", "git", "pull", peer=self.inline.bot_username)
-        else:
-            await self.invoke("update", "-f", peer=self.inline.bot_username)
+            
+        await self.invoke("update", "-f", peer=self.inline.bot_username)
