@@ -561,7 +561,6 @@ class Hikka:
             upd = r"Update required" if diff else r"Up-to-date"
 
             _platform = utils.get_named_platform()
-                             _   _      _    __       _ _ 
             
             logo1 = f"""
             
