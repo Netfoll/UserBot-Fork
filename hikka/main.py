@@ -561,36 +561,19 @@ class Hikka:
             upd = r"Update required" if diff else r"Up-to-date"
 
             _platform = utils.get_named_platform()
-
-            if "SEGFAULT" in os.environ:
-                logo1 = f"""
-
                              _   _      _    __       _ _ 
-                            | \ | | ___| |_ / _| ___ | | |
-                            |  \| |/ _ \ __| |_ / _ \| | |
-                            | |\  |  __/ |_|  _| (_) | | |
-                            |_| \_|\___|\__|_|  \___/|_|_|  
-
-                         ♦ Version: {'.'.join(list(map(str, list(netver))))} #{build[:7]}
-                         ♦ {upd}
-                         ♦ Platform: {_platform}
-                         
-                         ♦ !!!WARNING!!! Segfault is a VERY unstable hosting!
-                         """
-
-            else:
-                logo1 = f"""
-
-                             _   _      _    __       _ _ 
-                            | \ | | ___| |_ / _| ___ | | |
-                            |  \| |/ _ \ __| |_ / _ \| | |
-                            | |\  |  __/ |_|  _| (_) | | |
-                            |_| \_|\___|\__|_|  \___/|_|_|  
-
-                         ♦ Version: {'.'.join(list(map(str, list(netver))))} #{build[:7]}
-                         ♦ {upd}
-                         ♦ Platform: {_platform}
-                         """
+            
+            logo1 = f"""
+            
+                         _   _      _    __       _ _ 
+                        | \ | | ___| |_ / _| ___ | | |
+                        |  \| |/ _ \ __| |_ / _ \| | |
+                        | |\  |  __/ |_|  _| (_) | | |
+                        |_| \_|\___|\__|_|  \___/|_|_|  
+                     ♦ Version: {'.'.join(list(map(str, list(netver))))} #{build[:7]}
+                     ♦ {upd}
+                     ♦ Platform: {_platform}
+                     """
                          
             if not self.omit_log:
                 print(logo1)
