@@ -672,14 +672,19 @@ class Hikka:
     def main(self):
         """Main entrypoint"""
         self._init_web()
+        
+        if os.name == "posix" and "termux" in os.uname().release.lower():
+            print("Platform unsupported: Termux")
+            return
+        
         save_config_key("port", self.arguments.port)
         self._get_token()
 
         if (
-            not self.clients  # Search for already inited clients
-            and not self.sessions  # Search for already added sessions
-            or not self._init_clients()  # Attempt to read sessions from env
-        ) and not self._initial_setup():  # Otherwise attempt to run setup
+            not self.clients
+            and not self.sessions
+            or not self._init_clients()
+        ) and not self._initial_setup():
             return
 
         self.loop.set_exception_handler(
