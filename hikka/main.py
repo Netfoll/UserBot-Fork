@@ -673,7 +673,7 @@ class Hikka:
         """Main entrypoint"""
         self._init_web()
         
-        if os.name == "posix" and "termux" in os.uname().release.lower():
+        if os.name == "termux" in os.uname().release.lower():
             print("Platform unsupported: Termux")
             return
         
