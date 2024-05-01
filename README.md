@@ -12,7 +12,6 @@
 
 # Installation 
 
-#
 <a href="https://t.me/lumihost_bot"><img src="https://raw.githubusercontent.com/mrksbgg/hosting/master/button (1).png"></a>
 
 <br>
